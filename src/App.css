@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.w-47 {
+  float: left;
+  width: 47%;
+}
+.w-52 {
+  width: 52%;
+}
+
+.App-link {
+  color: #61dafb;
+}
