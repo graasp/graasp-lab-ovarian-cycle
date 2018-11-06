@@ -1,9 +1,28 @@
 import React from 'react';
 import BodyGard from './human-body.png';
-export const Body = ({ d3 }) => (
-  <div className="Body-Container">
-    <img src={BodyGard} className="Human-image" alt="Logo" />
-  </div>
-);
+import { connect } from 'react-redux';
+import { appendSvg } from '../../actions';
 
-export default (Body);
+class Body extends React.Component {
+  componentDidMount() {
+    const { dispatchAppendSvg } = this.props;
+    dispatchAppendSvg(mapStateToProps);
+  }
+  render() {
+    return (
+      <div className="Body-Container">
+        <img src={BodyGard} className="Human-image" alt="Logo" />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  svg: state.svg
+});
+
+const mapDispatchToProps = {
+  dispatchAppendSvg: appendSvg,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Body);

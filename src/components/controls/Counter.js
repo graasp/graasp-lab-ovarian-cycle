@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Counter = ({ d3, handleStart, handleStop }) => (
+export const Counter = ({ handleStart, handleStop }) => (
   <div className="Counter-Container">
     <div className="clock-container">
       <div className="clock-balls">

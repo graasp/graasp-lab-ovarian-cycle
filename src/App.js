@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import * as d3 from "d3";
+import { connect } from 'react-redux';
 import Core from './components/Core';
 
 class App extends Component {
@@ -106,9 +107,13 @@ class App extends Component {
       nextColor, pointsLh, pointsFsh,
       pointsProgest, pointsOestro,
     } = this.state;
-    const svg = d3.select(".Body-Container").append("svg")
-        .attr("width", 700)
-        .attr("height", 1500);
+    const { svg } = this.props;
+    console.log('svg', svg);
+    if (!svg) {
+      console.log('without svg!')
+      return;
+    }
+    console.log('with svg!')
     const path = svg.append("path")
         .data([pointsLh])
         .attr("class", "fsh-hormones")
@@ -158,7 +163,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Core d3={d3}
+        <Core
+          svg={this.props.svg}
           handleStart={this.handleStart}
           handleStop={this.handleStop}
         />
@@ -167,4 +173,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  svg: state.svg.svg,
+});
+
+export default connect(mapStateToProps)(App);

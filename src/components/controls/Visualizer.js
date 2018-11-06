@@ -2,13 +2,13 @@ import React from 'react';
 import Counter from './Counter';
 import Hormones from './Hormones';
 
-export const Visualizer = ({ d3, handleStart, handleStop }) => (
+export const Visualizer = ({ handleStart, handleStop }) => (
   <div className="Visualizer-Container">
-    <Counter d3={d3}
+    <Counter
       handleStart={handleStart}
       handleStop={handleStop}
     />
-    <Hormones d3={d3} />
+    <Hormones />
   </div>
 );
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Hormones = ({ d3 }) => (
+export const Hormones = () => (
   <div className="Hormone-Container">
     <div className="hormones-container">
       <p>
