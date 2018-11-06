@@ -3,14 +3,14 @@ import Body from './body/Body';
 import Visualizer from './controls/Visualizer';
 import { Row } from 'reactstrap';
 
-export const Core = ({ d3, handleStart, handleStop }) => (
+export const Core = ({ handleStart, handleStop }) => (
   <div className="Core-Container">
     <Row>
       <div className="w-47">
-        <Body d3={d3} />
+        <Body />
       </div>
       <div className="w-52">
-        <Visualizer d3={d3}
+        <Visualizer
           handleStart={handleStart}
           handleStop={handleStop}
         />
