@@ -3,7 +3,7 @@ import Body from './body/Body';
 import Visualizer from './controls/Visualizer';
 import { Row } from 'reactstrap';
 
-export const Core = ({ handleStart, handleStop, status }) => (
+export const Core = ({ handleStart, handleStop, status, seconds }) => (
   <div className="Core-Container">
     <Row>
       <div className="w-47">
@@ -14,6 +14,7 @@ export const Core = ({ handleStart, handleStop, status }) => (
           handleStart={handleStart}
           handleStop={handleStop}
           status={status}
+          seconds={seconds}
         />
       </div>
     </Row>

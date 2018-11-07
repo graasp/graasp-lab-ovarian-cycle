@@ -1,13 +1,12 @@
 import React from 'react';
 
-export const Counter = ({ handleStart, handleStop, status }) => (
+export const Counter = ({ handleStart, handleStop, status, seconds }) => (
   <div className="Counter-Container">
     <div className="clock-container">
       <div className="clock-balls">
         <div className="clock-timer">
-          <span className="clock-counter"> 01 </span>
+          <span className="clock-counter"> {seconds} </span>
           <span className="clock-dayer"> JOURS </span>
-
         </div>
       </div>
       <div className="clock-setter">
