@@ -10,7 +10,9 @@ class App extends Component {
 
     this.state = {
       status: false,
-      seconds: 0,
+      delay: 5,
+      sec: 0,
+      seconds: "00",
       nextColor: 'pink',
       pointsProgest: [
         [378, 1070],
@@ -60,18 +62,32 @@ class App extends Component {
         [465, 1053]
       ],
     };
+    this.handleStart = this.handleStart.bind(this);
+    this.tick = this.tick.bind(this);
   };
+  tick() {
+    let { sec, delay } = this.state;
+    let secString = sec + "";
+    if (sec === 14 && delay > 0) {
+        this.setState({
+          delay: delay - 1,
+        })
+        return;
+    }
+    if (sec <= 28) {
+      console.log('secString.length', secString.length);
+      this.setState({
+        delay: 5,
+        sec: this.state.sec + 1,
+        seconds: secString.length === 2 ? " " + secString : "0" + secString,
+      });
+    }
 
+  }
   handleStart = () => {
-    console.log('Handle start clickeed', this.state.status);
-    this.setState(state => {
-      if (state.status) {
-        clearInterval(this.timer);
-      } else {
-        const startTime = 28;
-        console.log('startTime', startTime);
-      }
-      return { status: !state.status };
+    this.intervalHandle = setInterval(this.tick, 1000);
+    this.setState({
+      status: !this.state.status,
     });
     // const { pointsLh } =  this.state;
     // pointsLh.push([480, pointsLh[pointsLh.length -1][1] + 20]);
@@ -79,7 +95,8 @@ class App extends Component {
   }
   handleStop = () => {
     console.log('handleStop clicked');
-    this.setState({ status: false });
+    this.setState({ seconds: "00", status: false });
+    clearInterval(this.intervalHandle);
   }
   updateLh = (data) => {
     console.log('Updating Lh...');
@@ -147,13 +164,14 @@ class App extends Component {
   }
 
   render() {
-    const { status } = this.state;
+    const { status, seconds } = this.state;
     return (
       <div className="App">
         <Core
           handleStart={this.handleStart}
           handleStop={this.handleStop}
           status={status}
+          seconds={seconds}
         />
       </div>
     );
