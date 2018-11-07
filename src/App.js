@@ -9,6 +9,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      status: false,
       seconds: 0,
       nextColor: 'pink',
       pointsProgest: [
@@ -60,41 +61,28 @@ class App extends Component {
       ],
     };
   };
-  daySetter = (val) => {
-    const valString = val + "";
-    if(valString.length < 2) {
-     return "0" + valString;
-    } else {
-     return valString;
-    }
-  }
 
-  set_timer() {
-    const secondsLabel = document.querySelector(".clock-counter");
-    const my_int = setInterval(function() { this.setTime(secondsLabel)}, 1000);
-  }
-
-  setTime = (secs) => {
-
-    this.setState({
-      seconds: ++this.state.seconds,
-    })
-    if (this.state.seconds <= 29) {
-      secs.innerHTML = this.daySetter(this.state.seconds%29);
-    }
-  }
   handleStart = () => {
-    console.log('handleStart clicked');
-    const { pointsLh } =  this.state;
-    pointsLh.push([480, pointsLh[pointsLh.length -1][1] + 20]);
-    this.updateLh();
-    console.log('updateLh', pointsLh);
+    console.log('Handle start clickeed', this.state.status);
+    this.setState(state => {
+      if (state.status) {
+        clearInterval(this.timer);
+      } else {
+        const startTime = 28;
+        console.log('startTime', startTime);
+      }
+      return { status: !state.status };
+    });
+    // const { pointsLh } =  this.state;
+    // pointsLh.push([480, pointsLh[pointsLh.length -1][1] + 20]);
+    // this.updateLh(pointsLh);
   }
   handleStop = () => {
     console.log('handleStop clicked');
+    this.setState({ status: false });
   }
   updateLh = (data) => {
-    console.log('updating Lh...');
+    console.log('Updating Lh...');
   }
   componentDidMount() {
      this.createHormoneFlow()
@@ -102,29 +90,27 @@ class App extends Component {
   componentDidUpdate() {
      this.createHormoneFlow()
   }
+
   createHormoneFlow = () => {
     const {
       nextColor, pointsLh, pointsFsh,
       pointsProgest, pointsOestro,
     } = this.state;
     const { svg } = this.props;
-    console.log('svg', svg);
     if (!svg) {
-      console.log('without svg!')
       return;
     }
-    console.log('with svg!')
-    const path = svg.append("path")
+    const pathlh = svg.append("path")
         .data([pointsLh])
-        .attr("class", "fsh-hormones")
+        .attr("class", "lh-hormones")
         .attr("d", d3.line()) // Catmull–Rom
     const pathfsh = svg.append("path")
         .data([pointsFsh])
-        .attr("class", "fsh")
+        .attr("class", "fsh-hormones")
         .attr("d", d3.line()) // Catmull–Rom
-   const pathlh = svg.append("path")
+   const pathprogest = svg.append("path")
        .data([pointsProgest])
-       .attr("class", "lh-hormones")
+       .attr("class", "progests")
        .attr("d", d3.line())
    const pathOestro = svg.append("path")
        .data([pointsOestro])
@@ -161,12 +147,13 @@ class App extends Component {
   }
 
   render() {
+    const { status } = this.state;
     return (
       <div className="App">
         <Core
-          svg={this.props.svg}
           handleStart={this.handleStart}
           handleStop={this.handleStop}
+          status={status}
         />
       </div>
     );
