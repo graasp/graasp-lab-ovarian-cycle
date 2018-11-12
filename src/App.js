@@ -9,7 +9,6 @@ class App extends Component {
     super(props);
 
     this.state = {
-      seconds: 0,
       nextColor: 'pink',
       pointsProgest: [
         [378, 1070],
@@ -60,41 +59,49 @@ class App extends Component {
       ],
     };
   };
-  daySetter = (val) => {
-    const valString = val + "";
-    if(valString.length < 2) {
-     return "0" + valString;
-    } else {
-     return valString;
-    }
-  }
 
-  set_timer() {
-    const secondsLabel = document.querySelector(".clock-counter");
-    const my_int = setInterval(function() { this.setTime(secondsLabel)}, 1000);
-  }
-
-  setTime = (secs) => {
-
-    this.setState({
-      seconds: ++this.state.seconds,
-    })
-    if (this.state.seconds <= 29) {
-      secs.innerHTML = this.daySetter(this.state.seconds%29);
-    }
-  }
   handleStart = () => {
-    console.log('handleStart clicked');
     const { pointsLh } =  this.state;
     pointsLh.push([480, pointsLh[pointsLh.length -1][1] + 20]);
-    this.updateLh();
-    console.log('updateLh', pointsLh);
+    this.updateLh(pointsLh);
   }
   handleStop = () => {
     console.log('handleStop clicked');
   }
   updateLh = (data) => {
-    console.log('updating Lh...');
+    const { svg } = this.props;
+    const { pointsLh } = this.state;
+    let nextColor = '#ff7a00'
+    const path = svg.selectAll(".lh-hormones")
+    const lhElem = svg.selectAll(".ted").data( data, (d, i) => i );
+    lhElem
+      .enter()
+      .append("circle")
+      .attr('class', 'ted')
+      .attr("r", 8)
+      .attr("fill", () => {
+        nextColor = nextColor === '#12a3c1' ? '#ff7a00' : '#12a3c1';
+        return nextColor;
+      }).attr("transform", "translate(" + pointsLh[0] + ")");
+
+    const trans = () => {
+      lhElem
+        .transition()
+        .duration((d, i) => { return i * 300 + 5000; })
+        .attrTween("transform", this.translateAlong(path.node()))
+        .on("end", trans);
+    }
+    trans();
+  }
+  translateAlong = (path) => {
+    console.log('translateAlong');
+    var l = path.getTotalLength();
+    return function(d, i, a) {
+      return function(t) {
+        var p = path.getPointAtLength(t * l);
+        return "translate(" + p.x + "," + p.y + ")";
+      };
+    };
   }
   componentDidMount() {
      this.createHormoneFlow()
@@ -108,27 +115,24 @@ class App extends Component {
       pointsProgest, pointsOestro,
     } = this.state;
     const { svg } = this.props;
-    console.log('svg', svg);
     if (!svg) {
-      console.log('without svg!')
       return;
     }
-    console.log('with svg!')
-    const path = svg.append("path")
+    const pathLh = svg.append("path")
         .data([pointsLh])
+        .attr("class", "lh-hormones")
+        .attr("d", d3.line()) // Catmull–Rom
+    const pathFsh = svg.append("path")
+        .data([pointsFsh])
         .attr("class", "fsh-hormones")
         .attr("d", d3.line()) // Catmull–Rom
-    const pathfsh = svg.append("path")
-        .data([pointsFsh])
-        .attr("class", "fsh")
-        .attr("d", d3.line()) // Catmull–Rom
-   const pathlh = svg.append("path")
+   const pathProgest = svg.append("path")
        .data([pointsProgest])
-       .attr("class", "lh-hormones")
+       .attr("class", "progest-hormones")
        .attr("d", d3.line())
    const pathOestro = svg.append("path")
        .data([pointsOestro])
-       .attr("class", "oestros")
+       .attr("class", "oestro-hormones")
        .attr("d", d3.line())
    svg.selectAll(".point")
        .data(pointsLh)
@@ -164,7 +168,6 @@ class App extends Component {
     return (
       <div className="App">
         <Core
-          svg={this.props.svg}
           handleStart={this.handleStart}
           handleStop={this.handleStop}
         />
