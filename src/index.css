@@ -116,3 +116,29 @@ path.fsh {
 .red {
   fill: #12a3c1;
 }
+@keyframes moreAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes moreAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes moreAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes moreAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-hormones {
+   -webkit-animation: moreAnimation 1s infinite;
+   -moz-animation: moreAnimation 1s infinite;
+   -o-animation: moreAnimation 1s infinite;
+    animation: moreAnimation 1s infinite;
+}
