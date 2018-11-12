@@ -13,6 +13,9 @@ class App extends Component {
       delay: 5,
       sec: 0,
       seconds: "00",
+      secretLhFsh: false,
+      secretProgest: false,
+      secretOestro: false,
       pointsProgest: [
         [378, 1070],
         [414, 1020],
@@ -65,16 +68,38 @@ class App extends Component {
     this.tick = this.tick.bind(this);
   };
   tick() {
+    console.log('tick called');
     let { sec, delay } = this.state;
     let secString = sec + "";
+    if (sec <= 12 ) {
+      this.setState({
+        secretLhFsh: false,
+      })
+    }
     if ((sec === 13 && delay > 0) || (sec === 14 && delay > 0)) {
         this.setState({
           delay: delay - 1,
+          secretLhFsh: true,
+          secretOestro: true,
         })
         return;
     }
+    if (sec >= 15) {
+      this.setState({
+        secretLhFsh: false,
+        secretProgest: true,
+        secretOestro: false,
+      })
+    }
+
+    if (sec >= 28) {
+      this.setState({
+        secretProgest: false,
+        secretOestro: false,
+      })
+    }
+
     if (sec <= 28) {
-      console.log('secString.length', secString.length);
       this.setState({
         delay: 5,
         sec: this.state.sec + 1,
@@ -197,13 +222,16 @@ class App extends Component {
   }
 
   render() {
-    const { status, seconds } = this.state;
+    const { seconds, secretLhFsh, secretProgest, secretOestro } = this.state;
     return (
       <div className="App">
         <Core
           handleStart={this.handleStart}
           handleStop={this.handleStop}
           seconds={seconds}
+          secretLhFsh={secretLhFsh}
+          secretProgest={secretProgest}
+          secretOestro={secretOestro}
         />
       </div>
     );
