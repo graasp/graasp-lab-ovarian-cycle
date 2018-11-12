@@ -68,7 +68,7 @@ class App extends Component {
   tick() {
     let { sec, delay } = this.state;
     let secString = sec + "";
-    if (sec === 14 && delay > 0) {
+    if ((sec === 13 && delay > 0) || (sec === 14 && delay > 0)) {
         this.setState({
           delay: delay - 1,
         })
