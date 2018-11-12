@@ -10,6 +10,9 @@ class App extends Component {
 
     this.state = {
       nextColor: 'pink',
+      delay: 5,
+      sec: 0,
+      seconds: "00",
       pointsProgest: [
         [378, 1070],
         [414, 1020],
@@ -58,15 +61,44 @@ class App extends Component {
         [465, 1053]
       ],
     };
+    this.handleStart = this.handleStart.bind(this);
+    this.tick = this.tick.bind(this);
   };
+  tick() {
+    let { sec, delay } = this.state;
+    let secString = sec + "";
+    if ((sec === 13 && delay > 0) || (sec === 14 && delay > 0)) {
+        this.setState({
+          delay: delay - 1,
+        })
+        return;
+    }
+    if (sec <= 28) {
+      console.log('secString.length', secString.length);
+      this.setState({
+        delay: 5,
+        sec: this.state.sec + 1,
+        seconds: secString.length === 2 ? " " + secString : "0" + secString,
+      });
+    }
+
+  }
+
 
   handleStart = () => {
     const { pointsLh } =  this.state;
     pointsLh.push([480, pointsLh[pointsLh.length -1][1] + 20]);
     this.updateLh(pointsLh);
+    this.intervalHandle = setInterval(this.tick, 1000);
+    this.setState({
+      status: !this.state.status,
+    });
+
   }
   handleStop = () => {
     console.log('handleStop clicked');
+    this.setState({ seconds: "00", status: false });
+    clearInterval(this.intervalHandle);
   }
   updateLh = (data) => {
     const { svg } = this.props;
@@ -165,11 +197,13 @@ class App extends Component {
   }
 
   render() {
+    const { status, seconds } = this.state;
     return (
       <div className="App">
         <Core
           handleStart={this.handleStart}
           handleStop={this.handleStop}
+          seconds={seconds}
         />
       </div>
     );
