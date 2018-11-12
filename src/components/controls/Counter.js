@@ -1,6 +1,9 @@
 import React from 'react';
 
-export const Counter = ({ handleStart, handleStop, seconds }) => (
+export const Counter = ({
+  handleStart,
+  handleStop,
+  seconds }) => (
   <div className="Counter-Container">
     <div className="clock-container">
       <div className="clock-balls">

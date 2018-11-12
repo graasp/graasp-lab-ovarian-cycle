@@ -1,6 +1,9 @@
 import React from 'react';
 
-export const Hormones = ({ secretLhFsh, secretProgest, secretOestro }) => (
+export const Hormones = ({
+  secretLhFsh,
+  secretProgest,
+  secretOestro }) => (
   <div className="Hormone-Container">
     <div className="hormones-container">
       <p>
