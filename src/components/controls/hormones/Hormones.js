@@ -2,6 +2,7 @@ import React from 'react';
 import './Hormones.css';
 
 export const Hormones = ({
+  preOvulation,
   secretLhFsh,
   secretProgest,
   secretOestro,
@@ -39,9 +40,13 @@ export const Hormones = ({
         </div>
       </div>
       <div className="description-container">
-        <h2>Pre-Ovulation</h2>
-        <p className="Phase-description"> Cette etape est le moment ou les LH et FSH sont en quatité normales.</p>
-        <p className="Phase-description"> C'est la periode precedent l'ovulation.</p>
+        <h2>{preOvulation ? 'Pre-Ovulation' : ''}</h2>
+        <p className="Phase-description">
+          {preOvulation ? 'Cette etape est le moment ou les LH et FSH sont en quatité normales.' : ''}
+        </p>
+        <p className="Phase-description">
+          {preOvulation ? "C'est la periode precedent l'ovulation." : ''}
+        </p>
       </div>
     </div>
   </div>
