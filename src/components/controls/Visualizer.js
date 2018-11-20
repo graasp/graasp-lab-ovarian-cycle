@@ -1,6 +1,8 @@
 import React from 'react';
-import Counter from './Counter';
-import Hormones from './Hormones';
+import Counter from './counter/Counter';
+import Hormones from './hormones/Hormones';
+import Phases from './phases/Phases';
+import './Visualizer.css';
 
 export const Visualizer = ({
   handleStart,
@@ -10,6 +12,9 @@ export const Visualizer = ({
   secretProgest,
   secretOestro }) => (
   <div className="Visualizer-Container">
+    <Phases
+      seconds={seconds}
+    />
     <Counter
       handleStart={handleStart}
       handleStop={handleStop}
