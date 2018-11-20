@@ -1,73 +1,13 @@
-.fsh-puces, .fsh-container, .fsh-state {
-  color: #ff7a00;
-}
-.lh-puces, .lh-container, .lh-state {
-  color: #12a3c1;
-}
-.oestro-puces, .oestro-container, .oestro-state {
-  color: #3bc71f;
-}
-.progest-puces, .progest-container, .progest-state {
-  color: #9C27B0;
-}
 .fsh-puces, .lh-puces, .oestro-puces, .progest-puces {
   font-size: 110px;
   vertical-align: bottom;
 }
-.fsh-state, .lh-state, .oestro-state, .progest-state {
-   font-size: 60px;
-   vertical-align: bottom;
- }
+
 .lh-container, .fsh-container, .oestro-container, .progest-container {
   font-size: 60px;
 }
 .hormones-container {
-  display: block;
-  position: fixed;
-  right: 20px;
-  top: 200px;
   padding: 20px;
-}
-.button-start {
-  cursor: pointer;
-  font-size: 15px;
-  margin-bottom: 10px;
-}
-.button-stop {
-  font-size: 17px;
-  cursor: pointer;
-}
-.clock-container {
-  position: fixed;
-  right: 30px;
-  width: 400px;
-  padding: 30px;
-  background: green;
-}
-.clock-balls {
-  width: 300px;
-  background: #fff;
-  padding: 10px;
-  display: inline-block;
-}
-.clock-timer {
-  background: yellowgreen;
-  padding: 10px;
-  text-align: center;
-}
-.clock-counter {
-  font-size: 50px;
-  font-weight: bold;
-}
-.clock-dayer {
-  font-size: 42px;
-}
-.clock-setter {
-  width: 60px;
-  display: inline-block;
-  text-align: center;
-  padding: 10px;
-  float: right;
 }
 .oestro-hormones, .progest-hormones {
   fill: none;
@@ -136,7 +76,29 @@ path.fsh {
   50%  { opacity:0; }
   100% { opacity:1; }
 }
-.animate-hormones {
+.animate-lh-hormones {
+   border: 4px solid #00a3c3;
+   -webkit-animation: moreAnimation 1s infinite;
+   -moz-animation: moreAnimation 1s infinite;
+   -o-animation: moreAnimation 1s infinite;
+    animation: moreAnimation 1s infinite;
+}
+.animate-fsh-hormones {
+   border: 4px solid #ff7a00;
+   -webkit-animation: moreAnimation 1s infinite;
+   -moz-animation: moreAnimation 1s infinite;
+   -o-animation: moreAnimation 1s infinite;
+    animation: moreAnimation 1s infinite;
+}
+.animate-oestro-hormones {
+   border: 4px solid #3bc71f;
+   -webkit-animation: moreAnimation 1s infinite;
+   -moz-animation: moreAnimation 1s infinite;
+   -o-animation: moreAnimation 1s infinite;
+    animation: moreAnimation 1s infinite;
+}
+.animate-progest-hormones {
+   border: 4px solid #9C27B0;
    -webkit-animation: moreAnimation 1s infinite;
    -moz-animation: moreAnimation 1s infinite;
    -o-animation: moreAnimation 1s infinite;
