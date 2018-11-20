@@ -12,10 +12,10 @@ export const Core = ({
   secretOestro }) => (
   <div className="Core-Container">
     <Row>
-      <div className="w-47">
+      <div className="w-60">
         <Body />
       </div>
-      <div className="w-52">
+      <div className="w-40">
         <Visualizer
           handleStart={handleStart}
           handleStop={handleStop}
