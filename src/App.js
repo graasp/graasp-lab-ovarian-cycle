@@ -14,7 +14,6 @@ class App extends Component {
       delay: 5,
       sec: 0,
       seconds: "00",
-      currentHormone: null,
       secretLhFsh: false,
       secretProgest: false,
       secretOestro: false,
@@ -68,15 +67,13 @@ class App extends Component {
     };
   };
   tick = () => {
-    console.log('tick called');
-    let { sec, delay, currentHormone } = this.state;
+    let { sec, delay } = this.state;
     let secString = sec + "";
 
     if (sec <= 12 ) {
       this.setState({
         secretLhFsh: false,
         dayNum: sec,
-        currentHormone: 'fshlh',
       })
       this.updateLh();
     }
@@ -84,25 +81,23 @@ class App extends Component {
     // Update initial state to increase Oestrogen and FSH hormones
         this.updateOestrogen();
         this.updateFsh();
+        this.updateLh()
         this.setState({
           delay: delay - 1,
           secretLhFsh: true,
           secretOestro: true,
           dayNum: sec,
-          currentHormone: 'fshlhoestrogene',
         })
         return;
     }
     if (sec >= 15) {
     // Update initial state to increase progesterones hormones
-      console.log('printing sec', sec);
       this.updateProgesteron();
       this.setState({
         secretLhFsh: false,
         secretProgest: true,
         secretOestro: false,
         dayNum: sec,
-        currentHormone: 'progesterone',
       })
     }
 
@@ -185,11 +180,9 @@ class App extends Component {
     }
   }
   handleStart = () => {
-    console.log('handle start');
     this.intervalHandle = setInterval(this.tick, 2100);
   }
   handleStop = () => {
-    console.log('handleStop clicked');
     this.setState({
       sec: 0,
       seconds: "00",
@@ -198,7 +191,6 @@ class App extends Component {
     clearInterval(this.intervalHandle);
   }
   updateHormone = ({data, day, elemClass, hormClass, circleFill, circleTransform, path}) => {
-    console.log('Updater called');
     const { svg } = this.props;
     const lhElem = svg.selectAll(`.${elemClass}`).data( data, (d, i) => i );
     lhElem
@@ -209,18 +201,15 @@ class App extends Component {
       .attr("fill", circleFill).attr("transform", circleTransform);
 
     const trans = () => {
-      console.log('Trans function called');
       lhElem
         .transition()
         .duration((d, i) => { return i * 300 + 2000; })
         .attrTween("transform", this.translateAlong(path.node()))
-        .on("end", trans);
+      //  lhElem.on("end", trans); This could be used to make transition infinite
     }
-    console.log('Calling trans function..., dayNum', day);
     trans();
   }
   translateAlong = (path) => {
-    console.log('translateAlong');
     var l = path.getTotalLength();
     return function(d, i, a) {
       return function(t) {
