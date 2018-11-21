@@ -5,23 +5,22 @@ import Phases from './phases/Phases';
 import './Visualizer.css';
 
 export const Visualizer = ({
+  dayCount,
+  handleStart,
+  handleStop,
   ovulation,
   postOvulation,
   preOvulation,
-  handleStart,
-  handleStop,
-  seconds,
   secretLhFsh,
+  secretOestro,
   secretProgest,
-  secretOestro }) => (
+}) => (
   <div className="Visualizer-Container">
-    <Phases
-      seconds={seconds}
-    />
+    <Phases />
     <Counter
       handleStart={handleStart}
       handleStop={handleStop}
-      seconds={seconds}
+      dayCount={dayCount}
     />
     <Hormones
       ovulation={ovulation}
