@@ -5,6 +5,7 @@ import Phases from './phases/Phases';
 import './Visualizer.css';
 
 export const Visualizer = ({
+  ovulation,
   preOvulation,
   handleStart,
   handleStop,
@@ -22,6 +23,7 @@ export const Visualizer = ({
       seconds={seconds}
     />
     <Hormones
+      ovulation={ovulation}
       preOvulation={preOvulation}
       secretLhFsh={secretLhFsh}
       secretProgest={secretProgest}

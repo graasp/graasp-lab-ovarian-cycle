@@ -49,3 +49,19 @@
    font-size: 35px;
    font-weight: 300;
  }
+
+.description-container {
+   animation-name: fade;
+   animation-fill-mode: both;
+   animation-duration: 1s;
+   animation-direction: alternate;
+ }
+
+@keyframes fade {
+  0%,50% {
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
