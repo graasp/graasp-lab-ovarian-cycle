@@ -3,9 +3,10 @@ import './Counter.css';
 import { Button } from 'reactstrap';
 
 export const Counter = ({
+  dayCount,
   handleStart,
   handleStop,
-  seconds }) => (
+}) => (
   <div className="Counter-Container">
     <div className="clock-setter">
       <p className="select-step"> ...or launch the cycle </p>
@@ -15,7 +16,7 @@ export const Counter = ({
     <div className="clock-container">
       <div className="clock-balls">
         <div className="clock-timer">
-          <span className="clock-counter"> {seconds} </span>
+          <span className="clock-counter"> {dayCount} </span>
           <span className="clock-dayer"> DAYS </span>
         </div>
       </div>
