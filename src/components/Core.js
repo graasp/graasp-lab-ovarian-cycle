@@ -1,6 +1,6 @@
 import React from 'react';
 import Body from './body/Body';
-import Visualizer from './controls/Visualizer';
+import Visualizer from './controls/visualizer/Visualizer';
 import { Row } from 'reactstrap';
 
 export const Core = ({

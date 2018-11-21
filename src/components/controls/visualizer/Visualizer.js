@@ -1,7 +1,7 @@
 import React from 'react';
-import Counter from './counter/Counter';
-import Hormones from './hormones/Hormones';
-import Phases from './phases/Phases';
+import Counter from '../counter/Counter';
+import Hormones from '../hormones/Hormones';
+import Phases from '../phases/Phases';
 import './Visualizer.css';
 
 export const Visualizer = ({
