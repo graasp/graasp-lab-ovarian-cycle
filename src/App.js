@@ -18,6 +18,7 @@ class App extends Component {
       secretLhFsh: false,
       secretProgest: false,
       secretOestro: false,
+      isStarted: false,
       progesteronePoints: [
         [378, 1070],
         [414, 1020],
@@ -191,11 +192,13 @@ class App extends Component {
     }
   }
   handleStart = () => {
+    this.setState({ isStarted: true })
     this.intervalHandle = setInterval(this.tick, 2100);
   }
   handleStop = () => {
     this.setState({
       dayCount: 0,
+      isStarted: false,
       status: false,
     });
     clearInterval(this.intervalHandle);
@@ -294,10 +297,11 @@ class App extends Component {
 
   render() {
     const {
+      dayCount,
+      isStarted,
       ovulation,
       postOvulation,
       preOvulation,
-      dayCount,
       secretLhFsh,
       secretProgest,
       secretOestro,
@@ -305,12 +309,13 @@ class App extends Component {
     return (
       <div className="App">
         <Core
+          dayCount={dayCount}
+          handleStart={this.handleStart}
+          handleStop={this.handleStop}
+          isStarted={isStarted}
           ovulation={ovulation}
           postOvulation={postOvulation}
           preOvulation={preOvulation}
-          handleStart={this.handleStart}
-          handleStop={this.handleStop}
-          dayCount={dayCount}
           secretLhFsh={secretLhFsh}
           secretProgest={secretProgest}
           secretOestro={secretOestro}

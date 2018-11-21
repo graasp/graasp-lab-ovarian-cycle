@@ -5,6 +5,7 @@ import { Row } from 'reactstrap';
 
 export const Core = ({
   dayCount,
+  isStarted,
   ovulation,
   handleStart,
   handleStop,
@@ -22,6 +23,7 @@ export const Core = ({
       <div className="w-40">
         <Visualizer
           dayCount={dayCount}
+          isStarted={isStarted}
           handleStart={handleStart}
           handleStop={handleStop}
           ovulation={ovulation}
