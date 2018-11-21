@@ -4,6 +4,7 @@ import Visualizer from './controls/Visualizer';
 import { Row } from 'reactstrap';
 
 export const Core = ({
+  ovulation,
   preOvulation,
   handleStart,
   handleStop,
@@ -18,6 +19,7 @@ export const Core = ({
       </div>
       <div className="w-40">
         <Visualizer
+          ovulation={ovulation}
           preOvulation={preOvulation}
           handleStart={handleStart}
           handleStop={handleStop}

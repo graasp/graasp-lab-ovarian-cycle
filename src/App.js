@@ -10,6 +10,7 @@ class App extends Component {
 
     this.state = {
       preOvulation: true,
+      ovulation: false,
       nextColor: 'pink',
       dayNum: 0,
       delay: 5,
@@ -73,6 +74,7 @@ class App extends Component {
 
     if (sec <= 12 ) {
       this.setState({
+        ovulation: false,
         preOvulation: true,
         secretLhFsh: false,
         dayNum: sec,
@@ -89,6 +91,7 @@ class App extends Component {
           secretLhFsh: true,
           secretOestro: true,
           dayNum: sec,
+          ovulation: true,
           preOvulation: false,
         })
         return;
@@ -101,6 +104,7 @@ class App extends Component {
         secretProgest: true,
         secretOestro: false,
         dayNum: sec,
+        ovulation: false,
         preOvulation: false,
       })
     }
@@ -289,6 +293,7 @@ class App extends Component {
 
   render() {
     const {
+      ovulation,
       preOvulation,
       seconds,
       secretLhFsh,
@@ -298,6 +303,7 @@ class App extends Component {
     return (
       <div className="App">
         <Core
+          ovulation={ovulation}
           preOvulation={preOvulation}
           handleStart={this.handleStart}
           handleStop={this.handleStop}
