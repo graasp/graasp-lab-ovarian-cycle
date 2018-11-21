@@ -2,7 +2,7 @@ import React from 'react';
 import './Phases.css';
 import { Button } from 'reactstrap';
 
-export const Phases = ({ seconds }) => (
+export const Phases = () => (
   <div className="Phases-Container">
     <div className="phases-title">
       <span className="select-step"> Select step... </span>
