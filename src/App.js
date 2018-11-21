@@ -9,6 +9,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      postOvulation: false,
       preOvulation: true,
       ovulation: false,
       nextColor: 'pink',
@@ -75,6 +76,7 @@ class App extends Component {
     if (sec <= 12 ) {
       this.setState({
         ovulation: false,
+        postOvulation: false,
         preOvulation: true,
         secretLhFsh: false,
         dayNum: sec,
@@ -92,10 +94,12 @@ class App extends Component {
           secretOestro: true,
           dayNum: sec,
           ovulation: true,
+          postOvulation: false,
           preOvulation: false,
         })
         return;
     }
+
     if (sec >= 15) {
     // Update initial state to increase progesterones hormones
       this.updateProgesteron();
@@ -105,6 +109,7 @@ class App extends Component {
         secretOestro: false,
         dayNum: sec,
         ovulation: false,
+        postOvulation: true,
         preOvulation: false,
       })
     }
@@ -294,6 +299,7 @@ class App extends Component {
   render() {
     const {
       ovulation,
+      postOvulation,
       preOvulation,
       seconds,
       secretLhFsh,
@@ -304,6 +310,7 @@ class App extends Component {
       <div className="App">
         <Core
           ovulation={ovulation}
+          postOvulation={postOvulation}
           preOvulation={preOvulation}
           handleStart={this.handleStart}
           handleStop={this.handleStop}

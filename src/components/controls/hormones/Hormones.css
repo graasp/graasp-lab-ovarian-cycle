@@ -50,7 +50,7 @@
    font-weight: 300;
  }
 
-.description-container {
+.animate-text {
    animation-name: fade;
    animation-fill-mode: both;
    animation-duration: 1s;

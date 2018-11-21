@@ -6,6 +6,7 @@ import './Visualizer.css';
 
 export const Visualizer = ({
   ovulation,
+  postOvulation,
   preOvulation,
   handleStart,
   handleStop,
@@ -24,6 +25,7 @@ export const Visualizer = ({
     />
     <Hormones
       ovulation={ovulation}
+      postOvulation={postOvulation}
       preOvulation={preOvulation}
       secretLhFsh={secretLhFsh}
       secretProgest={secretProgest}
