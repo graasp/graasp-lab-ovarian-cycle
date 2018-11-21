@@ -4,15 +4,16 @@ import Visualizer from './controls/Visualizer';
 import { Row } from 'reactstrap';
 
 export const Core = ({
+  dayCount,
   ovulation,
-  postOvulation,
-  preOvulation,
   handleStart,
   handleStop,
-  seconds,
+  postOvulation,
+  preOvulation,
   secretLhFsh,
+  secretOestro,
   secretProgest,
-  secretOestro }) => (
+}) => (
   <div className="Core-Container">
     <Row>
       <div className="w-60">
@@ -20,15 +21,15 @@ export const Core = ({
       </div>
       <div className="w-40">
         <Visualizer
+          dayCount={dayCount}
+          handleStart={handleStart}
+          handleStop={handleStop}
           ovulation={ovulation}
           postOvulation={postOvulation}
           preOvulation={preOvulation}
-          handleStart={handleStart}
-          handleStop={handleStop}
-          seconds={seconds}
           secretLhFsh={secretLhFsh}
-          secretProgest={secretProgest}
           secretOestro={secretOestro}
+          secretProgest={secretProgest}
         />
       </div>
     </Row>
