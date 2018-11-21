@@ -6,6 +6,7 @@ import './Visualizer.css';
 
 export const Visualizer = ({
   dayCount,
+  handleOvulation,
   handleStart,
   handleStop,
   isStarted,
@@ -17,7 +18,9 @@ export const Visualizer = ({
   secretProgest,
 }) => (
   <div className="Visualizer-Container">
-    <Phases />
+    <Phases
+      handleOvulation={handleOvulation}
+    />
     <Counter
       dayCount={dayCount}
       handleStart={handleStart}
