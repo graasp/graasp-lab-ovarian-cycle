@@ -13,10 +13,8 @@ class App extends Component {
       preOvulation: true,
       ovulation: false,
       nextColor: 'pink',
-      dayNum: 0,
       delay: 5,
-      sec: 0,
-      seconds: "00",
+      dayCount: 1,
       secretLhFsh: false,
       secretProgest: false,
       secretOestro: false,
@@ -70,68 +68,73 @@ class App extends Component {
     };
   };
   tick = () => {
-    let { sec, delay } = this.state;
-    let secString = sec + "";
+    let {
+      dayCount,
+      delay,
+    } = this.state;
+    let secString = dayCount + "";
 
-    if (sec <= 12 ) {
+    if (dayCount < 12 ) {
       this.setState({
-        ovulation: false,
-        postOvulation: false,
         preOvulation: true,
+        ovulation: false,
         secretLhFsh: false,
-        dayNum: sec,
+        postOvulation: false,
       })
       this.updateLh();
     }
-    if ((sec === 13 && delay > 0) || (sec === 14 && delay > 0)) {
+    if (dayCount >= 12 && dayCount <= 14 && delay > 0) {
     // Update initial state to increase Oestrogen and FSH hormones
         this.updateOestrogen();
         this.updateFsh();
-        this.updateLh()
+        this.updateLh();
         this.setState({
           delay: delay - 1,
           secretLhFsh: true,
           secretOestro: true,
-          dayNum: sec,
-          ovulation: true,
+          ovulation: false,
           postOvulation: false,
-          preOvulation: false,
-        })
+          preOvulation: true,
+        });
+        if (dayCount === 14) {
+          this.setState({
+            secretLhFsh: true,
+            secretOestro: true,
+            ovulation: true,
+            preOvulation: false,
+          });
+        }
         return;
     }
-
-    if (sec >= 15) {
+    if (dayCount >= 15) {
     // Update initial state to increase progesterones hormones
       this.updateProgesteron();
       this.setState({
         secretLhFsh: false,
         secretProgest: true,
         secretOestro: false,
-        dayNum: sec,
         ovulation: false,
         postOvulation: true,
         preOvulation: false,
       })
     }
-
-    if (sec >= 28) {
+    if (dayCount >= 27) {
       this.setState({
         secretProgest: false,
         secretOestro: false,
-        dayNum: sec,
       })
     }
 
-    this.updateTimeState(sec, secString);
+    this.updateTimeState(dayCount, secString);
 
-    if (sec === 28) {
+    if (dayCount === 27) {
       clearInterval(this.intervalHandle);
     }
   }
 
   updateLh = () => {
     const { svg } = this.props;
-    const { lhPoints, dayNum } =  this.state;
+    const { lhPoints } =  this.state;
     let nextColor = '#12a3c1';
     this.updateHormone({
       data: lhPoints,
@@ -140,12 +143,11 @@ class App extends Component {
       circleFill: () => { nextColor = nextColor === '#12a3c1' ? '#ff7a00' : '#12a3c1'; return nextColor; },
       circleTransform: "translate(" + lhPoints[0] + ")",
       path: svg.selectAll('.lh-hormones'),
-      day: dayNum,
     });
   }
   updateFsh = () => {
     const { svg } = this.props;
-    const { fshPoints, dayNum } =  this.state;
+    const { fshPoints } =  this.state;
     let nextColor = '#12a3c1';
     this.updateHormone({
       data: fshPoints,
@@ -154,12 +156,11 @@ class App extends Component {
       circleFill: () => { nextColor = nextColor === '#12a3c1' ? '#ff7a00' : '#12a3c1'; return nextColor; },
       circleTransform: "translate(" + fshPoints[0] + ")",
       path: svg.selectAll('.fsh-hormones'),
-      day: dayNum,
     });
   }
   updateOestrogen = () => {
     const { svg } = this.props;
-      const { oestrogenePoints, dayNum } = this.state;
+      const { oestrogenePoints } = this.state;
       this.updateHormone({
         data: oestrogenePoints,
         elemClass: 'oestros',
@@ -167,12 +168,11 @@ class App extends Component {
         circleFill: '#3bc71f',
         circleTransform: "translate(" + oestrogenePoints[8] + ")",
         path: svg.selectAll('.oestro-hormones'),
-        day: dayNum,
       });
   }
   updateProgesteron = () => {
     const { svg } = this.props;
-    const { progesteronePoints, dayNum } = this.state;
+    const { progesteronePoints } = this.state;
     this.updateHormone({
       data: progesteronePoints,
       elemClass: 'progests',
@@ -180,15 +180,13 @@ class App extends Component {
       circleFill: '#9C27B0',
       circleTransform: "translate(" + progesteronePoints[8] + ")",
       path: svg.selectAll('.progest-hormones'),
-      day: dayNum,
     });
   }
-  updateTimeState = (sec, secString) => {
-    if (sec <= 28) {
+  updateTimeState = (dayCount, secString) => {
+    if (dayCount <= 27) {
       this.setState({
         delay: 5,
-        sec: this.state.sec + 1,
-        seconds: secString.length === 2 ? " " + secString : "0" + secString,
+        dayCount: this.state.dayCount + 1,
       });
     }
   }
@@ -197,13 +195,12 @@ class App extends Component {
   }
   handleStop = () => {
     this.setState({
-      sec: 0,
-      seconds: "00",
+      dayCount: 0,
       status: false,
     });
     clearInterval(this.intervalHandle);
   }
-  updateHormone = ({data, day, elemClass, hormClass, circleFill, circleTransform, path}) => {
+  updateHormone = ({data, elemClass, hormClass, circleFill, circleTransform, path}) => {
     const { svg } = this.props;
     const lhElem = svg.selectAll(`.${elemClass}`).data( data, (d, i) => i );
     lhElem
@@ -241,7 +238,6 @@ class App extends Component {
     }
   }
   createHormoneFlow = () => {
-    console.log('createHormoneFlow');
     const {
       lhPoints, fshPoints,
       progesteronePoints, oestrogenePoints,
@@ -301,7 +297,7 @@ class App extends Component {
       ovulation,
       postOvulation,
       preOvulation,
-      seconds,
+      dayCount,
       secretLhFsh,
       secretProgest,
       secretOestro,
@@ -314,7 +310,7 @@ class App extends Component {
           preOvulation={preOvulation}
           handleStart={this.handleStart}
           handleStop={this.handleStop}
-          seconds={seconds}
+          dayCount={dayCount}
           secretLhFsh={secretLhFsh}
           secretProgest={secretProgest}
           secretOestro={secretOestro}
