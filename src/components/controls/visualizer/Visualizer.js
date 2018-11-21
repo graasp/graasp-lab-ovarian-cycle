@@ -8,6 +8,7 @@ export const Visualizer = ({
   dayCount,
   handleStart,
   handleStop,
+  isStarted,
   ovulation,
   postOvulation,
   preOvulation,
@@ -18,9 +19,10 @@ export const Visualizer = ({
   <div className="Visualizer-Container">
     <Phases />
     <Counter
+      dayCount={dayCount}
       handleStart={handleStart}
       handleStop={handleStop}
-      dayCount={dayCount}
+      isStarted={isStarted}
     />
     <Hormones
       ovulation={ovulation}
