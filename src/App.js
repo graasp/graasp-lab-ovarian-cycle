@@ -327,13 +327,9 @@ class App extends Component {
 
   translateAlong = (path) => {
     const l = path.getTotalLength();
-    // eslint-disable-next-line no-unused-vars
     return function (d, i, a) {
-      // eslint-disable-next-line no-unused-vars
       return function (t) {
-        // eslint-disable-next-line no-unused-vars
         var p = path.getPointAtLength(t * l);
-        // eslint-disable-next-line no-unused-vars
         return `translate(${  p.x  },${  p.y  })`;
       };
     };
