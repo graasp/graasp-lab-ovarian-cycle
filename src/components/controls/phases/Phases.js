@@ -4,10 +4,11 @@ import { Button } from 'reactstrap';
 
 export const Phases = ({
   handleOvulation,
+  handlePostOvulation,
   handlePreOvulation,
   ovulationActive,
   preOvulationActive,
-  preOvulation,
+  postOvulationActive,
 }) => (
   <div className="Phases-Container">
     <div className="phases-title">
@@ -33,7 +34,8 @@ export const Phases = ({
       <Button
         outline
         color="secondary"
-        className='post-ovulation'
+        className={`${postOvulationActive ? 'active-postovulation' : ''} post-ovulation`}
+        onClick={handlePostOvulation}
       >
         Post-Ovulation
       </Button>

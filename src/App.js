@@ -13,6 +13,7 @@ class App extends Component {
       preOvulation: true,
       ovulation: false,
       ovulationActive: false,
+      postOvulationActive: false,
       preOvulationActive: false,
       nextColor: 'pink',
       delay: 5,
@@ -151,6 +152,33 @@ class App extends Component {
       clearInterval(this.intervalHandle);
     }
   }
+  tickPostOvulation = () => {
+    let { dayCount } = this.state;
+    let secString = dayCount + "";
+
+    if (dayCount >= 15) {
+    // Update initial state to increase progesterones hormones
+      this.updateProgesteron();
+      this.setState({
+        secretLhFsh: false,
+        secretProgest: true,
+        secretOestro: false,
+        ovulation: false,
+        postOvulation: true,
+        preOvulation: false,
+      })
+    }
+
+    this.updateTimeState(dayCount, secString);
+
+    if (dayCount === 27) {
+      this.setState({
+        secretProgest: false,
+        secretOestro: false,
+      })
+      clearInterval(this.intervalHandle);
+    }
+  }
   tickOvulation = () => {
     let {
       dayCount,
@@ -251,14 +279,25 @@ class App extends Component {
     this.setState({
       dayCount: 1,
       ovulationActive: false,
+      postOvulationActive: false,
       preOvulationActive: true,
     })
     this.intervalHandle = setInterval(this.tickPreOvulation, 2100);
+  }
+  handlePostOvulation = () => {
+    this.setState({
+      dayCount: 14,
+      ovulationActive: false,
+      postOvulationActive: true,
+      preOvulationActive: false,
+    })
+    this.intervalHandle = setInterval(this.tickPostOvulation, 2100);
   }
   handleOvulation = () => {
     this.setState({
       dayCount: 12,
       ovulationActive: true,
+      postOvulationActive: false,
       preOvulationActive: false,
     })
     this.intervalHandle = setInterval(this.tickOvulation, 2100);
@@ -373,6 +412,7 @@ class App extends Component {
       isStarted,
       ovulation,
       ovulationActive,
+      postOvulationActive,
       preOvulationActive,
       postOvulation,
       preOvulation,
@@ -385,6 +425,7 @@ class App extends Component {
         <Core
           dayCount={dayCount}
           handleOvulation={this.handleOvulation}
+          handlePostOvulation={this.handlePostOvulation}
           handlePreOvulation={this.handlePreOvulation}
           handleStart={this.handleStart}
           handleStop={this.handleStop}
@@ -392,6 +433,7 @@ class App extends Component {
           ovulation={ovulation}
           ovulationActive={ovulationActive}
           preOvulationActive={preOvulationActive}
+          postOvulationActive={postOvulationActive}
           postOvulation={postOvulation}
           preOvulation={preOvulation}
           secretLhFsh={secretLhFsh}
