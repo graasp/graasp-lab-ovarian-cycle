@@ -120,16 +120,14 @@ class App extends Component {
         preOvulation: false,
       })
     }
-    if (dayCount >= 27) {
-      this.setState({
-        secretProgest: false,
-        secretOestro: false,
-      })
-    }
 
     this.updateTimeState(dayCount, secString);
 
     if (dayCount === 27) {
+      this.setState({
+        secretProgest: false,
+        secretOestro: false,
+      })
       clearInterval(this.intervalHandle);
     }
   }
