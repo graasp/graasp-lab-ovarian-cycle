@@ -7,6 +7,7 @@ export const Core = ({
   dayCount,
   isStarted,
   ovulation,
+  handleOvulation,
   handleStart,
   handleStop,
   postOvulation,
@@ -24,6 +25,7 @@ export const Core = ({
         <Visualizer
           dayCount={dayCount}
           isStarted={isStarted}
+          handleOvulation={handleOvulation}
           handleStart={handleStart}
           handleStop={handleStop}
           ovulation={ovulation}

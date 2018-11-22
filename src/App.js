@@ -132,6 +132,43 @@ class App extends Component {
       clearInterval(this.intervalHandle);
     }
   }
+  tickOvulation = () => {
+    let {
+      dayCount,
+      delay,
+    } = this.state;
+    let secString = dayCount + "";
+
+    if (dayCount >= 12 && dayCount <= 14 && delay > 0) {
+    // Update initial state to increase Oestrogen and FSH hormones
+        this.updateOestrogen();
+        this.updateFsh();
+        this.updateLh();
+        this.setState({
+          delay: delay - 1,
+          secretLhFsh: true,
+          secretOestro: true,
+          ovulation: false,
+          postOvulation: false,
+          preOvulation: true,
+        });
+        if (dayCount === 14) {
+          this.setState({
+            secretLhFsh: true,
+            secretOestro: true,
+            ovulation: true,
+            preOvulation: false,
+          });
+        }
+        return;
+    }
+
+    this.updateTimeState(dayCount, secString);
+
+    if (dayCount === 14) {
+      clearInterval(this.intervalHandle);
+    }
+  }
 
   updateLh = () => {
     const { svg } = this.props;
@@ -190,6 +227,10 @@ class App extends Component {
         dayCount: this.state.dayCount + 1,
       });
     }
+  }
+  handleOvulation = () => {
+    this.setState({ dayCount: 12 })
+    this.intervalHandle = setInterval(this.tickOvulation, 2100);
   }
   handleStart = () => {
     this.setState({ isStarted: true })
@@ -310,6 +351,7 @@ class App extends Component {
       <div className="App">
         <Core
           dayCount={dayCount}
+          handleOvulation={this.handleOvulation}
           handleStart={this.handleStart}
           handleStop={this.handleStop}
           isStarted={isStarted}
