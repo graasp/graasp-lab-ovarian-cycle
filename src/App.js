@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 import * as d3 from "d3";
 import { connect } from 'react-redux';
+import {
+  COMMON_DOTS,
+  COMMON_DOTS_1,
+  COMMON_DOTS_2,
+  COMMON_DOTS_3,
+  COMMON_DOTS_4,
+  MAX_LH,
+  GREEN,
+  ORANGE,
+  PURPLE_BLUE,
+  SKY_BLUE,
+} from './config/constants';
 import Core from './components/Core';
 
 class App extends Component {
@@ -15,31 +27,32 @@ class App extends Component {
       ovulationActive: false,
       postOvulationActive: false,
       preOvulationActive: false,
-      nextColor: 'pink',
+      // we delay five seconds during the 13 and 14 days
       delay: 5,
       dayCount: 1,
       secretLhFsh: false,
       secretProgest: false,
       secretOestro: false,
       isStarted: false,
+      // starting state for the progesterone dots
       progesteronePoints: [
         [378, 1070],
-        [414, 1020],
-        [415, 930],
-        [418, 830],
-        [417, 700],
-        [413, 470],
+        COMMON_DOTS,
+        COMMON_DOTS_1,
+        COMMON_DOTS_2,
+        COMMON_DOTS_3,
+        COMMON_DOTS_4,
         [382, 400],
         [383, 260],
         [383, 200],
       ],
       oestrogenePoints: [
-        [370,1085],
-        [414, 1020],
-        [415, 930],
-        [418, 830],
-        [417, 700],
-        [413, 470],
+        [370, MAX_LH],
+        COMMON_DOTS,
+        COMMON_DOTS_1,
+        COMMON_DOTS_2,
+        COMMON_DOTS_3,
+        COMMON_DOTS_4,
         [470, 400],
         [472, 260],
         [470, 200],
@@ -54,8 +67,8 @@ class App extends Component {
         [437, 750],
         [431, 930],
         [431, 1020],
-        [485,1070],
-        [482,1085],
+        [485, 1070],
+        [482, MAX_LH],
       ],
       fshPoints: [
         [395, 210],
@@ -67,7 +80,7 @@ class App extends Component {
         [437, 750],
         [431, 930],
         [431, 1020],
-        [370, 1085],
+        [370, MAX_LH],
       ],
     };
   };
@@ -78,6 +91,7 @@ class App extends Component {
     } = this.state;
     let secString = dayCount + "";
 
+    // if in the pre-ovulation phase, we do not secrete lh or fsh
     if (dayCount < 12 ) {
       this.setState({
         preOvulation: true,
@@ -87,8 +101,10 @@ class App extends Component {
       })
       this.updateLh();
     }
+
+    // during the xxx this is the ovulation period
     if (dayCount >= 12 && dayCount <= 14 && delay > 0) {
-    // Update initial state to increase Oestrogen and FSH hormones
+        // Update initial state to increase Oestrogen and FSH hormones
         this.updateOestrogen();
         this.updateFsh();
         this.updateLh();
@@ -100,6 +116,7 @@ class App extends Component {
           postOvulation: false,
           preOvulation: true,
         });
+        // during the last day of ovulation ...
         if (dayCount === 14) {
           this.setState({
             secretLhFsh: true,
@@ -220,12 +237,12 @@ class App extends Component {
   updateLh = () => {
     const { svg } = this.props;
     const { lhPoints } =  this.state;
-    let nextColor = '#12a3c1';
+    let nextColor = SKY_BLUE;
     this.updateHormone({
       data: lhPoints,
       elemClass: 'ted',
       hormClass: '.lh-hormones',
-      circleFill: () => { nextColor = nextColor === '#12a3c1' ? '#ff7a00' : '#12a3c1'; return nextColor; },
+      circleFill: () => { nextColor = nextColor === SKY_BLUE ? ORANGE : SKY_BLUE; return nextColor; },
       circleTransform: "translate(" + lhPoints[0] + ")",
       path: svg.selectAll('.lh-hormones'),
     });
@@ -233,27 +250,27 @@ class App extends Component {
   updateFsh = () => {
     const { svg } = this.props;
     const { fshPoints } =  this.state;
-    let nextColor = '#12a3c1';
+    let nextColor = SKY_BLUE;
     this.updateHormone({
       data: fshPoints,
       elemClass: 'fsss',
       hormClass: '.fsh-hormones',
-      circleFill: () => { nextColor = nextColor === '#12a3c1' ? '#ff7a00' : '#12a3c1'; return nextColor; },
+      circleFill: () => { nextColor = nextColor === SKY_BLUE ? ORANGE : SKY_BLUE; return nextColor; },
       circleTransform: "translate(" + fshPoints[0] + ")",
       path: svg.selectAll('.fsh-hormones'),
     });
   }
   updateOestrogen = () => {
     const { svg } = this.props;
-      const { oestrogenePoints } = this.state;
-      this.updateHormone({
-        data: oestrogenePoints,
-        elemClass: 'oestros',
-        hormClass: '.oestro-hormones',
-        circleFill: '#3bc71f',
-        circleTransform: "translate(" + oestrogenePoints[8] + ")",
-        path: svg.selectAll('.oestro-hormones'),
-      });
+    const { oestrogenePoints } = this.state;
+    this.updateHormone({
+      data: oestrogenePoints,
+      elemClass: 'oestros',
+      hormClass: '.oestro-hormones',
+      circleFill: GREEN,
+      circleTransform: "translate(" + oestrogenePoints[8] + ")",
+      path: svg.selectAll('.oestro-hormones'),
+    });
   }
   updateProgesteron = () => {
     const { svg } = this.props;
@@ -262,7 +279,7 @@ class App extends Component {
       data: progesteronePoints,
       elemClass: 'progests',
       hormClass: '.progest-hormones',
-      circleFill: '#9C27B0',
+      circleFill: PURPLE_BLUE,
       circleTransform: "translate(" + progesteronePoints[8] + ")",
       path: svg.selectAll('.progest-hormones'),
     });
@@ -380,28 +397,28 @@ class App extends Component {
        .data(lhPoints)
        .enter()
        .append("circle")
-       .attr("fill", '#12a3c1')
+       .attr("fill", SKY_BLUE)
        .attr("r", 4)
        .attr("transform", function(d) { return "translate(" + d + ")"; });
    svg.selectAll(".point")
        .data(fshPoints)
        .enter()
        .append("circle")
-       .attr("fill", '#ff7a00')
+       .attr("fill", ORANGE)
        .attr("r", 4)
        .attr("transform", function(d) { return "translate(" + d + ")"; });
    svg.selectAll(".point")
        .data(progesteronePoints)
        .enter()
        .append("circle")
-       .attr("fill", '#9C27B0')
+       .attr("fill", PURPLE_BLUE)
        .attr("r", 4)
        .attr("transform", function(d) { return "translate(" + d + ")"; });
    svg.selectAll(".point")
        .data(oestrogenePoints)
        .enter()
        .append("circle")
-       .attr("fill", '#3bc71f')
+       .attr("fill", GREEN)
        .attr("r", 4)
        .attr("transform", function(d) { return "translate(" + d + ")"; });
   }

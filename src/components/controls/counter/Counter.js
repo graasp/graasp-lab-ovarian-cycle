@@ -10,6 +10,8 @@ export class Counter extends React.Component {
       handleStop,
       isStarted,
     } = this.props;
+
+    // show stop button if simulation starter otherwise show start
     let startButton = (isStarted) ?
       <Button className='Button-stop' onClick={handleStop}>Stop cycle</Button> :
       <Button className='Button-start' onClick={handleStart}>Start cycle</Button>
