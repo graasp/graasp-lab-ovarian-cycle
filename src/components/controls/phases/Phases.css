@@ -4,3 +4,9 @@
 .select-step {
   font-size: 35px;
 }
+
+.active-ovulation {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}

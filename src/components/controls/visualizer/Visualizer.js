@@ -11,6 +11,7 @@ export const Visualizer = ({
   handleStop,
   isStarted,
   ovulation,
+  ovulationActive,
   postOvulation,
   preOvulation,
   secretLhFsh,
@@ -20,6 +21,8 @@ export const Visualizer = ({
   <div className="Visualizer-Container">
     <Phases
       handleOvulation={handleOvulation}
+      ovulationActive={ovulationActive}
+      preOvulation={preOvulation}
     />
     <Counter
       dayCount={dayCount}

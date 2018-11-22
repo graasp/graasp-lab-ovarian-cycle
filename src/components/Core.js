@@ -7,6 +7,7 @@ export const Core = ({
   dayCount,
   isStarted,
   ovulation,
+  ovulationActive,
   handleOvulation,
   handleStart,
   handleStop,
@@ -29,6 +30,7 @@ export const Core = ({
           handleStart={handleStart}
           handleStop={handleStop}
           ovulation={ovulation}
+          ovulationActive={ovulationActive}
           postOvulation={postOvulation}
           preOvulation={preOvulation}
           secretLhFsh={secretLhFsh}
