@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Hormones.css';
 
 export const Hormones = ({
@@ -66,5 +67,14 @@ export const Hormones = ({
     </div>
   </div>
 );
+
+Hormones.propTypes = {
+  ovulation: PropTypes.bool.isRequired,
+  postOvulation: PropTypes.bool.isRequired,
+  preOvulation: PropTypes.bool.isRequired,
+  secretLhFsh: PropTypes.bool.isRequired,
+  secretOestro: PropTypes.bool.isRequired,
+  secretProgest: PropTypes.bool.isRequired,
+};
 
 export default (Hormones);

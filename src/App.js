@@ -31,7 +31,7 @@ class App extends Component {
       delay,
     } = this.state;
     // eslint-disable-next-line no-unused-vars
-    const secString = dayCount + '';
+    const secString = `${dayCount}`;
 
     // if in the pre-ovulation phase, we do not secrete lh or fsh
     if (dayCount < 12) {
@@ -95,7 +95,7 @@ class App extends Component {
 
   tickPreOvulation = () => {
     const { dayCount } = this.state;
-    const secString = dayCount + "";
+    const secString = `${dayCount}`;
 
     if (dayCount < 12) {
       this.setState({
@@ -115,7 +115,7 @@ class App extends Component {
 
   tickPostOvulation = () => {
     const { dayCount } = this.state;
-    const secString = dayCount + "";
+    const secString = `${dayCount}`;
 
     if (dayCount >= 15) {
     // Update initial state to increase progesterones hormones
@@ -146,7 +146,7 @@ class App extends Component {
       dayCount,
       delay,
     } = this.state;
-    const secString = dayCount + "";
+    const secString = `${dayCount}`;
 
     if (dayCount >= 12 && dayCount <= 14 && delay > 0) {
     // Update initial state to increase Oestrogen and FSH hormones
@@ -180,9 +180,11 @@ class App extends Component {
   }
 
   updateLh = () => {
+    // eslint-disable-next-line no-unused-vars
     const { svg } = this.props;
     const { lhPoints } = this.state;
     let nextColor = SKY_BLUE;
+    const translate = `translate(${lhPoints[0]})`;
     this.updateHormone({
       data: lhPoints,
       elemClass: 'ted',
@@ -192,7 +194,7 @@ class App extends Component {
           : SKY_BLUE;
         return nextColor;
       },
-      circleTransform: 'translate(' + lhPoints[0] + ')',
+      circleTransform: translate,
       path: svg.selectAll('.lh-hormones'),
     });
   }
@@ -201,6 +203,7 @@ class App extends Component {
     const { svg } = this.props;
     const { fshPoints } = this.state;
     let nextColor = SKY_BLUE;
+    const translate = `translate(${fshPoints[0]})`;
     this.updateHormone({
       data: fshPoints,
       elemClass: 'fsss',
@@ -210,7 +213,7 @@ class App extends Component {
           : SKY_BLUE;
         return nextColor;
       },
-      circleTransform: 'translate(' + fshPoints[0] + ')',
+      circleTransform: translate,
       path: svg.selectAll('.fsh-hormones'),
     });
   }
@@ -218,12 +221,13 @@ class App extends Component {
   updateOestrogen = () => {
     const { svg } = this.props;
     const { oestrogenePoints } = this.state;
+    const translate = `translate(${oestrogenePoints[8]})`;
     this.updateHormone({
       data: oestrogenePoints,
       elemClass: 'oestros',
       hormClass: '.oestro-hormones',
       circleFill: GREEN,
-      circleTransform: 'translate(' + oestrogenePoints[8] + ')',
+      circleTransform: translate,
       path: svg.selectAll('.oestro-hormones'),
     });
   }
@@ -231,12 +235,13 @@ class App extends Component {
   updateProgesteron = () => {
     const { svg } = this.props;
     const { progesteronePoints } = this.state;
+    const translate = `translate(${progesteronePoints[8]})`;
     this.updateHormone({
       data: progesteronePoints,
       elemClass: 'progests',
       hormClass: '.progest-hormones',
       circleFill: PURPLE_BLUE,
-      circleTransform: 'translate(' + progesteronePoints[8] + ')',
+      circleTransform: translate,
       path: svg.selectAll('.progest-hormones'),
     });
   }
@@ -313,7 +318,7 @@ class App extends Component {
     const trans = () => {
       lhElem
         .transition()
-        .duration((d, i) => { return i * 300 + 2000; })
+        .duration((d, i) => i * 300 + 2000)
         .attrTween('transform', this.translateAlong(path.node()));
       //  lhElem.on("end", trans); This could be used to make transition infinite
     };
@@ -322,10 +327,14 @@ class App extends Component {
 
   translateAlong = (path) => {
     const l = path.getTotalLength();
-    return function(d, i, a) {
-      return function(t) {
+    // eslint-disable-next-line no-unused-vars
+    return function (d, i, a) {
+      // eslint-disable-next-line no-unused-vars
+      return function (t) {
+        // eslint-disable-next-line no-unused-vars
         var p = path.getPointAtLength(t * l);
-        return 'translate(' + p.x + ',' + p.y + ')';
+        // eslint-disable-next-line no-unused-vars
+        return `translate(${  p.x  },${  p.y  })`;
       };
     };
   }
@@ -361,28 +370,28 @@ class App extends Component {
       .append('circle')
       .attr('fill', SKY_BLUE)
       .attr('r', 4)
-      .attr('transform', function(d) { return 'translate(' + d + ')'; });
+      .attr('transform', d => `translate(${d})`);
     svg.selectAll('.point')
       .data(fshPoints)
       .enter()
       .append('circle')
       .attr('fill', ORANGE)
       .attr('r', 4)
-      .attr('transform', function(d) { return 'translate(' + d + ')'; });
+      .attr('transform', d => `translate(${d})`);
     svg.selectAll('.point')
       .data(progesteronePoints)
       .enter()
       .append('circle')
       .attr('fill', PURPLE_BLUE)
       .attr('r', 4)
-      .attr('transform', function(d) { return 'translate(' + d + ')'; });
+      .attr('transform', d => `translate(${d})`);
     svg.selectAll('.point')
       .data(oestrogenePoints)
       .enter()
       .append('circle')
       .attr('fill', GREEN)
       .attr('r', 4)
-      .attr('transform', function(d) { return 'translate(' + d + ')'; });
+      .attr('transform', d => `translate(${d})`);
   }
 
   render() {

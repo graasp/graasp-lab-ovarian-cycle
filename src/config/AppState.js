@@ -20,6 +20,7 @@ export const AppState = {
   ovulationActive: false,
   postOvulationActive: false,
   preOvulationActive: false,
+  isStarted: false,
   // we delay five seconds during the 13 and 14 days
   delay: 5,
   dayCount: 1, // we initialize the day counter to 1
