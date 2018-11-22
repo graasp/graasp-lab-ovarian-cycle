@@ -13,6 +13,7 @@ class App extends Component {
       preOvulation: true,
       ovulation: false,
       ovulationActive: false,
+      preOvulationActive: false,
       nextColor: 'pink',
       delay: 5,
       dayCount: 1,
@@ -131,6 +132,25 @@ class App extends Component {
       clearInterval(this.intervalHandle);
     }
   }
+  tickPreOvulation = () => {
+    let { dayCount } = this.state;
+    let secString = dayCount + "";
+
+    if (dayCount < 12 ) {
+      this.setState({
+        preOvulation: true,
+        ovulation: false,
+        secretLhFsh: false,
+        postOvulation: false,
+      })
+      this.updateLh();
+    }
+    this.updateTimeState(dayCount, secString);
+
+    if (dayCount === 11) {
+      clearInterval(this.intervalHandle);
+    }
+  }
   tickOvulation = () => {
     let {
       dayCount,
@@ -227,10 +247,19 @@ class App extends Component {
       });
     }
   }
+  handlePreOvulation = () => {
+    this.setState({
+      dayCount: 1,
+      ovulationActive: false,
+      preOvulationActive: true,
+    })
+    this.intervalHandle = setInterval(this.tickPreOvulation, 2100);
+  }
   handleOvulation = () => {
     this.setState({
       dayCount: 12,
       ovulationActive: true,
+      preOvulationActive: false,
     })
     this.intervalHandle = setInterval(this.tickOvulation, 2100);
   }
@@ -344,6 +373,7 @@ class App extends Component {
       isStarted,
       ovulation,
       ovulationActive,
+      preOvulationActive,
       postOvulation,
       preOvulation,
       secretLhFsh,
@@ -355,11 +385,13 @@ class App extends Component {
         <Core
           dayCount={dayCount}
           handleOvulation={this.handleOvulation}
+          handlePreOvulation={this.handlePreOvulation}
           handleStart={this.handleStart}
           handleStop={this.handleStop}
           isStarted={isStarted}
           ovulation={ovulation}
           ovulationActive={ovulationActive}
+          preOvulationActive={preOvulationActive}
           postOvulation={postOvulation}
           preOvulation={preOvulation}
           secretLhFsh={secretLhFsh}

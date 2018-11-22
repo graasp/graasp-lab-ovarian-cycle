@@ -4,7 +4,9 @@ import { Button } from 'reactstrap';
 
 export const Phases = ({
   handleOvulation,
+  handlePreOvulation,
   ovulationActive,
+  preOvulationActive,
   preOvulation,
 }) => (
   <div className="Phases-Container">
@@ -15,7 +17,8 @@ export const Phases = ({
       <Button
         outline
         color="secondary"
-        className='pre-ovulation'
+        className={`${preOvulationActive ? 'active-preovulation' : ''} pre-ovulation`}
+        onClick={handlePreOvulation}
       >
         Pre-Ovulation
       </Button>

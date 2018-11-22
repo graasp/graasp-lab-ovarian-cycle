@@ -7,11 +7,13 @@ import './Visualizer.css';
 export const Visualizer = ({
   dayCount,
   handleOvulation,
+  handlePreOvulation,
   handleStart,
   handleStop,
   isStarted,
   ovulation,
   ovulationActive,
+  preOvulationActive,
   postOvulation,
   preOvulation,
   secretLhFsh,
@@ -21,7 +23,9 @@ export const Visualizer = ({
   <div className="Visualizer-Container">
     <Phases
       handleOvulation={handleOvulation}
+      handlePreOvulation={handlePreOvulation}
       ovulationActive={ovulationActive}
+      preOvulationActive={preOvulationActive}
       preOvulation={preOvulation}
     />
     <Counter
