@@ -229,7 +229,6 @@ class App extends Component {
     }
   }
   handleOvulation = () => {
-    console.log('Start ovulation cycle');
     this.setState({ dayCount: 12 })
     this.intervalHandle = setInterval(this.tickOvulation, 2100);
   }
