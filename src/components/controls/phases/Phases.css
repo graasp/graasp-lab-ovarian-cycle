@@ -5,7 +5,7 @@
   font-size: 35px;
 }
 
-.active-ovulation, .active-preovulation {
+.active-ovulation, .active-preovulation, .active-postovulation {
   background-color: #6c757d;
   border-color: #6c757d;
   color: #fff;
