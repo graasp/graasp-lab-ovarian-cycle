@@ -12,6 +12,7 @@ class App extends Component {
       postOvulation: false,
       preOvulation: true,
       ovulation: false,
+      ovulationActive: false,
       nextColor: 'pink',
       delay: 5,
       dayCount: 1,
@@ -229,7 +230,10 @@ class App extends Component {
     }
   }
   handleOvulation = () => {
-    this.setState({ dayCount: 12 })
+    this.setState({
+      dayCount: 12,
+      ovulationActive: true,
+    })
     this.intervalHandle = setInterval(this.tickOvulation, 2100);
   }
   handleStart = () => {
@@ -341,6 +345,7 @@ class App extends Component {
       dayCount,
       isStarted,
       ovulation,
+      ovulationActive,
       postOvulation,
       preOvulation,
       secretLhFsh,
@@ -356,6 +361,7 @@ class App extends Component {
           handleStop={this.handleStop}
           isStarted={isStarted}
           ovulation={ovulation}
+          ovulationActive={ovulationActive}
           postOvulation={postOvulation}
           preOvulation={preOvulation}
           secretLhFsh={secretLhFsh}
