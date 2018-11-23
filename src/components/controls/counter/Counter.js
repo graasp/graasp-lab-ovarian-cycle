@@ -9,7 +9,7 @@ const Counter = ({
   handleStop,
   isStarted,
 }) => {
-  // show stop button if simulation starter otherwise show start
+  // show stop button if simulation started otherwise show start
   const startButton = (isStarted)
     ? <Button className="Button-stop" onClick={handleStop}>Stop cycle</Button>
     : <Button className="Button-start" onClick={handleStart}>Start cycle</Button>;

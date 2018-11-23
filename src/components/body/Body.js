@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import BodyGard from './human-body.png';
+import HumanBody from './human-body.png';
 import { appendSvg } from '../../actions';
 
 class Body extends React.Component {
@@ -12,7 +12,7 @@ class Body extends React.Component {
   render() {
     return (
       <div className="Body-Container">
-        <img src={BodyGard} className="Human-image" alt="Logo" />
+        <img src={HumanBody} className="Human-image" alt="Logo" />
       </div>
     );
   }

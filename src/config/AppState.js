@@ -1,5 +1,5 @@
 import {
-  COMMON_DOTS,
+  COMMON_DOTS_0,
   COMMON_DOTS_1,
   COMMON_DOTS_2,
   COMMON_DOTS_3,
@@ -30,7 +30,7 @@ export const AppState = {
   // starting state for the progesterone dots
   progesteronePoints: [
     [378, 1070],
-    COMMON_DOTS,
+    COMMON_DOTS_0,
     COMMON_DOTS_1,
     COMMON_DOTS_2,
     COMMON_DOTS_3,
@@ -43,7 +43,7 @@ export const AppState = {
   // starting state for the oestrogene dots
   oestrogenePoints: [
     [370, MAX_LH],
-    COMMON_DOTS,
+    COMMON_DOTS_0,
     COMMON_DOTS_1,
     COMMON_DOTS_2,
     COMMON_DOTS_3,
