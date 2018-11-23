@@ -157,23 +157,25 @@ class App extends Component {
     if (dayCount < 12 ) {
       this.setState({
         preOvulation: true,
-        ovulation: false,
-        secretLhFsh: false,
-        postOvulation: false,
-      })
+        secretLhFsh: true,
+      });
       this.updateLh();
     }
     this.updateTimeState(dayCount, secString);
 
     if (dayCount === 11) {
       clearInterval(this.intervalHandle);
+      this.setState({
+        preOvulation: true,
+        secretLhFsh: false,
+      });
     }
   }
   tickPostOvulation = () => {
     let { dayCount } = this.state;
     let secString = dayCount + "";
 
-    if (dayCount >= 15) {
+    if (dayCount >= 14) {
     // Update initial state to increase progesterones hormones
       this.updateProgesteron();
       this.setState({
@@ -189,11 +191,12 @@ class App extends Component {
     this.updateTimeState(dayCount, secString);
 
     if (dayCount === 27) {
+      clearInterval(this.intervalHandle);
       this.setState({
         secretProgest: false,
         secretOestro: false,
       })
-      clearInterval(this.intervalHandle);
+
     }
   }
   tickOvulation = () => {
@@ -212,18 +215,10 @@ class App extends Component {
           delay: delay - 1,
           secretLhFsh: true,
           secretOestro: true,
+          preOvulation: true,
           ovulation: false,
           postOvulation: false,
-          preOvulation: true,
         });
-        if (dayCount === 14) {
-          this.setState({
-            secretLhFsh: true,
-            secretOestro: true,
-            ovulation: true,
-            preOvulation: false,
-          });
-        }
         return;
     }
 
@@ -231,6 +226,12 @@ class App extends Component {
 
     if (dayCount === 14) {
       clearInterval(this.intervalHandle);
+      this.setState({
+        secretLhFsh: false,
+        secretOestro: false,
+        ovulation: false,
+        preOvulation: false,
+      });
     }
   }
 
