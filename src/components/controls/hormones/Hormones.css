@@ -1,16 +1,16 @@
 .Hormone-Container {
-  width: 500px;
+  width: 32rem;
   margin: auto;
 }
 .hormones-table {
   background: rgb(169, 169, 169);
   border: 7px solid;
-  padding: 5px 60px;
+  padding: 1rem 4rem;
 }
 .lh-name, .fsh-name, .progest-name, .oestro-name {
   background: #fff;
-  font-size: 30px;
-  width: 210px;
+  font-size: 2rem;
+  width: 14rem;
   margin: 5px auto;
   text-align: center;
 }
@@ -41,12 +41,11 @@
    background-color: #9C27B0;
  }
  .description-container {
-   margin-top: 40px;
-   border-top: 10px solid;
-   padding: 30px 10px;
+   margin-top: 2rem;
+   padding: 1rem;
  }
  .Phase-description {
-   font-size: 35px;
+   font-size: 2.2rem;
    font-weight: 300;
  }
 
