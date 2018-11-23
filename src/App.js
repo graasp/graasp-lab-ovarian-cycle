@@ -111,6 +111,7 @@ class App extends Component {
       this.setState({
         preOvulation: true,
         secretLhFsh: false,
+        preOvulationActive: false,
       });
     }
   }
@@ -139,6 +140,7 @@ class App extends Component {
       this.setState({
         secretProgest: false,
         secretOestro: false,
+        postOvulationActive: false,
       });
     }
   }
@@ -166,6 +168,7 @@ class App extends Component {
         this.setState({
           preOvulation: false,
           ovulation: true,
+          ovulationActive: false,
         });
       }
       return;
