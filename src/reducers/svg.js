@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   svg: null,
 };
 
-export default function(state=INITIAL_STATE, action) {
+export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case APPEND_SVG:
       return {
