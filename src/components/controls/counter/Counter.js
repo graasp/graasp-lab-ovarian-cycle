@@ -11,10 +11,11 @@ const Counter = ({
   preOvulationActive,
   postOvulationActive,
 }) => {
+  const isDisabled = preOvulationActive || ovulationActive || postOvulationActive;
   // show stop button if simulation started otherwise show start
   const startButton = (isStarted)
-    ? <Button className="Button-stop" onClick={handleStop} size="lg" disabled={`${preOvulationActive || ovulationActive || postOvulationActive ? 'disabled' : ''}`}>Stop cycle</Button>
-    : <Button className="Button-start" onClick={handleStart} size="lg" disabled={`${preOvulationActive || ovulationActive || postOvulationActive ? 'disabled' : ''}`}>Launch Cycle</Button>;
+    ? <Button className="Button-stop" onClick={handleStop} size="lg" disabled={isDisabled}>Stop cycle</Button>
+    : <Button className="Button-start" onClick={handleStart} size="lg" disabled={isDisabled}>Launch Cycle</Button>;
   return (
     <div className="Counter-Container">
       <div className="clock-setter">
