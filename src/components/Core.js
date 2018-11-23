@@ -11,6 +11,7 @@ export const Core = ({
   ovulationActive,
   preOvulationActive,
   postOvulationActive,
+  reloadPage,
   handleOvulation,
   handlePostOvulation,
   handlePreOvulation,
@@ -34,6 +35,7 @@ export const Core = ({
           handleOvulation={handleOvulation}
           handlePostOvulation={handlePostOvulation}
           handlePreOvulation={handlePreOvulation}
+          reloadPage={reloadPage}
           handleStart={handleStart}
           handleStop={handleStop}
           ovulation={ovulation}
@@ -58,6 +60,7 @@ Core.propTypes = {
   handleOvulation: PropTypes.func.isRequired,
   handlePostOvulation: PropTypes.func.isRequired,
   handlePreOvulation: PropTypes.func.isRequired,
+  reloadPage: PropTypes.func.isRequired,
   isStarted: PropTypes.bool.isRequired,
   ovulation: PropTypes.bool.isRequired,
   ovulationActive: PropTypes.bool.isRequired,
