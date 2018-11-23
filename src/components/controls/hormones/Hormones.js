@@ -54,14 +54,14 @@ export const Hormones = ({
         </h2>
 
         <p className="Phase-description">
-          {postOvulation ? 'Cette etape est le moment ou les LH et FSH sont en très basse quatité.' : ''}
-          {preOvulation ? 'Cette etape est le moment ou les LH et FSH sont en quatité normales.' : ''}
-          {ovulation ? 'Cette etape est le moment ou les LH et FSH ainsi que les Oestrogènes sont en grande quatité.' : ''}
+          {postOvulation ? 'This stage is the moment when the LH and FSH are in very low quatity.' : ''}
+          {preOvulation ? 'This stage is the moment when the LH and FSH are in normal quatity.' : ''}
+          {ovulation ? 'This stage is the moment when LH and FSH as well as estrogens are in great quantity.' : ''}
         </p>
         <p className="Phase-description">
-          {postOvulation ? "C'est la periode succédant l'ovulation." : ''}
-          {preOvulation ? "C'est la periode precedent l'ovulation." : ''}
-          {ovulation ? "C'est la phase de l'ovulation." : ''}
+          {postOvulation ? 'This is the period after ovulation.' : ''}
+          {preOvulation ? 'This is the period before ovulation' : ''}
+          {ovulation ? 'This is the ovulation phase.' : ''}
         </p>
       </div>
     </div>
