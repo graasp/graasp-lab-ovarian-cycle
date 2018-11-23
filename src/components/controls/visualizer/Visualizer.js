@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Calendar from '../counter/Calendar';
 import Counter from '../counter/Counter';
 import Hormones from '../hormones/Hormones';
 import Phases from '../phases/Phases';
@@ -24,6 +25,14 @@ export const Visualizer = ({
   secretProgest,
 }) => (
   <div className="Visualizer-Container">
+    <Counter
+      handleStart={handleStart}
+      handleStop={handleStop}
+      isStarted={isStarted}
+      ovulationActive={ovulationActive}
+      postOvulationActive={postOvulationActive}
+      preOvulationActive={preOvulationActive}
+    />
     <Phases
       handleOvulation={handleOvulation}
       handlePostOvulation={handlePostOvulation}
@@ -33,11 +42,8 @@ export const Visualizer = ({
       preOvulationActive={preOvulationActive}
       preOvulation={preOvulation}
     />
-    <Counter
+    <Calendar
       dayCount={dayCount}
-      handleStart={handleStart}
-      handleStop={handleStop}
-      isStarted={isStarted}
     />
     <Hormones
       ovulation={ovulation}
