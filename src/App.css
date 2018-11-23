@@ -4,16 +4,6 @@ body {
 .App {
   text-align: center;
 }
-
-.w-60 {
-  float: left;
-  width: 57%;
-}
-.w-40 {
-  float: right;
-  width: 40%;
-}
-
 .App-link {
   color: #61dafb;
 }

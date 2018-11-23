@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import Body from './body/Body';
 import Visualizer from './controls/visualizer/Visualizer';
 
@@ -24,10 +24,10 @@ export const Core = ({
 }) => (
   <div className="Core-Container">
     <Row>
-      <div className="w-60">
+      <Col sm="8">
         <Body />
-      </div>
-      <div className="w-40">
+      </Col>
+      <Col sm="4">
         <Visualizer
           dayCount={dayCount}
           isStarted={isStarted}
@@ -46,7 +46,7 @@ export const Core = ({
           secretOestro={secretOestro}
           secretProgest={secretProgest}
         />
-      </div>
+      </Col>
     </Row>
   </div>
 );
