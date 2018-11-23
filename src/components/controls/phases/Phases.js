@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Phases.css';
 import { Button } from 'reactstrap';
 
@@ -42,5 +43,14 @@ export const Phases = ({
     </div>
   </div>
 );
+
+Phases.propTypes = {
+  handleOvulation: PropTypes.func.isRequired,
+  handlePostOvulation: PropTypes.func.isRequired,
+  handlePreOvulation: PropTypes.func.isRequired,
+  ovulationActive: PropTypes.bool.isRequired,
+  postOvulationActive: PropTypes.bool.isRequired,
+  preOvulationActive: PropTypes.bool.isRequired,
+};
 
 export default (Phases);

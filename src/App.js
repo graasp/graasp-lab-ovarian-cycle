@@ -1,131 +1,73 @@
 import React, { Component } from 'react';
 import './App.css';
-import * as d3 from "d3";
+import * as d3 from 'd3';
 import { connect } from 'react-redux';
 import {
-  COMMON_DOTS,
-  COMMON_DOTS_1,
-  COMMON_DOTS_2,
-  COMMON_DOTS_3,
-  COMMON_DOTS_4,
-  MAX_LH,
   GREEN,
   ORANGE,
   PURPLE_BLUE,
   SKY_BLUE,
 } from './config/constants';
+import { AppState } from './config/AppState';
 import Core from './components/Core';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  state = AppState;
 
-    this.state = {
-      postOvulation: false,
-      preOvulation: true,
-      ovulation: false,
-      ovulationActive: false,
-      postOvulationActive: false,
-      preOvulationActive: false,
-      // we delay five seconds during the 13 and 14 days
-      delay: 5,
-      dayCount: 1,
-      secretLhFsh: false,
-      secretProgest: false,
-      secretOestro: false,
-      isStarted: false,
-      // starting state for the progesterone dots
-      progesteronePoints: [
-        [378, 1070],
-        COMMON_DOTS,
-        COMMON_DOTS_1,
-        COMMON_DOTS_2,
-        COMMON_DOTS_3,
-        COMMON_DOTS_4,
-        [382, 400],
-        [383, 260],
-        [383, 200],
-      ],
-      oestrogenePoints: [
-        [370, MAX_LH],
-        COMMON_DOTS,
-        COMMON_DOTS_1,
-        COMMON_DOTS_2,
-        COMMON_DOTS_3,
-        COMMON_DOTS_4,
-        [470, 400],
-        [472, 260],
-        [470, 200],
-      ],
-      lhPoints: [
-        [458, 200],
-        [458, 260],
-        [448, 400],
-        [448, 470],
-        [450, 670],
-        [449, 694],
-        [437, 750],
-        [431, 930],
-        [431, 1020],
-        [485, 1070],
-        [482, MAX_LH],
-      ],
-      fshPoints: [
-        [395, 210],
-        [394, 260],
-        [404, 400],
-        [448, 470],
-        [450, 670],
-        [449, 694],
-        [437, 750],
-        [431, 930],
-        [431, 1020],
-        [370, MAX_LH],
-      ],
-    };
-  };
+  componentDidMount() {
+    this.createHormoneFlow();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { svg } = prevProps;
+    if (!svg) {
+      this.createHormoneFlow();
+    }
+  }
+
   tick = () => {
-    let {
+    const {
       dayCount,
       delay,
     } = this.state;
-    let secString = dayCount + "";
+    // eslint-disable-next-line no-unused-vars
+    const secString = `${dayCount}`;
 
     // if in the pre-ovulation phase, we do not secrete lh or fsh
-    if (dayCount < 12 ) {
+    if (dayCount < 12) {
       this.setState({
         preOvulation: true,
         ovulation: false,
         secretLhFsh: false,
         postOvulation: false,
-      })
+      });
       this.updateLh();
     }
 
     // during the xxx this is the ovulation period
     if (dayCount >= 12 && dayCount <= 14 && delay > 0) {
-        // Update initial state to increase Oestrogen and FSH hormones
-        this.updateOestrogen();
-        this.updateFsh();
-        this.updateLh();
+      // Update initial state to increase Oestrogen and FSH hormones
+      this.updateOestrogen();
+      this.updateFsh();
+      this.updateLh();
+      this.setState({
+        delay: delay - 1,
+        secretLhFsh: true,
+        secretOestro: true,
+        ovulation: false,
+        postOvulation: false,
+        preOvulation: true,
+      });
+      // during the last day of ovulation ...
+      if (dayCount === 14) {
         this.setState({
-          delay: delay - 1,
           secretLhFsh: true,
           secretOestro: true,
-          ovulation: false,
-          postOvulation: false,
-          preOvulation: true,
+          ovulation: true,
+          preOvulation: false,
         });
-        // during the last day of ovulation ...
-        if (dayCount === 14) {
-          this.setState({
-            secretLhFsh: true,
-            secretOestro: true,
-            ovulation: true,
-            preOvulation: false,
-          });
-        }
-        return;
+      }
+      return;
     }
     if (dayCount >= 15) {
     // Update initial state to increase progesterones hormones
@@ -137,7 +79,7 @@ class App extends Component {
         ovulation: false,
         postOvulation: true,
         preOvulation: false,
-      })
+      });
     }
 
     this.updateTimeState(dayCount, secString);
@@ -146,15 +88,16 @@ class App extends Component {
       this.setState({
         secretProgest: false,
         secretOestro: false,
-      })
+      });
       clearInterval(this.intervalHandle);
     }
   }
-  tickPreOvulation = () => {
-    let { dayCount } = this.state;
-    let secString = dayCount + "";
 
-    if (dayCount < 12 ) {
+  tickPreOvulation = () => {
+    const { dayCount } = this.state;
+    const secString = `${dayCount}`;
+
+    if (dayCount < 12) {
       this.setState({
         preOvulation: true,
         secretLhFsh: true,
@@ -171,9 +114,10 @@ class App extends Component {
       });
     }
   }
+
   tickPostOvulation = () => {
-    let { dayCount } = this.state;
-    let secString = dayCount + "";
+    const { dayCount } = this.state;
+    const secString = `${dayCount}`;
 
     if (dayCount >= 14) {
     // Update initial state to increase progesterones hormones
@@ -185,7 +129,7 @@ class App extends Component {
         ovulation: false,
         postOvulation: true,
         preOvulation: false,
-      })
+      });
     }
 
     this.updateTimeState(dayCount, secString);
@@ -195,31 +139,36 @@ class App extends Component {
       this.setState({
         secretProgest: false,
         secretOestro: false,
-      })
-
+      });
     }
   }
+
   tickOvulation = () => {
-    let {
+    const {
       dayCount,
       delay,
     } = this.state;
-    let secString = dayCount + "";
+    const secString = `${dayCount}`;
 
     if (dayCount >= 12 && dayCount <= 14 && delay > 0) {
     // Update initial state to increase Oestrogen and FSH hormones
-        this.updateOestrogen();
-        this.updateFsh();
-        this.updateLh();
+      this.updateOestrogen();
+      this.updateFsh();
+      this.updateLh();
+      this.setState({
+        delay: delay - 1,
+        secretLhFsh: true,
+        secretOestro: true,
+        postOvulation: false,
+        preOvulation: true,
+      });
+      if (dayCount === 14) {
         this.setState({
-          delay: delay - 1,
-          secretLhFsh: true,
-          secretOestro: true,
-          preOvulation: true,
-          ovulation: false,
-          postOvulation: false,
+          preOvulation: false,
+          ovulation: true,
         });
-        return;
+      }
+      return;
     }
 
     this.updateTimeState(dayCount, secString);
@@ -229,146 +178,166 @@ class App extends Component {
       this.setState({
         secretLhFsh: false,
         secretOestro: false,
-        ovulation: false,
-        preOvulation: false,
       });
     }
   }
 
   updateLh = () => {
+    // eslint-disable-next-line no-unused-vars
     const { svg } = this.props;
-    const { lhPoints } =  this.state;
+    const { lhPoints } = this.state;
     let nextColor = SKY_BLUE;
+    const translate = `translate(${lhPoints[0]})`;
     this.updateHormone({
       data: lhPoints,
       elemClass: 'ted',
       hormClass: '.lh-hormones',
-      circleFill: () => { nextColor = nextColor === SKY_BLUE ? ORANGE : SKY_BLUE; return nextColor; },
-      circleTransform: "translate(" + lhPoints[0] + ")",
+      circleFill: () => {
+        nextColor = nextColor === SKY_BLUE ? ORANGE
+          : SKY_BLUE;
+        return nextColor;
+      },
+      circleTransform: translate,
       path: svg.selectAll('.lh-hormones'),
     });
   }
+
   updateFsh = () => {
     const { svg } = this.props;
-    const { fshPoints } =  this.state;
+    const { fshPoints } = this.state;
     let nextColor = SKY_BLUE;
+    const translate = `translate(${fshPoints[0]})`;
     this.updateHormone({
       data: fshPoints,
       elemClass: 'fsss',
       hormClass: '.fsh-hormones',
-      circleFill: () => { nextColor = nextColor === SKY_BLUE ? ORANGE : SKY_BLUE; return nextColor; },
-      circleTransform: "translate(" + fshPoints[0] + ")",
+      circleFill: () => {
+        nextColor = nextColor === SKY_BLUE ? ORANGE
+          : SKY_BLUE;
+        return nextColor;
+      },
+      circleTransform: translate,
       path: svg.selectAll('.fsh-hormones'),
     });
   }
+
   updateOestrogen = () => {
     const { svg } = this.props;
     const { oestrogenePoints } = this.state;
+    const translate = `translate(${oestrogenePoints[8]})`;
     this.updateHormone({
       data: oestrogenePoints,
       elemClass: 'oestros',
       hormClass: '.oestro-hormones',
       circleFill: GREEN,
-      circleTransform: "translate(" + oestrogenePoints[8] + ")",
+      circleTransform: translate,
       path: svg.selectAll('.oestro-hormones'),
     });
   }
+
   updateProgesteron = () => {
     const { svg } = this.props;
     const { progesteronePoints } = this.state;
+    const translate = `translate(${progesteronePoints[8]})`;
     this.updateHormone({
       data: progesteronePoints,
       elemClass: 'progests',
       hormClass: '.progest-hormones',
       circleFill: PURPLE_BLUE,
-      circleTransform: "translate(" + progesteronePoints[8] + ")",
+      circleTransform: translate,
       path: svg.selectAll('.progest-hormones'),
     });
   }
-  updateTimeState = (dayCount, secString) => {
+
+  updateTimeState = (dayCount) => {
     if (dayCount <= 27) {
       this.setState({
         delay: 5,
-        dayCount: this.state.dayCount + 1,
+        dayCount: dayCount + 1,
       });
     }
   }
+
   handlePreOvulation = () => {
     this.setState({
       dayCount: 1,
       ovulationActive: false,
       postOvulationActive: false,
       preOvulationActive: true,
-    })
+    });
     this.intervalHandle = setInterval(this.tickPreOvulation, 2100);
   }
+
   handlePostOvulation = () => {
     this.setState({
       dayCount: 14,
       ovulationActive: false,
       postOvulationActive: true,
       preOvulationActive: false,
-    })
+    });
     this.intervalHandle = setInterval(this.tickPostOvulation, 2100);
   }
+
   handleOvulation = () => {
     this.setState({
       dayCount: 12,
       ovulationActive: true,
       postOvulationActive: false,
       preOvulationActive: false,
-    })
+    });
     this.intervalHandle = setInterval(this.tickOvulation, 2100);
   }
+
   handleStart = () => {
-    this.setState({ isStarted: true })
+    this.setState({ isStarted: true });
     this.intervalHandle = setInterval(this.tick, 2100);
   }
+
   handleStop = () => {
     this.setState({
       dayCount: 0,
       isStarted: false,
-      status: false,
     });
     clearInterval(this.intervalHandle);
   }
-  updateHormone = ({data, elemClass, hormClass, circleFill, circleTransform, path}) => {
+
+  updateHormone = ({
+    data,
+    elemClass,
+    circleFill,
+    circleTransform,
+    path,
+  }) => {
     const { svg } = this.props;
-    const lhElem = svg.selectAll(`.${elemClass}`).data( data, (d, i) => i );
+    const lhElem = svg.selectAll(`.${elemClass}`).data(data, (d, i) => i);
     lhElem
       .enter()
-      .append("circle")
+      .append('circle')
       .attr('class', elemClass)
-      .attr("r", 8)
-      .attr("fill", circleFill).attr("transform", circleTransform);
+      .attr('r', 8)
+      .attr('fill', circleFill)
+      .attr('transform', circleTransform);
 
     const trans = () => {
       lhElem
         .transition()
-        .duration((d, i) => { return i * 300 + 2000; })
-        .attrTween("transform", this.translateAlong(path.node()))
+        .duration((d, i) => i * 300 + 2000)
+        .attrTween('transform', this.translateAlong(path.node()));
       //  lhElem.on("end", trans); This could be used to make transition infinite
-    }
+    };
     trans();
   }
+
   translateAlong = (path) => {
-    var l = path.getTotalLength();
-    return function(d, i, a) {
-      return function(t) {
+    const l = path.getTotalLength();
+    return function (d, i, a) {
+      return function (t) {
         var p = path.getPointAtLength(t * l);
-        return "translate(" + p.x + "," + p.y + ")";
+        return `translate(${  p.x  },${  p.y  })`;
       };
     };
   }
-  componentDidMount() {
-    this.createHormoneFlow()
-  }
-  componentDidUpdate(prevProps) {
-    const { svg } = prevProps;
-    if (!svg) {
-      this.createHormoneFlow();
-    }
-  }
+
   createHormoneFlow = () => {
     const {
       lhPoints, fshPoints,
@@ -378,50 +347,50 @@ class App extends Component {
     if (!svg) {
       return;
     }
-    svg.append("path")
-        .data([lhPoints])
-        .attr("class", "lh-hormones")
-        .attr("d", d3.line()) // Catmull–Rom
-    svg.append("path")
-        .data([fshPoints])
-        .attr("class", "fsh-hormones")
-        .attr("d", d3.line()) // Catmull–Rom
-   svg.append("path")
-       .data([progesteronePoints])
-       .attr("class", "progest-hormones")
-       .attr("d", d3.line())
-   svg.append("path")
-       .data([oestrogenePoints])
-       .attr("class", "oestro-hormones")
-       .attr("d", d3.line())
-   svg.selectAll(".point")
-       .data(lhPoints)
-       .enter()
-       .append("circle")
-       .attr("fill", SKY_BLUE)
-       .attr("r", 4)
-       .attr("transform", function(d) { return "translate(" + d + ")"; });
-   svg.selectAll(".point")
-       .data(fshPoints)
-       .enter()
-       .append("circle")
-       .attr("fill", ORANGE)
-       .attr("r", 4)
-       .attr("transform", function(d) { return "translate(" + d + ")"; });
-   svg.selectAll(".point")
-       .data(progesteronePoints)
-       .enter()
-       .append("circle")
-       .attr("fill", PURPLE_BLUE)
-       .attr("r", 4)
-       .attr("transform", function(d) { return "translate(" + d + ")"; });
-   svg.selectAll(".point")
-       .data(oestrogenePoints)
-       .enter()
-       .append("circle")
-       .attr("fill", GREEN)
-       .attr("r", 4)
-       .attr("transform", function(d) { return "translate(" + d + ")"; });
+    svg.append('path')
+      .data([lhPoints])
+      .attr('class', 'lh-hormones')
+      .attr('d', d3.line());
+    svg.append('path')
+      .data([fshPoints])
+      .attr('class', 'fsh-hormones')
+      .attr('d', d3.line());
+    svg.append('path')
+      .data([progesteronePoints])
+      .attr('class', 'progest-hormones')
+      .attr('d', d3.line());
+    svg.append('path')
+      .data([oestrogenePoints])
+      .attr('class', 'oestro-hormones')
+      .attr('d', d3.line());
+    svg.selectAll('.point')
+      .data(lhPoints)
+      .enter()
+      .append('circle')
+      .attr('fill', SKY_BLUE)
+      .attr('r', 4)
+      .attr('transform', d => `translate(${d})`);
+    svg.selectAll('.point')
+      .data(fshPoints)
+      .enter()
+      .append('circle')
+      .attr('fill', ORANGE)
+      .attr('r', 4)
+      .attr('transform', d => `translate(${d})`);
+    svg.selectAll('.point')
+      .data(progesteronePoints)
+      .enter()
+      .append('circle')
+      .attr('fill', PURPLE_BLUE)
+      .attr('r', 4)
+      .attr('transform', d => `translate(${d})`);
+    svg.selectAll('.point')
+      .data(oestrogenePoints)
+      .enter()
+      .append('circle')
+      .attr('fill', GREEN)
+      .attr('r', 4)
+      .attr('transform', d => `translate(${d})`);
   }
 
   render() {

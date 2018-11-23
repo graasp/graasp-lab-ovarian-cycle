@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Counter from '../counter/Counter';
 import Hormones from '../hormones/Hormones';
 import Phases from '../phases/Phases';
@@ -49,4 +50,22 @@ export const Visualizer = ({
   </div>
 );
 
+Visualizer.propTypes = {
+  dayCount: PropTypes.number.isRequired,
+  handleStart: PropTypes.func.isRequired,
+  handleStop: PropTypes.func.isRequired,
+  handleOvulation: PropTypes.func.isRequired,
+  handlePostOvulation: PropTypes.func.isRequired,
+  handlePreOvulation: PropTypes.func.isRequired,
+  isStarted: PropTypes.bool.isRequired,
+  ovulation: PropTypes.bool.isRequired,
+  ovulationActive: PropTypes.bool.isRequired,
+  postOvulationActive: PropTypes.bool.isRequired,
+  preOvulationActive: PropTypes.bool.isRequired,
+  postOvulation: PropTypes.bool.isRequired,
+  preOvulation: PropTypes.bool.isRequired,
+  secretLhFsh: PropTypes.bool.isRequired,
+  secretOestro: PropTypes.bool.isRequired,
+  secretProgest: PropTypes.bool.isRequired,
+};
 export default (Visualizer);
