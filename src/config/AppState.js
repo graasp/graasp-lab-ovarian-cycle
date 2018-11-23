@@ -15,7 +15,7 @@ import {
 
 export const AppState = {
   postOvulation: false,
-  preOvulation: true,
+  preOvulation: false,
   ovulation: false,
   ovulationActive: false,
   postOvulationActive: false,

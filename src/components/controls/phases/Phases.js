@@ -17,6 +17,7 @@ export const Phases = ({
     </div>
     <div className="phases">
       <Button
+        disabled={ovulationActive || postOvulationActive}
         outline
         color="secondary"
         className={`${preOvulationActive ? 'active-preovulation' : ''} pre-ovulation`}
@@ -25,6 +26,7 @@ export const Phases = ({
         Pre-Ovulation
       </Button>
       <Button
+        disabled={preOvulationActive || postOvulationActive}
         outline
         color="secondary"
         className={`${ovulationActive ? 'active-ovulation' : ''} mx-2 ovulation`}
@@ -33,6 +35,7 @@ export const Phases = ({
         Ovulation
       </Button>
       <Button
+        disabled={ovulationActive || preOvulationActive}
         outline
         color="secondary"
         className={`${postOvulationActive ? 'active-postovulation' : ''} post-ovulation`}
