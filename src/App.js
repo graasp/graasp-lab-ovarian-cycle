@@ -33,12 +33,12 @@ class App extends Component {
     // eslint-disable-next-line no-unused-vars
     const secString = `${dayCount}`;
 
-    // if in the pre-ovulation phase, we do not secrete lh or fsh
+    // if in the pre-ovulation phase, we do not secretee lh or fsh
     if (dayCount < 12) {
       this.setState({
         preOvulation: true,
         ovulation: false,
-        secretLhFsh: false,
+        secreteLhFsh: false,
         postOvulation: false,
       });
       this.updateLh();
@@ -52,8 +52,8 @@ class App extends Component {
       this.updateLh();
       this.setState({
         delay: delay - 1,
-        secretLhFsh: true,
-        secretOestro: true,
+        secreteLhFsh: true,
+        secreteOestro: true,
         ovulation: false,
         postOvulation: false,
         preOvulation: true,
@@ -61,8 +61,8 @@ class App extends Component {
       // during the last day of ovulation ...
       if (dayCount === 14) {
         this.setState({
-          secretLhFsh: true,
-          secretOestro: true,
+          secreteLhFsh: true,
+          secreteOestro: true,
           ovulation: true,
           preOvulation: false,
         });
@@ -73,9 +73,9 @@ class App extends Component {
     // Update initial state to increase progesterones hormones
       this.updateProgesteron();
       this.setState({
-        secretLhFsh: false,
-        secretProgest: true,
-        secretOestro: false,
+        secreteLhFsh: false,
+        secreteProgest: true,
+        secreteOestro: false,
         ovulation: false,
         postOvulation: true,
         preOvulation: false,
@@ -86,8 +86,8 @@ class App extends Component {
 
     if (dayCount === 27) {
       this.setState({
-        secretProgest: false,
-        secretOestro: false,
+        secreteProgest: false,
+        secreteOestro: false,
       });
       clearInterval(this.intervalHandle);
     }
@@ -100,7 +100,7 @@ class App extends Component {
     if (dayCount < 12) {
       this.setState({
         preOvulation: true,
-        secretLhFsh: true,
+        secreteLhFsh: true,
       });
       this.updateLh();
     }
@@ -110,7 +110,7 @@ class App extends Component {
       clearInterval(this.intervalHandle);
       this.setState({
         preOvulation: true,
-        secretLhFsh: false,
+        secreteLhFsh: false,
         preOvulationActive: false,
       });
     }
@@ -124,9 +124,9 @@ class App extends Component {
     // Update initial state to increase progesterones hormones
       this.updateProgesteron();
       this.setState({
-        secretLhFsh: false,
-        secretProgest: true,
-        secretOestro: false,
+        secreteLhFsh: false,
+        secreteProgest: true,
+        secreteOestro: false,
         ovulation: false,
         postOvulation: true,
         preOvulation: false,
@@ -138,8 +138,8 @@ class App extends Component {
     if (dayCount === 27) {
       clearInterval(this.intervalHandle);
       this.setState({
-        secretProgest: false,
-        secretOestro: false,
+        secreteProgest: false,
+        secreteOestro: false,
         postOvulationActive: false,
       });
     }
@@ -159,8 +159,8 @@ class App extends Component {
       this.updateLh();
       this.setState({
         delay: delay - 1,
-        secretLhFsh: true,
-        secretOestro: true,
+        secreteLhFsh: true,
+        secreteOestro: true,
         postOvulation: false,
         preOvulation: true,
       });
@@ -179,8 +179,8 @@ class App extends Component {
     if (dayCount === 14) {
       clearInterval(this.intervalHandle);
       this.setState({
-        secretLhFsh: false,
-        secretOestro: false,
+        secreteLhFsh: false,
+        secreteOestro: false,
       });
     }
   }
@@ -406,9 +406,9 @@ class App extends Component {
       preOvulationActive,
       postOvulation,
       preOvulation,
-      secretLhFsh,
-      secretProgest,
-      secretOestro,
+      secreteLhFsh,
+      secreteProgest,
+      secreteOestro,
     } = this.state;
     return (
       <div className="App">
@@ -426,9 +426,9 @@ class App extends Component {
           postOvulationActive={postOvulationActive}
           postOvulation={postOvulation}
           preOvulation={preOvulation}
-          secretLhFsh={secretLhFsh}
-          secretProgest={secretProgest}
-          secretOestro={secretOestro}
+          secreteLhFsh={secreteLhFsh}
+          secreteProgest={secreteProgest}
+          secreteOestro={secreteOestro}
         />
       </div>
     );

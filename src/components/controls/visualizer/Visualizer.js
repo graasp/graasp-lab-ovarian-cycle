@@ -20,9 +20,9 @@ export const Visualizer = ({
   preOvulationActive,
   postOvulation,
   preOvulation,
-  secretLhFsh,
-  secretOestro,
-  secretProgest,
+  secreteLhFsh,
+  secreteOestro,
+  secreteProgest,
 }) => (
   <div className="Visualizer-Container">
     <Counter
@@ -49,9 +49,9 @@ export const Visualizer = ({
       ovulation={ovulation}
       postOvulation={postOvulation}
       preOvulation={preOvulation}
-      secretLhFsh={secretLhFsh}
-      secretProgest={secretProgest}
-      secretOestro={secretOestro}
+      secreteLhFsh={secreteLhFsh}
+      secreteProgest={secreteProgest}
+      secreteOestro={secreteOestro}
     />
   </div>
 );
@@ -70,8 +70,8 @@ Visualizer.propTypes = {
   preOvulationActive: PropTypes.bool.isRequired,
   postOvulation: PropTypes.bool.isRequired,
   preOvulation: PropTypes.bool.isRequired,
-  secretLhFsh: PropTypes.bool.isRequired,
-  secretOestro: PropTypes.bool.isRequired,
-  secretProgest: PropTypes.bool.isRequired,
+  secreteLhFsh: PropTypes.bool.isRequired,
+  secreteOestro: PropTypes.bool.isRequired,
+  secreteProgest: PropTypes.bool.isRequired,
 };
 export default (Visualizer);
