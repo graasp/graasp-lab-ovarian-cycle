@@ -25,6 +25,10 @@ class App extends Component {
     }
   }
 
+  reloadPage = () => {
+    window.location.reload();
+  }
+
   tick = () => {
     const {
       dayCount,
@@ -417,6 +421,7 @@ class App extends Component {
           handleOvulation={this.handleOvulation}
           handlePostOvulation={this.handlePostOvulation}
           handlePreOvulation={this.handlePreOvulation}
+          reloadPage={this.reloadPage}
           handleStart={this.handleStart}
           handleStop={this.handleStop}
           isStarted={isStarted}
