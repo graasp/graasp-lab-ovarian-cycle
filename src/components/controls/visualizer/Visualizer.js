@@ -4,6 +4,7 @@ import Calendar from '../counter/Calendar';
 import Counter from '../counter/Counter';
 import Hormones from '../hormones/Hormones';
 import Phases from '../phases/Phases';
+import Refresher from './Refresher';
 import './Visualizer.css';
 
 export const Visualizer = ({
@@ -11,6 +12,7 @@ export const Visualizer = ({
   handleOvulation,
   handlePostOvulation,
   handlePreOvulation,
+  reloadPage,
   handleStart,
   handleStop,
   isStarted,
@@ -53,6 +55,9 @@ export const Visualizer = ({
       secreteProgest={secreteProgest}
       secreteOestro={secreteOestro}
     />
+    <Refresher
+      reloadPage={reloadPage}
+    />
   </div>
 );
 
@@ -63,6 +68,7 @@ Visualizer.propTypes = {
   handleOvulation: PropTypes.func.isRequired,
   handlePostOvulation: PropTypes.func.isRequired,
   handlePreOvulation: PropTypes.func.isRequired,
+  reloadPage: PropTypes.func.isRequired,
   isStarted: PropTypes.bool.isRequired,
   ovulation: PropTypes.bool.isRequired,
   ovulationActive: PropTypes.bool.isRequired,
