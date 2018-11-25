@@ -1,12 +1,24 @@
 .Phases-Container {
-  padding: 20px;
+  padding: 1rem 0;
 }
 .select-step {
-  font-size: 35px;
+  font-size: 2rem;
+  margin-top: 3rem;
 }
-
 .active-ovulation, .active-preovulation, .active-postovulation {
   background-color: #6c757d;
   border-color: #6c757d;
   color: #fff;
+}
+.or {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  padding: 1rem;
+}
+.pre-ovulation, .ovulation, .post-ovulation {
+  width: 10rem;
+  font-size: 1.3rem;
+}
+.phases {
+  padding: 1rem 0;
 }

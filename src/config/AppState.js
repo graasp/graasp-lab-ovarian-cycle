@@ -15,7 +15,7 @@ import {
 
 export const AppState = {
   postOvulation: false,
-  preOvulation: true,
+  preOvulation: false,
   ovulation: false,
   ovulationActive: false,
   postOvulationActive: false,
@@ -24,9 +24,9 @@ export const AppState = {
   // we delay five seconds during the 13 and 14 days
   delay: 5,
   dayCount: 1, // we initialize the day counter to 1
-  secretLhFsh: false, // at the begening we do not secret any hormones
-  secretProgest: false,
-  secretOestro: false,
+  secreteLhFsh: false, // at the begening we do not secrete any hormones
+  secreteProgest: false,
+  secreteOestro: false,
   // starting state for the progesterone dots
   progesteronePoints: [
     [378, 1070],

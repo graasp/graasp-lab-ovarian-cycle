@@ -4,39 +4,36 @@ import './Counter.css';
 import { Button } from 'reactstrap';
 
 const Counter = ({
-  dayCount,
   handleStart,
   handleStop,
   isStarted,
+  ovulationActive,
+  preOvulationActive,
+  postOvulationActive,
 }) => {
+  const isDisabled = preOvulationActive || ovulationActive || postOvulationActive;
   // show stop button if simulation started otherwise show start
   const startButton = (isStarted)
-    ? <Button className="Button-stop" onClick={handleStop}>Stop cycle</Button>
-    : <Button className="Button-start" onClick={handleStart}>Start cycle</Button>;
+    ? <Button className="Button-stop" onClick={handleStop} size="lg" disabled={isDisabled}>Stop cycle</Button>
+    : <Button className="Button-start" onClick={handleStart} size="lg" disabled={isDisabled}>Launch Cycle</Button>;
   return (
     <div className="Counter-Container">
       <div className="clock-setter">
-        <p className="select-step"> ...or launch the cycle </p>
         {startButton}
-      </div>
-      <div className="clock-container">
-        <div className="clock-balls">
-          <div className="clock-timer">
-            <span className="clock-counter">
-              {dayCount}
-            </span>
-            <span className="clock-dayer"> DAYS </span>
-          </div>
-        </div>
+        <p className="select-step">
+          <span className="or">OR</span>
+        </p>
       </div>
     </div>
   );
 };
 
 Counter.propTypes = {
-  dayCount: PropTypes.number.isRequired,
   handleStart: PropTypes.func.isRequired,
   handleStop: PropTypes.func.isRequired,
   isStarted: PropTypes.bool.isRequired,
+  ovulationActive: PropTypes.bool.isRequired,
+  postOvulationActive: PropTypes.bool.isRequired,
+  preOvulationActive: PropTypes.bool.isRequired,
 };
 export default (Counter);

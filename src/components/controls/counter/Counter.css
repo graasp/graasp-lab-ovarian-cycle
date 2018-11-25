@@ -1,26 +1,12 @@
-.clock-setter {
+.clock-starter {
   text-align: center;
   padding: 10px;
 }
-.clock-container {
-  padding: 16px 30px;
-  background: green;
-  width: 300px;
-  margin: 20px auto;
+.fa-calendar {
+  width: 15rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
-.clock-balls {
-  width: 240px;
-  background: #fff;
-  padding: 7px;
-  display: inline-block;
-}
-.clock-timer {
-  background: yellowgreen;
-}
-.clock-counter {
-  font-size: 35px;
-  font-weight: bold;
-}
-.clock-dayer {
-  font-size: 30px;
+.btn-lg {
+  font-size: 2rem;
 }

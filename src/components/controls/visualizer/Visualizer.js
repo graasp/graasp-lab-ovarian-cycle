@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Calendar from '../counter/Calendar';
 import Counter from '../counter/Counter';
 import Hormones from '../hormones/Hormones';
 import Phases from '../phases/Phases';
+import Refresher from './Refresher';
 import './Visualizer.css';
 
 export const Visualizer = ({
@@ -10,6 +12,7 @@ export const Visualizer = ({
   handleOvulation,
   handlePostOvulation,
   handlePreOvulation,
+  reloadPage,
   handleStart,
   handleStop,
   isStarted,
@@ -19,11 +22,19 @@ export const Visualizer = ({
   preOvulationActive,
   postOvulation,
   preOvulation,
-  secretLhFsh,
-  secretOestro,
-  secretProgest,
+  secreteLhFsh,
+  secreteOestro,
+  secreteProgest,
 }) => (
   <div className="Visualizer-Container">
+    <Counter
+      handleStart={handleStart}
+      handleStop={handleStop}
+      isStarted={isStarted}
+      ovulationActive={ovulationActive}
+      postOvulationActive={postOvulationActive}
+      preOvulationActive={preOvulationActive}
+    />
     <Phases
       handleOvulation={handleOvulation}
       handlePostOvulation={handlePostOvulation}
@@ -33,19 +44,19 @@ export const Visualizer = ({
       preOvulationActive={preOvulationActive}
       preOvulation={preOvulation}
     />
-    <Counter
+    <Calendar
       dayCount={dayCount}
-      handleStart={handleStart}
-      handleStop={handleStop}
-      isStarted={isStarted}
     />
     <Hormones
       ovulation={ovulation}
       postOvulation={postOvulation}
       preOvulation={preOvulation}
-      secretLhFsh={secretLhFsh}
-      secretProgest={secretProgest}
-      secretOestro={secretOestro}
+      secreteLhFsh={secreteLhFsh}
+      secreteProgest={secreteProgest}
+      secreteOestro={secreteOestro}
+    />
+    <Refresher
+      reloadPage={reloadPage}
     />
   </div>
 );
@@ -57,6 +68,7 @@ Visualizer.propTypes = {
   handleOvulation: PropTypes.func.isRequired,
   handlePostOvulation: PropTypes.func.isRequired,
   handlePreOvulation: PropTypes.func.isRequired,
+  reloadPage: PropTypes.func.isRequired,
   isStarted: PropTypes.bool.isRequired,
   ovulation: PropTypes.bool.isRequired,
   ovulationActive: PropTypes.bool.isRequired,
@@ -64,8 +76,8 @@ Visualizer.propTypes = {
   preOvulationActive: PropTypes.bool.isRequired,
   postOvulation: PropTypes.bool.isRequired,
   preOvulation: PropTypes.bool.isRequired,
-  secretLhFsh: PropTypes.bool.isRequired,
-  secretOestro: PropTypes.bool.isRequired,
-  secretProgest: PropTypes.bool.isRequired,
+  secreteLhFsh: PropTypes.bool.isRequired,
+  secreteOestro: PropTypes.bool.isRequired,
+  secreteProgest: PropTypes.bool.isRequired,
 };
 export default (Visualizer);
