@@ -22,6 +22,7 @@ export const Core = ({
   secreteLhFsh,
   secreteOestro,
   secreteProgest,
+  t,
 }) => (
   <div className="core-container">
     <Row>
@@ -47,6 +48,7 @@ export const Core = ({
           secreteLhFsh={secreteLhFsh}
           secreteOestro={secreteOestro}
           secreteProgest={secreteProgest}
+          t={t}
         />
       </Col>
     </Row>
@@ -60,6 +62,7 @@ Core.propTypes = {
   handleOvulation: PropTypes.func.isRequired,
   handlePostOvulation: PropTypes.func.isRequired,
   handlePreOvulation: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
   reloadPage: PropTypes.func.isRequired,
   isStarted: PropTypes.bool.isRequired,
   ovulation: PropTypes.bool.isRequired,
