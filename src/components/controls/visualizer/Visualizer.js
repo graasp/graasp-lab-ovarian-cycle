@@ -26,7 +26,7 @@ export const Visualizer = ({
   secreteOestro,
   secreteProgest,
 }) => (
-  <div className="Visualizer-Container">
+  <div className="visualizer-container">
     <Counter
       handleStart={handleStart}
       handleStop={handleStop}

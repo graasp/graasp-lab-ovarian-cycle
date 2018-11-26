@@ -218,7 +218,7 @@ class App extends Component {
     const translate = `translate(${fshPoints[0]})`;
     this.updateHormone({
       data: fshPoints,
-      elemClass: 'fsss',
+      elemClass: 'fsh',
       hormClass: '.fsh-hormones',
       circleFill: () => {
         nextColor = nextColor === SKY_BLUE ? ORANGE
