@@ -1,0 +1,21 @@
+{
+  "translations" : {
+    "Launch Cycle": "Lancer Cycle",
+    "Stop Cycle": "Arrêter Cycle",
+    "OR": "OU",
+    "Pre-Ovulation": "Pré-Ovulation",
+    "Ovulation": "Ovulation",
+    "Post-Ovulation": "Post-Ovulation",
+    "Select step": "Choisissez une phase...",
+    "LH": "LH",
+    "FSH": "FSH",
+    "Oestrogens": "Oestrogènes",
+    "Progesterones": "Progestérones",
+    "This stage is the moment when the LH and FSH are in normal quatity.": "Cette étape est le moment où la LH et la FSH sont en quantité normale.",
+    "This stage is the moment when LH and FSH as well as estrogens are in great quantity.": "Cette étape est le moment où la LH et la FSH ainsi que les œstrogènes sont en grande quantité.",
+    "This stage is the moment when the LH and FSH are in very low quatity.": "Cette étape est le moment où la LH et la FSH sont en très faible quantité.",
+    "This is the period before ovulation": "C'est la période avant l'ovulation",
+    "This is the ovulation phase.": "C'est la phase d'ovulation.",
+    "This is the period after ovulation.": "C'est la période après l'ovulation."
+  }
+}
