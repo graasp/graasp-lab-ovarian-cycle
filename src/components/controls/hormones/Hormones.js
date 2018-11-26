@@ -9,34 +9,35 @@ export const Hormones = ({
   secreteLhFsh,
   secreteProgest,
   secreteOestro,
+  t,
 }) => (
   <div className="hormone-container">
     <div className="hormones-container">
       <div className="hormones-table">
         <div className="lh-hormones">
           <span className={`${secreteLhFsh ? 'animate-lh-hormones' : ''} lh-indicator`} />
-          <div className={`${secreteLhFsh ? 'animate-lh-hormones' : ''} lh-name`}>LH</div>
+          <div className={`${secreteLhFsh ? 'animate-lh-hormones' : ''} lh-name`}>{t('LH')}</div>
           <span className={`${secreteLhFsh ? 'animate-lh-hormones' : ''} lh-state`}>
             {secreteLhFsh ? '+' : '-'}
           </span>
         </div>
         <div className="fsh-hormones">
           <span className={`${secreteLhFsh ? 'animate-fsh-hormones' : ''} fsh-indicator`} />
-          <div className={`${secreteLhFsh ? 'animate-fsh-hormones' : ''} fsh-name`}>FSH</div>
+          <div className={`${secreteLhFsh ? 'animate-fsh-hormones' : ''} fsh-name`}>{t('FSH')}</div>
           <span className={`${secreteLhFsh ? 'animate-fsh-hormones' : ''} fsh-state`}>
             {secreteLhFsh ? '+' : '-'}
           </span>
         </div>
         <div className="oestro-hormones">
           <span className={`${secreteOestro ? 'animate-oestro-hormones' : ''} oestro-indicator`} />
-          <div className={`${secreteOestro ? 'animate-oestro-hormones' : ''} oestro-name`}>Oestrogens</div>
+          <div className={`${secreteOestro ? 'animate-oestro-hormones' : ''} oestro-name`}>{t('Oestrogens')}</div>
           <span className={`${secreteOestro ? 'animate-oestro-hormones' : ''} oestro-state`}>
             {secreteOestro ? '+' : '-'}
           </span>
         </div>
         <div className="progest-hormones">
           <span className={`${secreteProgest ? 'animate-progest-hormones' : ''} progest-indicator`} />
-          <div className={`${secreteProgest ? 'animate-progest-hormones' : ''} progest-name`}>Progesterones</div>
+          <div className={`${secreteProgest ? 'animate-progest-hormones' : ''} progest-name`}>{t('Progesterones')}</div>
           <span className={`${secreteProgest ? 'animate-progest-hormones' : ''} progest-state`}>
             {secreteProgest ? '+' : '-'}
           </span>
@@ -55,25 +56,25 @@ export const Hormones = ({
 
         {preOvulation ? (
           <p className="preovulation-description">
-            This stage is the moment when the LH and FSH are in normal quatity.
+            {t('This stage is the moment when the LH and FSH are in normal quatity.')}
             <br />
-            This is the period before ovulation
+            {t('This is the period before ovulation')}
           </p>
         ) : ''
         }
         {ovulation ? (
           <p className="ovulation-description">
-            This stage is the moment when LH and FSH as well as estrogens are in great quantity.
+            {t('This stage is the moment when LH and FSH as well as estrogens are in great quantity.')}
             <br />
-            This is the ovulation phase.
+            {t('This is the ovulation phase.')}
           </p>
         ) : ''
         }
         {postOvulation ? (
           <p className="postovulation-description">
-            This stage is the moment when the LH and FSH are in very low quatity.
+            {t('This stage is the moment when the LH and FSH are in very low quatity.')}
             <br />
-            This is the period after ovulation.
+            {t('This is the period after ovulation.')}
           </p>
         ) : ''
         }
@@ -83,6 +84,7 @@ export const Hormones = ({
 );
 
 Hormones.propTypes = {
+  t: PropTypes.func.isRequired,
   ovulation: PropTypes.bool.isRequired,
   postOvulation: PropTypes.bool.isRequired,
   preOvulation: PropTypes.bool.isRequired,
