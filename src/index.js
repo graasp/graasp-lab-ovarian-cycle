@@ -4,14 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import Root from './Root';
 import * as serviceWorker from './serviceWorker';
-import App from './App';
 
-ReactDOM.render(
-  <Root>
-    <App />
-  </Root>,
-  document.getElementById('root'),
-);
+ReactDOM.render(<Root />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
