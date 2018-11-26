@@ -105,6 +105,8 @@ class App extends Component {
       this.setState({
         preOvulation: true,
         secreteLhFsh: true,
+        postOvulation: false,
+        ovulation: false,
       });
       this.updateLh();
     }
