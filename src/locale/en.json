@@ -1,0 +1,21 @@
+{
+  "translations" : {
+    "Launch Cycle": "Launch Cycle",
+    "Stop Cycle": "Stop Cycle",
+    "OR": "OR",
+    "Pre-Ovulation": "Pre-Ovulation",
+    "Ovulation": "Ovulation",
+    "Post-Ovulation": "Post-Ovulation",
+    "Select step": "Select step...",
+    "LH": "LH",
+    "FSH": "FSH",
+    "Oestrogens": "Estrogens",
+    "Progesterones": "Progesterones",
+    "This stage is the moment when the LH and FSH are in normal quatity.": "This stage is the moment when the LH and FSH are in normal quatity.",
+    "This stage is the moment when LH and FSH as well as estrogens are in great quantity.": "This stage is the moment when LH and FSH as well as estrogens are in great quantity.",
+    "This stage is the moment when the LH and FSH are in very low quatity.": "This stage is the moment when the LH and FSH are in very low quatity.",
+    "This is the period before ovulation": "This is the period before ovulation",
+    "This is the ovulation phase.": "This is the ovulation phase.",
+    "This is the period after ovulation.": "This is the period after ovulation."
+  }
+}
