@@ -23,7 +23,7 @@ export const Core = ({
   secreteOestro,
   secreteProgest,
 }) => (
-  <div className="Core-Container">
+  <div className="core-container">
     <Row>
       <Col sm="8">
         <Body />

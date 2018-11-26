@@ -11,7 +11,7 @@ export const Phases = ({
   preOvulationActive,
   postOvulationActive,
 }) => (
-  <div className="Phases-Container">
+  <div className="phases-container">
     <div className="phases-title">
       <span className="select-step"> Select step... </span>
     </div>

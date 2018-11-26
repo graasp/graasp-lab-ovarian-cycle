@@ -10,7 +10,7 @@ export const Hormones = ({
   secreteProgest,
   secreteOestro,
 }) => (
-  <div className="Hormone-Container">
+  <div className="hormone-container">
     <div className="hormones-container">
       <div className="hormones-table">
         <div className="lh-hormones">

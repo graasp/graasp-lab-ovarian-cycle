@@ -11,8 +11,8 @@ class Body extends React.Component {
 
   render() {
     return (
-      <div className="Body-Container">
-        <img src={HumanBody} className="Human-image" alt="Logo" />
+      <div className="body-container">
+        <img src={HumanBody} className="human-image" alt="Human Body" />
       </div>
     );
   }

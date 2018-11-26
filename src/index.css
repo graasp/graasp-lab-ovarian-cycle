@@ -16,7 +16,7 @@
 circle {
   cursor: pointer;
 }
-.Human-image {
+.human-image {
   position: absolute;
   z-index: -5;
 }
