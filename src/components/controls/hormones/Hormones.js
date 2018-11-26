@@ -43,26 +43,40 @@ export const Hormones = ({
         </div>
       </div>
       <div className="description-container">
-        <h2 className={`${preOvulation ? 'animate-text' : ''}`}>
+        <h1 className={`${preOvulation ? 'animate-text' : ''}`}>
           {preOvulation ? 'Pre-Ovulation' : ''}
-        </h2>
-        <h2 className={`${ovulation ? 'animate-text' : ''}`}>
+        </h1>
+        <h1 className={`${ovulation ? 'animate-text' : ''}`}>
           {ovulation ? 'Ovulation' : ''}
-        </h2>
-        <h2 className={`${postOvulation ? 'animate-text' : ''}`}>
+        </h1>
+        <h1 className={`${postOvulation ? 'animate-text' : ''}`}>
           {postOvulation ? 'Post-Ovulation' : ''}
-        </h2>
+        </h1>
 
-        <p className="Phase-description">
-          {postOvulation ? 'This stage is the moment when the LH and FSH are in very low quatity.' : ''}
-          {preOvulation ? 'This stage is the moment when the LH and FSH are in normal quatity.' : ''}
-          {ovulation ? 'This stage is the moment when LH and FSH as well as estrogens are in great quantity.' : ''}
-        </p>
-        <p className="Phase-description">
-          {postOvulation ? 'This is the period after ovulation.' : ''}
-          {preOvulation ? 'This is the period before ovulation' : ''}
-          {ovulation ? 'This is the ovulation phase.' : ''}
-        </p>
+        {preOvulation ? (
+          <p className="preovulation-description">
+            This stage is the moment when the LH and FSH are in normal quatity.
+            <br />
+            This is the period before ovulation
+          </p>
+        ) : ''
+        }
+        {ovulation ? (
+          <p className="ovulation-description">
+            This stage is the moment when LH and FSH as well as estrogens are in great quantity.
+            <br />
+            This is the ovulation phase.
+          </p>
+        ) : ''
+        }
+        {postOvulation ? (
+          <p className="postovulation-description">
+            This stage is the moment when the LH and FSH are in very low quatity.
+            <br />
+            This is the period after ovulation.
+          </p>
+        ) : ''
+        }
       </div>
     </div>
   </div>
