@@ -44,12 +44,33 @@
    margin-top: 2rem;
    padding: 1rem;
  }
- .Phase-description {
+ .preovulation-description, .ovulation-description, .postovulation-description {
    font-size: 2.2rem;
    font-weight: 300;
  }
+ .ovulation-description {
+   color: #ff7a00;
+ }
+ .postovulation-description {
+   color: #9C27B0;
+ }
+ .preovulation-description {
+   color: #12a3c1;
+ }
+ .active-preovulation {
+   background-color: #12a3c1 !important;
+   border-color: #12a3c1 !important;
+ }
+ .active-ovulation {
+   background-color: #ff7a00 !important;
+   border-color: #ff7a00 !important;
+ }
+ .active-postovulation {
+   background-color: #9C27B0 !important;
+   border-color: #9C27B0 !important;
+ }
 
-.animate-text {
+.animate-text, .preovulation-description, .ovulation-description, .postovulation-description {
    animation-name: fade;
    animation-fill-mode: both;
    animation-duration: 1s;
