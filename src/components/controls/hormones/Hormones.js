@@ -44,16 +44,24 @@ export const Hormones = ({
         </div>
       </div>
       <div className="description-container">
-        <h1 className={`${preOvulation ? 'animate-text' : ''}`}>
-          {preOvulation ? 'Pre-Ovulation' : ''}
-        </h1>
-        <h1 className={`${ovulation ? 'animate-text' : ''}`}>
-          {ovulation ? 'Ovulation' : ''}
-        </h1>
-        <h1 className={`${postOvulation ? 'animate-text' : ''}`}>
-          {postOvulation ? 'Post-Ovulation' : ''}
-        </h1>
-
+        {preOvulation ? (
+          <h1 className={`${preOvulation ? 'animate-text' : ''}`}>
+            {t('Pre-Ovulation')}
+          </h1>
+        ) : ''
+        }
+        {ovulation ? (
+          <h1 className={`${ovulation ? 'animate-text' : ''}`}>
+            {t('Ovulation')}
+          </h1>
+        ) : ''
+        }
+        {postOvulation ? (
+          <h1 className={`${postOvulation ? 'animate-text' : ''}`}>
+            {t('Post-Ovulation')}
+          </h1>
+        ) : ''
+        }
         {preOvulation ? (
           <p className="preovulation-description">
             {t('This stage is the moment when the LH and FSH are in normal quatity.')}
