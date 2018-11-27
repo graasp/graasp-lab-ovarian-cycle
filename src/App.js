@@ -5,7 +5,7 @@ import { withNamespaces } from 'react-i18next';
 import './App.css';
 import StudentView from './student/StudentView';
 
-class App extends Component {
+export class App extends Component {
   static propTypes = {
     i18n: PropTypes.shape({}).isRequired,
     t: PropTypes.func.isRequired,
