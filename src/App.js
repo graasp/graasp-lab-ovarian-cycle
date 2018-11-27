@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Qs from 'qs';
+import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 import './App.css';
 import * as d3 from 'd3';
 import { connect } from 'react-redux';
@@ -12,7 +15,21 @@ import { AppState } from './config/AppState';
 import Core from './components/Core';
 
 class App extends Component {
+  static propTypes = {
+    i18n: PropTypes.shape({}).isRequired,
+    t: PropTypes.func.isRequired,
+  }
+
   state = AppState;
+
+  constructor(props) {
+    super(props);
+    const {
+      lang = 'en',
+    } = Qs.parse(window.location.search, { ignoreQueryPrefix: true });
+    const { i18n } = this.props;
+    i18n.changeLanguage(lang);
+  }
 
   componentDidMount() {
     this.createHormoneFlow();
@@ -416,6 +433,7 @@ class App extends Component {
       secreteProgest,
       secreteOestro,
     } = this.state;
+    const { t } = this.props;
     return (
       <div className="App">
         <Core
@@ -436,6 +454,7 @@ class App extends Component {
           secreteLhFsh={secreteLhFsh}
           secreteProgest={secreteProgest}
           secreteOestro={secreteOestro}
+          t={t}
         />
       </div>
     );
@@ -446,4 +465,4 @@ const mapStateToProps = state => ({
   svg: state.svg.svg,
 });
 
-export default connect(mapStateToProps)(App);
+export default translate('translations')(connect(mapStateToProps)(App));

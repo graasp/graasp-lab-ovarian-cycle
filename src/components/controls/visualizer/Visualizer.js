@@ -25,6 +25,7 @@ export const Visualizer = ({
   secreteLhFsh,
   secreteOestro,
   secreteProgest,
+  t,
 }) => (
   <div className="visualizer-container">
     <Counter
@@ -34,6 +35,7 @@ export const Visualizer = ({
       ovulationActive={ovulationActive}
       postOvulationActive={postOvulationActive}
       preOvulationActive={preOvulationActive}
+      t={t}
     />
     <Phases
       handleOvulation={handleOvulation}
@@ -43,6 +45,7 @@ export const Visualizer = ({
       postOvulationActive={postOvulationActive}
       preOvulationActive={preOvulationActive}
       preOvulation={preOvulation}
+      t={t}
     />
     <Calendar
       dayCount={dayCount}
@@ -54,6 +57,7 @@ export const Visualizer = ({
       secreteLhFsh={secreteLhFsh}
       secreteProgest={secreteProgest}
       secreteOestro={secreteOestro}
+      t={t}
     />
     <Refresher
       reloadPage={reloadPage}
@@ -68,6 +72,7 @@ Visualizer.propTypes = {
   handleOvulation: PropTypes.func.isRequired,
   handlePostOvulation: PropTypes.func.isRequired,
   handlePreOvulation: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
   reloadPage: PropTypes.func.isRequired,
   isStarted: PropTypes.bool.isRequired,
   ovulation: PropTypes.bool.isRequired,
