@@ -8,10 +8,10 @@ import {
   PURPLE_BLUE,
   SKY_BLUE,
 } from '../config/constants';
-import Core from '../components/Core';
+import Core from '../components/core/Core';
 import { AppState } from '../config/AppState';
 
-class StudentView extends Component {
+export class StudentView extends Component {
   static propTypes = {
     t: PropTypes.func.isRequired,
   }
