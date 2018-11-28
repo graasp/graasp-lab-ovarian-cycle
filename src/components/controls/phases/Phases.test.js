@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { Button } from 'reactstrap';
 import Phases from './Phases';
 
-describe('<Phases /> component', () => {
+describe('<Phases />', () => {
   const props = {
     t: jest.fn(),
     handleOvulation: jest.fn(),

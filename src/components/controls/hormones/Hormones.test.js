@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Hormones from './Hormones';
 
-describe('<Hormones /> component', () => {
+describe('<Hormones />', () => {
   const props = {
     ovulation: false,
     postOvulation: false,

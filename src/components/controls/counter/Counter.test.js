@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { Button } from 'reactstrap';
 import Counter from './Counter';
 
-describe('<Counter /> component', () => {
+describe('<Counter />', () => {
   const props = {
     t: jest.fn(),
     handleStart: jest.fn(),

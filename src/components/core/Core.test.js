@@ -4,7 +4,7 @@ import Core from './Core';
 import Body from '../body/Body';
 import Visualizer from '../controls/visualizer/Visualizer';
 
-describe('<Core /> component', () => {
+describe('<Core />', () => {
   const props = {
     dayCount: 0,
     handleStart: jest.fn(),

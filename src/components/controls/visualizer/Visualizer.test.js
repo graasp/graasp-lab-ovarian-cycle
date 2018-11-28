@@ -7,7 +7,7 @@ import Hormones from '../hormones/Hormones';
 import Phases from '../phases/Phases';
 import Refresher from './refresher/Refresher';
 
-describe('<Visualizer /> component', () => {
+describe('<Visualizer />', () => {
   const props = {
     dayCount: 0,
     handleStart: jest.fn(),
