@@ -1,15 +1,22 @@
-.fsh-puces, .lh-puces, .oestro-puces, .progest-puces {
+.fsh-puces,
+.lh-puces,
+.oestro-puces,
+.progest-puces {
   font-size: 110px;
   vertical-align: bottom;
 }
 
-.lh-container, .fsh-container, .oestro-container, .progest-container {
+.lh-container,
+.fsh-container,
+.oestro-container,
+.progest-container {
   font-size: 60px;
 }
 .hormones-container {
   padding: 20px;
 }
-.oestro-hormones, .progest-hormones {
+.oestro-hormones,
+.progest-hormones {
   fill: none;
   stroke: none;
 }
