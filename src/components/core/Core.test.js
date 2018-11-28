@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Core from './Core';
-import Body from './body/Body';
-import Visualizer from './controls/visualizer/Visualizer';
+import Body from '../body/Body';
+import Visualizer from '../controls/visualizer/Visualizer';
 
 describe('<Core /> component', () => {
   const props = {

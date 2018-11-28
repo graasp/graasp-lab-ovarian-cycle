@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'reactstrap';
-import Body from './body/Body';
-import Visualizer from './controls/visualizer/Visualizer';
+import Body from '../body/Body';
+import Visualizer from '../controls/visualizer/Visualizer';
 
 export const Core = ({
   dayCount,
