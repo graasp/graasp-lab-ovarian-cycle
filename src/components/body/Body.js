@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import HumanBody from './human-body.png';
 import { appendSvg } from '../../actions';
 
-class Body extends React.Component {
+export class Body extends React.Component {
   componentDidMount() {
     const { dispatchAppendSvg } = this.props;
     dispatchAppendSvg(mapStateToProps);
