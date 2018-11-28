@@ -18,6 +18,7 @@ export class App extends Component {
       mode = 'default',
     } = Qs.parse(window.location.search, { ignoreQueryPrefix: true });
     const { i18n } = this.props;
+    // here we query the language code from the browser url params
     i18n.changeLanguage(lang);
     this.state = { mode };
   }
@@ -27,7 +28,9 @@ export class App extends Component {
     const { t } = this.props;
 
     switch (mode) {
+      // our student view will basically render all the lab student side
       // by default go with the student mode
+      // we pass {t} as params for the internationalization
       case 'student':
       default:
         return <StudentView t={t} />;
