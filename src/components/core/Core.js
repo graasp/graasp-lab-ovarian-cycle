@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Col, Row } from 'reactstrap';
 import Body from '../body/Body';
 import Visualizer from '../controls/visualizer/Visualizer';
-
+// this is our sub main component
+// it renders the body and all the part containing
+// the dynamic informations of our application
 export const Core = ({
   dayCount,
   isStarted,

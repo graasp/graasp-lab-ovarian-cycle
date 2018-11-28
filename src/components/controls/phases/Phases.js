@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Phases.css';
 import { Button } from 'reactstrap';
-
+// here we have our pre-ovulatio, ovulation and post-ovulation buttons
+// then we make sure all other buttons are disabled when one is clicked
 export const Phases = ({
   handleOvulation,
   handlePostOvulation,

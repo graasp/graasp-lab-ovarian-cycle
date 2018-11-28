@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+// here we create an svg file and pass
+// the ovarian cycle dayCount to display
 const Calendar = ({ dayCount }) => (
   <svg
     aria-hidden="true"
