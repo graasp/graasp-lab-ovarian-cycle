@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import StudentView from './StudentView';
-import Core from '../components/Core';
+import Core from '../components/core/Core';
 
 describe('<StudentView />', () => {
   const component = shallow(<StudentView />);
