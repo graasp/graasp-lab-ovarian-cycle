@@ -5,7 +5,7 @@ import Calendar from '../calendar/Calendar';
 import Counter from '../counter/Counter';
 import Hormones from '../hormones/Hormones';
 import Phases from '../phases/Phases';
-import Refresher from './Refresher';
+import Refresher from './refresher/Refresher';
 
 describe('<Visualizer /> component', () => {
   const props = {
