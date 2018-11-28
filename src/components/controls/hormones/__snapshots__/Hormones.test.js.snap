@@ -1,0 +1,2219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Hormones /> component renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Hormones
+    ovulation={false}
+    postOvulation={false}
+    preOvulation={false}
+    secreteLhFsh={false}
+    secreteOestro={false}
+    secreteProgest={false}
+    t={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            "LH",
+          ],
+          Array [
+            "FSH",
+          ],
+          Array [
+            "Oestrogens",
+          ],
+          Array [
+            "Progesterones",
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="hormones-container"
+      >
+        <div
+          className="hormones-table"
+        >
+          <div
+            className="lh-hormones"
+          >
+            <span
+              className=" lh-indicator"
+            />
+            <div
+              className=" lh-name"
+            />
+            <span
+              className=" lh-state"
+            >
+              -
+            </span>
+          </div>
+          <div
+            className="fsh-hormones"
+          >
+            <span
+              className=" fsh-indicator"
+            />
+            <div
+              className=" fsh-name"
+            />
+            <span
+              className=" fsh-state"
+            >
+              -
+            </span>
+          </div>
+          <div
+            className="oestro-hormones"
+          >
+            <span
+              className=" oestro-indicator"
+            />
+            <div
+              className=" oestro-name"
+            />
+            <span
+              className=" oestro-state"
+            >
+              -
+            </span>
+          </div>
+          <div
+            className="progest-hormones"
+          >
+            <span
+              className=" progest-indicator"
+            />
+            <div
+              className=" progest-name"
+            />
+            <span
+              className=" progest-state"
+            >
+              -
+            </span>
+          </div>
+        </div>
+        <div
+          className="description-container"
+        >
+          
+          
+          
+          
+          
+          
+        </div>
+      </div>,
+      "className": "hormone-container",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="hormones-table"
+          >
+            <div
+              className="lh-hormones"
+            >
+              <span
+                className=" lh-indicator"
+              />
+              <div
+                className=" lh-name"
+              />
+              <span
+                className=" lh-state"
+              >
+                -
+              </span>
+            </div>
+            <div
+              className="fsh-hormones"
+            >
+              <span
+                className=" fsh-indicator"
+              />
+              <div
+                className=" fsh-name"
+              />
+              <span
+                className=" fsh-state"
+              >
+                -
+              </span>
+            </div>
+            <div
+              className="oestro-hormones"
+            >
+              <span
+                className=" oestro-indicator"
+              />
+              <div
+                className=" oestro-name"
+              />
+              <span
+                className=" oestro-state"
+              >
+                -
+              </span>
+            </div>
+            <div
+              className="progest-hormones"
+            >
+              <span
+                className=" progest-indicator"
+              />
+              <div
+                className=" progest-name"
+              />
+              <span
+                className=" progest-state"
+              >
+                -
+              </span>
+            </div>
+          </div>,
+          <div
+            className="description-container"
+          >
+            
+            
+            
+            
+            
+            
+          </div>,
+        ],
+        "className": "hormones-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="lh-hormones"
+              >
+                <span
+                  className=" lh-indicator"
+                />
+                <div
+                  className=" lh-name"
+                />
+                <span
+                  className=" lh-state"
+                >
+                  -
+                </span>
+              </div>,
+              <div
+                className="fsh-hormones"
+              >
+                <span
+                  className=" fsh-indicator"
+                />
+                <div
+                  className=" fsh-name"
+                />
+                <span
+                  className=" fsh-state"
+                >
+                  -
+                </span>
+              </div>,
+              <div
+                className="oestro-hormones"
+              >
+                <span
+                  className=" oestro-indicator"
+                />
+                <div
+                  className=" oestro-name"
+                />
+                <span
+                  className=" oestro-state"
+                >
+                  -
+                </span>
+              </div>,
+              <div
+                className="progest-hormones"
+              >
+                <span
+                  className=" progest-indicator"
+                />
+                <div
+                  className=" progest-name"
+                />
+                <span
+                  className=" progest-state"
+                >
+                  -
+                </span>
+              </div>,
+            ],
+            "className": "hormones-table",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className=" lh-indicator"
+                  />,
+                  <div
+                    className=" lh-name"
+                  />,
+                  <span
+                    className=" lh-state"
+                  >
+                    -
+                  </span>,
+                ],
+                "className": "lh-hormones",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": " lh-indicator",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": " lh-name",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "-",
+                    "className": " lh-state",
+                  },
+                  "ref": null,
+                  "rendered": "-",
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className=" fsh-indicator"
+                  />,
+                  <div
+                    className=" fsh-name"
+                  />,
+                  <span
+                    className=" fsh-state"
+                  >
+                    -
+                  </span>,
+                ],
+                "className": "fsh-hormones",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": " fsh-indicator",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": " fsh-name",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "-",
+                    "className": " fsh-state",
+                  },
+                  "ref": null,
+                  "rendered": "-",
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className=" oestro-indicator"
+                  />,
+                  <div
+                    className=" oestro-name"
+                  />,
+                  <span
+                    className=" oestro-state"
+                  >
+                    -
+                  </span>,
+                ],
+                "className": "oestro-hormones",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": " oestro-indicator",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": " oestro-name",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "-",
+                    "className": " oestro-state",
+                  },
+                  "ref": null,
+                  "rendered": "-",
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className=" progest-indicator"
+                  />,
+                  <div
+                    className=" progest-name"
+                  />,
+                  <span
+                    className=" progest-state"
+                  >
+                    -
+                  </span>,
+                ],
+                "className": "progest-hormones",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": " progest-indicator",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": " progest-name",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "-",
+                    "className": " progest-state",
+                  },
+                  "ref": null,
+                  "rendered": "-",
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+            ],
+            "className": "description-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="hormones-container"
+        >
+          <div
+            className="hormones-table"
+          >
+            <div
+              className="lh-hormones"
+            >
+              <span
+                className=" lh-indicator"
+              />
+              <div
+                className=" lh-name"
+              />
+              <span
+                className=" lh-state"
+              >
+                -
+              </span>
+            </div>
+            <div
+              className="fsh-hormones"
+            >
+              <span
+                className=" fsh-indicator"
+              />
+              <div
+                className=" fsh-name"
+              />
+              <span
+                className=" fsh-state"
+              >
+                -
+              </span>
+            </div>
+            <div
+              className="oestro-hormones"
+            >
+              <span
+                className=" oestro-indicator"
+              />
+              <div
+                className=" oestro-name"
+              />
+              <span
+                className=" oestro-state"
+              >
+                -
+              </span>
+            </div>
+            <div
+              className="progest-hormones"
+            >
+              <span
+                className=" progest-indicator"
+              />
+              <div
+                className=" progest-name"
+              />
+              <span
+                className=" progest-state"
+              >
+                -
+              </span>
+            </div>
+          </div>
+          <div
+            className="description-container"
+          >
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>,
+        "className": "hormone-container",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="hormones-table"
+            >
+              <div
+                className="lh-hormones"
+              >
+                <span
+                  className=" lh-indicator"
+                />
+                <div
+                  className=" lh-name"
+                />
+                <span
+                  className=" lh-state"
+                >
+                  -
+                </span>
+              </div>
+              <div
+                className="fsh-hormones"
+              >
+                <span
+                  className=" fsh-indicator"
+                />
+                <div
+                  className=" fsh-name"
+                />
+                <span
+                  className=" fsh-state"
+                >
+                  -
+                </span>
+              </div>
+              <div
+                className="oestro-hormones"
+              >
+                <span
+                  className=" oestro-indicator"
+                />
+                <div
+                  className=" oestro-name"
+                />
+                <span
+                  className=" oestro-state"
+                >
+                  -
+                </span>
+              </div>
+              <div
+                className="progest-hormones"
+              >
+                <span
+                  className=" progest-indicator"
+                />
+                <div
+                  className=" progest-name"
+                />
+                <span
+                  className=" progest-state"
+                >
+                  -
+                </span>
+              </div>
+            </div>,
+            <div
+              className="description-container"
+            >
+              
+              
+              
+              
+              
+              
+            </div>,
+          ],
+          "className": "hormones-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="lh-hormones"
+                >
+                  <span
+                    className=" lh-indicator"
+                  />
+                  <div
+                    className=" lh-name"
+                  />
+                  <span
+                    className=" lh-state"
+                  >
+                    -
+                  </span>
+                </div>,
+                <div
+                  className="fsh-hormones"
+                >
+                  <span
+                    className=" fsh-indicator"
+                  />
+                  <div
+                    className=" fsh-name"
+                  />
+                  <span
+                    className=" fsh-state"
+                  >
+                    -
+                  </span>
+                </div>,
+                <div
+                  className="oestro-hormones"
+                >
+                  <span
+                    className=" oestro-indicator"
+                  />
+                  <div
+                    className=" oestro-name"
+                  />
+                  <span
+                    className=" oestro-state"
+                  >
+                    -
+                  </span>
+                </div>,
+                <div
+                  className="progest-hormones"
+                >
+                  <span
+                    className=" progest-indicator"
+                  />
+                  <div
+                    className=" progest-name"
+                  />
+                  <span
+                    className=" progest-state"
+                  >
+                    -
+                  </span>
+                </div>,
+              ],
+              "className": "hormones-table",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <span
+                      className=" lh-indicator"
+                    />,
+                    <div
+                      className=" lh-name"
+                    />,
+                    <span
+                      className=" lh-state"
+                    >
+                      -
+                    </span>,
+                  ],
+                  "className": "lh-hormones",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": " lh-indicator",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": undefined,
+                      "className": " lh-name",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "-",
+                      "className": " lh-state",
+                    },
+                    "ref": null,
+                    "rendered": "-",
+                    "type": "span",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <span
+                      className=" fsh-indicator"
+                    />,
+                    <div
+                      className=" fsh-name"
+                    />,
+                    <span
+                      className=" fsh-state"
+                    >
+                      -
+                    </span>,
+                  ],
+                  "className": "fsh-hormones",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": " fsh-indicator",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": undefined,
+                      "className": " fsh-name",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "-",
+                      "className": " fsh-state",
+                    },
+                    "ref": null,
+                    "rendered": "-",
+                    "type": "span",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <span
+                      className=" oestro-indicator"
+                    />,
+                    <div
+                      className=" oestro-name"
+                    />,
+                    <span
+                      className=" oestro-state"
+                    >
+                      -
+                    </span>,
+                  ],
+                  "className": "oestro-hormones",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": " oestro-indicator",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": undefined,
+                      "className": " oestro-name",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "-",
+                      "className": " oestro-state",
+                    },
+                    "ref": null,
+                    "rendered": "-",
+                    "type": "span",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <span
+                      className=" progest-indicator"
+                    />,
+                    <div
+                      className=" progest-name"
+                    />,
+                    <span
+                      className=" progest-state"
+                    >
+                      -
+                    </span>,
+                  ],
+                  "className": "progest-hormones",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": " progest-indicator",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": undefined,
+                      "className": " progest-name",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "-",
+                      "className": " progest-state",
+                    },
+                    "ref": null,
+                    "rendered": "-",
+                    "type": "span",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+              ],
+              "className": "description-container",
+            },
+            "ref": null,
+            "rendered": Array [
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<Hormones /> renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Hormones
+    ovulation={false}
+    postOvulation={false}
+    preOvulation={false}
+    secreteLhFsh={false}
+    secreteOestro={false}
+    secreteProgest={false}
+    t={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            "LH",
+          ],
+          Array [
+            "FSH",
+          ],
+          Array [
+            "Oestrogens",
+          ],
+          Array [
+            "Progesterones",
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="hormones-container"
+      >
+        <div
+          className="hormones-table"
+        >
+          <div
+            className="lh-hormones"
+          >
+            <span
+              className=" lh-indicator"
+            />
+            <div
+              className=" lh-name"
+            />
+            <span
+              className=" lh-state"
+            >
+              -
+            </span>
+          </div>
+          <div
+            className="fsh-hormones"
+          >
+            <span
+              className=" fsh-indicator"
+            />
+            <div
+              className=" fsh-name"
+            />
+            <span
+              className=" fsh-state"
+            >
+              -
+            </span>
+          </div>
+          <div
+            className="oestro-hormones"
+          >
+            <span
+              className=" oestro-indicator"
+            />
+            <div
+              className=" oestro-name"
+            />
+            <span
+              className=" oestro-state"
+            >
+              -
+            </span>
+          </div>
+          <div
+            className="progest-hormones"
+          >
+            <span
+              className=" progest-indicator"
+            />
+            <div
+              className=" progest-name"
+            />
+            <span
+              className=" progest-state"
+            >
+              -
+            </span>
+          </div>
+        </div>
+        <div
+          className="description-container"
+        >
+          
+          
+          
+          
+          
+          
+        </div>
+      </div>,
+      "className": "hormone-container",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="hormones-table"
+          >
+            <div
+              className="lh-hormones"
+            >
+              <span
+                className=" lh-indicator"
+              />
+              <div
+                className=" lh-name"
+              />
+              <span
+                className=" lh-state"
+              >
+                -
+              </span>
+            </div>
+            <div
+              className="fsh-hormones"
+            >
+              <span
+                className=" fsh-indicator"
+              />
+              <div
+                className=" fsh-name"
+              />
+              <span
+                className=" fsh-state"
+              >
+                -
+              </span>
+            </div>
+            <div
+              className="oestro-hormones"
+            >
+              <span
+                className=" oestro-indicator"
+              />
+              <div
+                className=" oestro-name"
+              />
+              <span
+                className=" oestro-state"
+              >
+                -
+              </span>
+            </div>
+            <div
+              className="progest-hormones"
+            >
+              <span
+                className=" progest-indicator"
+              />
+              <div
+                className=" progest-name"
+              />
+              <span
+                className=" progest-state"
+              >
+                -
+              </span>
+            </div>
+          </div>,
+          <div
+            className="description-container"
+          >
+            
+            
+            
+            
+            
+            
+          </div>,
+        ],
+        "className": "hormones-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="lh-hormones"
+              >
+                <span
+                  className=" lh-indicator"
+                />
+                <div
+                  className=" lh-name"
+                />
+                <span
+                  className=" lh-state"
+                >
+                  -
+                </span>
+              </div>,
+              <div
+                className="fsh-hormones"
+              >
+                <span
+                  className=" fsh-indicator"
+                />
+                <div
+                  className=" fsh-name"
+                />
+                <span
+                  className=" fsh-state"
+                >
+                  -
+                </span>
+              </div>,
+              <div
+                className="oestro-hormones"
+              >
+                <span
+                  className=" oestro-indicator"
+                />
+                <div
+                  className=" oestro-name"
+                />
+                <span
+                  className=" oestro-state"
+                >
+                  -
+                </span>
+              </div>,
+              <div
+                className="progest-hormones"
+              >
+                <span
+                  className=" progest-indicator"
+                />
+                <div
+                  className=" progest-name"
+                />
+                <span
+                  className=" progest-state"
+                >
+                  -
+                </span>
+              </div>,
+            ],
+            "className": "hormones-table",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className=" lh-indicator"
+                  />,
+                  <div
+                    className=" lh-name"
+                  />,
+                  <span
+                    className=" lh-state"
+                  >
+                    -
+                  </span>,
+                ],
+                "className": "lh-hormones",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": " lh-indicator",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": " lh-name",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "-",
+                    "className": " lh-state",
+                  },
+                  "ref": null,
+                  "rendered": "-",
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className=" fsh-indicator"
+                  />,
+                  <div
+                    className=" fsh-name"
+                  />,
+                  <span
+                    className=" fsh-state"
+                  >
+                    -
+                  </span>,
+                ],
+                "className": "fsh-hormones",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": " fsh-indicator",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": " fsh-name",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "-",
+                    "className": " fsh-state",
+                  },
+                  "ref": null,
+                  "rendered": "-",
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className=" oestro-indicator"
+                  />,
+                  <div
+                    className=" oestro-name"
+                  />,
+                  <span
+                    className=" oestro-state"
+                  >
+                    -
+                  </span>,
+                ],
+                "className": "oestro-hormones",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": " oestro-indicator",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": " oestro-name",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "-",
+                    "className": " oestro-state",
+                  },
+                  "ref": null,
+                  "rendered": "-",
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className=" progest-indicator"
+                  />,
+                  <div
+                    className=" progest-name"
+                  />,
+                  <span
+                    className=" progest-state"
+                  >
+                    -
+                  </span>,
+                ],
+                "className": "progest-hormones",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": " progest-indicator",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": " progest-name",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "-",
+                    "className": " progest-state",
+                  },
+                  "ref": null,
+                  "rendered": "-",
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+            ],
+            "className": "description-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="hormones-container"
+        >
+          <div
+            className="hormones-table"
+          >
+            <div
+              className="lh-hormones"
+            >
+              <span
+                className=" lh-indicator"
+              />
+              <div
+                className=" lh-name"
+              />
+              <span
+                className=" lh-state"
+              >
+                -
+              </span>
+            </div>
+            <div
+              className="fsh-hormones"
+            >
+              <span
+                className=" fsh-indicator"
+              />
+              <div
+                className=" fsh-name"
+              />
+              <span
+                className=" fsh-state"
+              >
+                -
+              </span>
+            </div>
+            <div
+              className="oestro-hormones"
+            >
+              <span
+                className=" oestro-indicator"
+              />
+              <div
+                className=" oestro-name"
+              />
+              <span
+                className=" oestro-state"
+              >
+                -
+              </span>
+            </div>
+            <div
+              className="progest-hormones"
+            >
+              <span
+                className=" progest-indicator"
+              />
+              <div
+                className=" progest-name"
+              />
+              <span
+                className=" progest-state"
+              >
+                -
+              </span>
+            </div>
+          </div>
+          <div
+            className="description-container"
+          >
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>,
+        "className": "hormone-container",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="hormones-table"
+            >
+              <div
+                className="lh-hormones"
+              >
+                <span
+                  className=" lh-indicator"
+                />
+                <div
+                  className=" lh-name"
+                />
+                <span
+                  className=" lh-state"
+                >
+                  -
+                </span>
+              </div>
+              <div
+                className="fsh-hormones"
+              >
+                <span
+                  className=" fsh-indicator"
+                />
+                <div
+                  className=" fsh-name"
+                />
+                <span
+                  className=" fsh-state"
+                >
+                  -
+                </span>
+              </div>
+              <div
+                className="oestro-hormones"
+              >
+                <span
+                  className=" oestro-indicator"
+                />
+                <div
+                  className=" oestro-name"
+                />
+                <span
+                  className=" oestro-state"
+                >
+                  -
+                </span>
+              </div>
+              <div
+                className="progest-hormones"
+              >
+                <span
+                  className=" progest-indicator"
+                />
+                <div
+                  className=" progest-name"
+                />
+                <span
+                  className=" progest-state"
+                >
+                  -
+                </span>
+              </div>
+            </div>,
+            <div
+              className="description-container"
+            >
+              
+              
+              
+              
+              
+              
+            </div>,
+          ],
+          "className": "hormones-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="lh-hormones"
+                >
+                  <span
+                    className=" lh-indicator"
+                  />
+                  <div
+                    className=" lh-name"
+                  />
+                  <span
+                    className=" lh-state"
+                  >
+                    -
+                  </span>
+                </div>,
+                <div
+                  className="fsh-hormones"
+                >
+                  <span
+                    className=" fsh-indicator"
+                  />
+                  <div
+                    className=" fsh-name"
+                  />
+                  <span
+                    className=" fsh-state"
+                  >
+                    -
+                  </span>
+                </div>,
+                <div
+                  className="oestro-hormones"
+                >
+                  <span
+                    className=" oestro-indicator"
+                  />
+                  <div
+                    className=" oestro-name"
+                  />
+                  <span
+                    className=" oestro-state"
+                  >
+                    -
+                  </span>
+                </div>,
+                <div
+                  className="progest-hormones"
+                >
+                  <span
+                    className=" progest-indicator"
+                  />
+                  <div
+                    className=" progest-name"
+                  />
+                  <span
+                    className=" progest-state"
+                  >
+                    -
+                  </span>
+                </div>,
+              ],
+              "className": "hormones-table",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <span
+                      className=" lh-indicator"
+                    />,
+                    <div
+                      className=" lh-name"
+                    />,
+                    <span
+                      className=" lh-state"
+                    >
+                      -
+                    </span>,
+                  ],
+                  "className": "lh-hormones",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": " lh-indicator",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": undefined,
+                      "className": " lh-name",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "-",
+                      "className": " lh-state",
+                    },
+                    "ref": null,
+                    "rendered": "-",
+                    "type": "span",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <span
+                      className=" fsh-indicator"
+                    />,
+                    <div
+                      className=" fsh-name"
+                    />,
+                    <span
+                      className=" fsh-state"
+                    >
+                      -
+                    </span>,
+                  ],
+                  "className": "fsh-hormones",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": " fsh-indicator",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": undefined,
+                      "className": " fsh-name",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "-",
+                      "className": " fsh-state",
+                    },
+                    "ref": null,
+                    "rendered": "-",
+                    "type": "span",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <span
+                      className=" oestro-indicator"
+                    />,
+                    <div
+                      className=" oestro-name"
+                    />,
+                    <span
+                      className=" oestro-state"
+                    >
+                      -
+                    </span>,
+                  ],
+                  "className": "oestro-hormones",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": " oestro-indicator",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": undefined,
+                      "className": " oestro-name",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "-",
+                      "className": " oestro-state",
+                    },
+                    "ref": null,
+                    "rendered": "-",
+                    "type": "span",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <span
+                      className=" progest-indicator"
+                    />,
+                    <div
+                      className=" progest-name"
+                    />,
+                    <span
+                      className=" progest-state"
+                    >
+                      -
+                    </span>,
+                  ],
+                  "className": "progest-hormones",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": " progest-indicator",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": undefined,
+                      "className": " progest-name",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "-",
+                      "className": " progest-state",
+                    },
+                    "ref": null,
+                    "rendered": "-",
+                    "type": "span",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+              ],
+              "className": "description-container",
+            },
+            "ref": null,
+            "rendered": Array [
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

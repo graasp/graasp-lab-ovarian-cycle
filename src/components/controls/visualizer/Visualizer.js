@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Calendar from '../counter/Calendar';
+import Calendar from '../calendar/Calendar';
 import Counter from '../counter/Counter';
 import Hormones from '../hormones/Hormones';
 import Phases from '../phases/Phases';
-import Refresher from './Refresher';
+import Refresher from './refresher/Refresher';
 import './Visualizer.css';
 
 export const Visualizer = ({

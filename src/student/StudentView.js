@@ -8,7 +8,7 @@ import {
   PURPLE_BLUE,
   SKY_BLUE,
 } from '../config/constants';
-import Core from '../components/Core';
+import Core from '../components/core/Core';
 import { AppState } from '../config/AppState';
 
 class StudentView extends Component {
@@ -422,7 +422,7 @@ class StudentView extends Component {
     } = this.state;
     const { t } = this.props;
     return (
-      <div className="App">
+      <div className="student-view">
         <Core
           dayCount={dayCount}
           handleOvulation={this.handleOvulation}
