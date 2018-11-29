@@ -16,8 +16,10 @@ class StudentView extends Component {
     t: PropTypes.func.isRequired,
   }
 
+  // here we get all our initial state from the AppState component
   state = AppState;
 
+  // we make sure the hormone path is created when the app mounts
   componentDidMount() {
     this.createHormoneFlow();
   }
@@ -29,10 +31,14 @@ class StudentView extends Component {
     }
   }
 
+  // this function handles the reload button to refresh the whole app
   reloadPage = () => {
     window.location.reload();
   }
 
+  // this function handles all the ovarian life cycle events
+  // from begening until the cycle ends
+  // we use the delay to wait during 5s from the 12 until the 14th day
   tick = () => {
     const {
       dayCount,
@@ -52,7 +58,7 @@ class StudentView extends Component {
       this.updateLh();
     }
 
-    // during the xxx this is the ovulation period
+    // during the 12-13-14 this is the ovulation period
     if (dayCount >= 12 && dayCount <= 14 && delay > 0) {
       // Update initial state to increase Oestrogen and FSH hormones
       this.updateOestrogen();
@@ -66,7 +72,8 @@ class StudentView extends Component {
         postOvulation: false,
         preOvulation: true,
       });
-      // during the last day of ovulation ...
+      // during the last day of ovulation we secret more fsh,lh and estrogen homones
+      // then we stop the preOvulation cycle and update in all components
       if (dayCount === 14) {
         this.setState({
           secreteLhFsh: true,
@@ -79,6 +86,8 @@ class StudentView extends Component {
     }
     if (dayCount >= 15) {
     // Update initial state to increase progesterones hormones
+    // this happens after the ovulation ends
+    // we call the updateProgesteron function to secrete more progesterones
       this.updateProgesteron();
       this.setState({
         secreteLhFsh: false,
@@ -91,16 +100,19 @@ class StudentView extends Component {
     }
 
     this.updateTimeState(dayCount, secString);
-
+    // at the end of the cycle we make sure stop all homone secretion
     if (dayCount === 27) {
       this.setState({
         secreteProgest: false,
         secreteOestro: false,
       });
+      // then we stop the day counter
       clearInterval(this.intervalHandle);
     }
   }
 
+  // this is called when the pre-ovulation button is clicked
+  // we make sure only show the pre-ovulation step only
   tickPreOvulation = () => {
     const { dayCount } = this.state;
     const secString = `${dayCount}`;
@@ -112,6 +124,7 @@ class StudentView extends Component {
         postOvulation: false,
         ovulation: false,
       });
+      // during this period we make sure the lh and fsh hormones are updated
       this.updateLh();
     }
     this.updateTimeState(dayCount, secString);
@@ -126,6 +139,8 @@ class StudentView extends Component {
     }
   }
 
+  // this is called when the pos-ovulation button is clicked
+  // we make sure only show the post-ovulation step only
   tickPostOvulation = () => {
     const { dayCount } = this.state;
     const secString = `${dayCount}`;
@@ -155,6 +170,8 @@ class StudentView extends Component {
     }
   }
 
+  // this is called when the ovulation button is clicked
+  // we make sure only show the ovulation step only
   tickOvulation = () => {
     const {
       dayCount,
@@ -164,6 +181,7 @@ class StudentView extends Component {
 
     if (dayCount >= 12 && dayCount <= 14 && delay > 0) {
     // Update initial state to increase Oestrogen and FSH hormones
+    // during this period we update all hormones exepts the progesterones
       this.updateOestrogen();
       this.updateFsh();
       this.updateLh();
@@ -195,6 +213,7 @@ class StudentView extends Component {
     }
   }
 
+  // this is our lh updating function
   updateLh = () => {
     // eslint-disable-next-line no-unused-vars
     const { svg } = this.props;
@@ -215,6 +234,7 @@ class StudentView extends Component {
     });
   }
 
+  // this is our fsh updating function
   updateFsh = () => {
     const { svg } = this.props;
     const { fshPoints } = this.state;
@@ -234,6 +254,7 @@ class StudentView extends Component {
     });
   }
 
+  // this is our estrogens updating function
   updateOestrogen = () => {
     const { svg } = this.props;
     const { oestrogenePoints } = this.state;
@@ -248,6 +269,7 @@ class StudentView extends Component {
     });
   }
 
+  // this is our progesteron updating function
   updateProgesteron = () => {
     const { svg } = this.props;
     const { progesteronePoints } = this.state;
@@ -262,6 +284,7 @@ class StudentView extends Component {
     });
   }
 
+  // this is our time tate updater
   updateTimeState = (dayCount) => {
     if (dayCount <= 27) {
       this.setState({
@@ -271,6 +294,8 @@ class StudentView extends Component {
     }
   }
 
+  // here we listen to the pre-ovulation button click
+  // then we update the inital state and set the day to the 1rst
   handlePreOvulation = () => {
     this.setState({
       dayCount: 1,
@@ -281,6 +306,8 @@ class StudentView extends Component {
     this.intervalHandle = setInterval(this.tickPreOvulation, 2100);
   }
 
+  // here we listen to the post-ovulation button click
+  // then we update the inital state and set the day to the 14th
   handlePostOvulation = () => {
     this.setState({
       dayCount: 14,
@@ -291,6 +318,8 @@ class StudentView extends Component {
     this.intervalHandle = setInterval(this.tickPostOvulation, 2100);
   }
 
+  // here we listen to the ovulation button click
+  // then we update the inital state and set the day to the 12th
   handleOvulation = () => {
     this.setState({
       dayCount: 12,
@@ -301,11 +330,15 @@ class StudentView extends Component {
     this.intervalHandle = setInterval(this.tickOvulation, 2100);
   }
 
+  // here we listen to the start button clicked
+  // to launch all the ovulation cycle
   handleStart = () => {
     this.setState({ isStarted: true });
     this.intervalHandle = setInterval(this.tick, 2100);
   }
 
+  // here we listen to the stop button clicked
+  // to stop all the ovulation cycle
   handleStop = () => {
     this.setState({
       dayCount: 0,
@@ -314,6 +347,9 @@ class StudentView extends Component {
     clearInterval(this.intervalHandle);
   }
 
+  // here we pass appropriate hormones classes, path datas,
+  // color, path and the transformat propertites
+  // to make the trnasition along the path specified
   updateHormone = ({
     data,
     elemClass,
@@ -351,6 +387,7 @@ class StudentView extends Component {
     };
   }
 
+  // this is our crete hormones function that is called right after our app loads
   createHormoneFlow = () => {
     const {
       lhPoints, fshPoints,
@@ -406,6 +443,8 @@ class StudentView extends Component {
       .attr('transform', d => `translate(${d})`);
   }
 
+  // when rendering we pass all state params to our first child component
+  // which will pass them to the next children components
   render() {
     const {
       dayCount,
@@ -448,6 +487,7 @@ class StudentView extends Component {
   }
 }
 
+// we make sure the svg is gotten from our redux state and is mounted
 const mapStateToProps = state => ({
   svg: state.svg.svg,
 });

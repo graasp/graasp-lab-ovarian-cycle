@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Hormones.css';
-
+// we make sure check each cycle received from our main component
+// and add it related class or set an empty class otherwise
+// assuming that all specified classed has their own design
+// and we do the same for each phase description
+// the t is used for the translation
 export const Hormones = ({
   ovulation,
   postOvulation,

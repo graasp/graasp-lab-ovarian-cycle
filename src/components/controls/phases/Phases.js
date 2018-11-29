@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Phases.css';
 import { Button } from 'reactstrap';
-
+// we make sure all other buttons are disabled when one is clicked
 export const Phases = ({
   handleOvulation,
   handlePostOvulation,

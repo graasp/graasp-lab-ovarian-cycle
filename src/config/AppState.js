@@ -13,6 +13,9 @@ import {
   MAX_LH,
 } from './constants';
 
+// all the COMMON_DOTS are the identical coordinates
+// for all our hormones paths
+// there are located into our ./constants.js file
 export const AppState = {
   postOvulation: false,
   preOvulation: false,
