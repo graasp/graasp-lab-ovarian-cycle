@@ -7,20 +7,29 @@
   border: 7px solid;
   padding: 1rem 4rem;
 }
-.lh-name, .fsh-name, .progest-name, .oestro-name {
+.lh-name,
+.fsh-name,
+.oestro-name,
+.progest-name {
   background: #fff;
   font-size: 2rem;
   width: 14rem;
   margin: 5px auto;
   text-align: center;
 }
-.fsh-state, .lh-state, .oestro-state, .progest-state {
+.fsh-state,
+.lh-state,
+.oestro-state,
+.progest-state {
   float: right;
   margin-top: -42px;
   padding: 3px 10px;
   background: #fff;
  }
- .fsh-indicator, .lh-indicator, .oestro-indicator, .progest-indicator {
+ .fsh-indicator,
+ .lh-indicator,
+ .oestro-indicator,
+ .progest-indicator {
    padding: 10px;
    width: 30px;
    border-radius: 50%;
@@ -44,7 +53,9 @@
    margin-top: 2rem;
    padding: 1rem;
  }
- .preovulation-description, .ovulation-description, .postovulation-description {
+ .ovulation-description,
+ .preovulation-description,
+ .postovulation-description {
    font-size: 2.2rem;
    font-weight: 300;
  }
@@ -70,7 +81,10 @@
    border-color: #9C27B0 !important;
  }
 
-.animate-text, .preovulation-description, .ovulation-description, .postovulation-description {
+.animate-text,
+.ovulation-description,
+.preovulation-description,
+.postovulation-description {
    animation-name: fade;
    animation-fill-mode: both;
    animation-duration: 1s;
