@@ -18,7 +18,7 @@ export class App extends Component {
       mode = 'default',
     } = Qs.parse(window.location.search, { ignoreQueryPrefix: true });
     const { i18n } = this.props;
-    // here we query the language code from the browser url params
+    // querying the language code from the browser url params
     i18n.changeLanguage(lang);
     this.state = { mode };
   }

@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 import { APPEND_SVG } from './types';
 
 export function appendSvg() {
-  // here we create our initial svg that we append to the
+  // creating our initial svg that we append to the
   // tag having the body-container class in our app
   const svg = d3.select('.body-container').append('svg')
     .attr('width', 700)

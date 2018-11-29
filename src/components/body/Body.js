@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import HumanBody from './human-body.png';
 import { appendSvg } from '../../actions';
 // our body component just render the human image
-// then dispatch the received svg to it component
+// then dispatches the received svg to it component
 export class Body extends React.Component {
   componentDidMount() {
     const { dispatchAppendSvg } = this.props;

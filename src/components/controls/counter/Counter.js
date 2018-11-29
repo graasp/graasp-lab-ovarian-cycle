@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Counter.css';
 import { Button } from 'reactstrap';
-// here we decide what happen on the launch/stop cycle button cycle
+// deciding what happen on the launch/stop cycle button cycle
 // the t is used for the translation
 const Counter = ({
   handleStart,

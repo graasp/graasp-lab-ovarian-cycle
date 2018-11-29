@@ -6,7 +6,7 @@ import Hormones from '../hormones/Hormones';
 import Phases from '../phases/Phases';
 import Refresher from './refresher/Refresher';
 import './Visualizer.css';
-// here we import all different child components and
+// importing all different child components and
 // pass them params they need
 export const Visualizer = ({
   dayCount,
