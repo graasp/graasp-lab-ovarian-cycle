@@ -32,7 +32,7 @@ export const AppState = {
   secreteOestro: false,
   // starting state for the progesterone dots
   progesteronePoints: [
-    [378, 1070],
+    [372, 985],
     COMMON_DOTS_0,
     COMMON_DOTS_1,
     COMMON_DOTS_2,
@@ -40,12 +40,11 @@ export const AppState = {
     COMMON_DOTS_4,
     [382, 400],
     [383, 260],
-    [383, 200],
   ],
   // ending state for the progesterone dots
   // starting state for the oestrogene dots
   oestrogenePoints: [
-    [370, MAX_LH],
+    [375, MAX_LH],
     COMMON_DOTS_0,
     COMMON_DOTS_1,
     COMMON_DOTS_2,
@@ -53,12 +52,10 @@ export const AppState = {
     COMMON_DOTS_4,
     [470, 400],
     [472, 260],
-    [470, 200],
   ],
   // ending state for the oestrogene dots
   // starting state for the lh dots
   lhPoints: [
-    [458, 200],
     [458, 260],
     [448, 400],
     COMMON_DOTS_5,
@@ -73,7 +70,6 @@ export const AppState = {
   // ending state for the oestrogene dots
   // starting state for the fsh dots
   fshPoints: [
-    [395, 210],
     [394, 260],
     [404, 400],
     COMMON_DOTS_5,
@@ -82,7 +78,7 @@ export const AppState = {
     COMMON_DOTS_8,
     COMMON_DOTS_9,
     COMMON_DOTS_10,
-    [370, MAX_LH],
+    [375, MAX_LH],
   ],
   // ending state for the fsh dots
 };

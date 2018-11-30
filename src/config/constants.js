@@ -1,4 +1,4 @@
-export const MAX_LH = 1085;
+export const MAX_LH = 1001;
 export const SKY_BLUE = '#12a3c1';
 export const GREEN = '#3bc71f';
 export const ORANGE = '#ff7a00';
