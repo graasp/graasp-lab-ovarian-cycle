@@ -10,6 +10,8 @@ import {
   COMMON_DOTS_8,
   COMMON_DOTS_9,
   COMMON_DOTS_10,
+  COMMON_DOTS_11,
+  COMMON_DOTS_12,
   MAX_LH,
 } from './constants';
 
@@ -33,52 +35,50 @@ export const AppState = {
   // starting state for the progesterone dots
   progesteronePoints: [
     [372, 985],
-    COMMON_DOTS_0,
     COMMON_DOTS_1,
+    COMMON_DOTS_0,
     COMMON_DOTS_2,
     COMMON_DOTS_3,
     COMMON_DOTS_4,
-    [382, 400],
-    [383, 260],
+    [381, COMMON_DOTS_11],
+    [383, MAX_LH],
   ],
   // ending state for the progesterone dots
   // starting state for the oestrogene dots
   oestrogenePoints: [
-    [375, MAX_LH],
-    COMMON_DOTS_0,
+    [375, COMMON_DOTS_12],
     COMMON_DOTS_1,
+    COMMON_DOTS_0,
     COMMON_DOTS_2,
     COMMON_DOTS_3,
     COMMON_DOTS_4,
-    [470, 400],
-    [472, 260],
+    [455, COMMON_DOTS_11],
+    [452, MAX_LH],
   ],
   // ending state for the oestrogene dots
   // starting state for the lh dots
   lhPoints: [
-    [458, 260],
-    [448, 400],
+    [444, MAX_LH],
+    [436, COMMON_DOTS_11],
     COMMON_DOTS_5,
     COMMON_DOTS_6,
     COMMON_DOTS_7,
     COMMON_DOTS_8,
     COMMON_DOTS_9,
+    [463, COMMON_DOTS_12],
     COMMON_DOTS_10,
-    [485, 1070],
-    [482, MAX_LH],
   ],
   // ending state for the oestrogene dots
   // starting state for the fsh dots
   fshPoints: [
-    [394, 260],
-    [404, 400],
+    [392, MAX_LH],
+    [COMMON_DOTS_11, 442],
     COMMON_DOTS_5,
     COMMON_DOTS_6,
     COMMON_DOTS_7,
     COMMON_DOTS_8,
     COMMON_DOTS_9,
     COMMON_DOTS_10,
-    [375, MAX_LH],
   ],
   // ending state for the fsh dots
 };
