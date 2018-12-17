@@ -1,0 +1,518 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Visualizer /> component renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Visualizer
+    dayCount={0}
+    handleOvulation={[MockFunction]}
+    handlePostOvulation={[MockFunction]}
+    handlePreOvulation={[MockFunction]}
+    handleStart={[MockFunction]}
+    handleStop={[MockFunction]}
+    isStarted={false}
+    ovulation={false}
+    ovulationActive={false}
+    postOvulation={false}
+    postOvulationActive={false}
+    preOvulation={false}
+    preOvulationActive={false}
+    reloadPage={[MockFunction]}
+    secreteLhFsh={false}
+    secreteOestro={false}
+    secreteProgest={false}
+    t={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Counter
+          handleStart={[MockFunction]}
+          handleStop={[MockFunction]}
+          isStarted={false}
+          ovulationActive={false}
+          postOvulationActive={false}
+          preOvulationActive={false}
+          t={[MockFunction]}
+        />,
+        <Phases
+          handleOvulation={[MockFunction]}
+          handlePostOvulation={[MockFunction]}
+          handlePreOvulation={[MockFunction]}
+          ovulationActive={false}
+          postOvulationActive={false}
+          preOvulation={false}
+          preOvulationActive={false}
+          t={[MockFunction]}
+        />,
+        <Calendar
+          dayCount={0}
+        />,
+        <Hormones
+          ovulation={false}
+          postOvulation={false}
+          preOvulation={false}
+          secreteLhFsh={false}
+          secreteOestro={false}
+          secreteProgest={false}
+          t={[MockFunction]}
+        />,
+        <Refresher
+          reloadPage={[MockFunction]}
+        />,
+      ],
+      "className": "visualizer-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "handleStart": [MockFunction],
+          "handleStop": [MockFunction],
+          "isStarted": false,
+          "ovulationActive": false,
+          "postOvulationActive": false,
+          "preOvulationActive": false,
+          "t": [MockFunction],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "handleOvulation": [MockFunction],
+          "handlePostOvulation": [MockFunction],
+          "handlePreOvulation": [MockFunction],
+          "ovulationActive": false,
+          "postOvulationActive": false,
+          "preOvulation": false,
+          "preOvulationActive": false,
+          "t": [MockFunction],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "dayCount": 0,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "ovulation": false,
+          "postOvulation": false,
+          "preOvulation": false,
+          "secreteLhFsh": false,
+          "secreteOestro": false,
+          "secreteProgest": false,
+          "t": [MockFunction],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "reloadPage": [MockFunction],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Counter
+            handleStart={[MockFunction]}
+            handleStop={[MockFunction]}
+            isStarted={false}
+            ovulationActive={false}
+            postOvulationActive={false}
+            preOvulationActive={false}
+            t={[MockFunction]}
+          />,
+          <Phases
+            handleOvulation={[MockFunction]}
+            handlePostOvulation={[MockFunction]}
+            handlePreOvulation={[MockFunction]}
+            ovulationActive={false}
+            postOvulationActive={false}
+            preOvulation={false}
+            preOvulationActive={false}
+            t={[MockFunction]}
+          />,
+          <Calendar
+            dayCount={0}
+          />,
+          <Hormones
+            ovulation={false}
+            postOvulation={false}
+            preOvulation={false}
+            secreteLhFsh={false}
+            secreteOestro={false}
+            secreteProgest={false}
+            t={[MockFunction]}
+          />,
+          <Refresher
+            reloadPage={[MockFunction]}
+          />,
+        ],
+        "className": "visualizer-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "handleStart": [MockFunction],
+            "handleStop": [MockFunction],
+            "isStarted": false,
+            "ovulationActive": false,
+            "postOvulationActive": false,
+            "preOvulationActive": false,
+            "t": [MockFunction],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "handleOvulation": [MockFunction],
+            "handlePostOvulation": [MockFunction],
+            "handlePreOvulation": [MockFunction],
+            "ovulationActive": false,
+            "postOvulationActive": false,
+            "preOvulation": false,
+            "preOvulationActive": false,
+            "t": [MockFunction],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "dayCount": 0,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "ovulation": false,
+            "postOvulation": false,
+            "preOvulation": false,
+            "secreteLhFsh": false,
+            "secreteOestro": false,
+            "secreteProgest": false,
+            "t": [MockFunction],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "reloadPage": [MockFunction],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`<Visualizer /> renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Visualizer />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Counter />,
+        <Phases />,
+        <Calendar />,
+        <Hormones />,
+        <Refresher />,
+      ],
+      "className": "visualizer-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "handleStart": undefined,
+          "handleStop": undefined,
+          "isStarted": undefined,
+          "ovulationActive": undefined,
+          "postOvulationActive": undefined,
+          "preOvulationActive": undefined,
+          "t": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "handleOvulation": undefined,
+          "handlePostOvulation": undefined,
+          "handlePreOvulation": undefined,
+          "ovulationActive": undefined,
+          "postOvulationActive": undefined,
+          "preOvulation": undefined,
+          "preOvulationActive": undefined,
+          "t": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "dayCount": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "ovulation": undefined,
+          "postOvulation": undefined,
+          "preOvulation": undefined,
+          "secreteLhFsh": undefined,
+          "secreteOestro": undefined,
+          "secreteProgest": undefined,
+          "t": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "reloadPage": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Counter />,
+          <Phases />,
+          <Calendar />,
+          <Hormones />,
+          <Refresher />,
+        ],
+        "className": "visualizer-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "handleStart": undefined,
+            "handleStop": undefined,
+            "isStarted": undefined,
+            "ovulationActive": undefined,
+            "postOvulationActive": undefined,
+            "preOvulationActive": undefined,
+            "t": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "handleOvulation": undefined,
+            "handlePostOvulation": undefined,
+            "handlePreOvulation": undefined,
+            "ovulationActive": undefined,
+            "postOvulationActive": undefined,
+            "preOvulation": undefined,
+            "preOvulationActive": undefined,
+            "t": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "dayCount": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "ovulation": undefined,
+            "postOvulation": undefined,
+            "preOvulation": undefined,
+            "secreteLhFsh": undefined,
+            "secreteOestro": undefined,
+            "secreteProgest": undefined,
+            "t": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "reloadPage": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

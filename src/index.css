@@ -1,0 +1,116 @@
+.fsh-puces,
+.lh-puces,
+.oestro-puces,
+.progest-puces {
+  font-size: 110px;
+  vertical-align: bottom;
+}
+
+.lh-container,
+.fsh-container,
+.oestro-container,
+.progest-container {
+  font-size: 60px;
+}
+.hormones-container {
+  padding: 20px;
+}
+.oestro-hormones,
+.progest-hormones {
+  fill: none;
+  stroke: none;
+}
+.student-view {
+  text-align: center;
+}
+circle {
+  cursor: pointer;
+}
+.human-image {
+  position: absolute;
+  z-index: -5;
+}
+.increase-oestro {
+  background: #dedede;
+  padding: 10px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.increase-progest {
+  background: #dedede;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.increase-lh, .increase-fsh {
+  background: #dedede;
+  padding: 10px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.fsh-hormones {
+  fill: none;
+  stroke: none;
+}
+.lh-hormones {
+  fill: none;
+  stroke: none;
+}
+path.fsh {
+  fill: none;
+  stroke: none;
+}
+.blue {
+  fill: steelblue;
+}
+.red {
+  fill: #12a3c1;
+}
+@keyframes moreAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes moreAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes moreAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes moreAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-lh-hormones {
+   border: 4px solid #00a3c3;
+   -webkit-animation: moreAnimation 1s infinite;
+   -moz-animation: moreAnimation 1s infinite;
+   -o-animation: moreAnimation 1s infinite;
+    animation: moreAnimation 1s infinite;
+}
+.animate-fsh-hormones {
+   border: 4px solid #ff7a00;
+   -webkit-animation: moreAnimation 1s infinite;
+   -moz-animation: moreAnimation 1s infinite;
+   -o-animation: moreAnimation 1s infinite;
+    animation: moreAnimation 1s infinite;
+}
+.animate-oestro-hormones {
+   border: 4px solid #3bc71f;
+   -webkit-animation: moreAnimation 1s infinite;
+   -moz-animation: moreAnimation 1s infinite;
+   -o-animation: moreAnimation 1s infinite;
+    animation: moreAnimation 1s infinite;
+}
+.animate-progest-hormones {
+   border: 4px solid #9C27B0;
+   -webkit-animation: moreAnimation 1s infinite;
+   -moz-animation: moreAnimation 1s infinite;
+   -o-animation: moreAnimation 1s infinite;
+    animation: moreAnimation 1s infinite;
+}

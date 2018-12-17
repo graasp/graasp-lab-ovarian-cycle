@@ -1,0 +1,12 @@
+.clock-starter {
+  text-align: center;
+  padding: 10px;
+}
+.fa-calendar {
+  width: 15rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+.btn-lg {
+  font-size: 2rem;
+}

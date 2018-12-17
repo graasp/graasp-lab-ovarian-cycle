@@ -1,0 +1,101 @@
+.hormone-container {
+  width: 32rem;
+  margin: auto;
+}
+.hormones-table {
+  background: rgb(169, 169, 169);
+  border: 7px solid;
+  padding: 1rem 4rem;
+}
+.lh-name,
+.fsh-name,
+.oestro-name,
+.progest-name {
+  background: #fff;
+  font-size: 2rem;
+  width: 14rem;
+  margin: 5px auto;
+  text-align: center;
+}
+.fsh-state,
+.lh-state,
+.oestro-state,
+.progest-state {
+  float: right;
+  margin-top: -42px;
+  padding: 3px 10px;
+  background: #fff;
+ }
+ .fsh-indicator,
+ .lh-indicator,
+ .oestro-indicator,
+ .progest-indicator {
+   padding: 10px;
+   width: 30px;
+   border-radius: 50%;
+   height: 30px;
+   float: left;
+   margin-top: 5px;
+ }
+.fsh-indicator {
+   background-color: #ff7a00;
+ }
+.lh-indicator {
+   background-color: #12a3c1;
+ }
+.oestro-indicator {
+   background-color: #3bc71f;
+ }
+.progest-indicator {
+   background-color: #9C27B0;
+ }
+ .description-container {
+   margin-top: 2rem;
+   padding: 1rem;
+ }
+ .ovulation-description,
+ .preovulation-description,
+ .postovulation-description {
+   font-size: 2.2rem;
+   font-weight: 300;
+ }
+ .ovulation-description {
+   color: #ff7a00;
+ }
+ .postovulation-description {
+   color: #9C27B0;
+ }
+ .preovulation-description {
+   color: #12a3c1;
+ }
+ .active-preovulation {
+   background-color: #12a3c1 !important;
+   border-color: #12a3c1 !important;
+ }
+ .active-ovulation {
+   background-color: #ff7a00 !important;
+   border-color: #ff7a00 !important;
+ }
+ .active-postovulation {
+   background-color: #9C27B0 !important;
+   border-color: #9C27B0 !important;
+ }
+
+.animate-text,
+.ovulation-description,
+.preovulation-description,
+.postovulation-description {
+   animation-name: fade;
+   animation-fill-mode: both;
+   animation-duration: 1s;
+   animation-direction: alternate;
+ }
+
+@keyframes fade {
+  0%,50% {
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
