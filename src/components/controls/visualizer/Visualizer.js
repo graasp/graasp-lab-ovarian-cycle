@@ -5,6 +5,7 @@ import Counter from '../counter/Counter';
 import Hormones from '../hormones/Hormones';
 import Phases from '../phases/Phases';
 import Refresher from './refresher/Refresher';
+import TabComponent from './TabComponent';
 import './Visualizer.css';
 // importing all different child components and
 // pass them params they need
@@ -26,9 +27,14 @@ export const Visualizer = ({
   secreteLhFsh,
   secreteOestro,
   secreteProgest,
+  obserViewActive,
   t,
 }) => (
   <div className="visualizer-container">
+    <TabComponent
+      obserViewActive={obserViewActive}
+      t={t}
+    />
     <Counter
       handleStart={handleStart}
       handleStop={handleStop}
@@ -85,5 +91,6 @@ Visualizer.propTypes = {
   secreteLhFsh: PropTypes.bool.isRequired,
   secreteOestro: PropTypes.bool.isRequired,
   secreteProgest: PropTypes.bool.isRequired,
+  obserViewActive: PropTypes.bool.isRequired,
 };
 export default (Visualizer);
