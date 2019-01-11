@@ -4,6 +4,7 @@
 .select-step {
   font-size: 2rem;
   margin-top: 3rem;
+  color: rgba(0, 0, 0, .70);
 }
 .active-ovulation,
 .active-preovulation,
@@ -16,6 +17,7 @@
   border-top: 2px solid;
   border-bottom: 2px solid;
   padding: 1rem;
+  color: rgba(0, 0, 0, .70);
 }
 .pre-ovulation,
 .ovulation,
