@@ -1,6 +1,13 @@
+.counter-container {
+  padding-top: 3rem;
+}
 .clock-starter {
   text-align: center;
   padding: 10px;
+}
+.clock-setter .btn {
+  background-color: #0f94f8;
+  border-color: #0f94f8;
 }
 .fa-calendar {
   width: 15rem;

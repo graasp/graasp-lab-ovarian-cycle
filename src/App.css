@@ -1,9 +1,9 @@
 body {
-  background: rgb(236, 236, 236);
-}
-.App {
-  text-align: center;
+  background: #fafafa;
 }
 .App-link {
   color: #61dafb;
+}
+.btn {
+  border-radius: 0;
 }
