@@ -19,6 +19,7 @@ import {
 // for all our hormones paths
 // there are located into our ./constants.js file
 export const AppState = {
+  obserViewActive: true,
   postOvulation: false,
   preOvulation: false,
   ovulation: false,
