@@ -1,18 +1,23 @@
-.counter-container {
-  padding-top: 3rem;
-}
 .clock-starter {
   text-align: center;
   padding: 10px;
+}
+.counter-container .description-content h2 {
+  margin: 2rem 0;
+}
+.counter-container .description-content p {
+  font-size: 1.4rem;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
 }
 .clock-setter .btn {
   background-color: #0f94f8;
   border-color: #0f94f8;
 }
 .fa-calendar {
-  width: 15rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  width: 9rem;
+  position: fixed;
+  right: 35%;
 }
 .btn-lg {
   font-size: 2rem;
