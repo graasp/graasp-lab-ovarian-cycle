@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'reactstrap';
 import Body from '../body/Body';
+import Calendar from '../controls/calendar/Calendar';
 import Visualizer from '../controls/visualizer/Visualizer';
+import './Core.css';
 // this is our sub main component
 // it renders the body and all the part containing
 // the dynamic informations of our application
@@ -24,14 +26,25 @@ export const Core = ({
   secreteLhFsh,
   secreteOestro,
   secreteProgest,
+  obserViewActive,
+  themeColor,
   t,
 }) => (
   <div className="core-container">
+    <Row>
+      <Col md={12}>
+        <h1 className="lab-title">{t('Synchronization of the ovarian cycle')}</h1>
+      </Col>
+    </Row>
     <Row>
       <Col sm="8">
         <Body />
       </Col>
       <Col sm="4">
+        <Calendar
+          dayCount={dayCount}
+          themeColor={themeColor}
+        />
         <Visualizer
           dayCount={dayCount}
           isStarted={isStarted}
@@ -50,6 +63,8 @@ export const Core = ({
           secreteLhFsh={secreteLhFsh}
           secreteOestro={secreteOestro}
           secreteProgest={secreteProgest}
+          obserViewActive={obserViewActive}
+          themeColor={themeColor}
           t={t}
         />
       </Col>
@@ -76,5 +91,7 @@ Core.propTypes = {
   secreteLhFsh: PropTypes.bool.isRequired,
   secreteOestro: PropTypes.bool.isRequired,
   secreteProgest: PropTypes.bool.isRequired,
+  obserViewActive: PropTypes.bool.isRequired,
+  themeColor: PropTypes.string.isRequired,
 };
 export default (Core);

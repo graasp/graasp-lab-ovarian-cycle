@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Calendar from '../calendar/Calendar';
 import Counter from '../counter/Counter';
 import Hormones from '../hormones/Hormones';
 import Phases from '../phases/Phases';
 import Refresher from './refresher/Refresher';
+import TabComponent from './TabComponent';
 import './Visualizer.css';
 // importing all different child components and
 // pass them params they need
 export const Visualizer = ({
-  dayCount,
   handleOvulation,
   handlePostOvulation,
   handlePreOvulation,
@@ -26,9 +25,14 @@ export const Visualizer = ({
   secreteLhFsh,
   secreteOestro,
   secreteProgest,
+  obserViewActive,
   t,
 }) => (
   <div className="visualizer-container">
+    <TabComponent
+      obserViewActive={obserViewActive}
+      t={t}
+    />
     <Counter
       handleStart={handleStart}
       handleStop={handleStop}
@@ -48,9 +52,6 @@ export const Visualizer = ({
       preOvulation={preOvulation}
       t={t}
     />
-    <Calendar
-      dayCount={dayCount}
-    />
     <Hormones
       ovulation={ovulation}
       postOvulation={postOvulation}
@@ -67,7 +68,6 @@ export const Visualizer = ({
 );
 
 Visualizer.propTypes = {
-  dayCount: PropTypes.number.isRequired,
   handleStart: PropTypes.func.isRequired,
   handleStop: PropTypes.func.isRequired,
   handleOvulation: PropTypes.func.isRequired,
@@ -85,5 +85,6 @@ Visualizer.propTypes = {
   secreteLhFsh: PropTypes.bool.isRequired,
   secreteOestro: PropTypes.bool.isRequired,
   secreteProgest: PropTypes.bool.isRequired,
+  obserViewActive: PropTypes.bool.isRequired,
 };
 export default (Visualizer);
