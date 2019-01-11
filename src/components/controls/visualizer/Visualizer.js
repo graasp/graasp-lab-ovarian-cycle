@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Calendar from '../calendar/Calendar';
 import Counter from '../counter/Counter';
 import Hormones from '../hormones/Hormones';
 import Phases from '../phases/Phases';
@@ -10,7 +9,6 @@ import './Visualizer.css';
 // importing all different child components and
 // pass them params they need
 export const Visualizer = ({
-  dayCount,
   handleOvulation,
   handlePostOvulation,
   handlePreOvulation,
@@ -54,9 +52,6 @@ export const Visualizer = ({
       preOvulation={preOvulation}
       t={t}
     />
-    <Calendar
-      dayCount={dayCount}
-    />
     <Hormones
       ovulation={ovulation}
       postOvulation={postOvulation}
@@ -73,7 +68,6 @@ export const Visualizer = ({
 );
 
 Visualizer.propTypes = {
-  dayCount: PropTypes.number.isRequired,
   handleStart: PropTypes.func.isRequired,
   handleStop: PropTypes.func.isRequired,
   handleOvulation: PropTypes.func.isRequired,
