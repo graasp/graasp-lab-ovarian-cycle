@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 import Body from '../body/Body';
+import Hormones from '../controls/hormones/Hormones';
 import Calendar from '../controls/calendar/Calendar';
 import Visualizer from '../controls/visualizer/Visualizer';
 import './Core.css';
@@ -29,48 +31,60 @@ export const Core = ({
   obserViewActive,
   themeColor,
   t,
-}) => (
-  <div className="core-container">
-    <Row>
-      <Col md={12}>
-        <h1 className="lab-title">{t('Synchronization of the ovarian cycle')}</h1>
-      </Col>
-    </Row>
-    <Row>
-      <Col sm="8">
-        <Body />
-      </Col>
-      <Col sm="4">
-        <Calendar
-          dayCount={dayCount}
-          themeColor={themeColor}
-        />
-        <Visualizer
-          dayCount={dayCount}
-          isStarted={isStarted}
-          handleOvulation={handleOvulation}
-          handlePostOvulation={handlePostOvulation}
-          handlePreOvulation={handlePreOvulation}
-          reloadPage={reloadPage}
-          handleStart={handleStart}
-          handleStop={handleStop}
-          ovulation={ovulation}
-          ovulationActive={ovulationActive}
-          preOvulationActive={preOvulationActive}
-          postOvulationActive={postOvulationActive}
-          postOvulation={postOvulation}
-          preOvulation={preOvulation}
-          secreteLhFsh={secreteLhFsh}
-          secreteOestro={secreteOestro}
-          secreteProgest={secreteProgest}
-          obserViewActive={obserViewActive}
-          themeColor={themeColor}
-          t={t}
-        />
-      </Col>
-    </Row>
-  </div>
-);
+}) => {
+  const defaultColor = themeColor || '#0f94f8';
+  return (
+    <div className="core-container">
+      <Row>
+        <Col md={12}>
+          <h1 className="lab-title" style={{ backgroundColor: defaultColor }}>{t('Synchronization of the ovarian cycle')}</h1>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm="8">
+          <Hormones
+            ovulation={ovulation}
+            postOvulation={postOvulation}
+            preOvulation={preOvulation}
+            secreteLhFsh={secreteLhFsh}
+            secreteProgest={secreteProgest}
+            secreteOestro={secreteOestro}
+            t={t}
+          />
+          <Body />
+        </Col>
+        <Col sm="4">
+          <Calendar
+            dayCount={dayCount}
+            themeColor={themeColor}
+          />
+          <Visualizer
+            dayCount={dayCount}
+            isStarted={isStarted}
+            handleOvulation={handleOvulation}
+            handlePostOvulation={handlePostOvulation}
+            handlePreOvulation={handlePreOvulation}
+            reloadPage={reloadPage}
+            handleStart={handleStart}
+            handleStop={handleStop}
+            ovulation={ovulation}
+            ovulationActive={ovulationActive}
+            preOvulationActive={preOvulationActive}
+            postOvulationActive={postOvulationActive}
+            postOvulation={postOvulation}
+            preOvulation={preOvulation}
+            secreteLhFsh={secreteLhFsh}
+            secreteOestro={secreteOestro}
+            secreteProgest={secreteProgest}
+            obserViewActive={obserViewActive}
+            themeColor={themeColor}
+            t={t}
+          />
+        </Col>
+      </Row>
+    </div>
+  );
+};
 
 Core.propTypes = {
   dayCount: PropTypes.number.isRequired,
@@ -94,4 +108,10 @@ Core.propTypes = {
   obserViewActive: PropTypes.bool.isRequired,
   themeColor: PropTypes.string.isRequired,
 };
-export default (Core);
+
+
+const mapStateToProps = state => ({
+  themeColor: state.setting.themeColor,
+});
+
+export default connect(mapStateToProps)(Core);
