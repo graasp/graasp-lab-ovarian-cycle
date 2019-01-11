@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Col, Row } from 'reactstrap';
 import Body from '../body/Body';
 import Visualizer from '../controls/visualizer/Visualizer';
+import './Core.css';
 // this is our sub main component
 // it renders the body and all the part containing
 // the dynamic informations of our application
@@ -24,9 +25,15 @@ export const Core = ({
   secreteLhFsh,
   secreteOestro,
   secreteProgest,
+  obserViewActive,
   t,
 }) => (
   <div className="core-container">
+    <Row>
+      <Col md={12}>
+        <h1 className="lab-title">{t('Synchronization of the ovarian cycle')}</h1>
+      </Col>
+    </Row>
     <Row>
       <Col sm="8">
         <Body />
@@ -50,6 +57,7 @@ export const Core = ({
           secreteLhFsh={secreteLhFsh}
           secreteOestro={secreteOestro}
           secreteProgest={secreteProgest}
+          obserViewActive={obserViewActive}
           t={t}
         />
       </Col>
