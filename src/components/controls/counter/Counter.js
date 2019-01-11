@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import './Counter.css';
 import { Button } from 'reactstrap';
 // deciding what happen on the launch/stop cycle button cycle
@@ -12,12 +13,31 @@ const Counter = ({
   preOvulationActive,
   postOvulationActive,
   t,
+  themeColor,
 }) => {
   const isDisabled = preOvulationActive || ovulationActive || postOvulationActive;
   // show stop button if simulation started otherwise show start
   const startButton = (isStarted)
-    ? <Button onClick={handleStop} size="lg" disabled={isDisabled}>{t('Stop Cycle')}</Button>
-    : <Button onClick={handleStart} size="lg" disabled={isDisabled}>{t('Launch Cycle')}</Button>;
+    ? (
+      <Button
+        onClick={handleStop}
+        size="lg"
+        disabled={isDisabled}
+        style={{ backgroundColor: themeColor, borderColor: themeColor }}
+      >
+        {t('Stop Cycle')}
+      </Button>
+    )
+    : (
+      <Button
+        onClick={handleStart}
+        size="lg"
+        disabled={isDisabled}
+        style={{ backgroundColor: themeColor, borderColor: themeColor }}
+      >
+        {t('Launch Cycle')}
+      </Button>
+    );
   return (
     <div className="counter-container">
       <div className="description-content">
@@ -46,5 +66,11 @@ Counter.propTypes = {
   ovulationActive: PropTypes.bool.isRequired,
   postOvulationActive: PropTypes.bool.isRequired,
   preOvulationActive: PropTypes.bool.isRequired,
+  themeColor: PropTypes.string.isRequired,
 };
-export default (Counter);
+
+const mapStateToProps = state => ({
+  themeColor: state.setting.themeColor,
+});
+
+export default connect(mapStateToProps)(Counter);
