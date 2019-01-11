@@ -20,6 +20,14 @@ const Counter = ({
     : <Button onClick={handleStart} size="lg" disabled={isDisabled}>{t('Launch Cycle')}</Button>;
   return (
     <div className="counter-container">
+      <div className="description-content">
+        <h2>Description</h2>
+        <p>
+          Il va permettre à l’apprenant d’interagir sur les taux des hormones ovariennes
+          (œstrogènes et progestérone) et hypophysaires (FSH et LH) pour comprendre comment
+          ces hormones contrôlent le cycle ovarien et comment elles assurent l’ovulation
+        </p>
+      </div>
       <div className="clock-setter">
         {startButton}
         <p className="select-step">
