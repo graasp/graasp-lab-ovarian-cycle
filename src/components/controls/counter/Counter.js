@@ -66,7 +66,7 @@ Counter.propTypes = {
   ovulationActive: PropTypes.bool.isRequired,
   postOvulationActive: PropTypes.bool.isRequired,
   preOvulationActive: PropTypes.bool.isRequired,
-  themeColor: PropTypes.string.isRequired,
+  // themeColor: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({

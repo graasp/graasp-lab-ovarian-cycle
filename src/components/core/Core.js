@@ -56,7 +56,7 @@ export const Core = ({
         <Col sm="4">
           <Calendar
             dayCount={dayCount}
-            themeColor={themeColor}
+            themeColor={defaultColor}
           />
           <Visualizer
             dayCount={dayCount}
@@ -77,7 +77,7 @@ export const Core = ({
             secreteOestro={secreteOestro}
             secreteProgest={secreteProgest}
             obserViewActive={obserViewActive}
-            themeColor={themeColor}
+            themeColor={defaultColor}
             t={t}
           />
         </Col>
@@ -111,7 +111,7 @@ Core.propTypes = {
 
 
 const mapStateToProps = state => ({
-  themeColor: state.setting.themeColor,
+  themeColor: state.setting.theme_color,
 });
 
 export default connect(mapStateToProps)(Core);
