@@ -106,12 +106,12 @@ Core.propTypes = {
   secreteOestro: PropTypes.bool.isRequired,
   secreteProgest: PropTypes.bool.isRequired,
   obserViewActive: PropTypes.bool.isRequired,
-  // themeColor: PropTypes.string.isRequired,
+  themeColor: PropTypes.string.isRequired,
 };
 
 
 const mapStateToProps = state => ({
-  themeColor: state.setting.themeColor,
+  themeColor: state.setting.theme_color,
 });
 
 export default connect(mapStateToProps)(Core);

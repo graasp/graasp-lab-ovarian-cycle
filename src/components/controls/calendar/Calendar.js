@@ -40,11 +40,11 @@ const Calendar = ({
 
 Calendar.propTypes = {
   dayCount: PropTypes.number.isRequired,
-  // themeColor: PropTypes.string.isRequired,
+  themeColor: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.setting.themeColor,
+  themeColor: state.setting.theme_color,
 });
 
 export default connect(mapStateToProps)(Calendar);

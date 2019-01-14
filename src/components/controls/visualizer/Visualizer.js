@@ -92,7 +92,6 @@ export class Visualizer extends Component {
       secreteProgest,
       obserViewActive,
       t,
-      themeColor,
     } = this.props;
 
     return (
@@ -166,11 +165,10 @@ Visualizer.propTypes = {
   secreteOestro: PropTypes.bool.isRequired,
   secreteProgest: PropTypes.bool.isRequired,
   obserViewActive: PropTypes.bool.isRequired,
-  // themeColor: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.themeColor,
+  themeColor: state.setting.theme_color,
 });
 
 const mapDispatchToProps = {
