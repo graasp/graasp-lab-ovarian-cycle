@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import HumanBody from './human-body.svg';
 import FemaleBody from './Female-Body.svg';
 import { appendSvg } from '../../actions';
 // our body component just render the human image
