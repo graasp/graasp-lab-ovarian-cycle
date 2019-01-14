@@ -1,2 +1,3 @@
-export const APPEND_SVG = 'append_svg';
-export default APPEND_SVG;
+export const APPEND_SVG = 'APPEND_SVG';
+export const THEME_COLOR = 'THEME_COLOR';
+export const DEFAULT_LANGUAGE = 'DEFAULT_LANGUAGE';

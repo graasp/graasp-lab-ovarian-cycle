@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { APPEND_SVG } from './types';
+import { APPEND_SVG, THEME_COLOR, DEFAULT_LANGUAGE } from './types';
 
 export function appendSvg() {
   // creating our initial svg that we append to the
@@ -13,7 +13,16 @@ export function appendSvg() {
   };
 }
 
-// exporting this function will dispatch the created svg
-// we could retrieve from all other component
-// but currently we are just retrieving it from our app.js
-export default appendSvg;
+export function themeColor({ newColor }) {
+  return {
+    type: THEME_COLOR,
+    payload: newColor,
+  };
+}
+
+export function defaultLang({ newLang }) {
+  return {
+    type: DEFAULT_LANGUAGE,
+    payload: newLang,
+  };
+}
