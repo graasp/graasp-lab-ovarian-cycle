@@ -56,7 +56,7 @@ export const Core = ({
         <Col sm="4">
           <Calendar
             dayCount={dayCount}
-            themeColor={themeColor}
+            themeColor={defaultColor}
           />
           <Visualizer
             dayCount={dayCount}
@@ -77,7 +77,7 @@ export const Core = ({
             secreteOestro={secreteOestro}
             secreteProgest={secreteProgest}
             obserViewActive={obserViewActive}
-            themeColor={themeColor}
+            themeColor={defaultColor}
             t={t}
           />
         </Col>
@@ -106,7 +106,7 @@ Core.propTypes = {
   secreteOestro: PropTypes.bool.isRequired,
   secreteProgest: PropTypes.bool.isRequired,
   obserViewActive: PropTypes.bool.isRequired,
-  themeColor: PropTypes.string.isRequired,
+  // themeColor: PropTypes.string.isRequired,
 };
 
 

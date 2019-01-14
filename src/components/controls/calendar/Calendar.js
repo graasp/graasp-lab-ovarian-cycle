@@ -40,7 +40,7 @@ const Calendar = ({
 
 Calendar.propTypes = {
   dayCount: PropTypes.number.isRequired,
-  themeColor: PropTypes.string.isRequired,
+  // themeColor: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
