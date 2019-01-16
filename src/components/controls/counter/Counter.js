@@ -41,11 +41,9 @@ const Counter = ({
   return (
     <div className="counter-container">
       <div className="description-content">
-        <h2>Description</h2>
+        <h2>{t('Description')}</h2>
         <p>
-          Il va permettre à l’apprenant d’interagir sur les taux des hormones ovariennes
-          (œstrogènes et progestérone) et hypophysaires (FSH et LH) pour comprendre comment
-          ces hormones contrôlent le cycle ovarien et comment elles assurent l’ovulation
+          {t('Lab Explanation')}
         </p>
       </div>
       <div className="clock-setter">
