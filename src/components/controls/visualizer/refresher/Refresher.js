@@ -93,7 +93,7 @@ Refresher.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.setting.theme_color,
+  themeColor: state.setting.themeColor,
 });
 
 const connectedComponent = connect(mapStateToProps)(Refresher);

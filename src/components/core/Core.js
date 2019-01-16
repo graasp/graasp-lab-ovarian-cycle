@@ -33,6 +33,7 @@ export const Core = ({
   t,
 }) => {
   const defaultColor = themeColor || '#0f94f8';
+  console.log('defaultColor', defaultColor, themeColor );
   return (
     <div className="core-container">
       <Row>
@@ -111,7 +112,7 @@ Core.propTypes = {
 
 
 const mapStateToProps = state => ({
-  themeColor: state.setting.theme_color,
+  themeColor: state.setting.themeColor,
 });
 
 export default connect(mapStateToProps)(Core);
