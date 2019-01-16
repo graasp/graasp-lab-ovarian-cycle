@@ -304,6 +304,10 @@ class StudentView extends Component {
       preOvulationActive: true,
     });
     this.intervalHandle = setInterval(this.tickPreOvulation, 2100);
+    this.postMessage({
+      phasis: 'pre-ovulation',
+      status: 'started',
+    });
   }
 
   // here we listen to the post-ovulation button click
@@ -316,6 +320,10 @@ class StudentView extends Component {
       preOvulationActive: false,
     });
     this.intervalHandle = setInterval(this.tickPostOvulation, 2100);
+    this.postMessage({
+      phasis: 'post-ovulation',
+      status: 'started',
+    });
   }
 
   // here we listen to the ovulation button click
@@ -328,6 +336,10 @@ class StudentView extends Component {
       preOvulationActive: false,
     });
     this.intervalHandle = setInterval(this.tickOvulation, 2100);
+    this.postMessage({
+      phasis: 'ovulation',
+      status: 'started',
+    });
   }
 
   // here we listen to the start button clicked
@@ -335,6 +347,9 @@ class StudentView extends Component {
   handleStart = () => {
     this.setState({ isStarted: true });
     this.intervalHandle = setInterval(this.tick, 2100);
+    this.postMessage({
+      start_full_cycle: true,
+    });
   }
 
   // here we listen to the stop button clicked
@@ -345,7 +360,23 @@ class StudentView extends Component {
       isStarted: false,
     });
     clearInterval(this.intervalHandle);
+    this.postMessage({
+      start_full_cycle: false,
+    });
   }
+
+  postMessage = (data) => {
+    const message = JSON.stringify(data);
+    console.log('message', message);
+    if (document.postMessage) {
+      document.postMessage(message, '*');
+    } else if (window.postMessage) {
+      window.postMessage(message, '*');
+    } else {
+      console.error('unable to find postMessage');
+    }
+  };
+
 
   // here we pass appropriate hormones classes, path datas,
   // color, path and the transformat propertites

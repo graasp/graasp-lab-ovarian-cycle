@@ -23,6 +23,9 @@ export class Visualizer extends Component {
       dispatchThemeColor,
     } = this.props;
     dispatchThemeColor({ newColor });
+    this.postMessage({
+      themeColor: newColor,
+    });
   }
 
   handleLang = (lang) => {
@@ -31,11 +34,17 @@ export class Visualizer extends Component {
       dispatchDefaultLanguage,
     } = this.props;
     dispatchDefaultLanguage({ newLang });
+    this.postMessage({
+      defaultLang: newLang,
+    });
   }
 
   onOpenModal = () => {
     this.setState({
       openModal: true,
+    });
+    this.postMessage({
+      open_setting_modal: true,
     });
   }
 
@@ -43,12 +52,26 @@ export class Visualizer extends Component {
     this.setState({
       openModal: false,
     });
+    this.postMessage({
+      open_setting_modal: false,
+    });
   }
+
+  postMessage = (data) => {
+    const message = JSON.stringify(data);
+    console.log('message', message);
+    if (document.postMessage) {
+      document.postMessage(message, '*');
+    } else if (window.postMessage) {
+      window.postMessage(message, '*');
+    } else {
+      console.error('unable to find postMessage');
+    }
+  };
 
   render() {
     const {
       openModal,
-      classes,
     } = this.state;
     const {
       handleOvulation,
@@ -69,7 +92,6 @@ export class Visualizer extends Component {
       secreteProgest,
       obserViewActive,
       t,
-      themeColor,
     } = this.props;
 
     return (
@@ -85,6 +107,7 @@ export class Visualizer extends Component {
           ovulationActive={ovulationActive}
           postOvulationActive={postOvulationActive}
           preOvulationActive={preOvulationActive}
+          themeColor={themeColor}
           t={t}
         />
         <Phases
@@ -111,9 +134,9 @@ export class Visualizer extends Component {
           onOpenModal={this.onOpenModal}
           onCloseModal={this.onCloseModal}
           openModal={openModal}
-          classes={classes}
           handleChangeComplete={this.handleChangeComplete}
           handleLang={this.handleLang}
+          themeColor={themeColor}
           t={t}
         />
       </div>
@@ -142,11 +165,10 @@ Visualizer.propTypes = {
   secreteOestro: PropTypes.bool.isRequired,
   secreteProgest: PropTypes.bool.isRequired,
   obserViewActive: PropTypes.bool.isRequired,
-  themeColor: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.themeColor,
+  themeColor: state.setting.theme_color,
 });
 
 const mapDispatchToProps = {

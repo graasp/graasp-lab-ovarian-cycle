@@ -88,12 +88,12 @@ Refresher.propTypes = {
   handleLang: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
   openModal: PropTypes.bool.isRequired,
-  classes: PropTypes.string.isRequired,
+  classes: PropTypes.shape({}).isRequired,
   themeColor: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.setting.themeColor,
+  themeColor: state.setting.theme_color,
 });
 
 const connectedComponent = connect(mapStateToProps)(Refresher);
