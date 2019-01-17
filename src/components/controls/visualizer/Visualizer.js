@@ -11,6 +11,7 @@ import './Visualizer.css';
 import {
   defaultLang,
   themeColor,
+  titleState,
 } from '../../../actions';
 // importing all different child components and
 // pass them params they need
@@ -69,10 +70,18 @@ export class Visualizer extends Component {
     }
   };
 
+  toggleTitle = () => {
+    const { showTitle } = this.state;
+    this.setState({ showTitle: !showTitle });
+    const { dispatchTitleState } = this.props;
+    dispatchTitleState({ showTitle });
+    this.postMessage({
+      show_title: showTitle,
+    });
+  }
+
   render() {
-    const {
-      openModal,
-    } = this.state;
+    const { openModal } = this.state;
     const {
       handleOvulation,
       handlePostOvulation,
@@ -136,7 +145,7 @@ export class Visualizer extends Component {
           openModal={openModal}
           handleChangeComplete={this.handleChangeComplete}
           handleLang={this.handleLang}
-          themeColor={themeColor}
+          toggleTitle={this.toggleTitle}
           t={t}
         />
       </div>
@@ -152,6 +161,7 @@ Visualizer.propTypes = {
   handlePreOvulation: PropTypes.func.isRequired,
   dispatchThemeColor: PropTypes.func.isRequired,
   dispatchDefaultLanguage: PropTypes.func.isRequired,
+  dispatchTitleState: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
   reloadPage: PropTypes.func.isRequired,
   isStarted: PropTypes.bool.isRequired,
@@ -174,6 +184,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   dispatchThemeColor: themeColor,
   dispatchDefaultLanguage: defaultLang,
+  dispatchTitleState: titleState,
 };
 
 const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(Visualizer);

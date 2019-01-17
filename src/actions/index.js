@@ -1,5 +1,10 @@
 import * as d3 from 'd3';
-import { APPEND_SVG, THEME_COLOR, DEFAULT_LANGUAGE } from './types';
+import {
+  APPEND_SVG,
+  THEME_COLOR,
+  DEFAULT_LANGUAGE,
+  TITLE_STATE,
+} from './types';
 
 export function appendSvg() {
   // creating our initial svg that we append to the
@@ -24,5 +29,12 @@ export function defaultLang({ newLang }) {
   return {
     type: DEFAULT_LANGUAGE,
     payload: newLang,
+  };
+}
+
+export function titleState({ showTitle }) {
+  return {
+    type: TITLE_STATE,
+    payload: showTitle,
   };
 }

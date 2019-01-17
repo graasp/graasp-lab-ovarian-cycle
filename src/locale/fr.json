@@ -22,6 +22,9 @@
     "Test": "Tester",
     "Coming Soon!": "Bientôt disponible!",
     "Choose your panel color": "Choisis la couleur de panel",
-    "Language": "Langue"
+    "Language": "Langue",
+    "Description": "Description",
+    "Display Lab title": "Afficher le titre du labo",
+    "Lab Explanation": "Il va permettre à l’apprenant d’interagir sur les taux des hormones ovariennes (œstrogènes et progestérone) et hypophysaires (FSH et LH) pour comprendre comment ces hormones contrôlent le cycle ovarien et comment elles assurent l’ovulation"
   }
 }

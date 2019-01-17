@@ -22,6 +22,9 @@
     "Test": "Test",
     "Coming Soon!": "Coming Soon!",
     "Choose your panel color": "Choose your panel color",
-    "Language": "Language"
+    "Language": "Language",
+    "Description": "Description",
+    "Display Lab title": "Display Lab title",
+    "Lab Explanation": "It will allow the learner to interact on ovarian hormone levels (estrogen and progesterone) and pituitary (FSH and LH) to understand how these hormones control the ovarian cycle and how they ensure ovulation"
   }
 }

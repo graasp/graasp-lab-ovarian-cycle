@@ -1,44 +1,33 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Graasp Lab Ovarian Cycle
 
-## Available Scripts
+The lab allows the learner to  interact on ovarian hormone levels (estrogen and progesterone) and pituitary (FSH and LH) to understand how these hormones control the ovarian cycle and how they ensure ovulation.
 
-In the project directory, you can run:
+This Lab was created using [Graasp App Starter React](https://github.com/react-epfl/graasp-app-starter-react)
 
-### `npm start`
+![image](https://github.com/graasp/graasp-lab-ovarian-cycle/blob/67/update-readme/public/preview.png)
+## Topic
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Biology
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+## Quick Start
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1- Clone this repository by downloading directly or running this command:
 
-### `npm run build`
+```
+git clone git@github.com:graasp/graasp-lab-ovarian-cycle.git
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2- Install dependencies by running `yarn` or `npm install` from the project directory to install all dependencies. In case your don't have them installed, go
+[here](https://changelog.com/posts/install-node-js-with-homebrew-on-os-x) and install them.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+3- Navigate to the cloned or forked project directory using the command line, type `yarn start` or `npm start` and the project will automatically run on `localhost:3000`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Get involved
 
-### `npm run eject`
+Contact us at our Graasp React Group [here](http://graasp.eu/)
+Help us improve by creating [new issues](https://github.com/graasp/graasp-lab-ovarian-cycle/issues/new.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Licence
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+See the [Licence](https://github.com/graasp/graasp-lab-ovarian-cycle/blob/1/main-view/LICENSE)
