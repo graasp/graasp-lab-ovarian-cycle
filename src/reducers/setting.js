@@ -1,7 +1,8 @@
-import { THEME_COLOR } from '../actions/types';
+import { THEME_COLOR, TITLE_STATE } from '../actions/types';
 
 const INITIAL_STATE = {
-  theme_color: '#0f94f8',
+  themeColor: '#0f94f8',
+  showTitle: true,
 };
 
 // we make sure returning the right action
@@ -12,6 +13,11 @@ export default function (state = INITIAL_STATE, action) {
       return {
         ...state,
         themeColor: action.payload,
+      };
+    case TITLE_STATE:
+      return {
+        ...state,
+        showTitle: action.payload,
       };
     default:
       return state;
