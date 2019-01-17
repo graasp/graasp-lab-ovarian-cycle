@@ -490,6 +490,7 @@ class StudentView extends Component {
       secreteProgest,
       secreteOestro,
       obserViewActive,
+      showTitle,
     } = this.state;
     const { t } = this.props;
     return (
@@ -513,6 +514,7 @@ class StudentView extends Component {
           secreteProgest={secreteProgest}
           secreteOestro={secreteOestro}
           obserViewActive={obserViewActive}
+          showTitle={showTitle}
           t={t}
         />
       </div>
