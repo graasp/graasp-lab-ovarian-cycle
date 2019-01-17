@@ -30,62 +30,62 @@ export const Core = ({
   secreteProgest,
   obserViewActive,
   themeColor,
+  showTitle,
   t,
-}) => {
-  const defaultColor = themeColor || '#0f94f8';
-  console.log('defaultColor', defaultColor, themeColor );
-  return (
-    <div className="core-container">
+}) => (
+  <div className="core-container">
+    { showTitle ? (
       <Row>
         <Col md={12}>
-          <h1 className="lab-title" style={{ backgroundColor: defaultColor }}>{t('Synchronization of the ovarian cycle')}</h1>
+          <h1 className="lab-title" style={{ backgroundColor: themeColor }}>{t('Synchronization of the ovarian cycle')}</h1>
         </Col>
       </Row>
-      <Row>
-        <Col sm="8">
-          <Hormones
-            ovulation={ovulation}
-            postOvulation={postOvulation}
-            preOvulation={preOvulation}
-            secreteLhFsh={secreteLhFsh}
-            secreteProgest={secreteProgest}
-            secreteOestro={secreteOestro}
-            t={t}
-          />
-          <Body />
-        </Col>
-        <Col sm="4">
-          <Calendar
-            dayCount={dayCount}
-            themeColor={defaultColor}
-          />
-          <Visualizer
-            dayCount={dayCount}
-            isStarted={isStarted}
-            handleOvulation={handleOvulation}
-            handlePostOvulation={handlePostOvulation}
-            handlePreOvulation={handlePreOvulation}
-            reloadPage={reloadPage}
-            handleStart={handleStart}
-            handleStop={handleStop}
-            ovulation={ovulation}
-            ovulationActive={ovulationActive}
-            preOvulationActive={preOvulationActive}
-            postOvulationActive={postOvulationActive}
-            postOvulation={postOvulation}
-            preOvulation={preOvulation}
-            secreteLhFsh={secreteLhFsh}
-            secreteOestro={secreteOestro}
-            secreteProgest={secreteProgest}
-            obserViewActive={obserViewActive}
-            themeColor={defaultColor}
-            t={t}
-          />
-        </Col>
-      </Row>
-    </div>
-  );
-};
+    ) : ''
+    }
+    <Row>
+      <Col sm={8}>
+        <Hormones
+          ovulation={ovulation}
+          postOvulation={postOvulation}
+          preOvulation={preOvulation}
+          secreteLhFsh={secreteLhFsh}
+          secreteProgest={secreteProgest}
+          secreteOestro={secreteOestro}
+          t={t}
+        />
+        <Body />
+      </Col>
+      <Col sm={4}>
+        <Calendar
+          dayCount={dayCount}
+          themeColor={themeColor}
+        />
+        <Visualizer
+          dayCount={dayCount}
+          isStarted={isStarted}
+          handleOvulation={handleOvulation}
+          handlePostOvulation={handlePostOvulation}
+          handlePreOvulation={handlePreOvulation}
+          reloadPage={reloadPage}
+          handleStart={handleStart}
+          handleStop={handleStop}
+          ovulation={ovulation}
+          ovulationActive={ovulationActive}
+          preOvulationActive={preOvulationActive}
+          postOvulationActive={postOvulationActive}
+          postOvulation={postOvulation}
+          preOvulation={preOvulation}
+          secreteLhFsh={secreteLhFsh}
+          secreteOestro={secreteOestro}
+          secreteProgest={secreteProgest}
+          obserViewActive={obserViewActive}
+          themeColor={themeColor}
+          t={t}
+        />
+      </Col>
+    </Row>
+  </div>
+);
 
 Core.propTypes = {
   dayCount: PropTypes.number.isRequired,
@@ -108,11 +108,13 @@ Core.propTypes = {
   secreteProgest: PropTypes.bool.isRequired,
   obserViewActive: PropTypes.bool.isRequired,
   themeColor: PropTypes.string.isRequired,
+  showTitle: PropTypes.bool.isRequired,
 };
 
 
 const mapStateToProps = state => ({
   themeColor: state.setting.themeColor,
+  showTitle: state.setting.showTitle,
 });
 
 export default connect(mapStateToProps)(Core);
