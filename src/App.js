@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import Qs from 'qs';
 import PropTypes from 'prop-types';
 import { withNamespaces } from 'react-i18next';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import StudentView from './student/StudentView';
+
+library.add(faCalendar);
 
 export class App extends Component {
   static propTypes = {
