@@ -26,7 +26,7 @@
 .test-button-active:hover,
 .observe-button-active:hover {
   background-color: #EEEEEE;
-  COLOR: #555555;
+  color: #555555;
 }
 #disabledBtn {
   cursor: help;
