@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Counter from '../counter/Counter';
-import Cycles from '../cycles/Cycles';
 import Phases from '../phases/Phases';
 import Refresher from './refresher/Refresher';
 import TabComponent from './TabComponent';
@@ -90,19 +91,11 @@ export class Visualizer extends Component {
       handleStart,
       handleStop,
       isStarted,
-      ovulation,
       ovulationActive,
       postOvulationActive,
-      preOvulationActive,
-      postOvulation,
-      preOvulation,
-      secreteLhFsh,
-      secreteOestro,
-      secreteProgest,
       obserViewActive,
       t,
     } = this.props;
-
     return (
       <div className="visualizer-container">
         <TabComponent
@@ -115,7 +108,6 @@ export class Visualizer extends Component {
           isStarted={isStarted}
           ovulationActive={ovulationActive}
           postOvulationActive={postOvulationActive}
-          preOvulationActive={preOvulationActive}
           themeColor={themeColor}
           t={t}
         />
@@ -123,21 +115,9 @@ export class Visualizer extends Component {
           handleOvulation={handleOvulation}
           handlePostOvulation={handlePostOvulation}
           handlePreOvulation={handlePreOvulation}
-          ovulationActive={ovulationActive}
-          postOvulationActive={postOvulationActive}
-          preOvulationActive={preOvulationActive}
-          preOvulation={preOvulation}
           t={t}
         />
-        <Cycles
-          ovulation={ovulation}
-          postOvulation={postOvulation}
-          preOvulation={preOvulation}
-          secreteLhFsh={secreteLhFsh}
-          secreteProgest={secreteProgest}
-          secreteOestro={secreteOestro}
-          t={t}
-        />
+        <ToastContainer autoClose={25000} />
         <Refresher
           reloadPage={reloadPage}
           onOpenModal={this.onOpenModal}
@@ -165,20 +145,13 @@ Visualizer.propTypes = {
   t: PropTypes.func.isRequired,
   reloadPage: PropTypes.func.isRequired,
   isStarted: PropTypes.bool.isRequired,
-  ovulation: PropTypes.bool.isRequired,
   ovulationActive: PropTypes.bool.isRequired,
   postOvulationActive: PropTypes.bool.isRequired,
-  preOvulationActive: PropTypes.bool.isRequired,
-  postOvulation: PropTypes.bool.isRequired,
-  preOvulation: PropTypes.bool.isRequired,
-  secreteLhFsh: PropTypes.bool.isRequired,
-  secreteOestro: PropTypes.bool.isRequired,
-  secreteProgest: PropTypes.bool.isRequired,
   obserViewActive: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.setting.theme_color,
+  themeColor: state.setting.themeColor,
 });
 
 const mapDispatchToProps = {

@@ -1,8 +1,17 @@
-import { THEME_COLOR, TITLE_STATE } from '../actions/types';
+import {
+  THEME_COLOR,
+  TITLE_STATE,
+  PRE_OVULATION,
+  OVULATION,
+  POST_OVULATION,
+} from '../actions/types';
 
 const INITIAL_STATE = {
   themeColor: '#0f94f8',
   showTitle: true,
+  preOvulationActive: false,
+  postOvulationActive: false,
+  ovulationActive: false,
 };
 
 // we make sure returning the right action
@@ -18,6 +27,21 @@ export default function (state = INITIAL_STATE, action) {
       return {
         ...state,
         showTitle: action.payload,
+      };
+    case PRE_OVULATION:
+      return {
+        ...state,
+        preOvulationActive: action.payload,
+      };
+    case OVULATION:
+      return {
+        ...state,
+        ovulationActive: action.payload,
+      };
+    case POST_OVULATION:
+      return {
+        ...state,
+        postOvulationActive: action.payload,
       };
     default:
       return state;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './Phases.css';
 import { Button } from 'reactstrap';
@@ -58,4 +59,11 @@ Phases.propTypes = {
   preOvulationActive: PropTypes.bool.isRequired,
 };
 
-export default (Phases);
+const mapStateToProps = state => ({
+  preOvulationActive: state.setting.preOvulationActive,
+  postOvulationActive: state.setting.postOvulationActive,
+  ovulationActive: state.setting.ovulationActive,
+});
+
+
+export default connect(mapStateToProps)(Phases);
