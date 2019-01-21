@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import { withStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Settings';
+import RefreshIcon from '@material-ui/icons/Refresh';
 import Fab from '@material-ui/core/Fab';
 import Switch from 'react-switch';
 import {
@@ -25,6 +26,11 @@ const styles = theme => ({
     bottom: theme.spacing.unit * 4,
     position: 'fixed',
   },
+  ref: {
+    right: theme.spacing.unit * 4,
+    bottom: theme.spacing.unit * 12,
+    position: 'fixed',
+  },
 });
 
 const Setting = ({
@@ -38,6 +44,7 @@ const Setting = ({
   themeColor,
   toggleTitle,
   showTitle,
+  reloadPage,
 }) => (
   <div className="setting-container">
     <Fab
@@ -48,6 +55,15 @@ const Setting = ({
       style={{ backgroundColor: themeColor }}
     >
       <AddIcon style={{ color: 'white' }} />
+    </Fab>
+    <Fab
+      color="primary"
+      aria-label="Add"
+      onClick={reloadPage}
+      className={classes.ref}
+      style={{ backgroundColor: themeColor }}
+    >
+      <RefreshIcon style={{ color: 'white' }} />
     </Fab>
     <Modal open={openModal} onClose={onCloseModal} center>
       <SwitchBox
@@ -86,6 +102,7 @@ Setting.propTypes = {
   themeColor: PropTypes.string.isRequired,
   toggleTitle: PropTypes.func.isRequired,
   showTitle: PropTypes.bool.isRequired,
+  reloadPage: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
