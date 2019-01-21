@@ -64,11 +64,14 @@ Counter.propTypes = {
   ovulationActive: PropTypes.bool.isRequired,
   postOvulationActive: PropTypes.bool.isRequired,
   preOvulationActive: PropTypes.bool.isRequired,
-  // themeColor: PropTypes.string.isRequired,
+  themeColor: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   themeColor: state.setting.themeColor,
+  preOvulationActive: state.setting.preOvulationActive,
+  postOvulationActive: state.setting.postOvulationActive,
+  ovulationActive: state.setting.ovulationActive,
 });
 
 export default connect(mapStateToProps)(Counter);
