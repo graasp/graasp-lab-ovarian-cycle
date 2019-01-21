@@ -1,0 +1,239 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import Visualizer from '../visualizer/Visualizer';
+import Hormones from '../hormones/Hormones';
+import Calendar from '../calendar/Calendar';
+import Body from '../../body/Body';
+
+const drawerWidth = 480;
+
+const styles = theme => ({
+  root: {
+    display: 'flex',
+  },
+  appBar: {
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  appBarShift: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginRight: drawerWidth,
+  },
+  menuButton: {
+    marginLeft: 12,
+    marginRight: 20,
+  },
+  hide: {
+    display: 'none',
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  drawerHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '0 8px',
+    ...theme.mixins.toolbar,
+    justifyContent: 'flex-start',
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing.unit * 3,
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginRight: -drawerWidth,
+  },
+  contentShift: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginRight: 0,
+  },
+});
+
+class PersistentDrawerRight extends React.Component {
+  state = {
+    open: false,
+  };
+
+  handleDrawerOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleDrawerClose = () => {
+    this.setState({ open: false });
+  };
+
+  render() {
+    const {
+      classes,
+      theme,
+      dayCount,
+      isStarted,
+      ovulation,
+      ovulationActive,
+      preOvulationActive,
+      postOvulationActive,
+      reloadPage,
+      handleOvulation,
+      handlePostOvulation,
+      handlePreOvulation,
+      handleStart,
+      handleStop,
+      postOvulation,
+      preOvulation,
+      secreteLhFsh,
+      secreteOestro,
+      secreteProgest,
+      obserViewActive,
+      themeColor,
+      t,
+    } = this.props;
+    const { open } = this.state;
+
+    return (
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBar
+          position="fixed"
+          className={classNames(classes.appBar, {
+            [classes.appBarShift]: open,
+          })}
+        >
+          <Toolbar disableGutters={!open} style={{ backgroundColor: themeColor }}>
+            <IconButton
+              color="inherit"
+              aria-label="Open drawer"
+              onClick={this.handleDrawerOpen}
+              className={classNames(classes.menuButton, open && classes.hide)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h4" color="inherit" noWrap>
+              {t('Synchronization of the ovarian cycle')}
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <main
+          className={classNames(classes.content, {
+            [classes.contentShift]: open,
+          })}
+        >
+          <div className={classes.drawerHeader} />
+          <Calendar
+            dayCount={dayCount}
+            themeColor={themeColor}
+          />
+          <Hormones
+            ovulation={ovulation}
+            postOvulation={postOvulation}
+            preOvulation={preOvulation}
+            secreteLhFsh={secreteLhFsh}
+            secreteProgest={secreteProgest}
+            secreteOestro={secreteOestro}
+            t={t}
+          />
+          <Body />
+        </main>
+        <Drawer
+          className={classes.drawer}
+          variant="persistent"
+          anchor="right"
+          open={open}
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+        >
+          <div className={classes.drawerHeader}>
+            <IconButton onClick={this.handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            </IconButton>
+            <h3>Observe</h3>
+          </div>
+          <Divider />
+          <Visualizer
+            dayCount={dayCount}
+            isStarted={isStarted}
+            handleOvulation={handleOvulation}
+            handlePostOvulation={handlePostOvulation}
+            handlePreOvulation={handlePreOvulation}
+            reloadPage={reloadPage}
+            handleStart={handleStart}
+            handleStop={handleStop}
+            ovulation={ovulation}
+            ovulationActive={ovulationActive}
+            preOvulationActive={preOvulationActive}
+            postOvulationActive={postOvulationActive}
+            postOvulation={postOvulation}
+            preOvulation={preOvulation}
+            secreteLhFsh={secreteLhFsh}
+            secreteOestro={secreteOestro}
+            secreteProgest={secreteProgest}
+            obserViewActive={obserViewActive}
+            themeColor={themeColor}
+            t={t}
+          />
+        </Drawer>
+      </div>
+    );
+  }
+}
+
+PersistentDrawerRight.propTypes = {
+  classes: PropTypes.shape({}).isRequired,
+  theme: PropTypes.shape({}).isRequired,
+  dayCount: PropTypes.number.isRequired,
+  handleStart: PropTypes.func.isRequired,
+  handleStop: PropTypes.func.isRequired,
+  handleOvulation: PropTypes.func.isRequired,
+  handlePostOvulation: PropTypes.func.isRequired,
+  handlePreOvulation: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
+  reloadPage: PropTypes.func.isRequired,
+  isStarted: PropTypes.bool.isRequired,
+  ovulation: PropTypes.bool.isRequired,
+  ovulationActive: PropTypes.bool.isRequired,
+  postOvulationActive: PropTypes.bool.isRequired,
+  preOvulationActive: PropTypes.bool.isRequired,
+  postOvulation: PropTypes.bool.isRequired,
+  preOvulation: PropTypes.bool.isRequired,
+  secreteLhFsh: PropTypes.bool.isRequired,
+  secreteOestro: PropTypes.bool.isRequired,
+  secreteProgest: PropTypes.bool.isRequired,
+  obserViewActive: PropTypes.bool.isRequired,
+  themeColor: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = state => ({
+  themeColor: state.setting.themeColor,
+});
+
+const connectedComponent = connect(mapStateToProps)(PersistentDrawerRight);
+
+export default withStyles(styles, { withTheme: true })(connectedComponent);
