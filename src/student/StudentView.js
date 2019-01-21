@@ -11,6 +11,7 @@ import {
   SKY_BLUE,
 } from '../config/constants';
 import Core from '../components/core/Core';
+import SideMe from '../components/controls/common/SideMe';
 import { AppState } from '../config/AppState';
 import {
   preOvulationState,
@@ -333,7 +334,7 @@ class StudentView extends Component {
     });
   }
 
-  notify = () => toast(<Msg />);
+  notify = () => toast(<Msg />, { position: toast.POSITION.BOTTOM_LEFT });
 
   // here we listen to the post-ovulation button click
   // then we update the inital state and set the day to the 14th
@@ -528,7 +529,7 @@ class StudentView extends Component {
     const { t } = this.props;
     return (
       <div className="student-view">
-        <Core
+        <SideMe
           dayCount={dayCount}
           handleOvulation={this.handleOvulation}
           handlePostOvulation={this.handlePostOvulation}
@@ -549,6 +550,7 @@ class StudentView extends Component {
           obserViewActive={obserViewActive}
           showTitle={showTitle}
           t={t}
+
         />
       </div>
     );
