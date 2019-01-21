@@ -4,6 +4,9 @@ import {
   THEME_COLOR,
   DEFAULT_LANGUAGE,
   TITLE_STATE,
+  PRE_OVULATION,
+  OVULATION,
+  POST_OVULATION,
 } from './types';
 
 export function appendSvg() {
@@ -36,5 +39,26 @@ export function titleState({ showTitle }) {
   return {
     type: TITLE_STATE,
     payload: showTitle,
+  };
+}
+
+export function preOvulationState({ preOvulationActive }) {
+  return {
+    type: PRE_OVULATION,
+    payload: preOvulationActive,
+  };
+}
+
+export function ovulationState({ ovulationActive }) {
+  return {
+    type: OVULATION,
+    payload: ovulationActive,
+  };
+}
+
+export function postOvulationState({ postOvulationActive }) {
+  return {
+    type: POST_OVULATION,
+    payload: postOvulationActive,
   };
 }
