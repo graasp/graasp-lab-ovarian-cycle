@@ -21,6 +21,7 @@ import {
 // for all our hormones paths
 // there are located into our ./constants.js file
 export const AppState = {
+  open: false,
   openModal: false,
   themeColor: '#2196F5',
   obserViewActive: true,
