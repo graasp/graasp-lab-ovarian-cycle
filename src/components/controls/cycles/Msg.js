@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withNamespaces } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 const Msg = ({
@@ -7,17 +8,18 @@ const Msg = ({
   themeColor,
   ovulationActive,
   postOvulationActive,
+  t,
 }) => (
   <div>
     { preOvulationActive ? (
       <div>
         <h4 className="animate-text" style={{ color: themeColor }}>
-          Pre-Ovulation
+          {t('Pre-Ovulation')}
         </h4>
         <p className="">
-          This stage is the moment when the LH and FSH are in normal quatity.
+          {t('This stage is the moment when the LH and FSH are in normal quatity.')}
           <br />
-          This is the period before ovulation
+          {t('This is the period before ovulation')}
         </p>
       </div>
     ) : ''
@@ -25,12 +27,12 @@ const Msg = ({
     { ovulationActive ? (
       <div>
         <h4 className="animate-text" style={{ color: themeColor }}>
-          Ovulation
+          {t('Ovulation')}
         </h4>
         <p className="">
-          This stage is the moment when LH and FSH as well as estrogens are in great quantity.
+          {t('This stage is the moment when LH and FSH as well as estrogens are in great quantity.')}
           <br />
-          This is the ovulation phase.
+          {t('This is the ovulation phase.')}
         </p>
       </div>
     ) : ''
@@ -38,12 +40,12 @@ const Msg = ({
     { postOvulationActive ? (
       <div>
         <h4 className="animate-text" style={{ color: themeColor }}>
-          Post-Ovulation
+          {t('Post-Ovulation')}
         </h4>
         <p className="">
-          This stage is the moment when the LH and FSH are in very low quatity.
+          {t('This stage is the moment when the LH and FSH are in very low quatity.')}
           <br />
-          This is the period after ovulation.
+          {t('This is the period after ovulation.')}
         </p>
       </div>
     ) : ''
@@ -63,6 +65,7 @@ Msg.propTypes = {
   ovulationActive: PropTypes.bool.isRequired,
   preOvulationActive: PropTypes.bool.isRequired,
   postOvulationActive: PropTypes.bool.isRequired,
+  t: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps)(Msg);
+export default withNamespaces('translations')(connect(mapStateToProps)(Msg));
