@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as d3 from 'd3';
+import { toast } from 'react-toastify';
+import Msg from '../components/controls/cycles/Msg';
 import {
   GREEN,
   ORANGE,
@@ -10,10 +12,18 @@ import {
 } from '../config/constants';
 import Core from '../components/core/Core';
 import { AppState } from '../config/AppState';
+import {
+  preOvulationState,
+  ovulationState,
+  postOvulationState,
+} from '../actions';
 
 class StudentView extends Component {
   static propTypes = {
     t: PropTypes.func.isRequired,
+    dispatchPreOvulationState: PropTypes.func.isRequired,
+    dispatchPostOvulationState: PropTypes.func.isRequired,
+    dispatchOvulationState: PropTypes.func.isRequired,
   }
 
   // here we get all our initial state from the AppState component
@@ -136,6 +146,9 @@ class StudentView extends Component {
         secreteLhFsh: false,
         preOvulationActive: false,
       });
+      const preOvulationActive = false;
+      const { dispatchPreOvulationState } = this.props;
+      dispatchPreOvulationState({ preOvulationActive });
     }
   }
 
@@ -167,6 +180,9 @@ class StudentView extends Component {
         secreteOestro: false,
         postOvulationActive: false,
       });
+      const postOvulationActive = false;
+      const { dispatchPostOvulationState } = this.props;
+      dispatchPostOvulationState({ postOvulationActive });
     }
   }
 
@@ -198,6 +214,9 @@ class StudentView extends Component {
           ovulation: true,
           ovulationActive: false,
         });
+        const ovulationActive = false;
+        const { dispatchOvulationState } = this.props;
+        dispatchOvulationState({ ovulationActive });
       }
       return;
     }
@@ -303,12 +322,18 @@ class StudentView extends Component {
       postOvulationActive: false,
       preOvulationActive: true,
     });
+    const preOvulationActive = true;
+    const { dispatchPreOvulationState, t } = this.props;
+    dispatchPreOvulationState({ preOvulationActive, t });
+    this.notify();
     this.intervalHandle = setInterval(this.tickPreOvulation, 2100);
     this.postMessage({
       phasis: 'pre-ovulation',
       status: 'started',
     });
   }
+
+  notify = () => toast(<Msg />);
 
   // here we listen to the post-ovulation button click
   // then we update the inital state and set the day to the 14th
@@ -319,6 +344,10 @@ class StudentView extends Component {
       postOvulationActive: true,
       preOvulationActive: false,
     });
+    const postOvulationActive = true;
+    const { dispatchPostOvulationState } = this.props;
+    dispatchPostOvulationState({ postOvulationActive });
+    this.notify();
     this.intervalHandle = setInterval(this.tickPostOvulation, 2100);
     this.postMessage({
       phasis: 'post-ovulation',
@@ -335,6 +364,10 @@ class StudentView extends Component {
       postOvulationActive: false,
       preOvulationActive: false,
     });
+    const ovulationActive = true;
+    const { dispatchOvulationState } = this.props;
+    dispatchOvulationState({ ovulationActive });
+    this.notify();
     this.intervalHandle = setInterval(this.tickOvulation, 2100);
     this.postMessage({
       phasis: 'ovulation',
@@ -527,5 +560,10 @@ const mapStateToProps = state => ({
   svg: state.svg.svg,
 });
 
+const mapDispatchToProps = {
+  dispatchPreOvulationState: preOvulationState,
+  dispatchOvulationState: ovulationState,
+  dispatchPostOvulationState: postOvulationState,
+};
 
-export default connect(mapStateToProps)(StudentView);
+export default connect(mapStateToProps, mapDispatchToProps)(StudentView);
