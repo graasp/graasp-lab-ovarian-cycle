@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Counter from '../counter/Counter';
 import Phases from '../phases/Phases';
 import Refresher from './refresher/Refresher';
-import TabComponent from './TabComponent';
 import { AppState } from '../../../config/AppState';
 import './Visualizer.css';
 import {
@@ -93,15 +92,10 @@ export class Visualizer extends Component {
       isStarted,
       ovulationActive,
       postOvulationActive,
-      obserViewActive,
       t,
     } = this.props;
     return (
       <div className="visualizer-container">
-        <TabComponent
-          obserViewActive={obserViewActive}
-          t={t}
-        />
         <Counter
           handleStart={handleStart}
           handleStop={handleStop}
@@ -117,7 +111,7 @@ export class Visualizer extends Component {
           handlePreOvulation={handlePreOvulation}
           t={t}
         />
-        <ToastContainer autoClose={25000} />
+        <ToastContainer autoClose={20000} />
         <Refresher
           reloadPage={reloadPage}
           onOpenModal={this.onOpenModal}
@@ -147,7 +141,6 @@ Visualizer.propTypes = {
   isStarted: PropTypes.bool.isRequired,
   ovulationActive: PropTypes.bool.isRequired,
   postOvulationActive: PropTypes.bool.isRequired,
-  obserViewActive: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
