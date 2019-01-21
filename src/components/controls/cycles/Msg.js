@@ -16,7 +16,7 @@ const Msg = ({
         <h4 className="animate-text" style={{ color: themeColor }}>
           {t('Pre-Ovulation')}
         </h4>
-        <p className="">
+        <p className="explanation">
           {t('This stage is the moment when the LH and FSH are in normal quatity.')}
           <br />
           {t('This is the period before ovulation')}
@@ -29,7 +29,7 @@ const Msg = ({
         <h4 className="animate-text" style={{ color: themeColor }}>
           {t('Ovulation')}
         </h4>
-        <p className="">
+        <p className="explanation">
           {t('This stage is the moment when LH and FSH as well as estrogens are in great quantity.')}
           <br />
           {t('This is the ovulation phase.')}
@@ -42,7 +42,7 @@ const Msg = ({
         <h4 className="animate-text" style={{ color: themeColor }}>
           {t('Post-Ovulation')}
         </h4>
-        <p className="">
+        <p className="explanation">
           {t('This stage is the moment when the LH and FSH are in very low quatity.')}
           <br />
           {t('This is the period after ovulation.')}
