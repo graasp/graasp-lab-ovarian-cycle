@@ -7,6 +7,7 @@ import Counter from '../counter/Counter';
 import Phases from '../phases/Phases';
 import Refresher from './refresher/Refresher';
 import { AppState } from '../../../config/AppState';
+import i18nConfig from '../../../config/i18n';
 import './Visualizer.css';
 import {
   defaultLang,
@@ -20,42 +21,28 @@ export class Visualizer extends Component {
 
   handleChangeComplete = (color) => {
     const newColor = color.hex;
-    const {
-      dispatchThemeColor,
-    } = this.props;
+    const { dispatchThemeColor } = this.props;
     dispatchThemeColor({ newColor });
-    this.postMessage({
-      themeColor: newColor,
-    });
+    this.postMessage({ themeColor: newColor });
   }
 
   handleLang = (lang) => {
     const newLang = lang.value;
-    const {
-      dispatchDefaultLanguage,
-    } = this.props;
+    const { dispatchDefaultLanguage } = this.props;
+    const i18n = i18nConfig;
+    i18n.changeLanguage(newLang);
     dispatchDefaultLanguage({ newLang });
-    this.postMessage({
-      defaultLang: newLang,
-    });
+    this.postMessage({ defaultLang: newLang });
   }
 
   onOpenModal = () => {
-    this.setState({
-      openModal: true,
-    });
-    this.postMessage({
-      open_setting_modal: true,
-    });
+    this.setState({ openModal: true });
+    this.postMessage({ open_setting_modal: true });
   }
 
   onCloseModal = () => {
-    this.setState({
-      openModal: false,
-    });
-    this.postMessage({
-      open_setting_modal: false,
-    });
+    this.setState({ openModal: false });
+    this.postMessage({ open_setting_modal: false });
   }
 
   postMessage = (data) => {
@@ -75,9 +62,7 @@ export class Visualizer extends Component {
     this.setState({ showTitle: !showTitle });
     const { dispatchTitleState } = this.props;
     dispatchTitleState({ showTitle });
-    this.postMessage({
-      show_title: showTitle,
-    });
+    this.postMessage({ show_title: showTitle });
   }
 
   render() {

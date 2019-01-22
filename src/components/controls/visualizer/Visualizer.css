@@ -3,9 +3,6 @@
   border-left: 1px solid rgba(0, 0, 0, 0.12);
   height: 100%;
 }
-.fa-redo-alt {
-  width: 2rem;
-}
 .observe-button, .test-button {
   width: 50%;
   padding-top: 1rem;
