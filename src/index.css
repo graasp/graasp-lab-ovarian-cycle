@@ -26,10 +26,6 @@
 circle {
   cursor: pointer;
 }
-.human-image {
-  position: absolute;
-  z-index: -5;
-}
 .increase-oestro {
   background: #dedede;
   padding: 10px;
@@ -113,4 +109,7 @@ path.fsh {
    -moz-animation: moreAnimation 1s infinite;
    -o-animation: moreAnimation 1s infinite;
     animation: moreAnimation 1s infinite;
+}
+#Brain-Shape, #heart-beating, #Ovary {
+cursor: pointer;
 }

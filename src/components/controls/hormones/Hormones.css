@@ -1,7 +1,6 @@
 .hormone-container {
-  width: 32rem;
-  margin: auto;
   position: fixed;
+  top: 12%;
 }
 .hormones-table {
   padding: 1rem 4rem;
