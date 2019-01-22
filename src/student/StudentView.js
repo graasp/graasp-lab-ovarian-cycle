@@ -324,8 +324,8 @@ class StudentView extends Component {
       preOvulationActive: true,
     });
     const preOvulationActive = true;
-    const { dispatchPreOvulationState, t } = this.props;
-    dispatchPreOvulationState({ preOvulationActive, t });
+    const { dispatchPreOvulationState } = this.props;
+    dispatchPreOvulationState({ preOvulationActive });
     this.notify();
     this.intervalHandle = setInterval(this.tickPreOvulation, 2100);
     this.postMessage({
