@@ -25,6 +25,15 @@
     "Language": "Langue",
     "Description": "Description",
     "Display Lab title": "Afficher le titre du labo",
-    "Lab Explanation": "Il va permettre à l’apprenant d’interagir sur les taux des hormones ovariennes (œstrogènes et progestérone) et hypophysaires (FSH et LH) pour comprendre comment ces hormones contrôlent le cycle ovarien et comment elles assurent l’ovulation"
+    "Lab Explanation": "Il va permettre à l’apprenant d’interagir sur les taux des hormones ovariennes (œstrogènes et progestérone) et hypophysaires (FSH et LH) pour comprendre comment ces hormones contrôlent le cycle ovarien et comment elles assurent l’ovulation",
+    "The Brain": "Le Cerveau",
+    "The brain secretes the pituitary": "Le cerveau sécrète les hormones",
+    "hormones LH and FSH that cause": "hypophysaires LH and FSH qui sont",
+    "ovarian and uterine cycles.": "à l'origine des cycles ovariens et utériens",
+    "The Heart": "Le Coeur",
+    "The Ovaries": "Les Ovaires",
+    "Exert feedback on the influence": "exercent une rétroaction sur l'influence du",
+    "of the hypothalamic pituitary complex by": "complexe hypothalamique hypophysaire en",
+    "releasing Estrogens and Progesterones.": "libérant de l'œstrogène et de la progestérone"
   }
 }
