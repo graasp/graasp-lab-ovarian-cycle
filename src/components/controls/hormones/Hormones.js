@@ -109,9 +109,9 @@ class InteractiveList extends React.Component {
 
 InteractiveList.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  secreteLhFsh: PropTypes.string.isRequired,
-  secreteProgest: PropTypes.string.isRequired,
-  secreteOestro: PropTypes.string.isRequired,
+  secreteLhFsh: PropTypes.bool.isRequired,
+  secreteProgest: PropTypes.bool.isRequired,
+  secreteOestro: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
 };
 
