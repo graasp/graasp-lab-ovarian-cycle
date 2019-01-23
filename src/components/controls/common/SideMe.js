@@ -7,6 +7,7 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { ToastContainer } from 'react-toastify';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -61,7 +62,6 @@ class PersistentDrawerRight extends React.Component {
       showTitle,
       t,
     } = this.props;
-    console.log('this.props;this.props;', this.props);
     const { open } = this.state;
 
     return (
@@ -121,6 +121,7 @@ class PersistentDrawerRight extends React.Component {
             secreteOestro={secreteOestro}
             t={t}
           />
+          <ToastContainer autoClose={20000} />
           <Body />
         </main>
         <Drawer
