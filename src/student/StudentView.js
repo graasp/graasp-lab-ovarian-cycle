@@ -10,7 +10,6 @@ import {
   PURPLE_BLUE,
   SKY_BLUE,
 } from '../config/constants';
-import Core from '../components/core/Core';
 import SideMe from '../components/controls/common/SideMe';
 import { AppState } from '../config/AppState';
 import {
