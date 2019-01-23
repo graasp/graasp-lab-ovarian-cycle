@@ -122,7 +122,7 @@ class PersistentDrawerRight extends React.Component {
             t={t}
           />
           <ToastContainer autoClose={20000} />
-          <Body />
+          <Body t={t} />
         </main>
         <Drawer
           className={classes.drawer}
@@ -137,7 +137,7 @@ class PersistentDrawerRight extends React.Component {
             <IconButton onClick={this.handleDrawerClose}>
               {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
-            <h3>Observe</h3>
+            <h3>{t('Observe')}</h3>
           </div>
           <Divider />
           <Visualizer
