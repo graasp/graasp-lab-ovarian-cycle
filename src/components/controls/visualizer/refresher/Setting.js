@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import { withStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Settings';
-import MenuIcon from '@material-ui/icons/Menu';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import Fab from '@material-ui/core/Fab';
 import Switch from 'react-switch';
