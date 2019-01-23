@@ -65,7 +65,7 @@ const styles = theme => ({
     left: theme.spacing.unit * 4,
     top: theme.spacing.unit * 12,
     position: 'absolute',
-    outline: 'none',
+    zIndex: 999999,
   },
 });
 
