@@ -8,6 +8,8 @@ import {
 // there are located into our ./constants.js file
 export const AppState = {
   anchorEl: null,
+  anchorElHeart: null,
+  anchorElOvary: null,
   showBrainTitle: false,
   open: false,
   openModal: false,
