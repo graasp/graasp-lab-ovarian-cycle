@@ -13,10 +13,10 @@ export function appendSvg() {
   // creating our initial svg that we append to the
   // tag having the body-container class in our app
 
-  const svd = d3.select('.Brain-holder');
+  const svg = d3.select('.Brain-holder');
   return {
     type: APPEND_SVG,
-    payload: svd,
+    payload: svg,
   };
 }
 
