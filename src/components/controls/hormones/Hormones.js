@@ -12,6 +12,8 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     maxWidth: 400,
+    position: 'absolute',
+    width: 400,
   },
   demo: {
     backgroundColor: theme.palette.background.paper,

@@ -64,7 +64,7 @@ const styles = theme => ({
   fab: {
     left: theme.spacing.unit * 4,
     top: theme.spacing.unit * 12,
-    position: 'fixed',
+    position: 'absolute',
     outline: 'none',
   },
 });
