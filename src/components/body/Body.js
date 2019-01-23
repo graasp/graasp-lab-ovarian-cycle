@@ -193,7 +193,14 @@ export class Body extends React.Component {
                 fillRule="nonzero"
               />
               <g id="Ovary-Shape" transform="translate(1614.000000, 3747.000000)">
-                <g id="Main-Ovary" transform="translate(107.000000, 30.000000)">
+                <g
+                  id="Main-Ovary"
+                  transform="translate(107.000000, 30.000000)"
+                  aria-owns={open ? 'ovary-over-popover' : undefined}
+                  aria-haspopup="true"
+                  onMouseEnter={this.handleOvaryPopoverOpen}
+                  onMouseLeave={this.handleOvaryPopoverClose}
+                >
                   <polygon id="Triangle" fill="#E70A17" transform="translate(116.902036, 62.026869) scale(1, -1) translate(-116.902036, -62.026869) " points="116.902036 26.6261682 181.78117 97.4275701 52.0229008 97.4275701" />
                   <polygon id="Triangle-Main" stroke="#D23636" strokeWidth="30" transform="translate(117.500000, 76.398949) scale(1, -1) translate(-117.500000, -76.398949) " points="117.5 0 235 152.797897 0 152.797897" />
                   <path d="M117.5,157.611098 L117.5,258.848715" id="Line" stroke="#D23636" strokeWidth="30" strokeLinecap="square" />

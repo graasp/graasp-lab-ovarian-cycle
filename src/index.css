@@ -110,6 +110,6 @@ path.fsh {
    -o-animation: moreAnimation 1s infinite;
     animation: moreAnimation 1s infinite;
 }
-#Brain-Shape, #heart-beating, #Ovary {
+#Brain-Shape, #heart-beating, #Main-Ovary {
 cursor: pointer;
 }
