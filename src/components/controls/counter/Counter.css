@@ -3,9 +3,11 @@
   padding: 10px;
 }
 .counter-container .description-content h2 {
+  color: #555;
   margin: 2rem 0;
 }
 .counter-container .description-content p {
+  color: #555;
   font-size: 1.4rem;
   padding: 0 2rem;
   margin-bottom: 2rem;
@@ -15,9 +17,8 @@
   border-color: #0f94f8;
 }
 .fa-calendar {
-  width: 9rem;
-  position: fixed;
-  right: 35%;
+  width: 10rem;
+  float: right;
 }
 .btn-lg {
   font-size: 2rem;
