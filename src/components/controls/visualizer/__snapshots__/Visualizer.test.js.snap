@@ -8,7 +8,7 @@ ShallowWrapper {
     handleOvulation={[MockFunction]}
     handlePostOvulation={[MockFunction]}
     handlePreOvulation={[MockFunction]}
-    handleStart={[MockFunction]}
+    handleFullCycle={[MockFunction]}
     handleStop={[MockFunction]}
     isStarted={false}
     ovulation={false}
@@ -38,7 +38,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Counter
-          handleStart={[MockFunction]}
+          handleFullCycle={[MockFunction]}
           handleStop={[MockFunction]}
           isStarted={false}
           ovulationActive={false}
@@ -81,7 +81,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "handleStart": [MockFunction],
+          "handleFullCycle": [MockFunction],
           "handleStop": [MockFunction],
           "isStarted": false,
           "ovulationActive": false,
@@ -161,7 +161,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Counter
-            handleStart={[MockFunction]}
+            handleFullCycle={[MockFunction]}
             handleStop={[MockFunction]}
             isStarted={false}
             ovulationActive={false}
@@ -204,7 +204,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "handleStart": [MockFunction],
+            "handleFullCycle": [MockFunction],
             "handleStop": [MockFunction],
             "isStarted": false,
             "ovulationActive": false,
@@ -330,7 +330,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "handleStart": undefined,
+          "handleFullCycle": undefined,
           "handleStop": undefined,
           "isStarted": undefined,
           "ovulationActive": undefined,
@@ -424,7 +424,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "handleStart": undefined,
+            "handleFullCycle": undefined,
             "handleStop": undefined,
             "isStarted": undefined,
             "ovulationActive": undefined,

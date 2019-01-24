@@ -4,7 +4,7 @@ exports[`<Counter /> component renders correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Counter
-    handleStart={[MockFunction]}
+    handleFullCycle={[MockFunction]}
     handleStop={[MockFunction]}
     isDisabled={false}
     isStarted={false}
@@ -262,7 +262,7 @@ exports[`<Counter /> renders correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Counter
-    handleStart={[MockFunction]}
+    handleFullCycle={[MockFunction]}
     handleStop={[MockFunction]}
     isDisabled={false}
     isStarted={false}

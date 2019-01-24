@@ -10,7 +10,7 @@ import Refresher from './refresher/Refresher';
 describe('<Visualizer />', () => {
   const props = {
     dayCount: 0,
-    handleStart: jest.fn(),
+    handleFullCycle: jest.fn(),
     handleStop: jest.fn(),
     handleOvulation: jest.fn(),
     handlePostOvulation: jest.fn(),
