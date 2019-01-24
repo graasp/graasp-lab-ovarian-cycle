@@ -347,7 +347,7 @@ class StudentView extends Component {
     this.notify();
     this.intervalHandle = setInterval(this.tickPreOvulation, 2100);
     this.postMessage({
-      phasis: 'pre-ovulation',
+      phase: 'pre-ovulation',
       status: 'started',
     });
   }
@@ -369,7 +369,7 @@ class StudentView extends Component {
     this.notify();
     this.intervalHandle = setInterval(this.tickPostOvulation, 2100);
     this.postMessage({
-      phasis: 'post-ovulation',
+      phase: 'post-ovulation',
       status: 'started',
     });
   }
@@ -389,7 +389,7 @@ class StudentView extends Component {
     this.notify();
     this.intervalHandle = setInterval(this.tickOvulation, 2100);
     this.postMessage({
-      phasis: 'ovulation',
+      phase: 'ovulation',
       status: 'started',
     });
   }
