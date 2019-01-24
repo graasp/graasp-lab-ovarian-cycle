@@ -24,6 +24,7 @@ const Counter = ({
         size="lg"
         disabled={isDisabled}
         style={{ backgroundColor: themeColor, borderColor: themeColor }}
+        className="btn-full-cycle"
       >
         {t('Stop Cycle')}
       </Button>
@@ -34,8 +35,9 @@ const Counter = ({
         size="lg"
         disabled={isDisabled}
         style={{ backgroundColor: themeColor, borderColor: themeColor }}
+        className="btn-full-cycle"
       >
-        {t('Launch Cycle')}
+        {t('Full Cycle')}
       </Button>
     );
   return (
@@ -48,9 +50,7 @@ const Counter = ({
       </div>
       <div className="clock-setter">
         {startButton}
-        <p className="select-step">
-          <span className="or">{t('OR')}</span>
-        </p>
+        <hr className="separator-line" />
       </div>
     </div>
   );
