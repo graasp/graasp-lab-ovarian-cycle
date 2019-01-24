@@ -1,19 +1,12 @@
-.active-ovulation,
-.active-preovulation,
-.active-postovulation {
-  background-color: #6c757d;
-  border-color: #6c757d;
-  color: #fff;
-}
-.pre-ovulation,
-.ovulation,
-.post-ovulation {
+.cycle-phase {
   width: 9rem;
   font-size: 1.1rem;
 }
 .phases {
   padding: 1rem 0;
 }
-.ovulation {
-  margin: 1rem 0;
+.pre-ovulation {
+  background-color: #12a3c1 !important;
+  border-color: #12a3c1 !important;
+  color: #FFFFFF;
 }
