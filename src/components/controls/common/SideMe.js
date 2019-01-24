@@ -50,7 +50,7 @@ class PersistentDrawerRight extends React.Component {
       handleOvulation,
       handlePostOvulation,
       handlePreOvulation,
-      handleStart,
+      handleFullCycle,
       handleStop,
       postOvulation,
       preOvulation,
@@ -147,7 +147,7 @@ class PersistentDrawerRight extends React.Component {
             handlePostOvulation={handlePostOvulation}
             handlePreOvulation={handlePreOvulation}
             reloadPage={reloadPage}
-            handleStart={handleStart}
+            handleFullCycle={handleFullCycle}
             handleStop={handleStop}
             ovulation={ovulation}
             ovulationActive={ovulationActive}
@@ -172,7 +172,7 @@ PersistentDrawerRight.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   theme: PropTypes.shape({}).isRequired,
   dayCount: PropTypes.number.isRequired,
-  handleStart: PropTypes.func.isRequired,
+  handleFullCycle: PropTypes.func.isRequired,
   handleStop: PropTypes.func.isRequired,
   handleOvulation: PropTypes.func.isRequired,
   handlePostOvulation: PropTypes.func.isRequired,
