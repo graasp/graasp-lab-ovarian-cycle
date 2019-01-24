@@ -41,23 +41,23 @@ export function titleState({ showTitle }) {
   };
 }
 
-export function preOvulationState({ preOvulationActive }) {
+export function preOvulationState({ preOvulationActive, preOvulationStep }) {
   return {
     type: PRE_OVULATION,
-    payload: preOvulationActive,
+    payload: { preOvulationActive, preOvulationStep },
   };
 }
 
-export function ovulationState({ ovulationActive }) {
+export function ovulationState({ ovulationActive, ovulationStep }) {
   return {
     type: OVULATION,
-    payload: ovulationActive,
+    payload: { ovulationActive, ovulationStep },
   };
 }
 
-export function postOvulationState({ postOvulationActive }) {
+export function postOvulationState({ postOvulationActive, postOvulationStep }) {
   return {
     type: POST_OVULATION,
-    payload: postOvulationActive,
+    payload: { postOvulationActive, postOvulationStep },
   };
 }
