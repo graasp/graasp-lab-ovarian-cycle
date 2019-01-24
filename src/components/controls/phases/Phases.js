@@ -68,6 +68,9 @@ Phases.propTypes = {
   ovulationActive: PropTypes.bool.isRequired,
   postOvulationActive: PropTypes.bool.isRequired,
   preOvulationActive: PropTypes.bool.isRequired,
+  preOvulationStep: PropTypes.bool.isRequired,
+  ovulationStep: PropTypes.bool.isRequired,
+  postOvulationStep: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
