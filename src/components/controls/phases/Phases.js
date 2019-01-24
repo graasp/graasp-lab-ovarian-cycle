@@ -14,9 +14,6 @@ export const Phases = ({
   t,
 }) => (
   <div className="phases-container">
-    <div className="phases-title">
-      <span className="select-step">{t('Select step')}</span>
-    </div>
     <div className="phases">
       <Button
         disabled={ovulationActive || postOvulationActive}
@@ -27,6 +24,7 @@ export const Phases = ({
       >
         {t('Pre-Ovulation')}
       </Button>
+      <br />
       <Button
         disabled={preOvulationActive || postOvulationActive}
         outline
@@ -36,6 +34,7 @@ export const Phases = ({
       >
         {t('Ovulation')}
       </Button>
+      <br />
       <Button
         disabled={ovulationActive || preOvulationActive}
         outline
