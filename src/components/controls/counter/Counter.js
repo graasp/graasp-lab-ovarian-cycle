@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 // deciding what happen on the launch/stop cycle button cycle
 // the t is used for the translation
 const Counter = ({
-  handleStart,
+  handleFullCycle,
   handleStop,
   isStarted,
   ovulationActive,
@@ -31,7 +31,7 @@ const Counter = ({
     )
     : (
       <Button
-        onClick={handleStart}
+        onClick={handleFullCycle}
         size="lg"
         disabled={isDisabled}
         style={{ backgroundColor: themeColor, borderColor: themeColor }}
@@ -57,7 +57,7 @@ const Counter = ({
 };
 
 Counter.propTypes = {
-  handleStart: PropTypes.func.isRequired,
+  handleFullCycle: PropTypes.func.isRequired,
   handleStop: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
   isStarted: PropTypes.bool.isRequired,
