@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Counter from '../counter/Counter';
 import Phases from '../phases/Phases';
@@ -96,7 +95,6 @@ export class Visualizer extends Component {
           handlePreOvulation={handlePreOvulation}
           t={t}
         />
-        <ToastContainer autoClose={20000} />
         <Refresher
           reloadPage={reloadPage}
           onOpenModal={this.onOpenModal}

@@ -10,7 +10,6 @@ import {
   PURPLE_BLUE,
   SKY_BLUE,
 } from '../config/constants';
-import Core from '../components/core/Core';
 import SideMe from '../components/controls/common/SideMe';
 import { AppState } from '../config/AppState';
 import {
@@ -428,7 +427,7 @@ class StudentView extends Component {
       .enter()
       .append('circle')
       .attr('class', elemClass)
-      .attr('r', 8)
+      .attr('r', 40)
       .attr('fill', circleFill)
       .attr('transform', circleTransform);
 
@@ -483,28 +482,28 @@ class StudentView extends Component {
       .enter()
       .append('circle')
       .attr('fill', SKY_BLUE)
-      .attr('r', 4)
+      .attr('r', 20)
       .attr('transform', d => `translate(${d})`);
     svg.selectAll('.point')
       .data(fshPoints)
       .enter()
       .append('circle')
       .attr('fill', ORANGE)
-      .attr('r', 4)
+      .attr('r', 20)
       .attr('transform', d => `translate(${d})`);
     svg.selectAll('.point')
       .data(progesteronePoints)
       .enter()
       .append('circle')
       .attr('fill', PURPLE_BLUE)
-      .attr('r', 4)
+      .attr('r', 20)
       .attr('transform', d => `translate(${d})`);
     svg.selectAll('.point')
       .data(oestrogenePoints)
       .enter()
       .append('circle')
       .attr('fill', GREEN)
-      .attr('r', 4)
+      .attr('r', 20)
       .attr('transform', d => `translate(${d})`);
   }
 
@@ -524,7 +523,6 @@ class StudentView extends Component {
       secreteProgest,
       secreteOestro,
       obserViewActive,
-      showTitle,
     } = this.state;
     const { t } = this.props;
     return (
@@ -548,7 +546,6 @@ class StudentView extends Component {
           secreteProgest={secreteProgest}
           secreteOestro={secreteOestro}
           obserViewActive={obserViewActive}
-          showTitle={showTitle}
           t={t}
 
         />

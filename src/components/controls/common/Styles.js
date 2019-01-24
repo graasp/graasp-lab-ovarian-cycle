@@ -21,6 +21,9 @@ const styles = theme => ({
   menuButton: {
     marginLeft: 12,
     marginRight: 20,
+    position: 'absolute',
+    right: 0,
+    outline: 'none',
   },
   hide: {
     display: 'none',
@@ -54,6 +57,15 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginRight: 0,
+  },
+  title: {
+    paddingLeft: '3rem',
+  },
+  fab: {
+    left: theme.spacing.unit * 4,
+    top: theme.spacing.unit * 12,
+    position: 'absolute',
+    zIndex: 999999,
   },
 });
 

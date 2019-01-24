@@ -26,10 +26,6 @@
 circle {
   cursor: pointer;
 }
-.human-image {
-  position: absolute;
-  z-index: -5;
-}
 .increase-oestro {
   background: #dedede;
   padding: 10px;
@@ -87,30 +83,33 @@ path.fsh {
   100% { opacity:1; }
 }
 .animate-lh-hormones {
-   border: 4px solid #00a3c3;
+   border: 2px solid #00a3c3;
    -webkit-animation: moreAnimation 1s infinite;
    -moz-animation: moreAnimation 1s infinite;
    -o-animation: moreAnimation 1s infinite;
     animation: moreAnimation 1s infinite;
 }
 .animate-fsh-hormones {
-   border: 4px solid #ff7a00;
+   border: 2px solid #ff7a00;
    -webkit-animation: moreAnimation 1s infinite;
    -moz-animation: moreAnimation 1s infinite;
    -o-animation: moreAnimation 1s infinite;
     animation: moreAnimation 1s infinite;
 }
 .animate-oestro-hormones {
-   border: 4px solid #3bc71f;
+   border: 2px solid #3bc71f;
    -webkit-animation: moreAnimation 1s infinite;
    -moz-animation: moreAnimation 1s infinite;
    -o-animation: moreAnimation 1s infinite;
     animation: moreAnimation 1s infinite;
 }
 .animate-progest-hormones {
-   border: 4px solid #9C27B0;
+   border: 2px solid #9C27B0;
    -webkit-animation: moreAnimation 1s infinite;
    -moz-animation: moreAnimation 1s infinite;
    -o-animation: moreAnimation 1s infinite;
     animation: moreAnimation 1s infinite;
+}
+#Brain-Shape, #heart-beating, #Main-Ovary {
+cursor: pointer;
 }
