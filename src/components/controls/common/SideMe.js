@@ -127,7 +127,7 @@ class PersistentDrawerRight extends React.Component {
             secreteOestro={secreteOestro}
             t={t}
           />
-          <ToastContainer autoClose={20000} />
+          <ToastContainer autoClose={7000} />
           <Body t={t} />
         </main>
         <Drawer
