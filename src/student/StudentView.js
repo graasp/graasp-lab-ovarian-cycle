@@ -52,7 +52,6 @@ class StudentView extends Component {
   tickFullCycle = () => {
     const { delay, dayCount } = this.state;
     const secString = `${dayCount}`;
-    this.updateTimeState(dayCount, secString);
     if (dayCount === 1 || dayCount === 11 || dayCount === 15) { this.notify(); }
     // if in the pre-ovulation phase, we do not secretee lh or fsh
     if (dayCount < 12) {
@@ -130,6 +129,7 @@ class StudentView extends Component {
       dispatchPreOvulationState({ preOvulationActive, preOvulationStep });
       dispatchOvulationState({ ovulationActive, ovulationStep });
     }
+    this.updateTimeState(dayCount, secString);
     // at the end of the cycle we make sure stop all homone secretion
     if (dayCount === 27) {
       this.setState({
