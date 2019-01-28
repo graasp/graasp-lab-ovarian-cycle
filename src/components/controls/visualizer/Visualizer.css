@@ -35,3 +35,6 @@
 .body-svg {
   margin-left: 10%;
 }
+.MuiGrid-grid-xs-12-154 {
+  flex-basis: initial !important;
+}
