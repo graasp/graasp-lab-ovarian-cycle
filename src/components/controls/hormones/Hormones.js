@@ -7,6 +7,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import FiberManualRecord from '@material-ui/icons/FiberManualRecord';
+import './Hormones.css';
 
 const styles = theme => ({
   root: {
@@ -37,10 +38,7 @@ const styles = theme => ({
 });
 
 class InteractiveList extends React.Component {
-  state = {
-    dense: false,
-    secondary: false,
-  };
+  state = { dense: false };
 
   render() {
     const {
@@ -50,7 +48,7 @@ class InteractiveList extends React.Component {
       secreteOestro,
       t,
     } = this.props;
-    const { dense, secondary } = this.state;
+    const { dense } = this.state;
 
     return (
       <div className={classes.root}>
@@ -63,8 +61,7 @@ class InteractiveList extends React.Component {
                     <FiberManualRecord className={classes.lh} />
                   </ListItemIcon>
                   <ListItemText
-                    primary={`${t('LH')}`}
-                    secondary={secondary ? 'Secondary text' : null}
+                    secondary={`${t('LH')}`}
                     className={`${secreteLhFsh ? 'animate-lh-hormones' : ''} lh-name`}
                   />
                 </ListItem>
@@ -73,8 +70,7 @@ class InteractiveList extends React.Component {
                     <FiberManualRecord className={classes.fsh} />
                   </ListItemIcon>
                   <ListItemText
-                    primary={`${t('FSH')}`}
-                    secondary={secondary ? 'Secondary text' : null}
+                    secondary={`${t('FSH')}`}
                     className={`${secreteLhFsh ? 'animate-fsh-hormones' : ''} fsh-name`}
                   />
                 </ListItem>
@@ -83,8 +79,7 @@ class InteractiveList extends React.Component {
                     <FiberManualRecord className={classes.est} />
                   </ListItemIcon>
                   <ListItemText
-                    primary={`${t('Oestrogens')}`}
-                    secondary={secondary ? 'Secondary text' : null}
+                    secondary={`${t('Oestrogens')}`}
                     className={`${secreteOestro ? 'animate-oestro-hormones' : ''} oestro-name`}
                   />
                 </ListItem>
@@ -93,8 +88,7 @@ class InteractiveList extends React.Component {
                     <FiberManualRecord className={classes.pro} />
                   </ListItemIcon>
                   <ListItemText
-                    primary={`${t('Progesterones')}`}
-                    secondary={secondary ? 'Secondary text' : null}
+                    secondary={`${t('Progesterones')}`}
                     className={`${secreteProgest ? 'animate-progest-hormones' : ''} progest-name`}
                   />
                 </ListItem>

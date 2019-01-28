@@ -49,27 +49,34 @@ class StudentView extends Component {
   // this function handles all the ovarian life cycle events
   // from begening until the cycle ends
   // we use the delay to wait during 5s from the 12 until the 14th day
-  tick = () => {
-    const {
-      dayCount,
-      delay,
-    } = this.state;
-    // eslint-disable-next-line no-unused-vars
+  tickFullCycle = () => {
+    const { delay, dayCount } = this.state;
     const secString = `${dayCount}`;
-
+    if (dayCount === 1 || dayCount === 11 || dayCount === 15) { this.notify(); }
     // if in the pre-ovulation phase, we do not secretee lh or fsh
     if (dayCount < 12) {
       this.setState({
         preOvulation: true,
         ovulation: false,
-        secreteLhFsh: false,
+        secreteLhFsh: true,
         postOvulation: false,
       });
       this.updateLh();
+      const preOvulationActive = false;
+      const preOvulationStep = true;
+      const { dispatchPreOvulationState } = this.props;
+      dispatchPreOvulationState({ preOvulationActive, preOvulationStep });
     }
 
     // during the 12-13-14 this is the ovulation period
     if (dayCount >= 12 && dayCount <= 14 && delay > 0) {
+      const ovulationActive = false;
+      const ovulationStep = true;
+      const { dispatchOvulationState, dispatchPreOvulationState } = this.props;
+      const preOvulationActive = false;
+      const preOvulationStep = false;
+      dispatchPreOvulationState({ preOvulationActive, preOvulationStep });
+      dispatchOvulationState({ ovulationActive, ovulationStep });
       // Update initial state to increase Oestrogen and FSH hormones
       this.updateOestrogen();
       this.updateFsh();
@@ -77,18 +84,18 @@ class StudentView extends Component {
       this.setState({
         delay: delay - 1,
         secreteLhFsh: true,
+        preOvulation: true,
         secreteOestro: true,
         ovulation: false,
         postOvulation: false,
-        preOvulation: true,
       });
       // during the last day of ovulation we secret more fsh,lh and estrogen homones
       // then we stop the preOvulation cycle and update in all components
       if (dayCount === 14) {
         this.setState({
+          ovulation: true,
           secreteLhFsh: true,
           secreteOestro: true,
-          ovulation: true,
           preOvulation: false,
         });
       }
@@ -100,24 +107,52 @@ class StudentView extends Component {
     // we call the updateProgesteron function to secrete more progesterones
       this.updateProgesteron();
       this.setState({
-        secreteLhFsh: false,
         secreteProgest: true,
-        secreteOestro: false,
-        ovulation: false,
         postOvulation: true,
+        ovulation: false,
+        secreteLhFsh: false,
         preOvulation: false,
+        secreteOestro: false,
       });
+      const postOvulationActive = false;
+      const postOvulationStep = true;
+      const ovulationActive = false;
+      const preOvulationActive = false;
+      const preOvulationStep = false;
+      const ovulationStep = false;
+      const {
+        dispatchPostOvulationState,
+        dispatchPreOvulationState,
+        dispatchOvulationState,
+      } = this.props;
+      dispatchPostOvulationState({ postOvulationActive, postOvulationStep });
+      dispatchPreOvulationState({ preOvulationActive, preOvulationStep });
+      dispatchOvulationState({ ovulationActive, ovulationStep });
     }
-
     this.updateTimeState(dayCount, secString);
     // at the end of the cycle we make sure stop all homone secretion
     if (dayCount === 27) {
       this.setState({
         secreteProgest: false,
         secreteOestro: false,
+        isStarted: false,
       });
       // then we stop the day counter
       clearInterval(this.intervalHandle);
+      const postOvulationActive = false;
+      const ovulationActive = false;
+      const preOvulationActive = false;
+      const preOvulationStep = false;
+      const ovulationStep = false;
+      const postOvulationStep = false;
+      const {
+        dispatchPreOvulationState,
+        dispatchOvulationState,
+        dispatchPostOvulationState,
+      } = this.props;
+      dispatchPreOvulationState({ preOvulationActive, preOvulationStep });
+      dispatchOvulationState({ ovulationActive, ovulationStep });
+      dispatchPostOvulationState({ postOvulationActive, postOvulationStep });
     }
   }
 
@@ -328,7 +363,7 @@ class StudentView extends Component {
     this.notify();
     this.intervalHandle = setInterval(this.tickPreOvulation, 2100);
     this.postMessage({
-      phasis: 'pre-ovulation',
+      phase: 'pre-ovulation',
       status: 'started',
     });
   }
@@ -350,7 +385,7 @@ class StudentView extends Component {
     this.notify();
     this.intervalHandle = setInterval(this.tickPostOvulation, 2100);
     this.postMessage({
-      phasis: 'post-ovulation',
+      phase: 'post-ovulation',
       status: 'started',
     });
   }
@@ -370,19 +405,17 @@ class StudentView extends Component {
     this.notify();
     this.intervalHandle = setInterval(this.tickOvulation, 2100);
     this.postMessage({
-      phasis: 'ovulation',
+      phase: 'ovulation',
       status: 'started',
     });
   }
 
   // here we listen to the start button clicked
   // to launch all the ovulation cycle
-  handleStart = () => {
-    this.setState({ isStarted: true });
-    this.intervalHandle = setInterval(this.tick, 2100);
-    this.postMessage({
-      start_full_cycle: true,
-    });
+  handleFullCycle = () => {
+    this.setState({ isStarted: true, dayCount: 0 });
+    this.intervalHandle = setInterval(this.tickFullCycle, 2100);
+    this.postMessage({ start_full_cycle: true });
   }
 
   // here we listen to the stop button clicked
@@ -391,11 +424,27 @@ class StudentView extends Component {
     this.setState({
       dayCount: 0,
       isStarted: false,
+      secreteLhFsh: false,
+      secreteOestro: false,
+      secreteProgest: false,
+      postOvulation: false,
+      preOvulation: false,
+      ovulation: false,
     });
     clearInterval(this.intervalHandle);
-    this.postMessage({
-      start_full_cycle: false,
-    });
+    this.postMessage({ start_full_cycle: false });
+    const preOvulationActive = false;
+    const preOvulationStep = false;
+    const { dispatchPreOvulationState } = this.props;
+    const ovulationActive = false;
+    const ovulationStep = false;
+    const { dispatchOvulationState } = this.props;
+    const postOvulationActive = false;
+    const postOvulationStep = false;
+    const { dispatchPostOvulationState } = this.props;
+    dispatchPreOvulationState({ preOvulationActive, preOvulationStep });
+    dispatchOvulationState({ ovulationActive, ovulationStep });
+    dispatchPostOvulationState({ postOvulationActive, postOvulationStep });
   }
 
   postMessage = (data) => {
@@ -533,7 +582,7 @@ class StudentView extends Component {
           handlePostOvulation={this.handlePostOvulation}
           handlePreOvulation={this.handlePreOvulation}
           reloadPage={this.reloadPage}
-          handleStart={this.handleStart}
+          handleFullCycle={this.handleFullCycle}
           handleStop={this.handleStop}
           isStarted={isStarted}
           ovulation={ovulation}

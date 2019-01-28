@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 // deciding what happen on the launch/stop cycle button cycle
 // the t is used for the translation
 const Counter = ({
-  handleStart,
+  handleFullCycle,
   handleStop,
   isStarted,
   ovulationActive,
@@ -24,18 +24,20 @@ const Counter = ({
         size="lg"
         disabled={isDisabled}
         style={{ backgroundColor: themeColor, borderColor: themeColor }}
+        className="btn-full-cycle"
       >
         {t('Stop Cycle')}
       </Button>
     )
     : (
       <Button
-        onClick={handleStart}
+        onClick={handleFullCycle}
         size="lg"
         disabled={isDisabled}
         style={{ backgroundColor: themeColor, borderColor: themeColor }}
+        className="btn-full-cycle"
       >
-        {t('Launch Cycle')}
+        {t('Full Cycle')}
       </Button>
     );
   return (
@@ -48,16 +50,14 @@ const Counter = ({
       </div>
       <div className="clock-setter">
         {startButton}
-        <p className="select-step">
-          <span className="or">{t('OR')}</span>
-        </p>
+        <hr className="separator-line" />
       </div>
     </div>
   );
 };
 
 Counter.propTypes = {
-  handleStart: PropTypes.func.isRequired,
+  handleFullCycle: PropTypes.func.isRequired,
   handleStop: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
   isStarted: PropTypes.bool.isRequired,

@@ -6,7 +6,7 @@ import Counter from './Counter';
 describe('<Counter />', () => {
   const props = {
     t: jest.fn(),
-    handleStart: jest.fn(),
+    handleFullCycle: jest.fn(),
     handleStop: jest.fn(),
     isStarted: false,
     ovulationActive: false,

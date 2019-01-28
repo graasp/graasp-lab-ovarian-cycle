@@ -24,9 +24,7 @@ import Styles from './Styles';
 const styles = Styles;
 
 class PersistentDrawerRight extends React.Component {
-  state = {
-    open: false,
-  };
+  state = { open: false };
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -50,7 +48,7 @@ class PersistentDrawerRight extends React.Component {
       handleOvulation,
       handlePostOvulation,
       handlePreOvulation,
-      handleStart,
+      handleFullCycle,
       handleStop,
       postOvulation,
       preOvulation,
@@ -80,6 +78,7 @@ class PersistentDrawerRight extends React.Component {
                 aria-label="Open drawer"
                 onClick={this.handleDrawerOpen}
                 className={classNames(classes.menuButton, open && classes.hide)}
+                style={{ outline: 'none' }}
               >
                 <MenuIcon />
               </IconButton>
@@ -103,15 +102,20 @@ class PersistentDrawerRight extends React.Component {
             dayCount={dayCount}
             themeColor={themeColor}
           />
-          <Fab
-            color="primary"
-            aria-label="Add"
-            onClick={this.handleDrawerOpen}
-            className={classes.fab}
-            style={{ backgroundColor: themeColor }}
-          >
-            <MenuIcon style={{ color: 'white' }} />
-          </Fab>
+          { showTitle ? ''
+            : (
+              <Fab
+                color="primary"
+                aria-label="Add"
+                onClick={open ? this.handleDrawerClose : this.handleDrawerOpen}
+                className={classes.fab}
+                style={{ backgroundColor: themeColor, outline: 'none' }}
+              >
+                { open ? <MenuIcon style={{ color: 'white' }} /> : <ChevronRightIcon /> }
+              </Fab>
+            )
+          }
+
           <Hormones
             ovulation={ovulation}
             postOvulation={postOvulation}
@@ -121,7 +125,7 @@ class PersistentDrawerRight extends React.Component {
             secreteOestro={secreteOestro}
             t={t}
           />
-          <ToastContainer autoClose={20000} />
+          <ToastContainer autoClose={10000} />
           <Body t={t} />
         </main>
         <Drawer
@@ -134,7 +138,7 @@ class PersistentDrawerRight extends React.Component {
           }}
         >
           <div className={classes.drawerHeader}>
-            <IconButton onClick={this.handleDrawerClose}>
+            <IconButton onClick={this.handleDrawerClose} style={{ outline: 'none' }}>
               {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
             <h3>{t('Observe')}</h3>
@@ -147,7 +151,7 @@ class PersistentDrawerRight extends React.Component {
             handlePostOvulation={handlePostOvulation}
             handlePreOvulation={handlePreOvulation}
             reloadPage={reloadPage}
-            handleStart={handleStart}
+            handleFullCycle={handleFullCycle}
             handleStop={handleStop}
             ovulation={ovulation}
             ovulationActive={ovulationActive}
@@ -172,7 +176,7 @@ PersistentDrawerRight.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   theme: PropTypes.shape({}).isRequired,
   dayCount: PropTypes.number.isRequired,
-  handleStart: PropTypes.func.isRequired,
+  handleFullCycle: PropTypes.func.isRequired,
   handleStop: PropTypes.func.isRequired,
   handleOvulation: PropTypes.func.isRequired,
   handlePostOvulation: PropTypes.func.isRequired,

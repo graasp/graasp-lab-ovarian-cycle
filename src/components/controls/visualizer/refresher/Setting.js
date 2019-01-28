@@ -76,7 +76,7 @@ const Setting = ({
       />
       <Row className="title-switch">
         <Col xs={8}>
-          <h5 className="display-title">{t('Display Lab title')}</h5>
+          <h4 className="modal-lang-title">{t('Display Lab title')}</h4>
         </Col>
         <Col xs={4}>
           <Switch

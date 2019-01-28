@@ -1,6 +1,6 @@
 {
   "translations" : {
-    "Launch Cycle": "Launch Cycle",
+    "Full Cycle": "Full Cycle",
     "Stop Cycle": "Stop Cycle",
     "OR": "OR",
     "Pre-Ovulation": "Pre-Ovulation",
@@ -34,6 +34,8 @@
     "The Ovaries": "The Ovaries",
     "Exert feedback on the influence": "Exert feedback on the influence",
     "of the hypothalamic pituitary complex by": "of the hypothalamic pituitary complex by",
-    "releasing Estrogens and Progesterones.": "releasing Estrogens and Progesterones."
+    "releasing Estrogens and Progesterones.": "releasing Estrogens and Progesterones.",
+    "Pumps the blood that it circulates": "Pumps the blood that it circulates",
+    "in all the tissues of the body": "in all the tissues of the body"
   }
 }

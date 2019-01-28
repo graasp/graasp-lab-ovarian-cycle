@@ -1,4 +1,4 @@
-const drawerWidth = 480;
+const drawerWidth = 430;
 
 const styles = theme => ({
   root: {
@@ -23,7 +23,6 @@ const styles = theme => ({
     marginRight: 20,
     position: 'absolute',
     right: 0,
-    outline: 'none',
   },
   hide: {
     display: 'none',
@@ -63,7 +62,7 @@ const styles = theme => ({
   },
   fab: {
     left: theme.spacing.unit * 4,
-    top: theme.spacing.unit * 12,
+    top: theme.spacing.unit * 2,
     position: 'absolute',
     zIndex: 999999,
   },

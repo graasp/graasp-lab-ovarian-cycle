@@ -71,7 +71,7 @@ export class Visualizer extends Component {
       handlePostOvulation,
       handlePreOvulation,
       reloadPage,
-      handleStart,
+      handleFullCycle,
       handleStop,
       isStarted,
       ovulationActive,
@@ -81,7 +81,7 @@ export class Visualizer extends Component {
     return (
       <div className="visualizer-container">
         <Counter
-          handleStart={handleStart}
+          handleFullCycle={handleFullCycle}
           handleStop={handleStop}
           isStarted={isStarted}
           ovulationActive={ovulationActive}
@@ -111,7 +111,7 @@ export class Visualizer extends Component {
 }
 
 Visualizer.propTypes = {
-  handleStart: PropTypes.func.isRequired,
+  handleFullCycle: PropTypes.func.isRequired,
   handleStop: PropTypes.func.isRequired,
   handleOvulation: PropTypes.func.isRequired,
   handlePostOvulation: PropTypes.func.isRequired,

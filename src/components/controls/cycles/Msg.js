@@ -8,10 +8,13 @@ const Msg = ({
   themeColor,
   ovulationActive,
   postOvulationActive,
+  preOvulationStep,
+  ovulationStep,
+  postOvulationStep,
   t,
 }) => (
   <div>
-    { preOvulationActive ? (
+    { preOvulationActive || preOvulationStep ? (
       <div>
         <h4 className="animate-text" style={{ color: themeColor }}>
           {t('Pre-Ovulation')}
@@ -24,7 +27,7 @@ const Msg = ({
       </div>
     ) : ''
     }
-    { ovulationActive ? (
+    { ovulationActive || ovulationStep ? (
       <div>
         <h4 className="animate-text" style={{ color: themeColor }}>
           {t('Ovulation')}
@@ -37,7 +40,7 @@ const Msg = ({
       </div>
     ) : ''
     }
-    { postOvulationActive ? (
+    { postOvulationActive || postOvulationStep ? (
       <div>
         <h4 className="animate-text" style={{ color: themeColor }}>
           {t('Post-Ovulation')}
@@ -57,6 +60,9 @@ const mapStateToProps = state => ({
   preOvulationActive: state.setting.preOvulationActive,
   postOvulationActive: state.setting.postOvulationActive,
   ovulationActive: state.setting.ovulationActive,
+  preOvulationStep: state.setting.preOvulationStep,
+  ovulationStep: state.setting.ovulationStep,
+  postOvulationStep: state.setting.postOvulationStep,
   themeColor: state.setting.themeColor,
 });
 
@@ -65,6 +71,9 @@ Msg.propTypes = {
   ovulationActive: PropTypes.bool.isRequired,
   preOvulationActive: PropTypes.bool.isRequired,
   postOvulationActive: PropTypes.bool.isRequired,
+  preOvulationStep: PropTypes.bool.isRequired,
+  ovulationStep: PropTypes.bool.isRequired,
+  postOvulationStep: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
 };
 

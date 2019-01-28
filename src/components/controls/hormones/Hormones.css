@@ -24,19 +24,21 @@
  .preovulation-description {
    color: #12a3c1;
  }
- .active-preovulation {
+ .active-preovulation, .pre-ovulation {
    background-color: #12a3c1 !important;
    border-color: #12a3c1 !important;
+   color: #FFFFFF;
  }
- .active-ovulation {
+ .active-ovulation, .ovulation {
    background-color: #ff7a00 !important;
    border-color: #ff7a00 !important;
+   color: #FFFFFF;
  }
- .active-postovulation {
+ .active-postovulation, .post-ovulation {
    background-color: #9C27B0 !important;
    border-color: #9C27B0 !important;
+   color: #FFFFFF;
  }
-
 .animate-text,
 .ovulation-description,
 .preovulation-description,

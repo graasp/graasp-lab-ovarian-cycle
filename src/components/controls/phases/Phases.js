@@ -11,36 +11,47 @@ export const Phases = ({
   ovulationActive,
   preOvulationActive,
   postOvulationActive,
+  preOvulationStep,
+  ovulationStep,
+  postOvulationStep,
   t,
 }) => (
   <div className="phases-container">
-    <div className="phases-title">
-      <span className="select-step">{t('Select step')}</span>
-    </div>
     <div className="phases">
       <Button
-        disabled={ovulationActive || postOvulationActive}
+        disabled={
+          ovulationActive || postOvulationActive || preOvulationStep
+          || ovulationStep || postOvulationStep
+        }
         outline
         color="secondary"
-        className={`${preOvulationActive ? 'active-preovulation' : ''} pre-ovulation`}
+        className={`${preOvulationActive ? 'active-preovulation' : ''} ${preOvulationStep ? 'pre-ovulation' : ''} cycle-phase`}
         onClick={handlePreOvulation}
       >
         {t('Pre-Ovulation')}
       </Button>
+      <br />
       <Button
-        disabled={preOvulationActive || postOvulationActive}
+        disabled={
+          preOvulationActive || postOvulationActive || preOvulationStep
+          || ovulationStep || postOvulationStep
+        }
         outline
         color="secondary"
-        className={`${ovulationActive ? 'active-ovulation' : ''} mx-2 ovulation`}
+        className={`${ovulationActive ? 'active-ovulation' : ''} ${ovulationStep ? 'ovulation' : ''} m-2 cycle-phase`}
         onClick={handleOvulation}
       >
         {t('Ovulation')}
       </Button>
+      <br />
       <Button
-        disabled={ovulationActive || preOvulationActive}
+        disabled={
+          ovulationActive || preOvulationActive || preOvulationStep
+          || ovulationStep || postOvulationStep
+        }
         outline
         color="secondary"
-        className={`${postOvulationActive ? 'active-postovulation' : ''} post-ovulation`}
+        className={`${postOvulationActive ? 'active-postovulation' : ''} ${postOvulationStep ? 'post-ovulation' : ''} cycle-phase`}
         onClick={handlePostOvulation}
       >
         {t('Post-Ovulation')}
@@ -57,12 +68,18 @@ Phases.propTypes = {
   ovulationActive: PropTypes.bool.isRequired,
   postOvulationActive: PropTypes.bool.isRequired,
   preOvulationActive: PropTypes.bool.isRequired,
+  preOvulationStep: PropTypes.bool.isRequired,
+  ovulationStep: PropTypes.bool.isRequired,
+  postOvulationStep: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   preOvulationActive: state.setting.preOvulationActive,
   postOvulationActive: state.setting.postOvulationActive,
   ovulationActive: state.setting.ovulationActive,
+  preOvulationStep: state.setting.preOvulationStep,
+  ovulationStep: state.setting.ovulationStep,
+  postOvulationStep: state.setting.postOvulationStep,
 });
 
 
