@@ -24,9 +24,7 @@ import Styles from './Styles';
 const styles = Styles;
 
 class PersistentDrawerRight extends React.Component {
-  state = {
-    open: false,
-  };
+  state = { open: false };
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -127,7 +125,7 @@ class PersistentDrawerRight extends React.Component {
             secreteOestro={secreteOestro}
             t={t}
           />
-          <ToastContainer autoClose={7000} />
+          <ToastContainer autoClose={10000} />
           <Body t={t} />
         </main>
         <Drawer
