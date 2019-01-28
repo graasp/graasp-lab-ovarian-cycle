@@ -110,7 +110,16 @@ export class Body extends React.Component {
           onClose={this.handleHeartPopoverClose}
           disableRestoreFocus
         >
-          <b>{t('The Heart')}</b>
+          <h6>
+            <b>
+              {t('The Heart')}
+              :
+            </b>
+            <br />
+            {t('Pumps the blood that it circulates')}
+            <br />
+            {t('in all the tissues of the body')}
+          </h6>
         </Popover>
         <Popover
           id="ovary-over-popover"
