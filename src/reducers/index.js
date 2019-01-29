@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import languageReducer from './language';
 import settingReducer from './setting';
 import svgReducer from './svg';
 // importing and passing our created svg
@@ -7,5 +6,4 @@ import svgReducer from './svg';
 export default combineReducers({
   svg: svgReducer,
   setting: settingReducer,
-  laguange: languageReducer,
 });
