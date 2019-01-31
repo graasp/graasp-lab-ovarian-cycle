@@ -1,58 +1,47 @@
 import React from 'react';
-import Qs from 'qs';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Setting from './Setting';
+import RefreshIcon from '@material-ui/icons/Refresh';
+import Fab from '@material-ui/core/Fab';
+import { withStyles } from '@material-ui/core/styles';
 
-const Refresher = ({
-  reloadPage,
-  t,
-  onOpenModal,
-  openModal,
-  onCloseModal,
-  handleChangeComplete,
-  handleLang,
-  themeColor,
-  toggleTitle,
-}) => {
-  const {
-    mode = 'default',
-  } = Qs.parse(window.location.search, { ignoreQueryPrefix: true });
-  return (
-    <div className="modal-container">
-      { mode === 'default' ? (
-        <Setting
-          onOpenModal={onOpenModal}
-          onCloseModal={onCloseModal}
-          openModal={openModal}
-          handleChangeComplete={handleChangeComplete}
-          handleLang={handleLang}
-          themeColor={themeColor}
-          toggleTitle={toggleTitle}
-          reloadPage={reloadPage}
-          t={t}
-        />
-      ) : ''
-      }
-    </div>
-  );
+const styles = theme => ({
+  refreshButton: {
+    right: theme.spacing.unit * 4,
+    bottom: theme.spacing.unit * 12,
+    position: 'fixed',
+    // position above side menu
+    zIndex: 10000,
+  },
+});
+
+// this function handles the reload button to refresh the whole app
+const reloadPage = () => {
+  window.location.reload();
 };
 
+const Refresher = ({
+  classes,
+  themeColor,
+}) => (
+  <Fab
+    color="primary"
+    aria-label="Add"
+    onClick={reloadPage}
+    className={classes.refreshButton}
+    style={{ backgroundColor: themeColor }}
+  >
+    <RefreshIcon style={{ color: 'white' }} />
+  </Fab>
+);
 
 Refresher.propTypes = {
-  reloadPage: PropTypes.func.isRequired,
-  onOpenModal: PropTypes.func.isRequired,
-  onCloseModal: PropTypes.func.isRequired,
-  handleChangeComplete: PropTypes.func.isRequired,
-  handleLang: PropTypes.func.isRequired,
-  t: PropTypes.func.isRequired,
-  openModal: PropTypes.bool.isRequired,
   themeColor: PropTypes.string.isRequired,
-  toggleTitle: PropTypes.func.isRequired,
+  classes: PropTypes.shape({}).isRequired,
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.setting.themeColor,
+  themeColor: state.layout.themeColor,
 });
 
-export default connect(mapStateToProps)(Refresher);
+export default withStyles(styles)(connect(mapStateToProps)(Refresher));

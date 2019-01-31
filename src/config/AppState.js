@@ -12,7 +12,6 @@ export const AppState = {
   anchorElOvary: null,
   showBrainTitle: false,
   open: false,
-  openModal: false,
   themeColor: '#2196F5',
   obserViewActive: true,
   postOvulation: false,

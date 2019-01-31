@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import { withNamespaces } from 'react-i18next';
 import Grid from '@material-ui/core/Grid';
 import FiberManualRecord from '@material-ui/icons/FiberManualRecord';
 import './Hormones.css';
@@ -16,8 +17,8 @@ const styles = theme => ({
     position: 'absolute',
     width: 400,
   },
-  demo: {
-    backgroundColor: theme.palette.background.paper,
+  list: {
+    backgroundColor: 'transparent',
     marginTop: 80,
   },
   title: {
@@ -37,7 +38,7 @@ const styles = theme => ({
   },
 });
 
-class InteractiveList extends React.Component {
+class Hormones extends Component {
   state = { dense: false };
 
   render() {
@@ -54,7 +55,7 @@ class InteractiveList extends React.Component {
       <div className={classes.root}>
         <Grid container spacing={16}>
           <Grid item xs={12} md={6}>
-            <div className={classes.demo}>
+            <div className={classes.list}>
               <List dense={dense}>
                 <ListItem>
                   <ListItemIcon>
@@ -101,7 +102,7 @@ class InteractiveList extends React.Component {
   }
 }
 
-InteractiveList.propTypes = {
+Hormones.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   secreteLhFsh: PropTypes.bool.isRequired,
   secreteProgest: PropTypes.bool.isRequired,
@@ -109,4 +110,4 @@ InteractiveList.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(InteractiveList);
+export default withNamespaces()(withStyles(styles)(Hormones));

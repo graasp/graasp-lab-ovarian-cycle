@@ -57,13 +57,13 @@ const Msg = ({
 );
 
 const mapStateToProps = state => ({
-  preOvulationActive: state.setting.preOvulationActive,
-  postOvulationActive: state.setting.postOvulationActive,
-  ovulationActive: state.setting.ovulationActive,
-  preOvulationStep: state.setting.preOvulationStep,
-  ovulationStep: state.setting.ovulationStep,
-  postOvulationStep: state.setting.postOvulationStep,
-  themeColor: state.setting.themeColor,
+  preOvulationActive: state.simulation.preOvulationActive,
+  postOvulationActive: state.simulation.postOvulationActive,
+  ovulationActive: state.simulation.ovulationActive,
+  preOvulationStep: state.simulation.preOvulationStep,
+  ovulationStep: state.simulation.ovulationStep,
+  postOvulationStep: state.simulation.postOvulationStep,
+  themeColor: state.layout.themeColor,
 });
 
 Msg.propTypes = {

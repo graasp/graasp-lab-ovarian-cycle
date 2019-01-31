@@ -1,7 +1,0 @@
-export const APPEND_SVG = 'APPEND_SVG';
-export const THEME_COLOR = 'THEME_COLOR';
-export const DEFAULT_LANGUAGE = 'DEFAULT_LANGUAGE';
-export const TITLE_STATE = 'TITLE_STATE';
-export const PRE_OVULATION = 'PRE_OVULATION';
-export const OVULATION = 'OVULATION';
-export const POST_OVULATION = 'POST_OVULATION';

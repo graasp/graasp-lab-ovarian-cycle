@@ -3,6 +3,7 @@ const drawerWidth = 430;
 const styles = theme => ({
   root: {
     display: 'flex',
+    textAlign: 'center',
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
@@ -43,6 +44,7 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
+    textAlign: 'center',
     padding: theme.spacing.unit * 3,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,

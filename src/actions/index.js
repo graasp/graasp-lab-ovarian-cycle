@@ -1,13 +1,10 @@
 import * as d3 from 'd3';
 import {
   APPEND_SVG,
-  THEME_COLOR,
-  DEFAULT_LANGUAGE,
-  TITLE_STATE,
   PRE_OVULATION,
   OVULATION,
   POST_OVULATION,
-} from './types';
+} from '../types';
 
 export function appendSvg() {
   // creating our initial svg that we append to the
@@ -17,27 +14,6 @@ export function appendSvg() {
   return {
     type: APPEND_SVG,
     payload: svg,
-  };
-}
-
-export function themeColor({ newColor }) {
-  return {
-    type: THEME_COLOR,
-    payload: newColor,
-  };
-}
-
-export function defaultLang({ newLang }) {
-  return {
-    type: DEFAULT_LANGUAGE,
-    payload: newLang,
-  };
-}
-
-export function titleState({ showTitle }) {
-  return {
-    type: TITLE_STATE,
-    payload: showTitle,
   };
 }
 
@@ -61,3 +37,8 @@ export function postOvulationState({ postOvulationActive, postOvulationStep }) {
     payload: { postOvulationActive, postOvulationStep },
   };
 }
+
+export * from './context';
+export * from './appInstance';
+export * from './users';
+export * from './layout';

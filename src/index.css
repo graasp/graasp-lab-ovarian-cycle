@@ -19,9 +19,7 @@
   fill: none;
   stroke: none;
 }
-.student-view {
-  text-align: center;
-}
+
 circle {
   cursor: pointer;
 }
