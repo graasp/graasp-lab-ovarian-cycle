@@ -1,9 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Popover from '@material-ui/core/Popover';
 import { withStyles } from '@material-ui/core/styles';
+import { withNamespaces } from 'react-i18next';
 import { AppState } from '../../config/AppState';
 import { appendSvg } from '../../actions';
+
 // our body component just render the human image
 // then dispatches the received svg to it component
 const styles = theme => ({
@@ -18,9 +21,13 @@ const styles = theme => ({
 export class Body extends React.Component {
   state = AppState;
 
+  static propTypes = {
+    dispatchAppendSvg: PropTypes.func.isRequired,
+  };
+
   componentDidMount() {
     const { dispatchAppendSvg } = this.props;
-    dispatchAppendSvg(mapStateToProps);
+    dispatchAppendSvg();
   }
 
   handlePopoverOpen = (event) => {
@@ -238,6 +245,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   dispatchAppendSvg: appendSvg,
 };
-const connectedComponent = withStyles(styles)(Body);
+const StyledComponent = withStyles(styles)(Body);
 
-export default connect(mapStateToProps, mapDispatchToProps)(connectedComponent);
+const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(StyledComponent);
+
+export default withNamespaces()(ConnectedComponent);

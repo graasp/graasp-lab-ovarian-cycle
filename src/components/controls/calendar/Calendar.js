@@ -41,7 +41,7 @@ Calendar.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.setting.themeColor,
+  themeColor: state.layout.themeColor,
 });
 
 export default connect(mapStateToProps)(Calendar);

@@ -1,14 +1,10 @@
 import {
-  THEME_COLOR,
-  TITLE_STATE,
   PRE_OVULATION,
   OVULATION,
   POST_OVULATION,
-} from '../actions/types';
+} from '../types';
 
 const INITIAL_STATE = {
-  themeColor: '#0f94f8',
-  showTitle: true,
   preOvulationActive: false,
   postOvulationActive: false,
   ovulationActive: false,
@@ -21,16 +17,6 @@ const INITIAL_STATE = {
 // to our svg action we created in ../actions path
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
-    case THEME_COLOR:
-      return {
-        ...state,
-        themeColor: action.payload,
-      };
-    case TITLE_STATE:
-      return {
-        ...state,
-        showTitle: action.payload,
-      };
     case PRE_OVULATION:
       return {
         ...state,

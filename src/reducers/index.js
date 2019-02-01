@@ -1,9 +1,16 @@
 import { combineReducers } from 'redux';
-import settingReducer from './setting';
+import simulationReducer from './simulation';
 import svgReducer from './svg';
-// importing and passing our created svg
-// from the svg component and pass it to our react reducer
+import appInstanceReducer from './appInstance';
+import usersReducer from './users';
+import contextReducer from './context';
+import layoutReducer from './layout';
+
 export default combineReducers({
   svg: svgReducer,
-  setting: settingReducer,
+  simulation: simulationReducer,
+  context: contextReducer,
+  users: usersReducer,
+  appInstance: appInstanceReducer,
+  layout: layoutReducer,
 });

@@ -1,4 +1,4 @@
-import { APPEND_SVG } from '../actions/types';
+import { APPEND_SVG } from '../types';
 
 const INITIAL_STATE = {
   svg: null,

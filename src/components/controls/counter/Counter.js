@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './Counter.css';
 import { Button } from 'reactstrap';
+import { withNamespaces } from 'react-i18next';
+
 // deciding what happen on the launch/stop cycle button cycle
 // the t is used for the translation
 const Counter = ({
@@ -68,10 +70,12 @@ Counter.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.setting.themeColor,
-  preOvulationActive: state.setting.preOvulationActive,
-  postOvulationActive: state.setting.postOvulationActive,
-  ovulationActive: state.setting.ovulationActive,
+  themeColor: state.layout.themeColor,
+  preOvulationActive: state.simulation.preOvulationActive,
+  postOvulationActive: state.simulation.postOvulationActive,
+  ovulationActive: state.simulation.ovulationActive,
 });
 
-export default connect(mapStateToProps)(Counter);
+const ConnectedComponent = connect(mapStateToProps)(Counter);
+
+export default withNamespaces()(ConnectedComponent);

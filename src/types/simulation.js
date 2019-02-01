@@ -1,0 +1,3 @@
+export const PRE_OVULATION = 'PRE_OVULATION';
+export const OVULATION = 'OVULATION';
+export const POST_OVULATION = 'POST_OVULATION';

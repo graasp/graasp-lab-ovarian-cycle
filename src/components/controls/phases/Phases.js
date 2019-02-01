@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './Phases.css';
 import { Button } from 'reactstrap';
+import { withNamespaces } from 'react-i18next';
+
 // we make sure all other buttons are disabled when one is clicked
 export const Phases = ({
   handleOvulation,
@@ -20,8 +22,11 @@ export const Phases = ({
     <div className="phases">
       <Button
         disabled={
-          ovulationActive || postOvulationActive || preOvulationStep
-          || ovulationStep || postOvulationStep
+          ovulationActive
+          || postOvulationActive
+          || preOvulationStep
+          || ovulationStep
+          || postOvulationStep
         }
         outline
         color="secondary"
@@ -33,8 +38,11 @@ export const Phases = ({
       <br />
       <Button
         disabled={
-          preOvulationActive || postOvulationActive || preOvulationStep
-          || ovulationStep || postOvulationStep
+          preOvulationActive
+          || postOvulationActive
+          || preOvulationStep
+          || ovulationStep
+          || postOvulationStep
         }
         outline
         color="secondary"
@@ -46,8 +54,11 @@ export const Phases = ({
       <br />
       <Button
         disabled={
-          ovulationActive || preOvulationActive || preOvulationStep
-          || ovulationStep || postOvulationStep
+          ovulationActive
+          || preOvulationActive
+          || preOvulationStep
+          || ovulationStep
+          || postOvulationStep
         }
         outline
         color="secondary"
@@ -74,13 +85,15 @@ Phases.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  preOvulationActive: state.setting.preOvulationActive,
-  postOvulationActive: state.setting.postOvulationActive,
-  ovulationActive: state.setting.ovulationActive,
-  preOvulationStep: state.setting.preOvulationStep,
-  ovulationStep: state.setting.ovulationStep,
-  postOvulationStep: state.setting.postOvulationStep,
+  preOvulationActive: state.simulation.preOvulationActive,
+  postOvulationActive: state.simulation.postOvulationActive,
+  ovulationActive: state.simulation.ovulationActive,
+  preOvulationStep: state.simulation.preOvulationStep,
+  ovulationStep: state.simulation.ovulationStep,
+  postOvulationStep: state.simulation.postOvulationStep,
 });
 
 
-export default connect(mapStateToProps)(Phases);
+const ConnectedComponent = connect(mapStateToProps)(Phases);
+
+export default withNamespaces()(ConnectedComponent);
