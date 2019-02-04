@@ -1,7 +1,8 @@
 import {
   CHANGE_THEME_COLOR,
   TOGGLE_HEADER,
-  TOGGLE_SIDE_MENU
+  TOGGLE_LOADER,
+  TOGGLE_SIDE_MENU,
 } from '../types';
 import { patchAppInstance } from './appInstance';
 import { getSettings } from './common';
@@ -9,6 +10,11 @@ import { getSettings } from './common';
 const toggleSideMenu = showSideMenu => dispatch => dispatch({
   type: TOGGLE_SIDE_MENU,
   payload: showSideMenu,
+});
+
+const toggleLoader = showLoader => dispatch => dispatch({
+  type: TOGGLE_LOADER,
+  payload: showLoader,
 });
 
 const toggleHeader = showHeader => (dispatch, getState) => {
@@ -41,4 +47,5 @@ export {
   toggleHeader,
   toggleSideMenu,
   changeThemeColor,
+  toggleLoader,
 };
