@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Button } from 'reactstrap';
-import Counter from './Counter';
+import { Counter } from './Counter';
+import { DEFAULT_THEME_COLOR } from '../../../config/settings';
 
 describe('<Counter />', () => {
   const props = {
@@ -12,7 +13,7 @@ describe('<Counter />', () => {
     ovulationActive: false,
     postOvulationActive: false,
     preOvulationActive: false,
-    isDisabled: false,
+    themeColor: DEFAULT_THEME_COLOR,
   };
 
   const component = shallow(<Counter {...props} />);

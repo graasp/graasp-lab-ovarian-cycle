@@ -22,7 +22,7 @@ import Refresher from '../controls/visualizer/refresher/Refresher';
 import Main from '../layout/Main';
 import styles from '../controls/common/Styles';
 
-class MainView extends Component {
+export class MainView extends Component {
   static propTypes = {
     dispatchPreOvulationState: PropTypes.func.isRequired,
     dispatchPostOvulationState: PropTypes.func.isRequired,
@@ -268,7 +268,7 @@ class MainView extends Component {
 
   // this is our lh updating function
   updateLh = () => {
-    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line react/prop-types
     const { svg } = this.props;
     const { lhPoints } = this.state;
     let nextColor = SKY_BLUE;
@@ -574,9 +574,6 @@ class MainView extends Component {
       <div className={classes.root}>
         <Main
           dayCount={dayCount}
-          ovulation={ovulation}
-          postOvulation={postOvulation}
-          preOvulation={preOvulation}
           secreteLhFsh={secreteLhFsh}
           secreteProgest={secreteProgest}
           secreteOestro={secreteOestro}

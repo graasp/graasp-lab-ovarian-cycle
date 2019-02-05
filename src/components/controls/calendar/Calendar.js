@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// creating an svg file and pass
-// the ovarian cycle dayCount to display
 
-const Calendar = ({
+// create an svg and pass the ovarian cycle dayCount to display
+export const Calendar = ({
   dayCount,
   themeColor,
 }) => (

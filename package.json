@@ -67,6 +67,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@commitlint/cli": "7.5.0",
+    "@commitlint/config-conventional": "7.5.0",
     "cross-env": "5.2.0",
     "env-cmd": "8.0.2",
     "glob": "7.1.3",

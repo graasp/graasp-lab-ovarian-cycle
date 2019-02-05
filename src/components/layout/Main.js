@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import Fab from '@material-ui/core/Fab';
+import PropTypes from 'prop-types';
 import MenuIcon from '@material-ui/icons/Menu';
 import { ToastContainer } from 'react-toastify';
 import { withNamespaces } from 'react-i18next';
@@ -16,6 +17,18 @@ import Styles from '../controls/common/Styles';
 const styles = Styles;
 
 class Main extends Component {
+  static propTypes = {
+    classes: PropTypes.shape({}).isRequired,
+    secreteLhFsh: PropTypes.bool.isRequired,
+    secreteProgest: PropTypes.bool.isRequired,
+    secreteOestro: PropTypes.bool.isRequired,
+    showSideMenu: PropTypes.bool.isRequired,
+    themeColor: PropTypes.string.isRequired,
+    showHeader: PropTypes.bool.isRequired,
+    dispatchToggleSideMenu: PropTypes.func.isRequired,
+    dayCount: PropTypes.number.isRequired,
+  };
+
   handleToggleSideMenu = open => () => {
     const {
       dispatchToggleSideMenu,
@@ -29,9 +42,6 @@ class Main extends Component {
       showSideMenu,
       themeColor,
       showHeader,
-      ovulation,
-      postOvulation,
-      preOvulation,
       secreteLhFsh,
       secreteProgest,
       secreteOestro,
@@ -66,9 +76,6 @@ class Main extends Component {
         }
 
         <Hormones
-          ovulation={ovulation}
-          postOvulation={postOvulation}
-          preOvulation={preOvulation}
           secreteLhFsh={secreteLhFsh}
           secreteProgest={secreteProgest}
           secreteOestro={secreteOestro}

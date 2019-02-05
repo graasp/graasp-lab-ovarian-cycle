@@ -20,7 +20,7 @@ const reloadPage = () => {
   window.location.reload();
 };
 
-const Refresher = ({
+export const Refresher = ({
   classes,
   themeColor,
 }) => (

@@ -4,6 +4,10 @@ import { App } from '../App';
 
 describe('<App />', () => {
   const props = {
+    loading: false,
+    dispatchGetContext: jest.fn(),
+    dispatchGetAppInstance: jest.fn(),
+    dispatchToggleLoader: jest.fn(),
     i18n: {
       defaultNS: '',
       changeLanguage: jest.fn(),

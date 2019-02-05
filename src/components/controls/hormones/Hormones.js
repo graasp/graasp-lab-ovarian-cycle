@@ -38,7 +38,7 @@ const styles = theme => ({
   },
 });
 
-class Hormones extends Component {
+export class Hormones extends Component {
   state = { dense: false };
 
   render() {

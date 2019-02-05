@@ -4,6 +4,33 @@ exports[`<App /> renders correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <App
+    dispatchGetAppInstance={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    dispatchGetContext={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    dispatchToggleLoader={[MockFunction]}
     i18n={
       Object {
         "changeLanguage": [MockFunction] {
@@ -22,6 +49,9 @@ ShallowWrapper {
         "defaultNS": "",
       }
     }
+    lang="en"
+    loading={false}
+    mode="student"
     t={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -36,9 +66,7 @@ ShallowWrapper {
     "instance": null,
     "key": undefined,
     "nodeType": "class",
-    "props": Object {
-      "t": [MockFunction],
-    },
+    "props": Object {},
     "ref": null,
     "rendered": null,
     "type": [Function],
@@ -48,9 +76,7 @@ ShallowWrapper {
       "instance": null,
       "key": undefined,
       "nodeType": "class",
-      "props": Object {
-        "t": [MockFunction],
-      },
+      "props": Object {},
       "ref": null,
       "rendered": null,
       "type": [Function],

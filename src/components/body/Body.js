@@ -22,6 +22,8 @@ export class Body extends React.Component {
   state = AppState;
 
   static propTypes = {
+    t: PropTypes.func.isRequired,
+    classes: PropTypes.shape({}).isRequired,
     dispatchAppendSvg: PropTypes.func.isRequired,
   };
 

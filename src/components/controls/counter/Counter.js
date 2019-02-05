@@ -7,7 +7,7 @@ import { withNamespaces } from 'react-i18next';
 
 // deciding what happen on the launch/stop cycle button cycle
 // the t is used for the translation
-const Counter = ({
+export const Counter = ({
   handleFullCycle,
   handleStop,
   isStarted,

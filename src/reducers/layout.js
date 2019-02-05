@@ -4,11 +4,12 @@ import {
   TOGGLE_LOADER,
   CHANGE_THEME_COLOR,
 } from '../types';
+import { DEFAULT_THEME_COLOR } from '../config/settings';
 
 const INITIAL_STATE = {
   showSideMenu: false,
   showHeader: true,
-  themeColor: '#03a9f4',
+  themeColor: DEFAULT_THEME_COLOR,
   showLoader: true,
 };
 

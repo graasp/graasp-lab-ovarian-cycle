@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainView /> renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MainView
+    classes={Object {}}
+    dispatchOvulationState={[MockFunction]}
+    dispatchPostOvulationState={[MockFunction]}
+    dispatchPreOvulationState={[MockFunction]}
+    svg={
+      Selection {
+        "_groups": Array [
+          Array [
+            null,
+          ],
+        ],
+        "_parents": Array [
+          <html>
+            <head />
+            <body />
+          </html>,
+        ],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <LoadNamespace(WithStyles(Connect(Main)))
+          dayCount={1}
+          secreteLhFsh={false}
+          secreteOestro={false}
+          secreteProgest={false}
+        />,
+        <LoadNamespace(WithStyles(Connect(SideMenu)))
+          dayCount={1}
+          handleFullCycle={[Function]}
+          handleOvulation={[Function]}
+          handlePostOvulation={[Function]}
+          handlePreOvulation={[Function]}
+          handleStop={[Function]}
+          isStarted={false}
+          obserViewActive={true}
+          ovulation={false}
+          ovulationActive={false}
+          postOvulation={false}
+          postOvulationActive={false}
+          preOvulation={false}
+          preOvulationActive={false}
+          secreteLhFsh={false}
+          secreteOestro={false}
+          secreteProgest={false}
+        />,
+        <WithStyles(Connect(Refresher)) />,
+      ],
+      "className": undefined,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "dayCount": 1,
+          "secreteLhFsh": false,
+          "secreteOestro": false,
+          "secreteProgest": false,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "dayCount": 1,
+          "handleFullCycle": [Function],
+          "handleOvulation": [Function],
+          "handlePostOvulation": [Function],
+          "handlePreOvulation": [Function],
+          "handleStop": [Function],
+          "isStarted": false,
+          "obserViewActive": true,
+          "ovulation": false,
+          "ovulationActive": false,
+          "postOvulation": false,
+          "postOvulationActive": false,
+          "preOvulation": false,
+          "preOvulationActive": false,
+          "secreteLhFsh": false,
+          "secreteOestro": false,
+          "secreteProgest": false,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <LoadNamespace(WithStyles(Connect(Main)))
+            dayCount={1}
+            secreteLhFsh={false}
+            secreteOestro={false}
+            secreteProgest={false}
+          />,
+          <LoadNamespace(WithStyles(Connect(SideMenu)))
+            dayCount={1}
+            handleFullCycle={[Function]}
+            handleOvulation={[Function]}
+            handlePostOvulation={[Function]}
+            handlePreOvulation={[Function]}
+            handleStop={[Function]}
+            isStarted={false}
+            obserViewActive={true}
+            ovulation={false}
+            ovulationActive={false}
+            postOvulation={false}
+            postOvulationActive={false}
+            preOvulation={false}
+            preOvulationActive={false}
+            secreteLhFsh={false}
+            secreteOestro={false}
+            secreteProgest={false}
+          />,
+          <WithStyles(Connect(Refresher)) />,
+        ],
+        "className": undefined,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "dayCount": 1,
+            "secreteLhFsh": false,
+            "secreteOestro": false,
+            "secreteProgest": false,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "dayCount": 1,
+            "handleFullCycle": [Function],
+            "handleOvulation": [Function],
+            "handlePostOvulation": [Function],
+            "handlePreOvulation": [Function],
+            "handleStop": [Function],
+            "isStarted": false,
+            "obserViewActive": true,
+            "ovulation": false,
+            "ovulationActive": false,
+            "postOvulation": false,
+            "postOvulationActive": false,
+            "preOvulation": false,
+            "preOvulationActive": false,
+            "secreteLhFsh": false,
+            "secreteOestro": false,
+            "secreteProgest": false,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
