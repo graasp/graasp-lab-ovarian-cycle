@@ -1,6 +1,7 @@
 import {
   TOGGLE_SIDE_MENU,
   TOGGLE_HEADER,
+  TOGGLE_LOADER,
   CHANGE_THEME_COLOR,
 } from '../types';
 
@@ -8,6 +9,7 @@ const INITIAL_STATE = {
   showSideMenu: false,
   showHeader: true,
   themeColor: '#03a9f4',
+  showLoader: true,
 };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
@@ -26,6 +28,11 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         themeColor: payload,
+      };
+    case TOGGLE_LOADER:
+      return {
+        ...state,
+        showLoader: payload,
       };
     default:
       return state;
