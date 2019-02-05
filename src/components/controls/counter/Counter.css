@@ -2,11 +2,37 @@
   text-align: center;
   padding: 10px;
 }
-.fa-calendar {
-  width: 15rem;
+.counter-container .description-content {
+  text-align: left;
+}
+.counter-container .description-content h2 {
+  color: #555;
+  margin: 1rem 0;
+  text-align: left;
+  padding-left: 1rem;
+  font-size: 1.3rem;
+}
+.counter-container .description-content p {
+  color: #555;
+  font-size: 1.1rem;
+  padding: 0 1rem;
   margin-bottom: 2rem;
-  margin-top: 2rem;
+}
+.clock-setter .btn {
+  background-color: #0f94f8;
+  border-color: #0f94f8;
+}
+.fa-calendar {
+  width: 10rem;
+  float: right;
 }
 .btn-lg {
   font-size: 2rem;
+}
+.separator-line {
+  margin-top: 2rem;
+  width: 70%;
+}
+.btn-full-cycle {
+  font-size: 1.5rem;
 }

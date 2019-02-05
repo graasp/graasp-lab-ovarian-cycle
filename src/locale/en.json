@@ -1,6 +1,6 @@
 {
   "translations" : {
-    "Launch Cycle": "Launch Cycle",
+    "Full Cycle": "Full Cycle",
     "Stop Cycle": "Stop Cycle",
     "OR": "OR",
     "Pre-Ovulation": "Pre-Ovulation",
@@ -16,6 +16,26 @@
     "This stage is the moment when the LH and FSH are in very low quatity.": "This stage is the moment when the LH and FSH are in very low quatity.",
     "This is the period before ovulation": "This is the period before ovulation",
     "This is the ovulation phase.": "This is the ovulation phase.",
-    "This is the period after ovulation.": "This is the period after ovulation."
+    "This is the period after ovulation.": "This is the period after ovulation.",
+    "Synchronization of the ovarian cycle": "Ovarian Cycle",
+    "Observe": "Observe",
+    "Test": "Test",
+    "Coming Soon!": "Coming Soon!",
+    "Choose your panel color": "Choose your panel color",
+    "Language": "Language",
+    "Description": "Description",
+    "Display Lab title": "Display Header",
+    "Lab Explanation": "It will allow the learner to interact on ovarian hormone levels (estrogen and progesterone) and pituitary (FSH and LH) to understand how these hormones control the ovarian cycle and how they ensure ovulation",
+    "The Brain": "The Brain",
+    "The brain secretes the pituitary": "The brain secretes the pituitary",
+    "hormones LH and FSH that cause": "hormones LH and FSH that cause",
+    "ovarian and uterine cycles.": "ovarian and uterine cycles.",
+    "The Heart": "The Heart",
+    "The Ovaries": "The Ovaries",
+    "Exert feedback on the influence": "Exert feedback on the influence",
+    "of the hypothalamic pituitary complex by": "of the hypothalamic pituitary complex by",
+    "releasing Estrogens and Progesterones.": "releasing Estrogens and Progesterones.",
+    "Pumps the blood that it circulates": "Pumps the blood that it circulates",
+    "in all the tissues of the body": "in all the tissues of the body"
   }
 }

@@ -1,6 +1,40 @@
-.visualizer-container {
-  padding-top: 6rem;
+#disabledBtn {
+  cursor: help;
 }
-.fa-redo-alt {
-  width: 2rem;
+.btn, .modal-container button {
+  outline: 0;
+}
+.modal-color-title, .modal-lang-title {
+  font-size: 1.1rem;
+}
+.modal-lang-title {
+  line-height: 2;
+}
+.modal-lang-container {
+  margin-top: 1rem;
+}
+.modal-container .btn-secondary {
+  position: fixed;
+  bottom: 8%;
+  right: 2%;
+  background: #fafafa;
+  border-color: #fafafa;
+  border-radius: 50%;
+  font-size: 1.8rem;
+}
+.modal-container .btn-secondary:active {
+  background-color: #fafafa !important;
+  border-color: #fafafa !important;
+}
+.modal-container .btn-secondary svg {
+  margin-bottom: .3rem;
+}
+.explanation {
+  color: #555;
+}
+.body-svg {
+  margin-left: 10%;
+}
+.MuiGrid-grid-xs-12-154 {
+  flex-basis: initial !important;
 }

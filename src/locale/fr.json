@@ -1,6 +1,6 @@
 {
   "translations" : {
-    "Launch Cycle": "Lancer Cycle",
+    "Full Cycle": "Lancer Cycle",
     "Stop Cycle": "Arrêter Cycle",
     "OR": "OU",
     "Pre-Ovulation": "Pré-Ovulation",
@@ -16,6 +16,26 @@
     "This stage is the moment when the LH and FSH are in very low quatity.": "Cette étape est le moment où la LH et la FSH sont en très faible quantité.",
     "This is the period before ovulation": "C'est la période avant l'ovulation",
     "This is the ovulation phase.": "C'est la phase d'ovulation.",
-    "This is the period after ovulation.": "C'est la période après l'ovulation."
+    "This is the period after ovulation.": "C'est la période après l'ovulation.",
+    "Synchronization of the ovarian cycle": "Synchronisation du cycle ovarien",
+    "Observe": "Observer",
+    "Test": "Tester",
+    "Coming Soon!": "Bientôt disponible!",
+    "Choose your panel color": "Choisis la couleur de panel",
+    "Language": "Langue",
+    "Description": "Description",
+    "Display Lab title": "Afficher le titre du labo",
+    "Lab Explanation": "Il va permettre à l’apprenant d’interagir sur les taux des hormones ovariennes (œstrogènes et progestérone) et hypophysaires (FSH et LH) pour comprendre comment ces hormones contrôlent le cycle ovarien et comment elles assurent l’ovulation",
+    "The Brain": "Le Cerveau",
+    "The brain secretes the pituitary": "Le cerveau sécrète les hormones",
+    "hormones LH and FSH that cause": "hypophysaires LH and FSH qui sont",
+    "ovarian and uterine cycles.": "à l'origine des cycles ovariens et utériens",
+    "The Heart": "Le Coeur",
+    "The Ovaries": "Les Ovaires",
+    "Exert feedback on the influence": "exercent une rétroaction sur l'influence du",
+    "of the hypothalamic pituitary complex by": "complexe hypothalamique hypophysaire en",
+    "releasing Estrogens and Progesterones.": "libérant de l'œstrogène et de la progestérone",
+    "Pumps the blood that it circulates": "Pomper le sang qu'il fait circuler",
+    "in all the tissues of the body": "dans tous les tissus de l'organisme"
   }
 }

@@ -15,7 +15,8 @@ i18n
       fr,
     },
     fallbackLng: 'en',
-    debug: true,
+    // debug only when not in production
+    debug: process.env.NODE_ENV !== 'production',
     ns: ['translations'],
     defaultNS: 'translations',
     keySeparator: false,
@@ -27,4 +28,5 @@ i18n
       wait: true,
     },
   });
+
 export default i18n;
