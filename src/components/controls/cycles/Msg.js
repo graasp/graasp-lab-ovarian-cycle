@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 const Msg = ({
@@ -77,4 +77,4 @@ Msg.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default withNamespaces('translations')(connect(mapStateToProps)(Msg));
+export default withTranslation('translations')(connect(mapStateToProps)(Msg));

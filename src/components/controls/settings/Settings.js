@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Settings';
 import Fab from '@material-ui/core/Fab';
 import Switch from 'react-switch';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import {
   Col,
   Row,
@@ -143,4 +143,4 @@ const mapDispatchToProps = {
 
 const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(Settings);
 const StyledComponent = withStyles(styles)(ConnectedComponent);
-export default withNamespaces()(StyledComponent);
+export default withTranslation()(StyledComponent);

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -131,4 +131,4 @@ const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(SideMenu
 
 const StyledComponent = withStyles(styles, { withTheme: true })(ConnectedComponent);
 
-export default withNamespaces()(StyledComponent);
+export default withTranslation()(StyledComponent);

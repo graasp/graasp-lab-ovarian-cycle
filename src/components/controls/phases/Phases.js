@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './Phases.css';
 import { Button } from 'reactstrap';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 // we make sure all other buttons are disabled when one is clicked
 export const Phases = ({
@@ -96,4 +96,4 @@ const mapStateToProps = state => ({
 
 const ConnectedComponent = connect(mapStateToProps)(Phases);
 
-export default withNamespaces()(ConnectedComponent);
+export default withTranslation()(ConnectedComponent);

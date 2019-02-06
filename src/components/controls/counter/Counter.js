@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './Counter.css';
 import { Button } from 'reactstrap';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 // deciding what happen on the launch/stop cycle button cycle
 // the t is used for the translation
@@ -78,4 +78,4 @@ const mapStateToProps = state => ({
 
 const ConnectedComponent = connect(mapStateToProps)(Counter);
 
-export default withNamespaces()(ConnectedComponent);
+export default withTranslation()(ConnectedComponent);
