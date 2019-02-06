@@ -10,7 +10,7 @@ const styles = theme => ({
       width: '5rem',
     },
     [theme.breakpoints.down('xs')]: {
-      width: '5rem',
+      width: '3rem',
     },
   },
 });
