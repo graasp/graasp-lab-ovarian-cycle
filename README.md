@@ -4,7 +4,7 @@ The lab allows the learner to  interact on ovarian hormone levels (estrogen and 
 
 This Lab was created using [Graasp App Starter React](https://github.com/react-epfl/graasp-app-starter-react)
 
-![image](https://github.com/graasp/graasp-lab-ovarian-cycle/blob/75/merge-body-and-svg/public/preview-2.png)
+![image](https://raw.githubusercontent.com/graasp/graasp-lab-ovarian-cycle/master/public/preview.png)
 ## Topic
 
 Biology
