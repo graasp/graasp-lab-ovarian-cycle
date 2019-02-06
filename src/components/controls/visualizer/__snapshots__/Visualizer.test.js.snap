@@ -25,6 +25,7 @@ ShallowWrapper {
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
     "simulateError": [Function],
@@ -37,12 +38,12 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <LoadNamespace(Connect(Counter))
+        <Wrapper
           handleFullCycle={[MockFunction]}
           handleStop={[MockFunction]}
           isStarted={false}
         />,
-        <LoadNamespace(Connect(Phases))
+        <Wrapper
           handleOvulation={[MockFunction]}
           handlePostOvulation={[MockFunction]}
           handlePreOvulation={[MockFunction]}
@@ -55,7 +56,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "handleFullCycle": [MockFunction],
           "handleStop": [MockFunction],
@@ -68,7 +69,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "handleOvulation": [MockFunction],
           "handlePostOvulation": [MockFunction],
@@ -88,12 +89,12 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <LoadNamespace(Connect(Counter))
+          <Wrapper
             handleFullCycle={[MockFunction]}
             handleStop={[MockFunction]}
             isStarted={false}
           />,
-          <LoadNamespace(Connect(Phases))
+          <Wrapper
             handleOvulation={[MockFunction]}
             handlePostOvulation={[MockFunction]}
             handlePreOvulation={[MockFunction]}
@@ -106,7 +107,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "handleFullCycle": [MockFunction],
             "handleStop": [MockFunction],
@@ -119,7 +120,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "handleOvulation": [MockFunction],
             "handlePostOvulation": [MockFunction],
@@ -137,9 +138,13 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
         "lifecycles": Object {
           "componentDidUpdate": Object {
             "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
           },
           "getDerivedStateFromProps": true,
           "getSnapshotBeforeUpdate": true,

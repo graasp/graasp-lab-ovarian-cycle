@@ -7,6 +7,7 @@ describe('<Calendar />', () => {
   const props = {
     dayCount: 0,
     themeColor: DEFAULT_THEME_COLOR,
+    classes: {},
   };
 
   const component = shallow(<Calendar {...props} />);
