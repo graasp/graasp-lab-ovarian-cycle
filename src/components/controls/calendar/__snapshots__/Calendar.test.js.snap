@@ -4,6 +4,11 @@ exports[`<Calendar /> renders correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Calendar
+    classes={
+      Object {
+        "rootCalendar": "sm",
+      }
+    }
     dayCount={0}
     themeColor="#5050d2"
   />,
@@ -20,52 +25,37 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <svg
-        aria-hidden="true"
-        className="svg-inline--fa fa-calendar fa-w-14"
-        data-con="calendar"
-        data-prefix="far"
-        role="img"
-        viewBox="0 0 448 512"
-        xmlns="http://www.w3.org/2000/svg"
+      "aria-hidden": "true",
+      "children": <g
+        fill="#5050d2"
+        fillRule="evenodd"
+        stroke="none"
+        strokeWidth="1"
       >
-        <g
-          fill="none"
-          fillRule="evenodd"
-          id="Page-1"
-          stroke="none"
-          strokeWidth="1"
+        <path
+          d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
+          fillRule="nonzero"
+        />
+        <text
+          fill="#5050d2"
+          fontFamily="Helvetica"
+          fontSize="160"
+          fontWeight="normal"
         >
-          <g
-            fill="#5050d2"
-            id="calendar"
+          <tspan
+            x="141"
+            y="356"
           >
-            <g
-              fillRule="nonzero"
-              id="calendar-regular"
-            >
-              <path
-                d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
-                id="Shape"
-              />
-            </g>
-            <text
-              fill="#5050d2"
-              fontFamily="Helvetica"
-              fontSize="160"
-              fontWeight="normal"
-              id="date"
-            >
-              <tspan
-                x="141"
-                y="356"
-              >
-                00
-              </tspan>
-            </text>
-          </g>
-        </g>
-      </svg>,
+            00
+          </tspan>
+        </text>
+      </g>,
+      "className": "sm rootCalendar svg-inline--fa fa-calendar fa-w-14",
+      "data-con": "calendar",
+      "data-prefix": "far",
+      "role": "img",
+      "viewBox": "0 0 448 512",
+      "xmlns": "http://www.w3.org/2000/svg",
     },
     "ref": null,
     "rendered": Object {
@@ -73,44 +63,113 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
+        "children": Array [
+          <path
+            d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
+            fillRule="nonzero"
+          />,
+          <text
+            fill="#5050d2"
+            fontFamily="Helvetica"
+            fontSize="160"
+            fontWeight="normal"
+          >
+            <tspan
+              x="141"
+              y="356"
+            >
+              00
+            </tspan>
+          </text>,
+        ],
+        "fill": "#5050d2",
+        "fillRule": "evenodd",
+        "stroke": "none",
+        "strokeWidth": "1",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "d": "M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z",
+            "fillRule": "nonzero",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "path",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <tspan
+              x="141"
+              y="356"
+            >
+              00
+            </tspan>,
+            "fill": "#5050d2",
+            "fontFamily": "Helvetica",
+            "fontSize": "160",
+            "fontWeight": "normal",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "00",
+              "x": "141",
+              "y": "356",
+            },
+            "ref": null,
+            "rendered": "00",
+            "type": "tspan",
+          },
+          "type": "text",
+        },
+      ],
+      "type": "g",
+    },
+    "type": "svg",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
         "aria-hidden": "true",
         "children": <g
-          fill="none"
+          fill="#5050d2"
           fillRule="evenodd"
-          id="Page-1"
           stroke="none"
           strokeWidth="1"
         >
-          <g
+          <path
+            d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
+            fillRule="nonzero"
+          />
+          <text
             fill="#5050d2"
-            id="calendar"
+            fontFamily="Helvetica"
+            fontSize="160"
+            fontWeight="normal"
           >
-            <g
-              fillRule="nonzero"
-              id="calendar-regular"
+            <tspan
+              x="141"
+              y="356"
             >
-              <path
-                d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
-                id="Shape"
-              />
-            </g>
-            <text
-              fill="#5050d2"
-              fontFamily="Helvetica"
-              fontSize="160"
-              fontWeight="normal"
-              id="date"
-            >
-              <tspan
-                x="141"
-                y="356"
-              >
-                00
-              </tspan>
-            </text>
-          </g>
+              00
+            </tspan>
+          </text>
         </g>,
-        "className": "svg-inline--fa fa-calendar fa-w-14",
+        "className": "sm rootCalendar svg-inline--fa fa-calendar fa-w-14",
         "data-con": "calendar",
         "data-prefix": "far",
         "role": "img",
@@ -123,25 +182,16 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <g
-            fill="#5050d2"
-            id="calendar"
-          >
-            <g
+          "children": Array [
+            <path
+              d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
               fillRule="nonzero"
-              id="calendar-regular"
-            >
-              <path
-                d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
-                id="Shape"
-              />
-            </g>
+            />,
             <text
               fill="#5050d2"
               fontFamily="Helvetica"
               fontSize="160"
               fontWeight="normal"
-              id="date"
             >
               <tspan
                 x="141"
@@ -149,366 +199,63 @@ ShallowWrapper {
               >
                 00
               </tspan>
-            </text>
-          </g>,
-          "fill": "none",
+            </text>,
+          ],
+          "fill": "#5050d2",
           "fillRule": "evenodd",
-          "id": "Page-1",
           "stroke": "none",
           "strokeWidth": "1",
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <g
-                fillRule="nonzero"
-                id="calendar-regular"
-              >
-                <path
-                  d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
-                  id="Shape"
-                />
-              </g>,
-              <text
-                fill="#5050d2"
-                fontFamily="Helvetica"
-                fontSize="160"
-                fontWeight="normal"
-                id="date"
-              >
-                <tspan
-                  x="141"
-                  y="356"
-                >
-                  00
-                </tspan>
-              </text>,
-            ],
-            "fill": "#5050d2",
-            "id": "calendar",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <path
-                  d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
-                  id="Shape"
-                />,
-                "fillRule": "nonzero",
-                "id": "calendar-regular",
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "d": "M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z",
-                  "id": "Shape",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": "path",
-              },
-              "type": "g",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <tspan
-                  x="141"
-                  y="356"
-                >
-                  00
-                </tspan>,
-                "fill": "#5050d2",
-                "fontFamily": "Helvetica",
-                "fontSize": "160",
-                "fontWeight": "normal",
-                "id": "date",
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "00",
-                  "x": "141",
-                  "y": "356",
-                },
-                "ref": null,
-                "rendered": "00",
-                "type": "tspan",
-              },
-              "type": "text",
-            },
-          ],
-          "type": "g",
-        },
-        "type": "g",
-      },
-      "type": "svg",
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-calendar fa-w-14"
-          data-con="calendar"
-          data-prefix="far"
-          role="img"
-          viewBox="0 0 448 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            fill="none"
-            fillRule="evenodd"
-            id="Page-1"
-            stroke="none"
-            strokeWidth="1"
-          >
-            <g
-              fill="#5050d2"
-              id="calendar"
-            >
-              <g
-                fillRule="nonzero"
-                id="calendar-regular"
-              >
-                <path
-                  d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
-                  id="Shape"
-                />
-              </g>
-              <text
-                fill="#5050d2"
-                fontFamily="Helvetica"
-                fontSize="160"
-                fontWeight="normal"
-                id="date"
-              >
-                <tspan
-                  x="141"
-                  y="356"
-                >
-                  00
-                </tspan>
-              </text>
-            </g>
-          </g>
-        </svg>,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "aria-hidden": "true",
-          "children": <g
-            fill="none"
-            fillRule="evenodd"
-            id="Page-1"
-            stroke="none"
-            strokeWidth="1"
-          >
-            <g
-              fill="#5050d2"
-              id="calendar"
-            >
-              <g
-                fillRule="nonzero"
-                id="calendar-regular"
-              >
-                <path
-                  d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
-                  id="Shape"
-                />
-              </g>
-              <text
-                fill="#5050d2"
-                fontFamily="Helvetica"
-                fontSize="160"
-                fontWeight="normal"
-                id="date"
-              >
-                <tspan
-                  x="141"
-                  y="356"
-                >
-                  00
-                </tspan>
-              </text>
-            </g>
-          </g>,
-          "className": "svg-inline--fa fa-calendar fa-w-14",
-          "data-con": "calendar",
-          "data-prefix": "far",
-          "role": "img",
-          "viewBox": "0 0 448 512",
-          "xmlns": "http://www.w3.org/2000/svg",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <g
-              fill="#5050d2"
-              id="calendar"
-            >
-              <g
-                fillRule="nonzero"
-                id="calendar-regular"
-              >
-                <path
-                  d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
-                  id="Shape"
-                />
-              </g>
-              <text
-                fill="#5050d2"
-                fontFamily="Helvetica"
-                fontSize="160"
-                fontWeight="normal"
-                id="date"
-              >
-                <tspan
-                  x="141"
-                  y="356"
-                >
-                  00
-                </tspan>
-              </text>
-            </g>,
-            "fill": "none",
-            "fillRule": "evenodd",
-            "id": "Page-1",
-            "stroke": "none",
-            "strokeWidth": "1",
-          },
-          "ref": null,
-          "rendered": Object {
+        "rendered": Array [
+          Object {
             "instance": null,
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [
-                <g
-                  fillRule="nonzero"
-                  id="calendar-regular"
-                >
-                  <path
-                    d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
-                    id="Shape"
-                  />
-                </g>,
-                <text
-                  fill="#5050d2"
-                  fontFamily="Helvetica"
-                  fontSize="160"
-                  fontWeight="normal"
-                  id="date"
-                >
-                  <tspan
-                    x="141"
-                    y="356"
-                  >
-                    00
-                  </tspan>
-                </text>,
-              ],
-              "fill": "#5050d2",
-              "id": "calendar",
+              "d": "M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z",
+              "fillRule": "nonzero",
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": <path
-                    d="M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z"
-                    id="Shape"
-                  />,
-                  "fillRule": "nonzero",
-                  "id": "calendar-regular",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "d": "M400,64 L352,64 L352,12 C352,5.4 346.6,0 340,0 L300,0 C293.4,0 288,5.4 288,12 L288,64 L160,64 L160,12 C160,5.4 154.6,0 148,0 L108,0 C101.4,0 96,5.4 96,12 L96,64 L48,64 C21.5,64 0,85.5 0,112 L0,464 C0,490.5 21.5,512 48,512 L400,512 C426.5,512 448,490.5 448,464 L448,112 C448,85.5 426.5,64 400,64 Z M394,464 L54,464 C50.7,464 48,461.3 48,458 L48,160 L400,160 L400,458 C400,461.3 397.3,464 394,464 Z",
-                    "id": "Shape",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "path",
-                },
-                "type": "g",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": <tspan
-                    x="141"
-                    y="356"
-                  >
-                    00
-                  </tspan>,
-                  "fill": "#5050d2",
-                  "fontFamily": "Helvetica",
-                  "fontSize": "160",
-                  "fontWeight": "normal",
-                  "id": "date",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "00",
-                    "x": "141",
-                    "y": "356",
-                  },
-                  "ref": null,
-                  "rendered": "00",
-                  "type": "tspan",
-                },
-                "type": "text",
-              },
-            ],
-            "type": "g",
+            "rendered": null,
+            "type": "path",
           },
-          "type": "g",
-        },
-        "type": "svg",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <tspan
+                x="141"
+                y="356"
+              >
+                00
+              </tspan>,
+              "fill": "#5050d2",
+              "fontFamily": "Helvetica",
+              "fontSize": "160",
+              "fontWeight": "normal",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "00",
+                "x": "141",
+                "y": "356",
+              },
+              "ref": null,
+              "rendered": "00",
+              "type": "tspan",
+            },
+            "type": "text",
+          },
+        ],
+        "type": "g",
       },
-      "type": "div",
+      "type": "svg",
     },
   ],
   Symbol(enzyme.__options__): Object {
