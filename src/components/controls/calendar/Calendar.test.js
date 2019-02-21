@@ -7,6 +7,7 @@ describe('<Calendar />', () => {
   const props = {
     dayCount: 0,
     themeColor: DEFAULT_THEME_COLOR,
+    classes: { rootCalendar: 'sm' },
   };
 
   const component = shallow(<Calendar {...props} />);
@@ -15,7 +16,7 @@ describe('<Calendar />', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('has one <svg /> with class fa-calendar', () => {
-    expect(component.find('svg.fa-calendar').length).toEqual(1);
+  it('has one <svg /> with class rootCalendar', () => {
+    expect(component.find('svg.rootCalendar').length).toEqual(1);
   });
 });
