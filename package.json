@@ -2,6 +2,11 @@
   "name": "graasp-lab-ovarian-cycle",
   "version": "0.1.0",
   "private": true,
+  "author": "React EPFL",
+  "contributors": [
+    "Juan Carlos Farah",
+    "Mashkour Abdel Aziz"
+  ],
   "homepage": ".",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
