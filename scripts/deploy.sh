@@ -108,6 +108,10 @@ APP_PATH=${REACT_APP_GRAASP_DEVELOPER_ID}/${REACT_APP_GRAASP_APP_ID}/${REACT_APP
 # sync s3 bucket
 aws s3 sync ${BUILD} s3://${APP_DIR} --delete
 
+# print full url if successful
+echo "info: you can access your published app on the following link"
+echo "https://${REACT_APP_HOST}/${APP_PATH}/index.html"
+
 # todo: allow cache invalidations per app once it is supported by cloudfront
 # see: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html
 

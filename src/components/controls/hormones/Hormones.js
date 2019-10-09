@@ -5,7 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import Grid from '@material-ui/core/Grid';
 import FiberManualRecord from '@material-ui/icons/FiberManualRecord';
 import './Hormones.css';
@@ -110,4 +110,4 @@ Hormones.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default withNamespaces()(withStyles(styles)(Hormones));
+export default withTranslation()(withStyles(styles)(Hormones));

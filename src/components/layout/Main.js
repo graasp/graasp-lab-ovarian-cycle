@@ -4,7 +4,7 @@ import Fab from '@material-ui/core/Fab';
 import PropTypes from 'prop-types';
 import MenuIcon from '@material-ui/icons/Menu';
 import { ToastContainer } from 'react-toastify';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -101,4 +101,4 @@ const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(Main);
 
 const StyledComponent = withStyles(styles)(ConnectedComponent);
 
-export default withNamespaces()(StyledComponent);
+export default withTranslation()(StyledComponent);

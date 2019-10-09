@@ -17,7 +17,7 @@ describe('<Refresher /> component', () => {
   it('renders correctly', () => {
     expect(component).toMatchSnapshot();
   });
-  it('shows three <Fab /> components', () => {
+  it('shows one <Fab /> components', () => {
     expect(component.find(Fab).length).toEqual(1);
   });
   it('has one <RefreshIcon /> with class fa-redo-alt', () => {
