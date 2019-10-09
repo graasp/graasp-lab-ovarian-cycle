@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CirclePicker } from 'react-color';
 import { Col, Row } from 'reactstrap';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 const SwitchBox = ({
   color,
@@ -28,4 +28,4 @@ SwitchBox.propTypes = {
   color: PropTypes.string.isRequired,
 };
 
-export default withNamespaces()(SwitchBox);
+export default withTranslation()(SwitchBox);

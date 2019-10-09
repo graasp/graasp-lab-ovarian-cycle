@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Popover from '@material-ui/core/Popover';
 import { withStyles } from '@material-ui/core/styles';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { AppState } from '../../config/AppState';
 import { appendSvg } from '../../actions';
 
@@ -251,4 +251,4 @@ const StyledComponent = withStyles(styles)(Body);
 
 const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(StyledComponent);
 
-export default withNamespaces()(ConnectedComponent);
+export default withTranslation()(ConnectedComponent);

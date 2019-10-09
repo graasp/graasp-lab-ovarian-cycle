@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 import { connect } from 'react-redux';
 import Select from 'react-select';
@@ -70,4 +70,4 @@ const mapDispatchToProps = {
 
 const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(LangBox);
 
-export default withNamespaces()(ConnectedComponent);
+export default withTranslation()(ConnectedComponent);

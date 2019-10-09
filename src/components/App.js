@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { Progress } from 'reactstrap';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
@@ -143,4 +143,4 @@ const mapDispatchToProps = {
 
 const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
 
-export default withNamespaces()(ConnectedApp);
+export default withTranslation()(ConnectedApp);
