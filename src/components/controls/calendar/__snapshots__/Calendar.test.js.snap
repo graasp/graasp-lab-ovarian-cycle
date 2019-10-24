@@ -51,7 +51,6 @@ ShallowWrapper {
           </tspan>
         </text>
       </g>,
-      "className": "undefined rootCalendar svg-inline--fa fa-calendar fa-w-14",
       "className": "sm rootCalendar svg-inline--fa fa-calendar fa-w-14",
       "data-con": "calendar",
       "data-prefix": "far",
