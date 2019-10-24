@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/graasp/graasp-lab-ovarian-cycle/compare/v0.1.0...v0.1.1) (2019-10-24)
+
+
+### Bug Fixes
+
+* define min height for lab iframe ([5c61291](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/5c61291))
+* fix calendar size on small screens ([a4b8b98](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/a4b8b98))
+* fix canvas scroll view issues ([d14f2b6](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/d14f2b6))
+* fix typo ([9d421a7](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/9d421a7))
+* remove all unnecessary attributes from calendar svg ([335e7f5](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/335e7f5))
+* remove popup warning when not embedded ([1b0542a](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/1b0542a))
+* rerun failed test ([c25e263](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/c25e263))
+* update all i18next translation connector functions ([9417867](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/9417867))
+* update calendar size for small screen ([1bab1e3](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/1bab1e3))
+* update deploy configs ([bf97fc0](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/bf97fc0))
+* update i18next configs ([ef54b57](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/ef54b57))
+* update image url from readme ([9599642](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/9599642))
+* update lab screenshot image ([b16fbdf](https://github.com/graasp/graasp-lab-ovarian-cycle/commit/b16fbdf))
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2019-02-05)
 
