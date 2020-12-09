@@ -7,6 +7,8 @@ import { withTranslation } from 'react-i18next';
 import { AppState } from '../../config/AppState';
 import { appendSvg } from '../../actions';
 
+import eggCell from '../../resources/egg_cell.png';
+
 // our body component just render the human image
 // then dispatches the received svg to it component
 const styles = theme => ({
@@ -25,6 +27,7 @@ export class Body extends React.Component {
     t: PropTypes.func.isRequired,
     classes: PropTypes.shape({}).isRequired,
     dispatchAppendSvg: PropTypes.func.isRequired,
+    simulation: PropTypes.shape({}).isRequired,
   };
 
   componentDidMount() {
@@ -35,6 +38,11 @@ export class Body extends React.Component {
   handlePopoverOpen = (event) => {
     const val = event.currentTarget;
     this.setState({ anchorEl: val });
+  };
+
+  handlePituitaryPopoverOpen = (event) => {
+    const val = event.currentTarget;
+    this.setState({ anchorElPituitary: val });
   };
 
   handleHeartPopoverOpen = (event) => {
@@ -51,6 +59,10 @@ export class Body extends React.Component {
     this.setState({ anchorEl: null });
   };
 
+  handlePituitaryPopoverClose = () => {
+    this.setState({ anchorElPituitary: null });
+  };
+
   handleHeartPopoverClose = () => {
     this.setState({ anchorElHeart: null });
   };
@@ -60,9 +72,13 @@ export class Body extends React.Component {
   };
 
   render() {
-    const { classes, t } = this.props;
-    const { anchorEl, anchorElHeart, anchorElOvary } = this.state;
+    const { classes, t, simulation } = this.props;
+    const { appearOvule } = simulation;
+    const {
+      anchorEl, anchorElHeart, anchorElOvary, anchorElPituitary,
+    } = this.state;
     const open = Boolean(anchorEl);
+    const openPituitary = Boolean(anchorElPituitary);
     const openHeart = Boolean(anchorElHeart);
     const openOvary = Boolean(anchorElOvary);
 
@@ -98,6 +114,38 @@ export class Body extends React.Component {
             {t('hormones LH and FSH that cause')}
             <br />
             {t('ovarian and uterine cycles.')}
+          </h6>
+        </Popover>
+        <Popover
+          id="pituitary-over-popover"
+          className={classes.popover}
+          classes={{
+            paper: classes.paper,
+          }}
+          open={openPituitary}
+          anchorEl={anchorElPituitary}
+          anchorOrigin={{
+            vertical: 'right',
+            horizontal: 'right',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
+          }}
+          onClose={this.handlePituitaryPopoverClose}
+          disableRestoreFocus
+        >
+          <h6>
+            <b>
+              {t('The Pituitary')}
+              {/* : */}
+            </b>
+            <br />
+            {/* {t('The brain secretes the pituitary')}
+            <br />
+            {t('hormones LH and FSH that cause')}
+            <br />
+            {t('ovarian and uterine cycles.')} */}
           </h6>
         </Popover>
         <Popover
@@ -209,28 +257,43 @@ export class Body extends React.Component {
                 id="path958"
                 fill="#59070A"
                 fillRule="nonzero"
+                aria-owns={openPituitary ? 'pituitary-over-popover' : undefined}
+                aria-haspopup="true"
+                onMouseEnter={this.handlePituitaryPopoverOpen}
+                onMouseLeave={this.handlePituitaryPopoverClose}
               />
               <g id="Ovary-Shape" transform="translate(1614.000000, 3747.000000)">
                 <g
                   id="Main-Ovary"
                   transform="translate(107.000000, 30.000000)"
-                  aria-owns={open ? 'ovary-over-popover' : undefined}
-                  aria-haspopup="true"
-                  onMouseEnter={this.handleOvaryPopoverOpen}
-                  onMouseLeave={this.handleOvaryPopoverClose}
                 >
                   <polygon id="Triangle" fill="#E70A17" transform="translate(116.902036, 62.026869) scale(1, -1) translate(-116.902036, -62.026869) " points="116.902036 26.6261682 181.78117 97.4275701 52.0229008 97.4275701" />
                   <polygon id="Triangle-Main" stroke="#D23636" strokeWidth="30" transform="translate(117.500000, 76.398949) scale(1, -1) translate(-117.500000, -76.398949) " points="117.5 0 235 152.797897 0 152.797897" />
                   <path d="M117.5,157.611098 L117.5,258.848715" id="Line" stroke="#D23636" strokeWidth="30" strokeLinecap="square" />
                 </g>
-                <g id="Right-Ovary" transform="translate(342.000000, 0.000000)">
+                <g
+                  id="Right-Ovary"
+                  transform="translate(342.000000, 0.000000)"
+                  aria-owns={open ? 'ovary-over-popover' : undefined}
+                  aria-haspopup="true"
+                  onMouseEnter={this.handleOvaryPopoverOpen}
+                  onMouseLeave={this.handleOvaryPopoverClose}
+                >
                   <path d="M-7.95807864e-13,29.103213 C52.5931301,4.36582995 83.6498087,-4.57406767 93.1700356,2.28352018 C97.2402435,5.21536287 105.146347,11.8458316 104.89697,21.9349577 C104.67436,30.9412022 93.3326879,45.6362522 70.8719552,66.0201078" id="Line-2" stroke="#D23636" strokeWidth="30" strokeLinecap="square" />
                   <ellipse id="Oval" stroke="#F8E71C" strokeWidth="20" fill="#FB6767" transform="translate(52.549744, 77.403958) rotate(-33.000000) translate(-52.549744, -77.403958) " cx="52.5497444" cy="77.4039582" rx="26.59173" ry="17.6442245" />
                 </g>
-                <g id="Left-Ovary" transform="translate(52.500000, 53.500000) scale(-1, 1) translate(-52.500000, -53.500000) ">
+                <g
+                  id="Left-Ovary"
+                  transform="translate(52.500000, 53.500000) scale(-1, 1) translate(-52.500000, -53.500000) "
+                  aria-owns={open ? 'ovary-over-popover' : undefined}
+                  aria-haspopup="true"
+                  onMouseEnter={this.handleOvaryPopoverOpen}
+                  onMouseLeave={this.handleOvaryPopoverClose}
+                >
                   <path d="M-7.95807864e-13,29.103213 C52.5931301,4.36582995 83.6498087,-4.57406767 93.1700356,2.28352018 C97.2402435,5.21536287 105.146347,11.8458316 104.89697,21.9349577 C104.67436,30.9412022 93.3326879,45.6362522 70.8719552,66.0201078" id="Line-2" stroke="#D23636" strokeWidth="30" strokeLinecap="square" />
                   <ellipse id="Oval" stroke="#F8E71C" strokeWidth="20" fill="#FB6767" transform="translate(52.549744, 77.403958) rotate(-33.000000) translate(-52.549744, -77.403958) " cx="52.5497444" cy="77.4039582" rx="26.59173" ry="17.6442245" />
                 </g>
+                <image className={`${appearOvule ? 'appearOvule' : 'notAppearOvule'}`} width="300" opacity="1" height="350" href={eggCell} />
               </g>
             </g>
           </g>
@@ -242,6 +305,7 @@ export class Body extends React.Component {
 
 const mapStateToProps = state => ({
   svg: state.svg,
+  simulation: state.simulation,
 });
 
 const mapDispatchToProps = {

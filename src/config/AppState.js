@@ -8,6 +8,7 @@ import {
 // there are located into our ./constants.js file
 export const AppState = {
   anchorEl: null,
+  anchorElPituitary: null,
   anchorElHeart: null,
   anchorElOvary: null,
   showBrainTitle: false,
@@ -23,8 +24,10 @@ export const AppState = {
   isStarted: false,
   // we delay five seconds during the 13 and 14 days
   delay: 5,
-  dayCount: 1, // we initialize the day counter to 1
-  secreteLhFsh: false, // at the begening we do not secrete any hormones
+  dayCount: 0, // we initialize the day counter to 1
+  // secreteLhFsh: false, // at the begening we do not secrete any hormones
+  secreteLh: false,
+  secreteFsh: false,
   secreteProgest: false,
   secreteOestro: false,
   // starting state for the progesterone dots

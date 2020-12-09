@@ -2,6 +2,7 @@ import {
   PRE_OVULATION,
   OVULATION,
   POST_OVULATION,
+  APPEAR_OVULE,
 } from '../types';
 
 const INITIAL_STATE = {
@@ -11,6 +12,7 @@ const INITIAL_STATE = {
   preOvulationStep: false,
   ovulationStep: false,
   postOvulationStep: false,
+  appearOvule: false,
 };
 
 // we make sure returning the right action
@@ -34,6 +36,11 @@ export default function (state = INITIAL_STATE, action) {
         ...state,
         postOvulationActive: action.payload.postOvulationActive,
         postOvulationStep: action.payload.postOvulationStep,
+      };
+    case APPEAR_OVULE:
+      return {
+        ...state,
+        appearOvule: true,
       };
     default:
       return state;

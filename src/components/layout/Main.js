@@ -19,7 +19,8 @@ const styles = Styles;
 class Main extends Component {
   static propTypes = {
     classes: PropTypes.shape({}).isRequired,
-    secreteLhFsh: PropTypes.bool.isRequired,
+    secreteFsh: PropTypes.bool.isRequired,
+    secreteLh: PropTypes.bool.isRequired,
     secreteProgest: PropTypes.bool.isRequired,
     secreteOestro: PropTypes.bool.isRequired,
     showSideMenu: PropTypes.bool.isRequired,
@@ -42,7 +43,9 @@ class Main extends Component {
       showSideMenu,
       themeColor,
       showHeader,
-      secreteLhFsh,
+      // secreteLhFsh,
+      secreteFsh,
+      secreteLh,
       secreteProgest,
       secreteOestro,
       dayCount,
@@ -76,7 +79,9 @@ class Main extends Component {
         }
 
         <Hormones
-          secreteLhFsh={secreteLhFsh}
+          // secreteLhFsh={secreteLhFsh}
+          secreteFsh={secreteFsh}
+          secreteLh={secreteLh}
           secreteProgest={secreteProgest}
           secreteOestro={secreteOestro}
         />

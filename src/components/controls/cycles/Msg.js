@@ -20,7 +20,7 @@ const Msg = ({
           {t('Pre-Ovulation')}
         </h4>
         <p className="explanation">
-          {t('This stage is the moment when the LH and FSH are in normal quatity.')}
+          {t('This stage is the moment when the LH and FSH as well as estrogens are in normal quantity.')}
           <br />
           {t('This is the period before ovulation')}
         </p>
@@ -46,7 +46,7 @@ const Msg = ({
           {t('Post-Ovulation')}
         </h4>
         <p className="explanation">
-          {t('This stage is the moment when the LH and FSH are in very low quatity.')}
+          {t('This stage is the moment when the LH and FSH are in very low quatity, but Estrogens and Progesterones are in great quantity.')}
           <br />
           {t('This is the period after ovulation.')}
         </p>

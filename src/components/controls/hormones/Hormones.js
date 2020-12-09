@@ -44,7 +44,9 @@ export class Hormones extends Component {
   render() {
     const {
       classes,
-      secreteLhFsh,
+      // secreteLhFsh,
+      secreteFsh,
+      secreteLh,
       secreteProgest,
       secreteOestro,
       t,
@@ -63,7 +65,8 @@ export class Hormones extends Component {
                   </ListItemIcon>
                   <ListItemText
                     secondary={`${t('LH')}`}
-                    className={`${secreteLhFsh ? 'animate-lh-hormones' : ''} lh-name`}
+                    // className={`${secreteLhFsh ? 'animate-lh-hormones' : ''} lh-name`}
+                    className={`${secreteLh ? 'animate-lh-hormones' : ''} lh-name`}
                   />
                 </ListItem>
                 <ListItem>
@@ -72,7 +75,8 @@ export class Hormones extends Component {
                   </ListItemIcon>
                   <ListItemText
                     secondary={`${t('FSH')}`}
-                    className={`${secreteLhFsh ? 'animate-fsh-hormones' : ''} fsh-name`}
+                    // className={`${secreteLhFsh ? 'animate-fsh-hormones' : ''} fsh-name`}
+                    className={`${secreteFsh ? 'animate-fsh-hormones' : ''} fsh-name`}
                   />
                 </ListItem>
                 <ListItem>
@@ -104,7 +108,8 @@ export class Hormones extends Component {
 
 Hormones.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  secreteLhFsh: PropTypes.bool.isRequired,
+  secreteFsh: PropTypes.bool.isRequired,
+  secreteLh: PropTypes.bool.isRequired,
   secreteProgest: PropTypes.bool.isRequired,
   secreteOestro: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,

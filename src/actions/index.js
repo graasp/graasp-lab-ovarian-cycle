@@ -4,6 +4,7 @@ import {
   PRE_OVULATION,
   OVULATION,
   POST_OVULATION,
+  APPEAR_OVULE,
 } from '../types';
 
 export function appendSvg() {
@@ -35,6 +36,12 @@ export function postOvulationState({ postOvulationActive, postOvulationStep }) {
   return {
     type: POST_OVULATION,
     payload: { postOvulationActive, postOvulationStep },
+  };
+}
+
+export function appearOvule() {
+  return {
+    type: APPEAR_OVULE,
   };
 }
 

@@ -38,3 +38,25 @@
 .MuiGrid-grid-xs-12-154 {
   flex-basis: initial !important;
 }
+
+
+/*  Animation to trigger ovule apparition on the 14th day */
+.appearOvule{
+  animation: appearOvule 3s forwards;
+}
+
+.notAppearOvule{
+  display: none;
+}
+
+@keyframes appearOvule {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-10%, -5%);
+  }
+}

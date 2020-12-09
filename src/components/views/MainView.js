@@ -17,6 +17,7 @@ import {
   preOvulationState,
   ovulationState,
   postOvulationState,
+  appearOvule,
 } from '../../actions';
 import Refresher from '../controls/visualizer/refresher/Refresher';
 import Main from '../layout/Main';
@@ -28,12 +29,15 @@ export class MainView extends Component {
     dispatchPostOvulationState: PropTypes.func.isRequired,
     dispatchOvulationState: PropTypes.func.isRequired,
     classes: PropTypes.shape({}).isRequired,
+    svg: PropTypes.shape({}).isRequired,
+    dispatchAppearOvule: PropTypes.func.isRequired,
   };
 
   // here we get all our initial state from the AppState component
   state = AppState;
 
   // we make sure the hormone path is created when the app mounts
+
   componentDidMount() {
     this.createHormoneFlow();
   }
@@ -49,26 +53,35 @@ export class MainView extends Component {
   // from begening until the cycle ends
   // we use the delay to wait during 5s from the 12 until the 14th day
   tickFullCycle = () => {
+    const { dispatchAppearOvule } = this.props;
     const { delay, dayCount } = this.state;
     const secString = `${dayCount}`;
     if (dayCount === 1 || dayCount === 11 || dayCount === 15) { this.notify(); }
     // if in the pre-ovulation phase, we do not secretee lh or fsh
-    if (dayCount < 12) {
+    if (dayCount <= 12) {
       this.setState({
         preOvulation: true,
         ovulation: false,
-        secreteLhFsh: true,
+        //  secreteLhFsh: true,
         postOvulation: false,
       });
-      this.updateLh();
+      this.updateFsh(300, 2000);
+      if (dayCount <= 7) {
+        this.updateOestrogen(700, 2000);
+      }
+      if (dayCount >= 8 && dayCount <= 14) {
+        this.updateOestrogen(100, 2000);
+      }
+      if (dayCount >= 11 && dayCount <= 13) {
+        this.updateLh(100, 2000);
+      }
       const preOvulationActive = false;
       const preOvulationStep = true;
       const { dispatchPreOvulationState } = this.props;
       dispatchPreOvulationState({ preOvulationActive, preOvulationStep });
     }
-
     // during the 12-13-14 this is the ovulation period
-    if (dayCount >= 12 && dayCount <= 14 && delay > 0) {
+    if (dayCount >= 13 && dayCount <= 14 && delay > 0) {
       const ovulationActive = false;
       const ovulationStep = true;
       const { dispatchOvulationState, dispatchPreOvulationState } = this.props;
@@ -77,14 +90,14 @@ export class MainView extends Component {
       dispatchPreOvulationState({ preOvulationActive, preOvulationStep });
       dispatchOvulationState({ ovulationActive, ovulationStep });
       // Update initial state to increase Oestrogen and FSH hormones
-      this.updateOestrogen();
-      this.updateFsh();
-      this.updateLh();
+      this.updateOestrogen(80, 2500);
+      this.updateFsh(300, 2000);
+      this.updateLh(80, 2500);
       this.setState({
         delay: delay - 1,
-        secreteLhFsh: true,
+        // secreteLhFsh: true,
         preOvulation: true,
-        secreteOestro: true,
+        // secreteOestro: true,
         ovulation: false,
         postOvulation: false,
       });
@@ -93,25 +106,38 @@ export class MainView extends Component {
       if (dayCount === 14) {
         this.setState({
           ovulation: true,
-          secreteLhFsh: true,
-          secreteOestro: true,
+          // secreteLhFsh: true,
+          // secreteOestro: true,
+          // secreteFsh: true,
+          // secreteLh: true,
           preOvulation: false,
         });
+        dispatchAppearOvule();
       }
       return;
     }
-    if (dayCount >= 15) {
+    if (dayCount >= 14) {
       // Update initial state to increase progesterones hormones
       // this happens after the ovulation ends
       // we call the updateProgesteron function to secrete more progesterones
-      this.updateProgesteron();
+      this.updateLh(700, 2000);
+      this.updateFsh(700, 2000);
+      if (dayCount >= 14 && dayCount <= 24) {
+        this.updateProgesteron(100, 2000);
+        this.updateOestrogen(100, 2000);
+      }
+      if (dayCount >= 25 && dayCount <= 28) {
+        this.updateProgesteron(700, 2000);
+        this.updateOestrogen(700, 2000);
+      }
       this.setState({
-        secreteProgest: true,
+        // secreteProgest: true,
+        // secreteOestro: true,
         postOvulation: true,
         ovulation: false,
-        secreteLhFsh: false,
+        // secreteLhFsh: false,
         preOvulation: false,
-        secreteOestro: false,
+        // secreteOestro: false,
       });
       const postOvulationActive = false;
       const postOvulationStep = true;
@@ -134,6 +160,8 @@ export class MainView extends Component {
       this.setState({
         secreteProgest: false,
         secreteOestro: false,
+        secreteLh: false,
+        secreteFsh: false,
         isStarted: false,
       });
       // then we stop the day counter
@@ -160,30 +188,49 @@ export class MainView extends Component {
   tickPreOvulation = () => {
     const { dayCount } = this.state;
     const secString = `${dayCount}`;
-
-    if (dayCount < 12) {
+    if (dayCount < 13) {
       this.setState({
         preOvulation: true,
-        secreteLhFsh: true,
+        // secreteLhFsh: true,
         postOvulation: false,
         ovulation: false,
       });
       // during this period we make sure the lh and fsh hormones are updated
-      this.updateLh();
+      // this.updateLh();
+      this.updateFsh(300, 2000);
     }
+    if (dayCount >= 11) {
+      this.updateLh(100, 2000);
+    }
+    if (dayCount <= 7) {
+      this.updateOestrogen(700, 2000);
+    }
+    if (dayCount >= 8 && dayCount <= 13) {
+      this.updateOestrogen(100, 2000);
+    }
+    // if (dayCount >= 12 && dayCount <= 13) {
+    //   this.updateOestrogen(700, 2000);
+    // }
     this.updateTimeState(dayCount, secString);
 
-    if (dayCount === 11) {
+    if (dayCount === 13) {
       clearInterval(this.intervalHandle);
       this.setState({
         preOvulation: true,
-        secreteLhFsh: false,
+        // secreteLhFsh: false,
+        secreteLh: false,
+        secreteFsh: false,
+        secreteOestro: false,
         preOvulationActive: false,
       });
       const preOvulationActive = false;
       const { dispatchPreOvulationState } = this.props;
       dispatchPreOvulationState({ preOvulationActive });
     }
+
+    // if(dayCount === 13) {
+    //   dispatchAppearOvule();
+    // }
   };
 
   // this is called when the pos-ovulation button is clicked
@@ -192,24 +239,39 @@ export class MainView extends Component {
     const { dayCount } = this.state;
     const secString = `${dayCount}`;
 
-    if (dayCount >= 14) {
-      // Update initial state to increase progesterones hormones
-      this.updateProgesteron();
-      this.setState({
-        secreteLhFsh: false,
-        secreteProgest: true,
-        secreteOestro: false,
-        ovulation: false,
-        postOvulation: true,
-        preOvulation: false,
-      });
+    if (dayCount >= 11) {
+      this.updateFsh(700, 2000);
+      this.updateLh(700, 2000);
     }
+    if (dayCount <= 24) {
+      this.updateOestrogen(100, 2000);
+      this.updateProgesteron(100, 2000);
+    }
+    if (dayCount >= 25) {
+      this.updateOestrogen(700, 2000);
+      this.updateProgesteron(700, 2000);
+    }
+
+    // if (dayCount >= 14) {
+    //   // Update initial state to increase progesterones hormones
+    //   this.updateProgesteron(100, 2000);
+    //   this.setState({
+    //     secreteLhFsh: false,
+    //     secreteProgest: true,
+    //     secreteOestro: false,
+    //     ovulation: false,
+    //     postOvulation: true,
+    //     preOvulation: false,
+    //   });
+    // }
 
     this.updateTimeState(dayCount, secString);
 
     if (dayCount === 27) {
       clearInterval(this.intervalHandle);
       this.setState({
+        secreteLh: false,
+        secreteFsh: false,
         secreteProgest: false,
         secreteOestro: false,
         postOvulationActive: false,
@@ -223,22 +285,23 @@ export class MainView extends Component {
   // this is called when the ovulation button is clicked
   // we make sure only show the ovulation step only
   tickOvulation = () => {
+    const { dispatchAppearOvule } = this.props;
     const {
       dayCount,
       delay,
     } = this.state;
     const secString = `${dayCount}`;
 
-    if (dayCount >= 12 && dayCount <= 14 && delay > 0) {
+    if (dayCount >= 13 && dayCount <= 15 && delay > 0) {
       // Update initial state to increase Oestrogen and FSH hormones
       // during this period we update all hormones exepts the progesterones
-      this.updateOestrogen();
-      this.updateFsh();
-      this.updateLh();
+      this.updateOestrogen(80, 2500);
+      this.updateLh(80, 2500);
+      this.updateFsh(300, 2000);
       this.setState({
         delay: delay - 1,
-        secreteLhFsh: true,
-        secreteOestro: true,
+        // secreteLhFsh: true,
+        // secreteOestro: true,
         postOvulation: false,
         preOvulation: true,
       });
@@ -260,15 +323,22 @@ export class MainView extends Component {
     if (dayCount === 14) {
       clearInterval(this.intervalHandle);
       this.setState({
-        secreteLhFsh: false,
+        secreteLh: false,
+        secreteFsh: false,
         secreteOestro: false,
       });
+    }
+    if (dayCount === 13) {
+      dispatchAppearOvule();
     }
   };
 
   // this is our lh updating function
-  updateLh = () => {
+  updateLh = (distance, speed) => {
     // eslint-disable-next-line react/prop-types
+    this.setState({
+      secreteLh: true,
+    });
     const { svg } = this.props;
     const { lhPoints } = this.state;
     let nextColor = SKY_BLUE;
@@ -278,17 +348,23 @@ export class MainView extends Component {
       elemClass: 'ted',
       hormClass: '.lh-hormones',
       circleFill: () => {
-        nextColor = nextColor === SKY_BLUE ? ORANGE
-          : SKY_BLUE;
+        // nextColor = nextColor === SKY_BLUE ? ORANGE
+        //   : SKY_BLUE;
+        nextColor = SKY_BLUE;
         return nextColor;
       },
       circleTransform: translate,
       path: svg.selectAll('.lh-hormones'),
+      distance,
+      speed,
     });
   };
 
   // this is our fsh updating function
-  updateFsh = () => {
+  updateFsh = (distance, speed) => {
+    this.setState({
+      secreteFsh: true,
+    });
     const { svg } = this.props;
     const { fshPoints } = this.state;
     let nextColor = SKY_BLUE;
@@ -298,17 +374,23 @@ export class MainView extends Component {
       elemClass: 'fsh',
       hormClass: '.fsh-hormones',
       circleFill: () => {
-        nextColor = nextColor === SKY_BLUE ? ORANGE
-          : SKY_BLUE;
+        // nextColor = nextColor === SKY_BLUE ? ORANGE
+        //   : SKY_BLUE;
+        nextColor = ORANGE;
         return nextColor;
       },
       circleTransform: translate,
       path: svg.selectAll('.fsh-hormones'),
+      distance,
+      speed,
     });
   };
 
   // this is our estrogens updating function
-  updateOestrogen = () => {
+  updateOestrogen = (distance, speed) => {
+    this.setState({
+      secreteOestro: true,
+    });
     const { svg } = this.props;
     const { oestrogenePoints } = this.state;
     const translate = `translate(${oestrogenePoints[8]})`;
@@ -319,11 +401,16 @@ export class MainView extends Component {
       circleFill: GREEN,
       circleTransform: translate,
       path: svg.selectAll('.oestro-hormones'),
+      distance,
+      speed,
     });
   };
 
   // this is our progesteron updating function
-  updateProgesteron = () => {
+  updateProgesteron = (distance, speed) => {
+    this.setState({
+      secreteProgest: true,
+    });
     const { svg } = this.props;
     const { progesteronePoints } = this.state;
     const translate = `translate(${progesteronePoints[8]})`;
@@ -334,6 +421,8 @@ export class MainView extends Component {
       circleFill: PURPLE_BLUE,
       circleTransform: translate,
       path: svg.selectAll('.progest-hormones'),
+      distance,
+      speed,
     });
   };
 
@@ -350,20 +439,26 @@ export class MainView extends Component {
   // here we listen to the pre-ovulation button click
   // then we update the inital state and set the day to the 1rst
   handlePreOvulation = () => {
+    if (this.intervalHandle) {
+      clearInterval(this.intervalHandle);
+    }
     this.setState({
-      dayCount: 1,
+      dayCount: 0,
       ovulationActive: false,
       postOvulationActive: false,
       preOvulationActive: true,
-    });
-    const preOvulationActive = true;
-    const { dispatchPreOvulationState } = this.props;
-    dispatchPreOvulationState({ preOvulationActive });
-    this.notify();
-    this.intervalHandle = setInterval(this.tickPreOvulation, 2100);
-    this.postMessage({
-      phase: 'pre-ovulation',
-      status: 'started',
+    }, () => {
+      const preOvulationActive = true;
+      const { dispatchPreOvulationState } = this.props;
+      dispatchPreOvulationState({ preOvulationActive });
+      this.notify();
+      // this.tickPreOvulation();
+      // this.updateFsh();
+      this.intervalHandle = setInterval(this.tickPreOvulation, 2100);
+      this.postMessage({
+        phase: 'pre-ovulation',
+        status: 'started',
+      });
     });
   };
 
@@ -373,7 +468,7 @@ export class MainView extends Component {
   // then we update the inital state and set the day to the 14th
   handlePostOvulation = () => {
     this.setState({
-      dayCount: 14,
+      dayCount: 15,
       ovulationActive: false,
       postOvulationActive: true,
       preOvulationActive: false,
@@ -393,7 +488,7 @@ export class MainView extends Component {
   // then we update the inital state and set the day to the 12th
   handleOvulation = () => {
     this.setState({
-      dayCount: 12,
+      dayCount: 13,
       ovulationActive: true,
       postOvulationActive: false,
       preOvulationActive: false,
@@ -412,7 +507,7 @@ export class MainView extends Component {
   // here we listen to the start button clicked
   // to launch all the ovulation cycle
   handleFullCycle = () => {
-    this.setState({ isStarted: true, dayCount: 0 });
+    this.setState({ isStarted: true, dayCount: 1 });
     this.intervalHandle = setInterval(this.tickFullCycle, 2100);
     this.postMessage({ start_full_cycle: true });
   };
@@ -423,7 +518,8 @@ export class MainView extends Component {
     this.setState({
       dayCount: 0,
       isStarted: false,
-      secreteLhFsh: false,
+      secreteFsh: false,
+      secreteLh: false,
       secreteOestro: false,
       secreteProgest: false,
       postOvulation: false,
@@ -453,7 +549,7 @@ export class MainView extends Component {
     } else if (window.postMessage) {
       window.postMessage(message, '*');
     } else {
-      console.error('unable to find postMessage');
+      // console.error('unable to find postMessage');
     }
   };
 
@@ -467,6 +563,8 @@ export class MainView extends Component {
     circleFill,
     circleTransform,
     path,
+    distance,
+    speed,
   }) => {
     const { svg } = this.props;
     const lhElem = svg.selectAll(`.${elemClass}`).data(data, (d, i) => i);
@@ -481,7 +579,8 @@ export class MainView extends Component {
     const trans = () => {
       lhElem
         .transition()
-        .duration((d, i) => i * 300 + 2000)
+        // .duration((d, i) => i * 300 + 2000)
+        .duration((d, i) => i * distance + speed)
         .attrTween('transform', this.translateAlong(path.node()));
       //  lhElem.on("end", trans); This could be used to make transition infinite
     };
@@ -489,7 +588,7 @@ export class MainView extends Component {
   };
 
   translateAlong = (path) => {
-    const l = path.getTotalLength();
+    const l = path.getTotalLength() || 1;
     return () => (t) => {
       const p = path.getPointAtLength(t * l);
       return `translate(${p.x},${p.y})`;
@@ -564,7 +663,9 @@ export class MainView extends Component {
       preOvulationActive,
       postOvulation,
       preOvulation,
-      secreteLhFsh,
+      // secreteLhFsh,
+      secreteLh,
+      secreteFsh,
       secreteProgest,
       secreteOestro,
       obserViewActive,
@@ -574,7 +675,9 @@ export class MainView extends Component {
       <div className={classes.root}>
         <Main
           dayCount={dayCount}
-          secreteLhFsh={secreteLhFsh}
+          // secreteLhFsh={secreteLhFsh}
+          secreteFsh={secreteFsh}
+          secreteLh={secreteLh}
           secreteProgest={secreteProgest}
           secreteOestro={secreteOestro}
         />
@@ -592,7 +695,7 @@ export class MainView extends Component {
           postOvulationActive={postOvulationActive}
           postOvulation={postOvulation}
           preOvulation={preOvulation}
-          secreteLhFsh={secreteLhFsh}
+          // secreteLhFsh={secreteLhFsh}
           secreteProgest={secreteProgest}
           secreteOestro={secreteOestro}
           obserViewActive={obserViewActive}
@@ -612,6 +715,7 @@ const mapDispatchToProps = {
   dispatchPreOvulationState: preOvulationState,
   dispatchOvulationState: ovulationState,
   dispatchPostOvulationState: postOvulationState,
+  dispatchAppearOvule: appearOvule,
 };
 
 const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(MainView);
