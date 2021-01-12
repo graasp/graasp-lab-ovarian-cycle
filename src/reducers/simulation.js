@@ -6,6 +6,8 @@ import {
   DISAPPEAR_OVULE,
   DELETE_OVARIES,
   DELETE_PITUITARY,
+  RESTORE_OVARIES,
+  RESTORE_PITUITARY,
 } from '../types';
 
 const INITIAL_STATE = {
@@ -61,6 +63,16 @@ export default function (state = INITIAL_STATE, action) {
       return {
         ...state,
         pituitary: false,
+      };
+    case RESTORE_PITUITARY:
+      return {
+        ...state,
+        pituitary: true,
+      };
+    case RESTORE_OVARIES:
+      return {
+        ...state,
+        ovaries: true,
       };
     default:
       return state;

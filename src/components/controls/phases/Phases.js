@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import './Phases.css';
 import { Button } from 'reactstrap';
 import { withTranslation } from 'react-i18next';
-import { deleteOvaries, deletePituitary } from '../../../actions';
+import {
+  deleteOvaries, deletePituitary, restoreOvaries, restorePituitary,
+} from '../../../actions';
 // we make sure all other buttons are disabled when one is clicked
 export const Phases = ({
   handleOvulation,
@@ -20,6 +22,10 @@ export const Phases = ({
   themeColor,
   dispatchDeleteOvaries,
   dispactchDeletePituitary,
+  dispactchRestoreOvaries,
+  dispactchRestorePituitary,
+  pituitary,
+  ovaries,
 }) => (
   <div className="phases-container">
     <div className="phases">
@@ -73,20 +79,45 @@ export const Phases = ({
     </div>
     <div>
       <hr className="separator-line" />
-      <Button
-        onClick={dispatchDeleteOvaries}
-        style={{ backgroundColor: themeColor, borderColor: themeColor }}
-        className="mb-2"
-      >
+      {ovaries
+        ? (
+          <Button
+            onClick={dispatchDeleteOvaries}
+            style={{ backgroundColor: themeColor, borderColor: themeColor }}
+            className="mb-2"
+          >
 Suprimer les ovaires
-      </Button>
+          </Button>
+        )
+        : (
+          <Button
+            onClick={dispactchRestoreOvaries}
+            style={{ backgroundColor: themeColor, borderColor: themeColor }}
+            className="mb-2"
+          >
+Rétablir les ovaires
+          </Button>
+        )
+      }
       <br />
-      <Button
-        onClick={dispactchDeletePituitary}
-        style={{ backgroundColor: themeColor, borderColor: themeColor }}
-      >
-        Suprimer l&quot;hypohyse
-      </Button>
+      {pituitary
+        ? (
+          <Button
+            onClick={dispactchDeletePituitary}
+            style={{ backgroundColor: themeColor, borderColor: themeColor }}
+          >
+        Suprimer l&#39;hypohyse
+          </Button>
+        )
+        : (
+          <Button
+            onClick={dispactchRestorePituitary}
+            style={{ backgroundColor: themeColor, borderColor: themeColor }}
+          >
+        Rétablir l&#39;hypohyse
+          </Button>
+        )
+      }
     </div>
   </div>
 );
@@ -97,6 +128,8 @@ Phases.propTypes = {
   handlePreOvulation: PropTypes.func.isRequired,
   dispatchDeleteOvaries: PropTypes.func.isRequired,
   dispactchDeletePituitary: PropTypes.func.isRequired,
+  dispactchRestoreOvaries: PropTypes.func.isRequired,
+  dispactchRestorePituitary: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
   ovulationActive: PropTypes.bool.isRequired,
   themeColor: PropTypes.string.isRequired,
@@ -105,6 +138,8 @@ Phases.propTypes = {
   preOvulationStep: PropTypes.bool.isRequired,
   ovulationStep: PropTypes.bool.isRequired,
   postOvulationStep: PropTypes.bool.isRequired,
+  pituitary: PropTypes.bool.isRequired,
+  ovaries: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -115,12 +150,16 @@ const mapStateToProps = state => ({
   ovulationStep: state.simulation.ovulationStep,
   postOvulationStep: state.simulation.postOvulationStep,
   themeColor: state.layout.themeColor,
+  ovaries: state.simulation.ovaries,
+  pituitary: state.simulation.pituitary,
 });
 
 
 const mapDispatchToProps = {
   dispatchDeleteOvaries: deleteOvaries,
   dispactchDeletePituitary: deletePituitary,
+  dispactchRestoreOvaries: restoreOvaries,
+  dispactchRestorePituitary: restorePituitary,
 };
 const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(Phases);
 

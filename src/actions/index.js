@@ -8,6 +8,8 @@ import {
   DISAPPEAR_OVULE,
   DELETE_OVARIES,
   DELETE_PITUITARY,
+  RESTORE_OVARIES,
+  RESTORE_PITUITARY,
 } from '../types';
 
 export function appendSvg() {
@@ -60,6 +62,16 @@ export function deleteOvaries() {
 export function deletePituitary() {
   return {
     type: DELETE_PITUITARY,
+  };
+}
+export function restoreOvaries() {
+  return {
+    type: RESTORE_OVARIES,
+  };
+}
+export function restorePituitary() {
+  return {
+    type: RESTORE_PITUITARY,
   };
 }
 export * from './context';
