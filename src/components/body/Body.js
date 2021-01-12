@@ -154,6 +154,38 @@ export class Body extends React.Component {
           <img className="rounded mx-auto d-block" src={hypophyse} alt="" />
         </Popover>
         <Popover
+          id="pituitary-over-popover"
+          className={classes.popover}
+          classes={{
+            paper: classes.paper,
+          }}
+          open={openPituitary}
+          anchorEl={anchorElPituitary}
+          anchorOrigin={{
+            vertical: 'right',
+            horizontal: 'right',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
+          }}
+          onClose={this.handlePituitaryPopoverClose}
+          disableRestoreFocus
+        >
+          <h6>
+            <b>
+              {t('The Pituitary')}
+              {/* : */}
+            </b>
+            <br />
+            {/* {t('The brain secretes the pituitary')}
+            <br />
+            {t('hormones LH and FSH that cause')}
+            <br />
+            {t('ovarian and uterine cycles.')} */}
+          </h6>
+        </Popover>
+        <Popover
           id="heart-over-popover"
           className={classes.popover}
           classes={{

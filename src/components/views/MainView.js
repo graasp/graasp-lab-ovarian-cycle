@@ -227,6 +227,10 @@ export class MainView extends Component {
       const { dispatchPreOvulationState } = this.props;
       dispatchPreOvulationState({ preOvulationActive });
     }
+
+    // if(dayCount === 13) {
+    //   dispatchAppearOvule();
+    // }
   };
 
   // this is called when the pos-ovulation button is clicked
@@ -247,6 +251,27 @@ export class MainView extends Component {
       this.updateOestrogen(700, 2000);
       this.updateProgesteron(700, 2000);
     }
+    if (dayCount <= 24) {
+      this.updateOestrogen(100, 2000);
+      this.updateProgesteron(100, 2000);
+    }
+    if (dayCount >= 25) {
+      this.updateOestrogen(700, 2000);
+      this.updateProgesteron(700, 2000);
+    }
+
+    // if (dayCount >= 14) {
+    //   // Update initial state to increase progesterones hormones
+    //   this.updateProgesteron(100, 2000);
+    //   this.setState({
+    //     secreteLhFsh: false,
+    //     secreteProgest: true,
+    //     secreteOestro: false,
+    //     ovulation: false,
+    //     postOvulation: true,
+    //     preOvulation: false,
+    //   });
+    // }
 
     // if (dayCount >= 14) {
     //   // Update initial state to increase progesterones hormones
@@ -328,6 +353,9 @@ export class MainView extends Component {
         secreteFsh: false,
         secreteOestro: false,
       });
+    }
+    if (dayCount === 13) {
+      dispatchAppearOvule();
     }
   };
 
