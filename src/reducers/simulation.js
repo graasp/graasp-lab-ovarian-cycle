@@ -2,6 +2,10 @@ import {
   PRE_OVULATION,
   OVULATION,
   POST_OVULATION,
+  APPEAR_OVULE,
+  DISAPPEAR_OVULE,
+  DELETE_OVARIES,
+  DELETE_PITUITARY,
 } from '../types';
 
 const INITIAL_STATE = {
@@ -11,6 +15,9 @@ const INITIAL_STATE = {
   preOvulationStep: false,
   ovulationStep: false,
   postOvulationStep: false,
+  appearOvule: false,
+  ovaries: true,
+  pituitary: true,
 };
 
 // we make sure returning the right action
@@ -34,6 +41,26 @@ export default function (state = INITIAL_STATE, action) {
         ...state,
         postOvulationActive: action.payload.postOvulationActive,
         postOvulationStep: action.payload.postOvulationStep,
+      };
+    case APPEAR_OVULE:
+      return {
+        ...state,
+        appearOvule: true,
+      };
+    case DISAPPEAR_OVULE:
+      return {
+        ...state,
+        appearOvule: false,
+      };
+    case DELETE_OVARIES:
+      return {
+        ...state,
+        ovaries: false,
+      };
+    case DELETE_PITUITARY:
+      return {
+        ...state,
+        pituitary: false,
       };
     default:
       return state;

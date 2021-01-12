@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Phases.css';
 import { Button } from 'reactstrap';
 import { withTranslation } from 'react-i18next';
-
+import { deleteOvaries, deletePituitary } from '../../../actions';
 // we make sure all other buttons are disabled when one is clicked
 export const Phases = ({
   handleOvulation,
@@ -17,6 +17,9 @@ export const Phases = ({
   ovulationStep,
   postOvulationStep,
   t,
+  themeColor,
+  dispatchDeleteOvaries,
+  dispactchDeletePituitary,
 }) => (
   <div className="phases-container">
     <div className="phases">
@@ -68,6 +71,23 @@ export const Phases = ({
         {t('Post-Ovulation')}
       </Button>
     </div>
+    <div>
+      <hr className="separator-line" />
+      <Button
+        onClick={dispatchDeleteOvaries}
+        style={{ backgroundColor: themeColor, borderColor: themeColor }}
+        className="mb-2"
+      >
+Suprimer les ovaires
+      </Button>
+      <br />
+      <Button
+        onClick={dispactchDeletePituitary}
+        style={{ backgroundColor: themeColor, borderColor: themeColor }}
+      >
+        Suprimer l&quot;hypohyse
+      </Button>
+    </div>
   </div>
 );
 
@@ -75,8 +95,11 @@ Phases.propTypes = {
   handleOvulation: PropTypes.func.isRequired,
   handlePostOvulation: PropTypes.func.isRequired,
   handlePreOvulation: PropTypes.func.isRequired,
+  dispatchDeleteOvaries: PropTypes.func.isRequired,
+  dispactchDeletePituitary: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
   ovulationActive: PropTypes.bool.isRequired,
+  themeColor: PropTypes.string.isRequired,
   postOvulationActive: PropTypes.bool.isRequired,
   preOvulationActive: PropTypes.bool.isRequired,
   preOvulationStep: PropTypes.bool.isRequired,
@@ -91,9 +114,14 @@ const mapStateToProps = state => ({
   preOvulationStep: state.simulation.preOvulationStep,
   ovulationStep: state.simulation.ovulationStep,
   postOvulationStep: state.simulation.postOvulationStep,
+  themeColor: state.layout.themeColor,
 });
 
 
-const ConnectedComponent = connect(mapStateToProps)(Phases);
+const mapDispatchToProps = {
+  dispatchDeleteOvaries: deleteOvaries,
+  dispactchDeletePituitary: deletePituitary,
+};
+const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(Phases);
 
 export default withTranslation()(ConnectedComponent);

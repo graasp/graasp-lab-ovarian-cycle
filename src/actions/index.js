@@ -4,6 +4,10 @@ import {
   PRE_OVULATION,
   OVULATION,
   POST_OVULATION,
+  APPEAR_OVULE,
+  DISAPPEAR_OVULE,
+  DELETE_OVARIES,
+  DELETE_PITUITARY,
 } from '../types';
 
 export function appendSvg() {
@@ -38,6 +42,26 @@ export function postOvulationState({ postOvulationActive, postOvulationStep }) {
   };
 }
 
+export function appearOvule() {
+  return {
+    type: APPEAR_OVULE,
+  };
+}
+export function disappearOvule() {
+  return {
+    type: DISAPPEAR_OVULE,
+  };
+}
+export function deleteOvaries() {
+  return {
+    type: DELETE_OVARIES,
+  };
+}
+export function deletePituitary() {
+  return {
+    type: DELETE_PITUITARY,
+  };
+}
 export * from './context';
 export * from './appInstance';
 export * from './users';
