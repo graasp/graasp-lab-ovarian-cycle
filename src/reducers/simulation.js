@@ -58,6 +58,7 @@ export default function (state = INITIAL_STATE, action) {
       return {
         ...state,
         ovaries: false,
+        appearOvule: false,
       };
     case DELETE_PITUITARY:
       return {

@@ -26,6 +26,7 @@ export const Phases = ({
   dispactchRestorePituitary,
   pituitary,
   ovaries,
+  // closeAfter7,
 }) => (
   <div className="phases-container">
     <div className="phases">
@@ -86,7 +87,7 @@ export const Phases = ({
             style={{ backgroundColor: themeColor, borderColor: themeColor }}
             className="mb-2"
           >
-Suprimer les ovaires
+            {t('Delete ovaries')}
           </Button>
         )
         : (
@@ -95,7 +96,7 @@ Suprimer les ovaires
             style={{ backgroundColor: themeColor, borderColor: themeColor }}
             className="mb-2"
           >
-Rétablir les ovaires
+            {t('Restore ovaries')}
           </Button>
         )
       }
@@ -106,7 +107,7 @@ Rétablir les ovaires
             onClick={dispactchDeletePituitary}
             style={{ backgroundColor: themeColor, borderColor: themeColor }}
           >
-        Suprimer l&#39;hypohyse
+            {t('Delete pituitary')}
           </Button>
         )
         : (
@@ -114,7 +115,7 @@ Rétablir les ovaires
             onClick={dispactchRestorePituitary}
             style={{ backgroundColor: themeColor, borderColor: themeColor }}
           >
-        Rétablir l&#39;hypohyse
+            {t('Restore pituitary')}
           </Button>
         )
       }

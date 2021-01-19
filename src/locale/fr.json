@@ -12,8 +12,8 @@
     "Oestrogens": "Oestrogènes",
     "Progesterones": "Progestérones",
     "This stage is the moment when the LH and FSH as well as estrogens are in normal quantity.": "Cette étape est le moment où la LH et la FSH ainsi que les œstrogènes sont en quantité normale.",
-    "This stage is the moment when LH and FSH as well as estrogens are in great quantity.": "Cette étape est le moment où la LH et la FSH ainsi que les œstrogènes sont en grande quantité.",
-    "This stage is the moment when the LH and FSH are in very low quatity, but Estrogens and Progesterones are in great quantity.": "Cette étape est le moment où la LH et la FSH sont en très faible quantité tandis que les œstrogènes et progestérones sont en grande quantité.",
+    "During this stage, a high level of estrogen triggers a high production of LH. We have also released the egg.": "Lors de cette étape un fort taux d'œstrogènes déclenche une forte production de LH. Nous avons églement la libération de l'ovule.",
+    "This stage is the moment when the LH is in very low quatity, but Estrogens and Progesterones are in great quantity.": "Cette étape est le moment où la LH est produite en très faible quantité tandis que les œstrogènes et progestérones sont en grande quantité.",
     "This is the period before ovulation": "C'est la période avant l'ovulation",
     "This is the ovulation phase.": "C'est la phase d'ovulation.",
     "This is the period after ovulation.": "C'est la période après l'ovulation.",
@@ -37,6 +37,10 @@
     "of the hypothalamic pituitary complex by": "complexe hypothalamique hypophysaire en",
     "releasing Estrogens and Progesterones.": "libérant de l'œstrogène et de la progestérone",
     "Pumps the blood that it circulates": "Pomper le sang qu'il fait circuler",
-    "in all the tissues of the body": "dans tous les tissus de l'organisme"
+    "in all the tissues of the body": "dans tous les tissus de l'organisme",
+    "Delete ovaries": "Supprimer les ovaires",
+    "Delete pituitary": "Spprimer l'hypophyse",
+    "Restore ovaries": "Rétablir les ovaires",
+    "Restore pituitary": "Rétablir l'hypophyse"
   }
 }

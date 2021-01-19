@@ -35,6 +35,7 @@ export class MainView extends Component {
     classes: PropTypes.shape({}).isRequired,
     svg: PropTypes.shape({}).isRequired,
     pituitary: PropTypes.bool.isRequired,
+    ovaries: PropTypes.bool.isRequired,
   };
 
   // here we get all our initial state from the AppState component
@@ -57,7 +58,7 @@ export class MainView extends Component {
   // from begening until the cycle ends
   // we use the delay to wait during 5s from the 12 until the 14th day
   tickFullCycle = () => {
-    const { dispatchAppearOvule } = this.props;
+    const { dispatchAppearOvule, ovaries } = this.props;
     const { delay, dayCount } = this.state;
     const secString = `${dayCount}`;
     if (dayCount === 1 || dayCount === 11 || dayCount === 15) { this.notify(); }
@@ -70,10 +71,10 @@ export class MainView extends Component {
         postOvulation: false,
       });
       this.updateFsh(300, 2000);
-      if (dayCount >= 2 && dayCount <= 7) {
+      if (dayCount >= 2 && dayCount <= 7 && ovaries) {
         this.updateOestrogen(700, 2000);
       }
-      if (dayCount >= 8 && dayCount <= 14) {
+      if (dayCount >= 8 && dayCount <= 14 && ovaries) {
         this.updateOestrogen(100, 2000);
       }
       if (dayCount >= 11 && dayCount <= 13) {
@@ -94,12 +95,13 @@ export class MainView extends Component {
       dispatchPreOvulationState({ preOvulationActive, preOvulationStep });
       dispatchOvulationState({ ovulationActive, ovulationStep });
       // Update initial state to increase Oestrogen and FSH hormones
-      this.updateOestrogen(80, 2500);
-      this.updateFsh(300, 2000);
+      if (ovaries) this.updateOestrogen(80, 2500);
+      setTimeout(() => { this.updateLh(80, 2500); }, 2000);
       // this.updateLh(80, 2500);
       this.setState({
         delay: delay - 1,
         // secreteLhFsh: true,
+        secreteFsh: false,
         preOvulation: true,
         // secreteOestro: true,
         ovulation: false,
@@ -113,10 +115,9 @@ export class MainView extends Component {
           // secreteLhFsh: true,
           // secreteOestro: true,
           // secreteFsh: true,
-          // secreteLh: true,
           preOvulation: false,
         });
-        dispatchAppearOvule();
+        if (ovaries) dispatchAppearOvule();
       }
       return;
     }
@@ -125,12 +126,15 @@ export class MainView extends Component {
       // this happens after the ovulation ends
       // we call the updateProgesteron function to secrete more progesterones
       this.updateLh(700, 2000);
-      this.updateFsh(700, 2000);
-      if (dayCount >= 14 && dayCount <= 24) {
+      if (dayCount <= 17 && ovaries) {
+        this.updateProgesteron(700, 2000);
+        this.updateOestrogen(700, 2000);
+      }
+      if (dayCount >= 17 && dayCount <= 23 && ovaries) {
         this.updateProgesteron(100, 2000);
         this.updateOestrogen(100, 2000);
       }
-      if (dayCount >= 25 && dayCount <= 28) {
+      if (dayCount >= 23 && ovaries) {
         this.updateProgesteron(700, 2000);
         this.updateOestrogen(700, 2000);
       }
@@ -190,9 +194,10 @@ export class MainView extends Component {
   // this is called when the pre-ovulation button is clicked
   // we make sure only show the pre-ovulation step only
   tickPreOvulation = () => {
+    const { ovaries } = this.props;
     const { dayCount } = this.state;
     const secString = `${dayCount}`;
-    if (dayCount <= 13) {
+    if (dayCount <= 12) {
       this.setState({
         preOvulation: true,
         // secreteLhFsh: true,
@@ -204,16 +209,16 @@ export class MainView extends Component {
       if (dayCount >= 11) {
         this.updateLh(100, 2000);
       }
-      if (dayCount >= 1 && dayCount <= 7) {
+      if (dayCount >= 1 && dayCount <= 7 && ovaries) {
         this.updateOestrogen(700, 2000);
       }
-      if (dayCount >= 8 && dayCount <= 13) {
+      if (dayCount >= 8 && dayCount <= 12 && ovaries) {
         this.updateOestrogen(100, 2000);
       }
       this.updateTimeState(dayCount, secString);
     }
 
-    if (dayCount === 13) {
+    if (dayCount === 12) {
       clearInterval(this.intervalHandle);
       this.setState({
         preOvulation: true,
@@ -227,35 +232,25 @@ export class MainView extends Component {
       const { dispatchPreOvulationState } = this.props;
       dispatchPreOvulationState({ preOvulationActive });
     }
-
-    // if(dayCount === 13) {
-    //   dispatchAppearOvule();
-    // }
   };
 
   // this is called when the pos-ovulation button is clicked
   // we make sure only show the post-ovulation step only
   tickPostOvulation = () => {
+    const { ovaries } = this.props;
     const { dayCount } = this.state;
     const secString = `${dayCount}`;
 
-    if (dayCount >= 11) {
-      this.updateFsh(700, 2000);
-      this.updateLh(700, 2000);
-    }
-    if (dayCount <= 24) {
-      this.updateOestrogen(100, 2000);
-      this.updateProgesteron(100, 2000);
-    }
-    if (dayCount >= 25) {
+    this.updateLh(700, 2000);
+    if (dayCount <= 17 && ovaries) {
       this.updateOestrogen(700, 2000);
       this.updateProgesteron(700, 2000);
     }
-    if (dayCount <= 24) {
+    if (dayCount >= 17 && dayCount <= 23 && ovaries) {
       this.updateOestrogen(100, 2000);
       this.updateProgesteron(100, 2000);
     }
-    if (dayCount >= 25) {
+    if (dayCount >= 23 && ovaries) {
       this.updateOestrogen(700, 2000);
       this.updateProgesteron(700, 2000);
     }
@@ -306,7 +301,7 @@ export class MainView extends Component {
   // this is called when the ovulation button is clicked
   // we make sure only show the ovulation step only
   tickOvulation = () => {
-    const { dispatchAppearOvule } = this.props;
+    const { dispatchAppearOvule, ovaries } = this.props;
     const {
       dayCount,
       delay,
@@ -316,11 +311,12 @@ export class MainView extends Component {
     if (dayCount >= 13 && dayCount <= 14 && delay > 0) {
       // Update initial state to increase Oestrogen and FSH hormones
       // during this period we update all hormones exepts the progesterones
-
-      if (dayCount === 13) {
-        this.updateOestrogen(80, 2500);
-        setTimeout(() => { this.updateFsh(300, 2000); }, 3000);
-      }
+      if (ovaries) this.updateOestrogen(80, 2500);
+      setTimeout(() => { this.updateLh(80, 2500); }, 2000);
+      // if (dayCount === 13) {
+      //   this.updateOestrogen(80, 2500);
+      //   setTimeout(() => { this.updateLh(80, 2500); }, 2000);
+      // }
       // this.updateLh(80, 2500);
       this.setState({
         delay: delay - 1,
@@ -330,8 +326,7 @@ export class MainView extends Component {
         preOvulation: true,
       });
       if (dayCount === 14) {
-        dispatchAppearOvule();
-        // setTimeout(()=>{dispatchAppearOvule()}, 2100);
+        if (ovaries) dispatchAppearOvule();
         this.setState({
           preOvulation: false,
           ovulation: true,
@@ -353,9 +348,6 @@ export class MainView extends Component {
         secreteFsh: false,
         secreteOestro: false,
       });
-    }
-    if (dayCount === 13) {
-      dispatchAppearOvule();
     }
   };
 
@@ -553,7 +545,8 @@ export class MainView extends Component {
     }
   };
 
-  notify = () => toast(<Msg />, { position: toast.POSITION.BOTTOM_LEFT });
+  notify = () => toast(<Msg />,
+    { position: toast.POSITION.BOTTOM_LEFT, autoClose: 20000, pauseOnHover: true });
 
   // here we listen to the post-ovulation button click
   // then we update the inital state and set the day to the 14th
@@ -889,6 +882,7 @@ export class MainView extends Component {
 const mapStateToProps = state => ({
   svg: state.svg.svg,
   pituitary: state.simulation.pituitary,
+  ovaries: state.simulation.ovaries,
 });
 
 const mapDispatchToProps = {

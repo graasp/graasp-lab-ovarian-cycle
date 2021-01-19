@@ -19,8 +19,8 @@ const getContext = () => (dispatch) => {
   dispatch(flagGettingContext(true));
   try {
     const {
-      mode = 'default',
-      lang = 'en',
+      mode = 'teacher',
+      lang = 'fr',
       apiHost = DEFAULT_API_HOST,
       appInstanceId = null,
       spaceId = null,
