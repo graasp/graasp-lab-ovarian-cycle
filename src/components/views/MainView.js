@@ -5,6 +5,7 @@ import * as d3 from 'd3';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { withStyles } from '@material-ui/core/styles';
+import { withTranslation } from 'react-i18next';
 import Msg from '../controls/cycles/Msg';
 import {
   GREEN,
@@ -36,6 +37,8 @@ export class MainView extends Component {
     svg: PropTypes.shape({}).isRequired,
     pituitary: PropTypes.bool.isRequired,
     ovaries: PropTypes.bool.isRequired,
+    t: PropTypes.func.isRequired,
+    themeColor: PropTypes.string.isRequired,
   };
 
   // here we get all our initial state from the AppState component
@@ -584,7 +587,7 @@ export class MainView extends Component {
   // here we listen to the ovulation button click
   // then we update the inital state and set the day to the 12th
   handleOvulation = () => {
-    const { pituitary } = this.props;
+    const { pituitary, t, themeColor } = this.props;
     if (pituitary) {
       const { dispatchDisappearOvule } = this.props;
       dispatchDisappearOvule();
@@ -597,7 +600,22 @@ export class MainView extends Component {
         const ovulationActive = true;
         const { dispatchOvulationState } = this.props;
         dispatchOvulationState({ ovulationActive });
-        this.notify();
+        // this.notify();
+
+        toast(
+          <div>
+            <h4 className="animate-text" style={{ color: themeColor }}>
+              {t('Ovulation')}
+            </h4>
+            <p className="explanation">
+              {t('During this stage, a high level of estrogen triggers a high production of LH. We have also released the egg.')}
+              <br />
+              {t('This is the ovulation phase.')}
+            </p>
+          </div>,
+          { position: toast.POSITION.BOTTOM_LEFT, autoClose: 20000, pauseOnHover: true },
+        );
+
         this.intervalHandle = setInterval(this.tickOvulation, 2100);
         this.postMessage({
           phase: 'ovulation',
@@ -883,6 +901,7 @@ const mapStateToProps = state => ({
   svg: state.svg.svg,
   pituitary: state.simulation.pituitary,
   ovaries: state.simulation.ovaries,
+  themeColor: state.layout.themeColor,
 });
 
 const mapDispatchToProps = {
@@ -897,4 +916,4 @@ const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(MainView
 
 const StyledComponent = withStyles(styles)(ConnectedComponent);
 
-export default StyledComponent;
+export default withTranslation()(StyledComponent);

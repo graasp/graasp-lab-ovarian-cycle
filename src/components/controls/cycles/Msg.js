@@ -27,7 +27,7 @@ const Msg = ({
         </p>
       </div>
     ) : ''
-    }
+      }
     { ovulationActive || ovulationStep ? (
       <div>
         <h4 className="animate-text" style={{ color: themeColor }}>
@@ -40,7 +40,7 @@ const Msg = ({
         </p>
       </div>
     ) : ''
-    }
+      }
     { postOvulationActive || postOvulationStep ? (
       <div>
         <h4 className="animate-text" style={{ color: themeColor }}>
@@ -53,19 +53,19 @@ const Msg = ({
         </p>
       </div>
     ) : ''
-    }
+      }
     { !ovaries ? (
       <div>
         <h4 className="animate-text" style={{ color: themeColor }}>
-          Ovaires supprimées
+            Ovaires supprimées
         </h4>
         <p className="explanation">
-          Les deux ovaires ont été supprimées!
+            Les deux ovaires ont été supprimées!
           <br />
         </p>
       </div>
     ) : ''
-    }
+      }
   </div>
 );
 
