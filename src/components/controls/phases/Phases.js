@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './Phases.css';
 import { Button } from 'reactstrap';
+import { toast } from 'react-toastify';
 import { withTranslation } from 'react-i18next';
+import Msg from '../cycles/Msg';
 import {
   deleteOvaries, deletePituitary, restoreOvaries, restorePituitary,
 } from '../../../actions';
@@ -83,7 +85,11 @@ export const Phases = ({
       {ovaries
         ? (
           <Button
-            onClick={dispatchDeleteOvaries}
+            onClick={() => {
+              toast(<Msg />,
+                { position: toast.POSITION.BOTTOM_LEFT, autoClose: 20000, pauseOnHover: true });
+              dispatchDeleteOvaries();
+            }}
             style={{ backgroundColor: themeColor, borderColor: themeColor }}
             className="mb-2"
           >

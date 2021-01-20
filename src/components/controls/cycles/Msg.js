@@ -11,6 +11,7 @@ const Msg = ({
   preOvulationStep,
   ovulationStep,
   postOvulationStep,
+  ovaries,
   t,
 }) => (
   <div>
@@ -53,12 +54,25 @@ const Msg = ({
       </div>
     ) : ''
     }
+    { !ovaries ? (
+      <div>
+        <h4 className="animate-text" style={{ color: themeColor }}>
+          Ovaires supprimées
+        </h4>
+        <p className="explanation">
+          Les deux ovaires ont été supprimées!
+          <br />
+        </p>
+      </div>
+    ) : ''
+    }
   </div>
 );
 
 const mapStateToProps = state => ({
   preOvulationActive: state.simulation.preOvulationActive,
   postOvulationActive: state.simulation.postOvulationActive,
+  ovaries: state.simulation.ovaries,
   ovulationActive: state.simulation.ovulationActive,
   preOvulationStep: state.simulation.preOvulationStep,
   ovulationStep: state.simulation.ovulationStep,
@@ -73,6 +87,7 @@ Msg.propTypes = {
   postOvulationActive: PropTypes.bool.isRequired,
   preOvulationStep: PropTypes.bool.isRequired,
   ovulationStep: PropTypes.bool.isRequired,
+  ovaries: PropTypes.bool.isRequired,
   postOvulationStep: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
 };
