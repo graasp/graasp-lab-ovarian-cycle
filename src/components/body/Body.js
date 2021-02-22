@@ -7,6 +7,9 @@ import { withTranslation } from 'react-i18next';
 import { AppState } from '../../config/AppState';
 import { appendSvg } from '../../actions';
 
+import eggCell from '../../resources/egg_cell.png';
+import hypophyse from '../../resources/hypophyse.jpeg';
+
 // our body component just render the human image
 // then dispatches the received svg to it component
 const styles = theme => ({
@@ -19,13 +22,17 @@ const styles = theme => ({
 });
 
 export class Body extends React.Component {
-  state = AppState;
-
   static propTypes = {
     t: PropTypes.func.isRequired,
     classes: PropTypes.shape({}).isRequired,
+    simulation: PropTypes.shape({}).isRequired,
     dispatchAppendSvg: PropTypes.func.isRequired,
   };
+
+  constructor(props) {
+    super(props);
+    this.state = AppState;
+  }
 
   componentDidMount() {
     const { dispatchAppendSvg } = this.props;
@@ -35,6 +42,11 @@ export class Body extends React.Component {
   handlePopoverOpen = (event) => {
     const val = event.currentTarget;
     this.setState({ anchorEl: val });
+  };
+
+  handlePituitaryPopoverOpen = (event) => {
+    const val = event.currentTarget;
+    this.setState({ anchorElPituitary: val });
   };
 
   handleHeartPopoverOpen = (event) => {
@@ -51,6 +63,10 @@ export class Body extends React.Component {
     this.setState({ anchorEl: null });
   };
 
+  handlePituitaryPopoverClose = () => {
+    this.setState({ anchorElPituitary: null });
+  };
+
   handleHeartPopoverClose = () => {
     this.setState({ anchorElHeart: null });
   };
@@ -60,9 +76,13 @@ export class Body extends React.Component {
   };
 
   render() {
-    const { classes, t } = this.props;
-    const { anchorEl, anchorElHeart, anchorElOvary } = this.state;
+    const { classes, t, simulation } = this.props;
+    const { appearOvule, ovaries, pituitary } = simulation;
+    const {
+      anchorEl, anchorElHeart, anchorElOvary, anchorElPituitary,
+    } = this.state;
     const open = Boolean(anchorEl);
+    const openPituitary = Boolean(anchorElPituitary);
     const openHeart = Boolean(anchorElHeart);
     const openOvary = Boolean(anchorElOvary);
 
@@ -90,6 +110,38 @@ export class Body extends React.Component {
           <h6>
             <b>
               {t('The Brain')}
+              {/* : */}
+            </b>
+            {/* <br />
+            {t('The brain secretes the pituitary')}
+            <br />
+            {t('hormones LH and FSH that cause')}
+            <br />
+            {t('ovarian and uterine cycles.')} */}
+          </h6>
+        </Popover>
+        <Popover
+          id="pituitary-over-popover"
+          className={classes.popover}
+          classes={{
+            paper: classes.paper,
+          }}
+          open={openPituitary}
+          anchorEl={anchorElPituitary}
+          anchorOrigin={{
+            vertical: 'right',
+            horizontal: 'right',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
+          }}
+          onClose={this.handlePituitaryPopoverClose}
+          disableRestoreFocus
+        >
+          <h6>
+            <b>
+              {t('The Pituitary')}
               :
             </b>
             <br />
@@ -98,6 +150,39 @@ export class Body extends React.Component {
             {t('hormones LH and FSH that cause')}
             <br />
             {t('ovarian and uterine cycles.')}
+          </h6>
+          <img className="rounded mx-auto d-block" src={hypophyse} alt="" />
+        </Popover>
+        <Popover
+          id="pituitary-over-popover"
+          className={classes.popover}
+          classes={{
+            paper: classes.paper,
+          }}
+          open={openPituitary}
+          anchorEl={anchorElPituitary}
+          anchorOrigin={{
+            vertical: 'right',
+            horizontal: 'right',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
+          }}
+          onClose={this.handlePituitaryPopoverClose}
+          disableRestoreFocus
+        >
+          <h6>
+            <b>
+              {t('The Pituitary')}
+              {/* : */}
+            </b>
+            <br />
+            {/* {t('The brain secretes the pituitary')}
+            <br />
+            {t('hormones LH and FSH that cause')}
+            <br />
+            {t('ovarian and uterine cycles.')} */}
           </h6>
         </Popover>
         <Popover
@@ -185,6 +270,7 @@ export class Body extends React.Component {
                   onMouseLeave={this.handlePopoverClose}
                   d="M208,0 C178.13,0 153.26,20.55 146.2,48.22 C145.45,48.2 144.75,48 144,48 C108.66,48 80,76.65 80,112 C80,116.84 80.64,121.51 81.66,126.04 C52.54,138 32,166.57 32,200 C32,212.58 35.16,224.32 40.34,234.91 C16.34,248.72 0,274.33 0,304 C0,337.34 20.42,365.88 49.42,377.89 C48.52,382.46 48,387.17 48,392 C48,431.76 80.23,464 120,464 C124.12,464 128.1,463.45 132.03,462.79 C141.61,491.31 168.25,512 200,512 C239.77,512 272,479.76 272,440 L272,205.45 C261.09,214.43 248.02,220.9 233.64,223.84 C228.67,224.86 224,221.02 224,215.95 L224,199.77 C224,196.2 226.35,192.99 229.8,192.11 C254,185.95 272,164.16 272,138.07 L272,64 C272,28.65 243.34,0 208,0 Z M576,304 C576,274.33 559.66,248.72 535.66,234.91 C540.83,224.32 544,212.58 544,200 C544,166.57 523.46,138 494.34,126.04 C495.36,121.51 496,116.84 496,112 C496,76.65 467.34,48 432,48 C431.25,48 430.55,48.2 429.8,48.22 C422.74,20.55 397.87,0 368,0 C332.66,0 304,28.65 304,64 L304,138.07 C304,164.16 321.99,185.95 346.2,192.11 C349.66,192.99 352,196.2 352,199.77 L352,215.95 C352,221.02 347.32,224.86 342.36,223.84 C327.98,220.9 314.92,214.43 304,205.45 L304,440 C304,479.76 336.23,512 376,512 C407.75,512 434.39,491.31 443.97,462.79 C447.9,463.46 451.88,464 456,464 C495.77,464 528,431.76 528,392 C528,387.17 527.48,382.46 526.58,377.89 C555.58,365.88 576,337.34 576,304 Z"
                   id="Brain-Shape"
+                  opacity="0.3"
                 />
               </g>
               <g className="Brain-holder" transform="translate(1226.000000, 775.000000)" fill="#2D2020" fillRule="nonzero">
@@ -209,28 +295,46 @@ export class Body extends React.Component {
                 id="path958"
                 fill="#59070A"
                 fillRule="nonzero"
+                aria-owns={openPituitary ? 'pituitary-over-popover' : undefined}
+                aria-haspopup="true"
+                onMouseEnter={this.handlePituitaryPopoverOpen}
+                onMouseLeave={this.handlePituitaryPopoverClose}
+                className={`${!pituitary ? 'deletePituitary' : ''} ${!ovaries ? 'growPituitary' : ''}`}
               />
               <g id="Ovary-Shape" transform="translate(1614.000000, 3747.000000)">
                 <g
                   id="Main-Ovary"
                   transform="translate(107.000000, 30.000000)"
-                  aria-owns={open ? 'ovary-over-popover' : undefined}
-                  aria-haspopup="true"
-                  onMouseEnter={this.handleOvaryPopoverOpen}
-                  onMouseLeave={this.handleOvaryPopoverClose}
                 >
                   <polygon id="Triangle" fill="#E70A17" transform="translate(116.902036, 62.026869) scale(1, -1) translate(-116.902036, -62.026869) " points="116.902036 26.6261682 181.78117 97.4275701 52.0229008 97.4275701" />
                   <polygon id="Triangle-Main" stroke="#D23636" strokeWidth="30" transform="translate(117.500000, 76.398949) scale(1, -1) translate(-117.500000, -76.398949) " points="117.5 0 235 152.797897 0 152.797897" />
                   <path d="M117.5,157.611098 L117.5,258.848715" id="Line" stroke="#D23636" strokeWidth="30" strokeLinecap="square" />
                 </g>
-                <g id="Right-Ovary" transform="translate(342.000000, 0.000000)">
+                <g
+                  id="Right-Ovary"
+                  transform="translate(342.000000, 0.000000)"
+                  aria-owns={open ? 'ovary-over-popover' : undefined}
+                  aria-haspopup="true"
+                  onMouseEnter={this.handleOvaryPopoverOpen}
+                  onMouseLeave={this.handleOvaryPopoverClose}
+                  className={`${!ovaries ? 'deleteOvaries' : ''}`}
+                >
                   <path d="M-7.95807864e-13,29.103213 C52.5931301,4.36582995 83.6498087,-4.57406767 93.1700356,2.28352018 C97.2402435,5.21536287 105.146347,11.8458316 104.89697,21.9349577 C104.67436,30.9412022 93.3326879,45.6362522 70.8719552,66.0201078" id="Line-2" stroke="#D23636" strokeWidth="30" strokeLinecap="square" />
                   <ellipse id="Oval" stroke="#F8E71C" strokeWidth="20" fill="#FB6767" transform="translate(52.549744, 77.403958) rotate(-33.000000) translate(-52.549744, -77.403958) " cx="52.5497444" cy="77.4039582" rx="26.59173" ry="17.6442245" />
                 </g>
-                <g id="Left-Ovary" transform="translate(52.500000, 53.500000) scale(-1, 1) translate(-52.500000, -53.500000) ">
+                <g
+                  id="Left-Ovary"
+                  transform="translate(52.500000, 53.500000) scale(-1, 1) translate(-52.500000, -53.500000) "
+                  aria-owns={open ? 'ovary-over-popover' : undefined}
+                  aria-haspopup="true"
+                  onMouseEnter={this.handleOvaryPopoverOpen}
+                  onMouseLeave={this.handleOvaryPopoverClose}
+                  className={`${!ovaries ? 'deleteOvaries' : ''}`}
+                >
                   <path d="M-7.95807864e-13,29.103213 C52.5931301,4.36582995 83.6498087,-4.57406767 93.1700356,2.28352018 C97.2402435,5.21536287 105.146347,11.8458316 104.89697,21.9349577 C104.67436,30.9412022 93.3326879,45.6362522 70.8719552,66.0201078" id="Line-2" stroke="#D23636" strokeWidth="30" strokeLinecap="square" />
                   <ellipse id="Oval" stroke="#F8E71C" strokeWidth="20" fill="#FB6767" transform="translate(52.549744, 77.403958) rotate(-33.000000) translate(-52.549744, -77.403958) " cx="52.5497444" cy="77.4039582" rx="26.59173" ry="17.6442245" />
                 </g>
+                <image className={`${appearOvule ? 'appearOvule' : 'notAppearOvule'}`} width="300" opacity="1" height="350" href={eggCell} />
               </g>
             </g>
           </g>
@@ -242,6 +346,7 @@ export class Body extends React.Component {
 
 const mapStateToProps = state => ({
   svg: state.svg,
+  simulation: state.simulation,
 });
 
 const mapDispatchToProps = {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import Counter from '../counter/Counter';
 import Phases from '../phases/Phases';
 import { AppState } from '../../../config/AppState';
@@ -30,6 +31,7 @@ export class Visualizer extends Component {
       handleStop,
       isStarted,
     } = this.props;
+    const closeAfter7 = () => toast('Will close after 7s', { autoClose: 7000 });
     return (
       <div className="visualizer-container">
         <Counter
@@ -41,6 +43,7 @@ export class Visualizer extends Component {
           handleOvulation={handleOvulation}
           handlePostOvulation={handlePostOvulation}
           handlePreOvulation={handlePreOvulation}
+          closeAfter7={closeAfter7}
         />
       </div>
     );

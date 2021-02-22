@@ -11,6 +11,7 @@ const Msg = ({
   preOvulationStep,
   ovulationStep,
   postOvulationStep,
+  ovaries,
   t,
 }) => (
   <div>
@@ -20,45 +21,58 @@ const Msg = ({
           {t('Pre-Ovulation')}
         </h4>
         <p className="explanation">
-          {t('This stage is the moment when the LH and FSH are in normal quatity.')}
+          {t('This stage is the moment when the LH and FSH as well as estrogens are in normal quantity.')}
           <br />
           {t('This is the period before ovulation')}
         </p>
       </div>
     ) : ''
-    }
+      }
     { ovulationActive || ovulationStep ? (
       <div>
         <h4 className="animate-text" style={{ color: themeColor }}>
           {t('Ovulation')}
         </h4>
         <p className="explanation">
-          {t('This stage is the moment when LH and FSH as well as estrogens are in great quantity.')}
+          {t('During this stage, a high level of estrogen triggers a high production of LH. We have also released the egg.')}
           <br />
           {t('This is the ovulation phase.')}
         </p>
       </div>
     ) : ''
-    }
+      }
     { postOvulationActive || postOvulationStep ? (
       <div>
         <h4 className="animate-text" style={{ color: themeColor }}>
           {t('Post-Ovulation')}
         </h4>
         <p className="explanation">
-          {t('This stage is the moment when the LH and FSH are in very low quatity.')}
+          {t('This stage is the moment when the LH is in very low quatity, but Estrogens and Progesterones are in great quantity.')}
           <br />
           {t('This is the period after ovulation.')}
         </p>
       </div>
     ) : ''
-    }
+      }
+    { !ovaries ? (
+      <div>
+        <h4 className="animate-text" style={{ color: themeColor }}>
+            Ovaires supprimées
+        </h4>
+        <p className="explanation">
+            Les deux ovaires ont été supprimées!
+          <br />
+        </p>
+      </div>
+    ) : ''
+      }
   </div>
 );
 
 const mapStateToProps = state => ({
   preOvulationActive: state.simulation.preOvulationActive,
   postOvulationActive: state.simulation.postOvulationActive,
+  ovaries: state.simulation.ovaries,
   ovulationActive: state.simulation.ovulationActive,
   preOvulationStep: state.simulation.preOvulationStep,
   ovulationStep: state.simulation.ovulationStep,
@@ -73,6 +87,7 @@ Msg.propTypes = {
   postOvulationActive: PropTypes.bool.isRequired,
   preOvulationStep: PropTypes.bool.isRequired,
   ovulationStep: PropTypes.bool.isRequired,
+  ovaries: PropTypes.bool.isRequired,
   postOvulationStep: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
 };

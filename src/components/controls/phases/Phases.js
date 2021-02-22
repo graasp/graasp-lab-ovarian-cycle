@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './Phases.css';
 import { Button } from 'reactstrap';
+import { toast } from 'react-toastify';
 import { withTranslation } from 'react-i18next';
-
+import Msg from '../cycles/Msg';
+import {
+  deleteOvaries, deletePituitary, restoreOvaries, restorePituitary,
+} from '../../../actions';
 // we make sure all other buttons are disabled when one is clicked
 export const Phases = ({
   handleOvulation,
@@ -17,6 +21,14 @@ export const Phases = ({
   ovulationStep,
   postOvulationStep,
   t,
+  themeColor,
+  dispatchDeleteOvaries,
+  dispactchDeletePituitary,
+  dispactchRestoreOvaries,
+  dispactchRestorePituitary,
+  pituitary,
+  ovaries,
+  // closeAfter7,
 }) => (
   <div className="phases-container">
     <div className="phases">
@@ -68,6 +80,52 @@ export const Phases = ({
         {t('Post-Ovulation')}
       </Button>
     </div>
+    <div>
+      <hr className="separator-line" />
+      {ovaries
+        ? (
+          <Button
+            onClick={() => {
+              toast(<Msg />,
+                { position: toast.POSITION.BOTTOM_LEFT, autoClose: 20000, pauseOnHover: true });
+              dispatchDeleteOvaries();
+            }}
+            style={{ backgroundColor: themeColor, borderColor: themeColor }}
+            className="mb-2"
+          >
+            {t('Delete ovaries')}
+          </Button>
+        )
+        : (
+          <Button
+            onClick={dispactchRestoreOvaries}
+            style={{ backgroundColor: themeColor, borderColor: themeColor }}
+            className="mb-2"
+          >
+            {t('Restore ovaries')}
+          </Button>
+        )
+      }
+      <br />
+      {pituitary
+        ? (
+          <Button
+            onClick={dispactchDeletePituitary}
+            style={{ backgroundColor: themeColor, borderColor: themeColor }}
+          >
+            {t('Delete pituitary')}
+          </Button>
+        )
+        : (
+          <Button
+            onClick={dispactchRestorePituitary}
+            style={{ backgroundColor: themeColor, borderColor: themeColor }}
+          >
+            {t('Restore pituitary')}
+          </Button>
+        )
+      }
+    </div>
   </div>
 );
 
@@ -75,13 +133,20 @@ Phases.propTypes = {
   handleOvulation: PropTypes.func.isRequired,
   handlePostOvulation: PropTypes.func.isRequired,
   handlePreOvulation: PropTypes.func.isRequired,
+  dispatchDeleteOvaries: PropTypes.func.isRequired,
+  dispactchDeletePituitary: PropTypes.func.isRequired,
+  dispactchRestoreOvaries: PropTypes.func.isRequired,
+  dispactchRestorePituitary: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
   ovulationActive: PropTypes.bool.isRequired,
+  themeColor: PropTypes.string.isRequired,
   postOvulationActive: PropTypes.bool.isRequired,
   preOvulationActive: PropTypes.bool.isRequired,
   preOvulationStep: PropTypes.bool.isRequired,
   ovulationStep: PropTypes.bool.isRequired,
   postOvulationStep: PropTypes.bool.isRequired,
+  pituitary: PropTypes.bool.isRequired,
+  ovaries: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -91,9 +156,18 @@ const mapStateToProps = state => ({
   preOvulationStep: state.simulation.preOvulationStep,
   ovulationStep: state.simulation.ovulationStep,
   postOvulationStep: state.simulation.postOvulationStep,
+  themeColor: state.layout.themeColor,
+  ovaries: state.simulation.ovaries,
+  pituitary: state.simulation.pituitary,
 });
 
 
-const ConnectedComponent = connect(mapStateToProps)(Phases);
+const mapDispatchToProps = {
+  dispatchDeleteOvaries: deleteOvaries,
+  dispactchDeletePituitary: deletePituitary,
+  dispactchRestoreOvaries: restoreOvaries,
+  dispactchRestorePituitary: restorePituitary,
+};
+const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(Phases);
 
 export default withTranslation()(ConnectedComponent);

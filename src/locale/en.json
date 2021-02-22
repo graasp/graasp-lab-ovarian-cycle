@@ -11,9 +11,9 @@
     "FSH": "FSH",
     "Oestrogens": "Estrogens",
     "Progesterones": "Progesterones",
-    "This stage is the moment when the LH and FSH are in normal quatity.": "This stage is the moment when the LH and FSH are in normal quatity.",
-    "This stage is the moment when LH and FSH as well as estrogens are in great quantity.": "This stage is the moment when LH and FSH as well as estrogens are in great quantity.",
-    "This stage is the moment when the LH and FSH are in very low quatity.": "This stage is the moment when the LH and FSH are in very low quatity.",
+    "This stage is the moment when the LH and FSH as well as estrogens are in normal quantity.": "This stage is the moment when the LH and FSH as well as estrogens are in normal quantity.",
+    "During this stage, a high level of estrogen triggers a high production of LH. We have also released the egg.": "During this stage, a high level of estrogen triggers a high production of LH. We have also released the egg.",
+    "This stage is the moment when the LH is in very low quatity, but Estrogens and Progesterones are in great quantity.": "This stage is the moment when the LH is in very low quatity, but Estrogens and Progesterones are in great quantity.",
     "This is the period before ovulation": "This is the period before ovulation",
     "This is the ovulation phase.": "This is the ovulation phase.",
     "This is the period after ovulation.": "This is the period after ovulation.",
@@ -27,6 +27,7 @@
     "Display Lab title": "Display Header",
     "Lab Explanation": "It allows the learner to interact on ovarian hormone levels (estrogen and progesterone) and pituitary (FSH and LH) to understand how these hormones control the ovarian cycle and how they ensure ovulation",
     "The Brain": "The Brain",
+    "The Pituitary": "The Pituitary",
     "The brain secretes the pituitary": "The brain secretes the pituitary",
     "hormones LH and FSH that cause": "hormones LH and FSH that cause",
     "ovarian and uterine cycles.": "ovarian and uterine cycles.",
@@ -36,6 +37,10 @@
     "of the hypothalamic pituitary complex by": "of the hypothalamic pituitary complex by",
     "releasing Estrogens and Progesterones.": "releasing Estrogens and Progesterones.",
     "Pumps the blood that it circulates": "Pumps the blood that it circulates",
-    "in all the tissues of the body": "in all the tissues of the body"
+    "in all the tissues of the body": "in all the tissues of the body",
+    "Delete pituitary": "Delete pituitary",
+    "Delete ovaries": "Delete ovaries",
+    "Restore ovaries": "Restore ovaries",
+    "Restore pituitary":"Restore pituitary"
   }
 }
